@@ -1,27 +1,24 @@
 # ============================================================
 # Q FULL FILE: saheli_all_in_one_pipeline.py
 # ------------------------------------------------------------
-# ALL-IN-ONE pipeline:
+# ALL-IN-ONE pipeline (NO COLUMN DROPS):
 #   1) Prepare Registrations file
 #   2) Prepare Healthassessments file
 #   3) Create final WIDE output (LEFT JOIN from REGISTRATION)
 #
-# IMPORTANT (your requirement):
-#   - REG_FILE is the PRIMARY table
-#   - Final output uses LEFT OUTER JOIN from registrations
-#   - If a Saheli number exists in registration but has NO assessment,
-#     the registration details still appear in final output
+# GUARANTEE:
+#   - Do NOT miss any columns from REG_FILE or HEALTH_FILE
+#   - REG is the PRIMARY table (LEFT JOIN)
+#   - If Saheli exists in REG but no assessment, still included
 #
-# Fixes included:
+# Includes:
 #   - Safe Saheli ID cleaning (prevents 1 -> 10 bug)
-#   - Flexible header matching (spaces/newlines/colons)
+#   - Flexible header matching (spaces/newlines/colons/quotes)
 #   - AssessmentNumber generation
-#   - 1st/2nd/3rd Assessment columns store assessment dates
-#   - Assessment sub-columns ordered EXACTLY by HEALTH_FIELDS (not alphabetical)
-#   - Grouped two-row header in FINAL output:
-#       Row 1 = 1st Assessment | 2nd Assessment | ...
-#       Row 2 = Weight (KG): | Height (CM): | ...
-#   - REG is strictly preserved as primary (all REG Saheli IDs remain in FINAL)
+#   - Assessment date stored in "1st Assessment", "2nd Assessment", ...
+#   - Health columns ordered by HEALTH_FIELDS first, THEN any extras appended (per assessment)
+#   - Registration columns ordered by REG_OUTPUT_LABELS first, THEN any extras appended
+#   - Fix: DO NOT collapse Comments:PA to Comments: (prevents overwrite)
 #
 # Install:
 #   pip install pandas openpyxl
@@ -39,7 +36,7 @@ from openpyxl.utils import get_column_letter
 # CONFIG
 # =========================
 REG_FILE = r"C:\Users\shonk\Downloads\Main Registration Form(1-1143).xlsx"
-HEALTH_FILE = r"C:\Users\shonk\Downloads\Saheli Hub Health Assessment(1-1477).xlsx"
+HEALTH_FILE = r"C:\Users\shonk\Downloads\Saheli Hub Health Assessment(1-1478).xlsx"
 
 REG_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Registrations_Cleaned.xlsx"
 HEALTH_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Healthassessments_Prepared.xlsx"
@@ -50,6 +47,9 @@ REG_SHEET_NAME = None
 HEALTH_SHEET_NAME = None
 
 MAX_ASSESSMENTS = 8
+
+# Set True if you want the 2-row grouped header in Excel output
+APPLY_GROUPED_HEADER = True
 
 # Header styling (Excel grouped header)
 COLOR_FIRST_ASSESSMENT = "7030A0"   # purple
@@ -62,11 +62,15 @@ COLOR_REG_HEADER = "FFFFFF"         # white
 # HELPERS
 # =========================
 def normalize_header(h) -> str:
-    """Flexible header normalizer."""
+    """Flexible header normalizer (handles newlines, quotes, colons, spaces, etc.)."""
     if h is None:
         return ""
     s = str(h)
+
+    # Remove Excel/Forms line breaks and quotes
     s = s.replace("\r", "").replace("\n", "")
+    s = s.replace('"', "").replace("“", "").replace("”", "")
+
     s = s.strip().lower()
     s = s.replace(" ", "").replace(":", "")
     s = s.replace("/", "")
@@ -178,49 +182,34 @@ def ordinal(n):
 
 def clean_subheader_label(label: str) -> str:
     """
-    Convert internal column labels to expected display labels.
-    - Remove leading spaces used for matching
-    - Keep punctuation
-    - Rename a few special display labels
+    Convert internal column labels to expected display labels WITHOUT COLLISIONS.
+    IMPORTANT:
+      - DO NOT map Comments:PA -> Comments: (this causes overwriting)
     """
     s = str(label).strip()
 
-    # Display mapping fixes
+    # Keep these consistent
     if s == "WEMBS":
-        s = "WEMWBS"
-    elif s == "SOCIAL ISOLATION":
-        s = "SOCIAL"
-    elif s == "Comments:PA":
-        # User expects this to display as generic Comments: in PA section
-        s = "Comments:"
+        return "WEMWBS"
+    if s == "SOCIAL ISOLATION":
+        return "SOCIAL ISOLATION"
 
     return s
 
 
 def build_health_field_order_map():
-    """
-    Build display-order index for assessment subheaders based on HEALTH_FIELDS.
-    This preserves the exact order expected in Excel.
-    """
+    """Order index for assessment subheaders based on HEALTH_FIELDS (preserves exact order)."""
     order_map = {}
     for i, fld in enumerate(HEALTH_FIELDS):
         disp = clean_subheader_label(fld)
-        # keep first occurrence if duplicate display labels exist (e.g., Comments:)
         if disp not in order_map:
             order_map[disp] = i
-
-    # Safety aliases
-    if "WEMWBS" not in order_map and "WEMBS" in order_map:
-        order_map["WEMWBS"] = order_map["WEMBS"]
-
-    if "SOCIAL" not in order_map and "SOCIAL ISOLATION" in order_map:
-        order_map["SOCIAL"] = order_map["SOCIAL ISOLATION"]
-
     return order_map
 
 
 # =========================
-# OUTPUT LABELS
+# OUTPUT LABELS (preferred ordering)
+# NOTE: We will still append ANY extra columns found in source, so nothing is dropped.
 # =========================
 REG_OUTPUT_LABELS = [
     "Registration Date",
@@ -299,11 +288,11 @@ HEALTH_FIELDS = [
     " Do You Take Any Prescribed Medication?",
     " Referred to doctor for any concerning results?",
     " Risk Stratification Score",
-    " Comments:",
+    " Comments:",       # Risk stratification comments (1st "Comments:")
     " How well do you manage your health/condition(s)? (Rating out of 10)",
     " In the past week, on how many days have you done a total of 30 mins or more of physical activity, which was enough to raise your breathing rate?",
     " Physical Activity Level:",
-    "Comments:PA",
+    "Comments:PA",      # Physical activity comments (2nd "Comments:" in source)
     "I’ve been feeling optimistic about the future",
     "I’ve been feeling useful",
     "I’ve been feeling relaxed",
@@ -318,7 +307,7 @@ HEALTH_FIELDS = [
     "I’ve been feeling loved",
     "I’ve been interested in new things",
     "I’ve been feeling cheerful",
-    "WEMBS",
+    "WEMBS",            # computed -> displayed as WEMWBS
     "Comments:2",
     " Nourishment: Rate the quality of the food you put into your body on a daily basis",
     " Movement: Rate how often and for how long you move your body on a daily basis",
@@ -334,7 +323,7 @@ HEALTH_FIELDS = [
     " How often do you feel that you lack companionship?",
     "How often do you feel left out?",
     " How often do you feel isolated from others?",
-    "SOCIAL ISOLATION",
+    "SOCIAL ISOLATION",  # computed -> displayed as SOCIAL ISOLATION (or you can rename later)
     "Comments:4",
     " How confident are you to join activities?",
     " How many hobbies and passions do you have?",
@@ -418,7 +407,7 @@ def prepare_health_df(df_health: pd.DataFrame) -> pd.DataFrame:
 
 
 # =========================
-# STEP 3: BUILD FINAL WIDE
+# STEP 3: BUILD FINAL WIDE (NO COLUMN DROPS)
 # =========================
 def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.DataFrame) -> pd.DataFrame:
     reg_map = build_normalized_col_map(df_reg_clean)
@@ -448,14 +437,10 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
     # Health completion date
     df_health["_CompletionDate"] = parse_date(df_health[completion_col])
 
-    # Debug
-    print("\n[DEBUG] Registration keys sample:", df_reg["_SaheliKey"].dropna().head(12).tolist())
-    print("[DEBUG] Health keys sample:", df_health["_SaheliKey"].dropna().head(12).tolist())
-
     # Ensure assessment number numeric
     df_health[assess_col] = pd.to_numeric(df_health[assess_col], errors="coerce").astype("Int64")
 
-    # Derived totals in health
+    # Compute WEMWBS (WEMBS label) and Social Isolation
     wem_items = [
         pick_col(health_map, "I’ve been feeling optimistic about the future"),
         pick_col(health_map, "I’ve been feeling useful"),
@@ -485,9 +470,7 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
     social_items = [c for c in social_items if c]
     for c in social_items:
         df_health[c] = pd.to_numeric(df_health[c], errors="coerce")
-    df_health["SOCIAL ISOLATION"] = (
-        df_health[social_items].sum(axis=1, min_count=1) if social_items else pd.NA
-    )
+    df_health["SOCIAL ISOLATION"] = df_health[social_items].sum(axis=1, min_count=1) if social_items else pd.NA
 
     # ----------------------------------------
     # REGISTRATION BASE (REG is primary)
@@ -501,29 +484,32 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
     else:
         df_reg["_RegDateParsed"] = pd.NaT
 
-    # IMPORTANT FIX:
-    # REG is the source of truth for final output keys.
-    # Keep only usable Saheli keys for joining, then dedupe by earliest registration.
+    # Keep only usable Saheli keys for joining, dedupe earliest reg
     df_reg_base = df_reg[df_reg["_SaheliKey"].notna()].copy()
-
     df_reg_base = df_reg_base.sort_values(
         by=["_SaheliKey", "_RegDateParsed"],
         ascending=[True, True],
         na_position="last",
         kind="mergesort",
     )
-
-    # One registration row per Saheli (REG PRIMARY)
     df_reg_first = df_reg_base.drop_duplicates(subset=["_SaheliKey"], keep="first").copy()
     reg_first_map = build_normalized_col_map(df_reg_first)
 
     def reg_pick(*cands, occurrence=1):
         return pick_col(reg_first_map, *cands, occurrence=occurrence)
 
+    # Build ordered REG output (preferred labels first)
     reg_out = pd.DataFrame({"_SaheliKey": df_reg_first["_SaheliKey"].astype("string")})
     reg_out["Registration Date"] = df_reg_first["_RegDateParsed"]
     reg_out["Saheli Card Number"] = df_reg_first["_SaheliKey"]
-    reg_out[" Full Name:"] = df_reg_first[reg_pick("Full Name")] if reg_pick("Full Name") else pd.NA
+
+    # Preferred mapping for core fields
+    if reg_pick("Full Name"):
+        reg_out[" Full Name:"] = df_reg_first[reg_pick("Full Name")]
+    else:
+        # fallback: maybe "Name" exists
+        reg_out[" Full Name:"] = df_reg_first[reg_pick("Name")] if reg_pick("Name") else pd.NA
+
     reg_out[" Date of Birth:"] = parse_date(df_reg_first[dob_col]) if dob_col else pd.NA
 
     if age_col:
@@ -533,10 +519,7 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
             calc_age = compute_age(df_reg_first[dob_col], df_reg_first["_RegDateParsed"])
             reg_out.loc[miss, "AGE"] = calc_age[miss]
     else:
-        reg_out["AGE"] = (
-            compute_age(df_reg_first[dob_col], df_reg_first["_RegDateParsed"])
-            if dob_col else pd.NA
-        )
+        reg_out["AGE"] = compute_age(df_reg_first[dob_col], df_reg_first["_RegDateParsed"]) if dob_col else pd.NA
 
     reg_assignments = [
         (" Address:", reg_pick("Address")),
@@ -568,18 +551,33 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
         (" Staff Member:", reg_pick("Staff Member")),
         ("Site:", reg_pick("Site")),
     ]
-
     for out_label, src_col in reg_assignments:
         reg_out[out_label] = df_reg_first[src_col] if src_col else pd.NA
 
-    # Health subset (only rows with valid assessment numbers)
+    # IMPORTANT: Append ANY extra REG columns not already included (so nothing is missed)
+    preferred_reg_cols = set(reg_out.columns)
+    excluded_reg = {
+        "_SaheliKey", "_RegDateParsed", reg_saheli_col
+    }
+    # Keep original source column order
+    for c in df_reg_first.columns:
+        if c in excluded_reg:
+            continue
+        # If the source column name is already represented in our outputs, skip
+        # Otherwise include it (using original label)
+        if c not in reg_out.columns and c not in preferred_reg_cols:
+            reg_out[c] = df_reg_first[c]
+
+    # ----------------------------------------
+    # HEALTH subset (valid assessment numbers)
+    # ----------------------------------------
     df_health = df_health[df_health[assess_col].notna()].copy()
     df_health[assess_col] = pd.to_numeric(df_health[assess_col], errors="coerce").astype("Int64")
     df_health = df_health[df_health[assess_col].notna()].copy()
     df_health[assess_col] = df_health[assess_col].astype(int)
     df_health = df_health[df_health[assess_col] <= MAX_ASSESSMENTS].copy()
 
-    # Count assessments (by health)
+    # Count assessments
     assess_counts = (
         df_health.dropna(subset=["_SaheliKey"])
         .groupby("_SaheliKey")[assess_col]
@@ -588,25 +586,29 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
         .astype("Int64")
     )
 
+    # Map health labels to source columns (including duplicate Comments)
     def health_source_col(label):
-        # Map special repeated comment fields
+        # 1st Comments (risk stratification)
         if label == " Comments:":
             return pick_col(health_map, "Comments", occurrence=1)
+
+        # 2nd Comments (physical activity) -> map to the 2nd "Comments" in source
         if label == "Comments:PA":
-            # 2nd "Comments" occurrence in source (typically after Physical Activity)
-            return pick_col(health_map, "Comments", occurrence=2) or pick_col(health_map, "Comments_2")
-        if label == "Comments:2":
-            return pick_col(health_map, "Comments2")
+            return pick_col(health_map, "Comments", occurrence=2)
+
+        # if label == "Comments:2":
+        #     return pick_col(health_map, "Comments:2") or pick_col(health_map, "Comments2")
         if label == "Comments:3":
-            return pick_col(health_map, "Comments3")
+            return pick_col(health_map, "Comments:3") or pick_col(health_map, "Comments3")
         if label == "Comments:4":
-            return pick_col(health_map, "Comments4")
+            return pick_col(health_map, "Comments:4") or pick_col(health_map, "Comments4")
         if label == "Comments:5":
-            return pick_col(health_map, "Comments5")
+            return pick_col(health_map, "Comments:5") or pick_col(health_map, "Comments5")
         if label == "Comments:6":
-            return pick_col(health_map, "Comments6")
+            return pick_col(health_map, "Comments:6") or pick_col(health_map, "Comments6")
         if label == "Comments:7":
-            return pick_col(health_map, "Comments7")
+            return pick_col(health_map, "Comments:7") or pick_col(health_map, "Comments7")
+
         if label == "WEMBS":
             return "WEMBS"
         if label == "SOCIAL ISOLATION":
@@ -618,8 +620,18 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
             or pick_col(health_map, label.replace("?", ""))
         )
 
-    # Build health wide table ONLY for keys in registration (REG is primary)
+    # Build health wide table ONLY for keys in registration (REG primary)
     health_wide = pd.DataFrame({"_SaheliKey": reg_out["_SaheliKey"].astype("string")})
+
+    # Identify "extra" health columns to append per assessment so nothing is missed
+    reserved_health_cols = {
+        "_SaheliKey", "_CompletionDate", assess_col, completion_col, health_saheli_col
+    }
+    # We'll also reserve computed columns so they are not duplicated
+    reserved_health_cols.update({"WEMBS", "SOCIAL ISOLATION"})
+
+    # Anything else in df_health is "extra"
+    extra_health_cols = [c for c in df_health.columns if c not in reserved_health_cols]
 
     for n in range(1, MAX_ASSESSMENTS + 1):
         block = f"{ordinal(n)} Assessment"
@@ -629,13 +641,15 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
 
         tmp = pd.DataFrame({"_SaheliKey": h_n["_SaheliKey"].astype("string").values})
 
-        # Put assessment date in block column
-        tmp[block] = h_n["_CompletionDate"].values
+        # Assessment date
+        tmp["AssessmentDate"] = h_n["_CompletionDate"].values
 
-        # IMPORTANT: build columns in the exact HEALTH_FIELDS order
+        # Add columns in exact HEALTH_FIELDS order first
+        added_disp = set()
         for fld in HEALTH_FIELDS:
             src = health_source_col(fld)
             disp = clean_subheader_label(fld)
+            added_disp.add(disp)
 
             if src and src in h_n.columns:
                 vals = h_n[src]
@@ -645,9 +659,15 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
             else:
                 tmp[disp] = pd.NA
 
+        # Append ANY extra health columns not already included (so nothing is missed)
+        for c in extra_health_cols:
+            # skip if it would collide with existing display names
+            disp = str(c).strip()
+            if disp in tmp.columns or disp in added_disp:
+                continue
+            tmp[disp] = h_n[c].values
+
         # Rename to wide:
-        #   "1st Assessment" stays as date column
-        #   other columns become "1st Assessment  Weight (KG):" etc.
         rename_map = {}
         for c in tmp.columns:
             if c == "_SaheliKey":
@@ -655,7 +675,7 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
             if c == block:
                 rename_map[c] = c
             else:
-                rename_map[c] = f"{block}  {c}"  # double-space intentional for grouped header parsing
+                rename_map[c] = f"{block}  {c}"  # double-space for grouped header parsing
         tmp = tmp.rename(columns=rename_map)
 
         tmp = tmp.drop_duplicates(subset=["_SaheliKey"], keep="first")
@@ -664,59 +684,49 @@ def create_final_wide_df(df_reg_clean: pd.DataFrame, df_health_prepared: pd.Data
     # FINAL LEFT JOIN (REG PRIMARY)
     final_df = reg_out.merge(health_wide, on="_SaheliKey", how="left")
     final_df = final_df.merge(assess_counts.reset_index(), on="_SaheliKey", how="left")
-
-    # Fill assessment count with 0 if no health rows
     final_df["No of assessment completed"] = final_df["No of assessment completed"].fillna(0).astype("Int64")
 
     # Ensure Saheli Card Number always present
     final_df["Saheli Card Number"] = final_df["Saheli Card Number"].fillna(final_df["_SaheliKey"])
 
-    # Ensure all expected first columns exist
-    for c in ["No of assessment completed"] + REG_OUTPUT_LABELS:
+    # Put preferred first columns, then everything else
+    first_cols = ["No of assessment completed"] + REG_OUTPUT_LABELS
+    for c in first_cols:
         if c not in final_df.columns:
             final_df[c] = pd.NA
 
-    first_cols = ["No of assessment completed"] + REG_OUTPUT_LABELS
     rem_cols = [c for c in final_df.columns if c not in first_cols + ["_SaheliKey"]]
 
-    # FIXED: Sort assessment columns by exact HEALTH_FIELDS order, not alphabetically
+    # Sort assessment columns by:
+    #  - assessment number
+    #  - date column first
+    #  - HEALTH_FIELDS order
     health_order_map = build_health_field_order_map()
 
     def assessment_sort_key(c):
-        """
-        Sort assessment columns by:
-          1) assessment number (1st, 2nd, ...)
-          2) date column first (plain '1st Assessment')
-          3) exact HEALTH_FIELDS display order
-        """
         m = re.match(r"^(\d+)(st|nd|rd|th)\sAssessment(?:\s{2,}(.*))?$", str(c))
         if m:
             block_n = int(m.group(1))
             suffix = (m.group(3) or "").strip()
-
-            # Date column first
-            if suffix == "":
-                return (0, block_n, -1, "")
-
+            # Date column first (support both styles)
+            if suffix == "" or normalize_header(suffix) in ("assessmentdate", "completiondate"):
+                return (0, block_n, -1, "assessmentdate")
             suffix_disp = clean_subheader_label(suffix)
             field_pos = health_order_map.get(suffix_disp, 9999)
-
             return (0, block_n, field_pos, suffix_disp.lower())
-
         return (1, 999, 9999, str(c).lower())
 
     rem_cols = sorted(rem_cols, key=assessment_sort_key)
     final_df = final_df[first_cols + rem_cols].copy()
 
-    # Sort final by Saheli number
+    # Sort by Saheli number
     final_df["_sort_num"] = pd.to_numeric(final_df["Saheli Card Number"], errors="coerce")
     final_df = final_df.sort_values(["_sort_num", "Saheli Card Number"], kind="mergesort").drop(columns=["_sort_num"])
 
-    # Validation check: FINAL must contain all REG Saheli keys
+    # Validation
     reg_keys = set(reg_out["_SaheliKey"].dropna().astype(str))
     final_keys = set(final_df["Saheli Card Number"].dropna().astype(str))
     missing_from_final = sorted(reg_keys - final_keys)
-
     print(f"[CHECK] REG unique Saheli keys:   {len(reg_keys)}")
     print(f"[CHECK] FINAL unique Saheli keys: {len(final_keys)}")
     print(f"[CHECK] Missing in FINAL:         {len(missing_from_final)}")
@@ -739,44 +749,31 @@ def apply_grouped_header_format(output_path: str):
     wb = load_workbook(output_path)
     ws = wb.active
 
-    # Insert a new top row so we get two header rows total
     ws.insert_rows(1)
-
     max_col = ws.max_column
-
-    # Original headers are now on row 2
     original_headers = [ws.cell(row=2, column=c).value for c in range(1, max_col + 1)]
 
-    # Build grouped header rows
     row1_vals = []
     row2_vals = []
 
     for h in original_headers:
         h = "" if h is None else str(h)
-
-        # Assessment column formats:
-        #   "1st Assessment"  (date column)
-        #   "1st Assessment  Weight (KG):" (sub-column)
         m = re.match(r"^(\d+)(st|nd|rd|th)\sAssessment(?:\s{2,}(.*))?$", h)
         if m:
             block_label = f"{m.group(1)}{m.group(2)} Assessment"
             sub = (m.group(3) or "").strip()
-
             row1_vals.append(block_label)
             row2_vals.append(sub if sub else "")
         else:
-            # Registration columns stay in row 1
             row1_vals.append(h)
             row2_vals.append("")
 
-    # Write row 1 and row 2
     for c, v in enumerate(row1_vals, start=1):
         ws.cell(row=1, column=c, value=v)
     for c, v in enumerate(row2_vals, start=1):
         ws.cell(row=2, column=c, value=v)
 
-    # Merge registration headers vertically (rows 1-2)
-    # Merge assessment group headers horizontally
+    # Merges
     c = 1
     while c <= max_col:
         v1 = ws.cell(row=1, column=c).value
@@ -788,7 +785,6 @@ def apply_grouped_header_format(output_path: str):
         is_assessment = bool(re.match(r"^\d+(st|nd|rd|th)\sAssessment$", v1s))
 
         if is_assessment:
-            # merge horizontal span of same assessment label in row 1
             start = c
             end = c
             while end + 1 <= max_col and str(ws.cell(row=1, column=end + 1).value) == v1s:
@@ -797,7 +793,6 @@ def apply_grouped_header_format(output_path: str):
                 ws.merge_cells(start_row=1, start_column=start, end_row=1, end_column=end)
             c = end + 1
         else:
-            # registration column -> vertical merge row1:row2
             ws.merge_cells(start_row=1, start_column=c, end_row=2, end_column=c)
             c += 1
 
@@ -813,12 +808,10 @@ def apply_grouped_header_format(output_path: str):
     center = Alignment(horizontal="center", vertical="center", wrap_text=True)
     left_wrap = Alignment(horizontal="left", vertical="center", wrap_text=True)
 
-    # Apply style per column based on row1 group
     for col_idx in range(1, max_col + 1):
         top_val = ws.cell(row=1, column=col_idx).value
         top_text = "" if top_val is None else str(top_val)
 
-        # Default registration style
         fill = reg_fill
         font = black_font
         align1 = center
@@ -836,41 +829,31 @@ def apply_grouped_header_format(output_path: str):
             else:
                 fill = other_fill
                 font = black_font
-            align1 = center
-            align2 = left_wrap
 
-        # style row 1 and row 2
         for r in (1, 2):
             cell = ws.cell(row=r, column=col_idx)
             cell.fill = fill
             cell.font = font
             cell.alignment = align1 if r == 1 else align2
 
-    # Freeze panes below header rows
     ws.freeze_panes = "A3"
-
-    # Auto-filter on row 2 (subheaders/registration headers)
     ws.auto_filter.ref = f"A2:{get_column_letter(max_col)}{ws.max_row}"
 
-    # Adjust row heights
     ws.row_dimensions[1].height = 22
     ws.row_dimensions[2].height = 44
 
-    # Optional width tuning
     for col_idx in range(1, max_col + 1):
         col_letter = get_column_letter(col_idx)
         top = ws.cell(row=1, column=col_idx).value or ""
         sub = ws.cell(row=2, column=col_idx).value or ""
 
         if re.match(r"^\d+(st|nd|rd|th)\sAssessment$", str(top)):
-            # assessment cols
             if sub == "":
-                ws.column_dimensions[col_letter].width = 14  # date block column
+                ws.column_dimensions[col_letter].width = 14
             else:
                 text_len = len(str(sub))
                 ws.column_dimensions[col_letter].width = max(18, min(42, text_len * 0.9))
         else:
-            # registration cols
             text_len = len(str(top))
             ws.column_dimensions[col_letter].width = max(14, min(32, text_len * 0.9))
 
@@ -890,54 +873,27 @@ def main():
     print("\n=== STEP 2: Prepare registration ===")
     df_reg_clean = prepare_registration_df(df_reg_raw)
     write_excel(df_reg_clean, REG_OUTPUT_FILE)
-    reg_map = build_normalized_col_map(df_reg_clean)
-    reg_saheli_col = pick_col(reg_map, "Saheli Card No", "SaheliCardNo", "Saheli Card Number")
     print("Registration cleaned saved:", REG_OUTPUT_FILE)
-    if reg_saheli_col:
-        print(df_reg_clean[[reg_saheli_col]].head(10).to_string(index=False))
 
     print("\n=== STEP 3: Prepare healthassessment ===")
     df_health_prepared = prepare_health_df(df_health_raw)
     write_excel(df_health_prepared, HEALTH_OUTPUT_FILE)
-    health_map = build_normalized_col_map(df_health_prepared)
-    h_completion = pick_col(health_map, "Completion time")
-    h_saheli = pick_col(health_map, "Saheli Card No", "SaheliCardNo", "Saheli Card Number")
-    h_assess = pick_col(health_map, "AssessmentNumber")
     print("Health prepared saved:", HEALTH_OUTPUT_FILE)
-    if h_completion and h_saheli and h_assess:
-        print(df_health_prepared[[h_completion, h_saheli, h_assess]].head(20).to_string(index=False))
 
     print("\n=== STEP 4: Create final WIDE output (LEFT JOIN from registration) ===")
     final_df = create_final_wide_df(df_reg_clean, df_health_prepared)
     write_excel(final_df, FINAL_OUTPUT_FILE)
 
-    print("\n=== STEP 5: Apply grouped Excel header formatting ===")
-    apply_grouped_header_format(FINAL_OUTPUT_FILE)
+    if APPLY_GROUPED_HEADER:
+        print("\n=== STEP 5: Apply grouped Excel header formatting ===")
+        apply_grouped_header_format(FINAL_OUTPUT_FILE)
 
     print("Final wide output saved:", FINAL_OUTPUT_FILE)
-
     print("\n=== DONE ===")
     print(f"Registration cleaned: {REG_OUTPUT_FILE}")
     print(f"Health prepared:      {HEALTH_OUTPUT_FILE}")
     print(f"Final wide file:      {FINAL_OUTPUT_FILE}")
     print(f"Final rows: {len(final_df)} | Final columns: {len(final_df.columns)}")
-
-    # Quick preview (dataframe column names before grouped Excel formatting)
-    preview_cols = [
-        c for c in [
-            "No of assessment completed",
-            "Saheli Card Number",
-            " Full Name:",
-            "Registration Date",
-            "1st Assessment",
-            "1st Assessment  Weight (KG):",
-            "2nd Assessment",
-            "2nd Assessment  Weight (KG):",
-        ] if c in final_df.columns
-    ]
-    if preview_cols:
-        print("\nPreview:")
-        print(final_df[preview_cols].head(15).to_string(index=False))
 
 
 if __name__ == "__main__":
