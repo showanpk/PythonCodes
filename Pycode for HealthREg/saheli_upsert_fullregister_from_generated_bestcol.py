@@ -12,6 +12,11 @@
 #  - add new rows for new Saheli numbers
 #  - WEMWBS in MASTER is filled ONLY from Comments:2 in GENERATED (per block)
 #    IMPORTANT: do NOT map MASTER WEMWBS from GENERATED WEMWBS
+#
+# SHAREPOINT:
+#  - If USE_SHAREPOINT_MASTER = True, this script downloads the MASTER file
+#    from SharePoint to a temp local file, updates it, then uploads it back
+#    to the SAME SharePoint file.
 # ============================================================
 
 from __future__ import annotations
@@ -28,17 +33,43 @@ import os
 import shutil
 import tempfile
 
+# SharePoint (Office365-REST-Python-Client)
+from office365.sharepoint.client_context import ClientContext
+from office365.runtime.auth.user_credential import UserCredential
+from office365.sharepoint.files.file import File
 
-MASTER_FILE = r"C:\Users\shonk\Saheli Hub\Saheli Hub - Register\Full Registration for SAHELI (1).xlsx"
+
+# =========================
+# LOCAL FILE CONFIG
+# =========================
+MASTER_FILE = r"C:\Users\shonk\Downloads\Full Registration for SAHELI (1).xlsx"
 MASTER_SHEET = "Full Register"
 
 GENERATED_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Saheli_Master_Wide_Output.xlsx"
 GENERATED_SHEET = 0
 
-MASTER_UPDATED_FILE = r"C:\Users\shonk\Downloads\Full Registration for SAHELI_UPDATED.xlsx"
+MASTER_UPDATED_FILE = r"C:\Users\shonk\Downloads\Full Registration for SAHELI_UPDATED.xlsx"  # unused when in-place/SharePoint mode
 CHANGELOG_FILE = r"C:\Users\shonk\Downloads\Master_Upsert_CHANGELOG.xlsx"
 
 ALLOW_OVERWRITE = False
+
+# =========================
+# SHAREPOINT CONFIG
+# =========================
+# Set True to use SharePoint as the MASTER source/target
+USE_SHAREPOINT_MASTER = True
+
+# Usually your site URL is just the root domain or the site URL.
+# Try the root first:
+SP_SITE_URL = "https://sahelihub.sharepoint.com"
+
+# Your SharePoint / M365 login
+SP_USERNAME = "YOUR_EMAIL_HERE"
+SP_PASSWORD = "YOUR_PASSWORD_HERE"
+
+# Server-relative URL to the exact file (NOT the browser URL with ?web=1)
+# Based on your link, this is likely correct:
+SP_MASTER_SERVER_RELATIVE_URL = "/Forms/Register/Full Registration for SAHELI (1).xlsx"
 
 
 def clean_text(x) -> str:
@@ -255,13 +286,74 @@ def build_best_generated_map(df_gen: pd.DataFrame) -> Tuple[Dict[str, str], List
     return best_map, report_rows
 
 
+# =========================
+# SHAREPOINT HELPERS
+# =========================
+def download_sharepoint_file_to_temp(
+    site_url: str,
+    username: str,
+    password: str,
+    server_relative_url: str,
+) -> Path:
+    """
+    Downloads the SharePoint file to a temp local .xlsx and returns its path.
+    """
+    ctx = ClientContext(site_url).with_credentials(UserCredential(username, password))
+
+    tmp_fd, tmp_name = tempfile.mkstemp(suffix=".xlsx")
+    os.close(tmp_fd)
+    tmp_path = Path(tmp_name)
+
+    try:
+        with open(tmp_path, "wb") as local_file:
+            ctx.web.get_file_by_server_relative_url(server_relative_url).download(local_file).execute_query()
+    except Exception:
+        # Fallback method
+        response = File.open_binary(ctx, server_relative_url)
+        with open(tmp_path, "wb") as local_file:
+            local_file.write(response.content)
+
+    return tmp_path
+
+
+def upload_temp_file_to_sharepoint(
+    site_url: str,
+    username: str,
+    password: str,
+    server_relative_url: str,
+    local_path: Path,
+):
+    """
+    Uploads the local file bytes back to the same SharePoint file path.
+    """
+    ctx = ClientContext(site_url).with_credentials(UserCredential(username, password))
+
+    with open(local_path, "rb") as f:
+        content = f.read()
+
+    # Static helper that replaces file content
+    File.save_binary(ctx, server_relative_url, content)
+
+
 def main():
-    master_path = Path(MASTER_FILE)
     gen_path = Path(GENERATED_FILE)
-    if not master_path.exists():
-        raise FileNotFoundError(master_path)
     if not gen_path.exists():
         raise FileNotFoundError(gen_path)
+
+    # Resolve MASTER path (local or SharePoint temp)
+    sp_temp_master_path: Path | None = None
+
+    if USE_SHAREPOINT_MASTER:
+        print("=== SHAREPOINT MASTER DOWNLOAD ===")
+        sp_temp_master_path = download_sharepoint_file_to_temp(
+            SP_SITE_URL, SP_USERNAME, SP_PASSWORD, SP_MASTER_SERVER_RELATIVE_URL
+        )
+        master_path = sp_temp_master_path
+        print("[INFO] Downloaded SharePoint master to temp:", str(master_path))
+    else:
+        master_path = Path(MASTER_FILE)
+        if not master_path.exists():
+            raise FileNotFoundError(master_path)
 
     # Load master
     wb = load_workbook(master_path, data_only=False, keep_links=False)
@@ -470,22 +562,41 @@ def main():
             master_key_to_row[key] = new_r
 
     # Save updated master
-    # Save updated master IN PLACE (writes to temp then replaces original)
-    master_path = Path(MASTER_FILE)
-    tmp_fd, tmp_name = tempfile.mkstemp(suffix=master_path.suffix, dir=str(master_path.parent))
-    os.close(tmp_fd)
+    if USE_SHAREPOINT_MASTER and sp_temp_master_path is not None:
+        # Save locally to temp file (downloaded copy), then upload back to SharePoint
+        wb.save(sp_temp_master_path)
 
-    tmp_path = Path(tmp_name)
+        upload_temp_file_to_sharepoint(
+            SP_SITE_URL,
+            SP_USERNAME,
+            SP_PASSWORD,
+            SP_MASTER_SERVER_RELATIVE_URL,
+            sp_temp_master_path,
+        )
 
-    # Save workbook to temp path first
-    wb.save(tmp_path)
+        print("\n[INFO] SharePoint master file updated:", SP_MASTER_SERVER_RELATIVE_URL)
 
-    # Replace original (atomic on same drive)
-    shutil.move(str(tmp_path), str(master_path))
+        # optional cleanup
+        try:
+            sp_temp_master_path.unlink(missing_ok=True)
+        except Exception:
+            pass
 
-    print("\n[INFO] Master file updated in place:", str(master_path))
+    else:
+        # Save updated master IN PLACE (writes to temp then replaces original)
+        tmp_fd, tmp_name = tempfile.mkstemp(suffix=master_path.suffix, dir=str(master_path.parent))
+        os.close(tmp_fd)
 
-    # Changelog
+        tmp_path = Path(tmp_name)
+
+        wb.save(tmp_path)
+
+        # Replace original (atomic on same drive)
+        shutil.move(str(tmp_path), str(master_path))
+
+        print("\n[INFO] Master file updated in place:", str(master_path))
+
+    # Changelog (local)
     ch_path = Path(CHANGELOG_FILE)
     ch_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -502,6 +613,7 @@ def main():
             "OverwriteEnabled": [ALLOW_OVERWRITE],
             "WEMWBSRule": ["MASTER <block WEMWBS> <- GENERATED <block Comments:2> only"],
             "DuplicateKeysResolved": [len(dup_report)],
+            "MasterTarget": [SP_MASTER_SERVER_RELATIVE_URL if USE_SHAREPOINT_MASTER else str(master_path)],
         }
     )
 
@@ -529,7 +641,7 @@ def main():
         df_changes.to_excel(w, index=False, sheet_name="CellChanges")
 
     print("\n=== DONE ===")
-    print("Updated master:", str(tmp_name))
+    print("Master target:", SP_MASTER_SERVER_RELATIVE_URL if USE_SHAREPOINT_MASTER else str(master_path))
     print("Changelog:", str(ch_path))
     print("New rows:", len(new_rows))
     print("Cells filled/inserted:", len(df_changes))
