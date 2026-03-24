@@ -8,6 +8,7 @@ from datetime import datetime
 # =========================
 EXCEL_FILE = r"C:\Users\shonk\Downloads\Calthorpe_SessionAttendance_Export.xlsx"
 TABLE_NAME = "dbo.SessionAttendanceimports"
+INVALID_ROWS_OUTPUT_FILE = r"C:\Users\shonk\Downloads\Calthorpe_SessionAttendanceimports_InvalidRows.xlsx"
 
 SERVER = "20.68.160.100,1433"
 DATABASE = "SahelihubCRM"
@@ -137,6 +138,18 @@ def parse_bit(v, default=0):
         return default
 
 
+def parse_int(v):
+    v = clean_value(v)
+    if v is None:
+        return None
+    try:
+        if isinstance(v, str):
+            v = v.replace(",", "")
+        return int(float(v))
+    except Exception:
+        return None
+
+
 def read_excel_file(path):
     df = pd.read_excel(path)
     df.columns = [str(c).strip() for c in df.columns]
@@ -214,42 +227,91 @@ def insert_attendance_imports():
     (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
 
-    rows_to_insert = []
+    prepared_rows = []
+    rejected_rows = []
+    skipped_missing_session_id = 0
+    skipped_invalid_participant_id = 0
+    skipped_sql_error = 0
+    inserted = 0
 
     for _, row in df.iterrows():
-        rows_to_insert.append((
-            clean_value(row["SessionId"]),
-            clean_value(row["ParticipantId"]),
-            clean_value(row["SessionName"]),
-            clean_value(row["SessionDay"]),
-            parse_date(row["SessionDate"]),
-            clean_value(row["SessionMonth"]),
-            parse_time(row["SessionStartTime"]),
-            parse_time(row["SessionEndTime"]),
-            clean_value(row["SaheliCardNumber"]),
-            clean_value(row["RiskStratification"]),
-            parse_bit(row["Attended"], default=0),
-            parse_time(row["CheckInTime"]),
-            parse_time(row["CheckOutTime"]),
-            clean_value(row["Notes"]),
-            parse_datetime(row["CreatedAtUtc"]),
-            parse_datetime(row["UpdatedAtUtc"]),
-            clean_value(row["AttendanceMemberKind"]) or "FULL",
-            clean_value(row["LiteMemberId"]),
-            clean_value(row["MemberDisplayId"]),
-            clean_value(row["MemberName"]),
-            clean_value(row["Phone"]),
-            clean_value(row["EmergencyName"]),
-            clean_value(row["EmergencyPhone"]),
+        row_dict = row.to_dict()
+
+        session_id = parse_int(row["SessionId"])
+        if session_id is None:
+            row_dict["Reason"] = "Missing or invalid SessionId"
+            rejected_rows.append(row_dict)
+            skipped_missing_session_id += 1
+            continue
+
+        participant_raw = clean_value(row["ParticipantId"])
+        participant_id = parse_int(row["ParticipantId"])
+        if participant_raw is not None and participant_id is None:
+            row_dict["Reason"] = "Invalid ParticipantId"
+            rejected_rows.append(row_dict)
+            skipped_invalid_participant_id += 1
+            continue
+
+        prepared_rows.append((
+            (
+                session_id,
+                participant_id,
+                clean_value(row["SessionName"]),
+                clean_value(row["SessionDay"]),
+                parse_date(row["SessionDate"]),
+                clean_value(row["SessionMonth"]),
+                parse_time(row["SessionStartTime"]),
+                parse_time(row["SessionEndTime"]),
+                clean_value(row["SaheliCardNumber"]),
+                clean_value(row["RiskStratification"]),
+                parse_bit(row["Attended"], default=0),
+                parse_time(row["CheckInTime"]),
+                parse_time(row["CheckOutTime"]),
+                clean_value(row["Notes"]),
+                parse_datetime(row["CreatedAtUtc"]),
+                parse_datetime(row["UpdatedAtUtc"]),
+                clean_value(row["AttendanceMemberKind"]) or "FULL",
+                clean_value(row["LiteMemberId"]),
+                clean_value(row["MemberDisplayId"]),
+                clean_value(row["MemberName"]),
+                clean_value(row["Phone"]),
+                clean_value(row["EmergencyName"]),
+                clean_value(row["EmergencyPhone"]),
+            ),
+            row_dict,
         ))
 
-    cur.executemany(insert_sql, rows_to_insert)
-    conn.commit()
+    try:
+        if prepared_rows:
+            cur.executemany(insert_sql, [values for values, _ in prepared_rows])
+            conn.commit()
+            inserted = len(prepared_rows)
+    except pyodbc.Error:
+        # Fall back to row-by-row insert to isolate bad records and continue.
+        conn.rollback()
+        for values, row_dict in prepared_rows:
+            try:
+                cur.execute(insert_sql, values)
+                inserted += 1
+            except pyodbc.Error as exc:
+                bad = row_dict.copy()
+                bad["Reason"] = str(exc)
+                rejected_rows.append(bad)
+                skipped_sql_error += 1
+        conn.commit()
+    finally:
+        cur.close()
+        conn.close()
 
-    print(f"Inserted rows: {len(rows_to_insert)}")
+    if rejected_rows:
+        pd.DataFrame(rejected_rows).to_excel(INVALID_ROWS_OUTPUT_FILE, index=False)
 
-    cur.close()
-    conn.close()
+    print(f"Inserted rows: {inserted}")
+    print(f"Skipped rows - missing/invalid SessionId: {skipped_missing_session_id}")
+    print(f"Skipped rows - invalid ParticipantId: {skipped_invalid_participant_id}")
+    print(f"Skipped rows - SQL insert errors: {skipped_sql_error}")
+    if rejected_rows:
+        print(f"Rejected rows exported: {INVALID_ROWS_OUTPUT_FILE}")
 
 
 if __name__ == "__main__":
