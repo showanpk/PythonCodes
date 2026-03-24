@@ -156,6 +156,50 @@ def read_excel_file(path):
     return df
 
 
+def to_date_key(v):
+    if v is None:
+        return None
+    if isinstance(v, datetime):
+        return v.date().isoformat()
+    try:
+        return v.isoformat()
+    except Exception:
+        return None
+
+
+def to_time_key(v):
+    if v is None:
+        return None
+    try:
+        return v.strftime("%H:%M:%S")
+    except Exception:
+        return None
+
+
+def fetch_sessions_lookup(conn):
+    sql = """
+    SELECT
+        SessionId,
+        ActivityName,
+        SessionDate,
+        CONVERT(varchar(8), StartTime, 108) AS StartTimeStr,
+        CONVERT(varchar(8), EndTime, 108) AS EndTimeStr
+    FROM dbo.Sessions
+    """
+    df = pd.read_sql(sql, conn)
+
+    lookup = {}
+    for _, row in df.iterrows():
+        key = (
+            clean_value(row["ActivityName"]),
+            pd.to_datetime(row["SessionDate"]).strftime("%Y-%m-%d") if pd.notna(row["SessionDate"]) else None,
+            clean_value(row["StartTimeStr"]),
+            clean_value(row["EndTimeStr"]),
+        )
+        lookup[key] = int(row["SessionId"])
+    return lookup
+
+
 # =========================
 # MAIN INSERT
 # =========================
@@ -195,6 +239,7 @@ def insert_attendance_imports():
     conn = get_connection()
     cur = conn.cursor()
     cur.fast_executemany = True
+    sessions_lookup = fetch_sessions_lookup(conn)
 
     insert_sql = f"""
     INSERT INTO {TABLE_NAME}
@@ -230,6 +275,8 @@ def insert_attendance_imports():
     prepared_rows = []
     rejected_rows = []
     skipped_missing_session_id = 0
+    resolved_session_id_from_lookup = 0
+    skipped_unmatched_session_lookup = 0
     skipped_invalid_participant_id = 0
     skipped_sql_error = 0
     inserted = 0
@@ -237,12 +284,27 @@ def insert_attendance_imports():
     for _, row in df.iterrows():
         row_dict = row.to_dict()
 
+        session_name = clean_value(row["SessionName"])
+        session_date = parse_date(row["SessionDate"])
+        session_start_time = parse_time(row["SessionStartTime"])
+        session_end_time = parse_time(row["SessionEndTime"])
+
         session_id = parse_int(row["SessionId"])
         if session_id is None:
-            row_dict["Reason"] = "Missing or invalid SessionId"
-            rejected_rows.append(row_dict)
             skipped_missing_session_id += 1
-            continue
+            session_key = (
+                session_name,
+                to_date_key(session_date),
+                to_time_key(session_start_time),
+                to_time_key(session_end_time),
+            )
+            session_id = sessions_lookup.get(session_key)
+            if session_id is None:
+                row_dict["Reason"] = "Missing/invalid SessionId and no match found in dbo.Sessions"
+                rejected_rows.append(row_dict)
+                skipped_unmatched_session_lookup += 1
+                continue
+            resolved_session_id_from_lookup += 1
 
         participant_raw = clean_value(row["ParticipantId"])
         participant_id = parse_int(row["ParticipantId"])
@@ -256,12 +318,12 @@ def insert_attendance_imports():
             (
                 session_id,
                 participant_id,
-                clean_value(row["SessionName"]),
+                session_name,
                 clean_value(row["SessionDay"]),
-                parse_date(row["SessionDate"]),
+                session_date,
                 clean_value(row["SessionMonth"]),
-                parse_time(row["SessionStartTime"]),
-                parse_time(row["SessionEndTime"]),
+                session_start_time,
+                session_end_time,
                 clean_value(row["SaheliCardNumber"]),
                 clean_value(row["RiskStratification"]),
                 parse_bit(row["Attended"], default=0),
@@ -308,6 +370,8 @@ def insert_attendance_imports():
 
     print(f"Inserted rows: {inserted}")
     print(f"Skipped rows - missing/invalid SessionId: {skipped_missing_session_id}")
+    print(f"Resolved SessionId via lookup: {resolved_session_id_from_lookup}")
+    print(f"Skipped rows - no session match for lookup: {skipped_unmatched_session_lookup}")
     print(f"Skipped rows - invalid ParticipantId: {skipped_invalid_participant_id}")
     print(f"Skipped rows - SQL insert errors: {skipped_sql_error}")
     if rejected_rows:

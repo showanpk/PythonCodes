@@ -35,6 +35,7 @@ import re
 from datetime import datetime
 import pandas as pd
 import pyodbc
+import os
 
 # =========================
 # CONFIG
@@ -42,13 +43,47 @@ import pyodbc
 REG_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Registrations_Cleaned.xlsx"
 HEALTH_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Healthassessments_Prepared.xlsx"
 
-SQL_CONN_STR = (
-    "DRIVER={ODBC Driver 17 for SQL Server};"
-    "SERVER=mightysuperman;"
-    "DATABASE=SahelihubCRM;"
-    "Trusted_Connection=yes;"
-    "TrustServerCertificate=yes;"
-)
+SQL_SERVER = "20.68.160.100,1433"
+SQL_DATABASE = "SahelihubCRM"
+SQL_UID = "saheli_app"
+SQL_PWD = "309183"
+USE_WINDOWS_AUTH = False
+
+
+def env_bool(name, default):
+    val = os.getenv(name)
+    if val is None:
+        return default
+    return val.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def resolve_db_config():
+    return {
+        "server": os.getenv("DB_SERVER", SQL_SERVER),
+        "database": os.getenv("DB_DATABASE", SQL_DATABASE),
+        "uid": os.getenv("DB_USERNAME", SQL_UID),
+        "pwd": os.getenv("DB_PASSWORD", SQL_PWD),
+        "use_windows_auth": env_bool("DB_TRUSTED_CONNECTION", USE_WINDOWS_AUTH),
+    }
+
+
+def get_connection_string():
+    db = resolve_db_config()
+    if db["use_windows_auth"]:
+        return (
+            f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+            f"SERVER={db['server']};"
+            f"DATABASE={db['database']};"
+            f"Trusted_Connection=yes;"
+        )
+    else:
+        return (
+            f"DRIVER={{ODBC Driver 17 for SQL Server}};"
+            f"SERVER={db['server']};"
+            f"DATABASE={db['database']};"
+            f"UID={db['uid']};"
+            f"PWD={db['pwd']};"
+        )
 
 DEFAULT_CREATED_BY_USER_ID = None  # e.g. 1 for system user if needed
 
@@ -924,7 +959,17 @@ def main():
     rows_wem = build_wemwbs_rows(dfh, hm)
 
     print("\n=== SQL CONNECT & INSERT ===")
-    conn = pyodbc.connect(SQL_CONN_STR)
+    try:
+        conn = pyodbc.connect(get_connection_string())
+    except pyodbc.Error as ex:
+        db = resolve_db_config()
+        auth_mode = "Windows Integrated Authentication" if db["use_windows_auth"] else "SQL Authentication"
+        raise RuntimeError(
+            "Database connection failed using "
+            f"{auth_mode}. "
+            "Set DB_TRUSTED_CONNECTION=false to force SQL login, "
+            "or set DB_USERNAME/DB_PASSWORD with valid credentials."
+        ) from ex
     conn.autocommit = False
     cur = conn.cursor()
 

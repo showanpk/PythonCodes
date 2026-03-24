@@ -1,19 +1,19 @@
 import re
 from pathlib import Path
-from datetime import datetime, time
+from datetime import datetime, time, timezone
 import pandas as pd
 
 
 # =========================
 # CONFIG
 # =========================
-INPUT_FILE = r"C:\Users\shonk\Downloads\Calthorpe Register 2026 (2).xlsx"
+INPUT_FILE = r"C:\Users\shonk\Downloads\ARCC Activity Register  2026 (1).xlsx"
 
-SESSIONS_OUTPUT_FILE = r"C:\Users\shonk\OneDrive\Desktop\Sessions\Calthorpe_Sessions_Export.xlsx"
-ATTENDANCE_OUTPUT_FILE = r"C:\Users\shonk\OneDrive\Desktop\Sessions\Calthorpe_SessionAttendance_Export.xlsx"
+SESSIONS_OUTPUT_FILE = r"C:\Users\shonk\Downloads\ARCC Activity.xlsx"
+ATTENDANCE_OUTPUT_FILE = r"C:\Users\shonk\Downloads\ARCC_SessionAttendance_Export.xlsx"
 
-VENUE_NAME = "Calthorpe Wellbeing Hub"
-ASSIGNED_STAFF_ID = 10
+VENUE_NAME = "Alum Rock Community Centre"
+ASSIGNED_STAFF_ID = 17
 FREQUENCY = "WEEKLY"
 IS_RECURRING_WEEKLY = 0
 IS_BOOKING_REQUIRED = 0
@@ -25,54 +25,30 @@ ARRIVAL_TIME = None
 
 ATTENDED_DEFAULT = 1
 NOTES_DEFAULT = None
-ATTENDANCE_MEMBER_KIND = "Participant"   # change if DB expects another exact value
+ATTENDANCE_MEMBER_KIND = "FULL"   # change if DB expects another exact value
 
 
 # =========================
 # SHEET -> SESSION MAPPING
 # =========================
 SHEET_CONFIG = {
-    "Mens Multisport": {
-        "ActivityName": "Mens Multisports",
+    "Chair Based": {
+        "ActivityName": "Chair Based Exercise",
         "Category": "Fitness",
         "ActivityCategory": "Fitness",
-        "SessionName": "Mens Multisports",
+        "SessionName": "Chair Based Exercise",
     },
-    "Zumba": {
-        "ActivityName": "Zumba",
+    "Omnia Chair Exercise": {
+        "ActivityName": "Omnia Chair Exercise",
         "Category": "Fitness",
         "ActivityCategory": "Fitness",
-        "SessionName": "Zumba",
+        "SessionName": "Omnia Chair Exercise",
     },
-    "HIIT": {
-        "ActivityName": "HIIT",
+    "Circuit": {
+        "ActivityName": "Circuit Training",
         "Category": "Fitness",
         "ActivityCategory": "Fitness",
-        "SessionName": "HIIT",
-    },
-    "Chair Exercise": {
-        "ActivityName": "Chair Exercise",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Chair Exercise",
-    },
-    "Social Knit and Crochet": {
-        "ActivityName": "Social Knit and Crochet",
-        "Category": "Social",
-        "ActivityCategory": "Social",
-        "SessionName": "Social Knit and Crochet",
-    },
-    "Strength and Stretch": {
-        "ActivityName": "Strength and Stretch",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Strength and Stretch",
-    },
-    "ESOL": {
-        "ActivityName": "ESOL",
-        "Category": "Social",
-        "ActivityCategory": "Social",
-        "SessionName": "ESOL",
+        "SessionName": "Circuit Training",
     },
     "Yoga": {
         "ActivityName": "Yoga",
@@ -80,47 +56,17 @@ SHEET_CONFIG = {
         "ActivityCategory": "Fitness",
         "SessionName": "Yoga",
     },
-    "Arts and Craft": {
-        "ActivityName": "Arts and Craft",
+    "Saheli Social": {
+        "ActivityName": "Saheli Social",
         "Category": "Social",
         "ActivityCategory": "Social",
-        "SessionName": "Arts and Craft",
+        "SessionName": "Saheli Social",
     },
-    "Salsa": {
-        "ActivityName": "Salsa/Belly Dancing",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Salsa/Belly Dancing",
-    },
-    "Circuits Class": {
-        "ActivityName": "Circuits Class",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Circuits Class",
-    },
-    "Body Conditioning": {
-        "ActivityName": "Body Conditioning",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Body Conditioning",
-    },
-    "Pilate Floor Base": {
-        "ActivityName": "Pilate Floor Base",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Pilate Floor Base",
-    },
-    "Workshops": {
-        "ActivityName": "Workshops",
+    "Template": {
+        "ActivityName": "Template Activity",
         "Category": "Social",
         "ActivityCategory": "Social",
-        "SessionName": "Workshops",
-    },
-    "Tennis": {
-        "ActivityName": "Tennis",
-        "Category": "Fitness",
-        "ActivityCategory": "Fitness",
-        "SessionName": "Tennis",
+        "SessionName": "Template Activity",
     },
 }
 
@@ -190,6 +136,9 @@ def excel_date_to_python(value):
 
 def standardize_time_token(token: str) -> str:
     token = token.strip().lower()
+    # Replace p.m. and a.m. with dots to pm/am
+    token = token.replace("p.m.", "pm").replace("a.m.", "am")
+    # Replace remaining dots with colons
     token = token.replace(".", ":")
     token = re.sub(r"\s+", "", token)
 
@@ -241,8 +190,23 @@ def parse_time_range(value):
     if not text:
         return None, None
 
+    # Normalize p.m./a.m. format BEFORE splitting
+    text = text.replace("p.m.", "pm").replace("P.M.", "PM")
+    text = text.replace("a.m.", "am").replace("A.M.", "AM")
+    
     text = text.replace("–", "-").replace("—", "-").strip()
     parts = [p.strip() for p in text.split("-") if p.strip()]
+    
+    # Handle single time (assume 1-hour duration)
+    if len(parts) == 1:
+        start_t = parse_single_time(parts[0])
+        if start_t is None:
+            return None, None
+        # Add 1 hour for end time
+        end_dt = datetime.combine(datetime.today().date(), start_t) + pd.Timedelta(hours=1)
+        end_t = end_dt.time()
+        return start_t, end_t
+    
     if len(parts) != 2:
         return None, None
 
@@ -318,7 +282,7 @@ def build_both_exports(input_file: str, sessions_output_file: str, attendance_ou
     attendance_skipped_sheets = []
     attendance_warnings = []
 
-    created_at_utc = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    created_at_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     now_utc = created_at_utc
 
     for sheet_name in xls.sheet_names:
@@ -339,6 +303,10 @@ def build_both_exports(input_file: str, sessions_output_file: str, attendance_ou
         date_col = find_column(df, ["Date", "SessionDate"])
         month_col = find_column(df, ["Month"])
         time_col = find_column(df, ["Time", "Session Time", "SessionTime"])
+        
+        if not date_col or not time_col:
+            print(f"[WARN] Sheet '{sheet_name}': date_col={date_col}, time_col={time_col}")
+            print(f"       Available columns: {list(df.columns[:15])}")
         card_col = find_column(df, ["Saheli Card Number", "SaheliCardNumber", "Card Number"])
         name_col = find_column(df, ["Name", "Member Name", "Participant Name"])
         emergency_name_col = find_column(df, ["Emergency contact Name", "Emergency Name", "EmergencyContactName"])
@@ -472,6 +440,15 @@ def build_both_exports(input_file: str, sessions_output_file: str, attendance_ou
     sessions_df = pd.DataFrame(session_rows)
 
     if sessions_df.empty:
+        print("\n[DEBUG] No session rows extracted. Checking diagnostics:")
+        print(f"  Total sheets processed: {len(xls.sheet_names)}")
+        print(f"  Configured sheets: {len(SHEET_CONFIG)}")
+        print(f"  Skipped sheets: {sessions_skipped_sheets}")
+        print(f"  Warnings: {len(sessions_warnings)} total")
+        for i, w in enumerate(sessions_warnings[:5], 1):
+            print(f"    {i}. {w}")
+        if len(sessions_warnings) > 5:
+            print(f"    ... and {len(sessions_warnings) - 5} more")
         raise ValueError("No valid session rows were extracted from the workbook.")
 
     sessions_df = sessions_df.drop_duplicates(

@@ -17,7 +17,7 @@ from openpyxl.utils import get_column_letter
 # =========================
 # CONFIG
 # =========================
-REG_FILE    = r"C:\Users\shonk\Downloads\Main Registration Form(1-1174).xlsx"
+REG_FILE    = r"C:\Users\shonk\Downloads\Main Registration Form(1-1178).xlsx"
 HEALTH_FILE = r"C:\Users\shonk\Downloads\Saheli Hub Health Assessment(1-1525).xlsx"
 
 REG_OUTPUT_FILE    = r"C:\Users\shonk\source\PythonCodes\New folder\Registrations_Cleaned.xlsx"
@@ -28,7 +28,7 @@ REG_SHEET_NAME    = None
 HEALTH_SHEET_NAME = None
 MAX_ASSESSMENTS   = 9   # master has up to 9th Assessment
 
-# ── CHANGED: no grouped header ────────────────────────────────────────────────
+# ── CHANGED: no grouped header ──
 APPLY_GROUPED_HEADER = False
 
 
