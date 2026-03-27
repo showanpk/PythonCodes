@@ -23,13 +23,11 @@ REMOTE_FRONTEND_PATH = r"C:\inetpub\wwwroot"
 FRONTEND_APP_POOL = "DefaultAppPool"
 ANGULAR_BASE_HREF = "/"
 
-# Temp local zip folder
+# Temp folders
 LOCAL_TEMP_DIR = r"C:\Users\shonk\source\PythonCodes\Publish\temp"
-
-# Temp remote folder on VM
 REMOTE_TEMP_DIR = r"C:\DeployTemp"
 
-# Set False if you want deploy from already-built output only
+# Build switches
 BUILD_BACKEND = True
 BUILD_FRONTEND = True
 
@@ -73,10 +71,6 @@ def ensure_clean_dir(path: str):
     p.mkdir(parents=True, exist_ok=True)
 
 
-def ps_escape(value: str) -> str:
-    return value.replace("'", "''")
-
-
 def remove_file_if_exists(path: Path):
     if path.exists():
         path.unlink()
@@ -90,10 +84,14 @@ def create_zip_from_folder(source_folder: str, zip_path: str):
         raise FileNotFoundError(f"Zip source folder not found: {source_folder}")
 
     remove_file_if_exists(zip_file)
-
     base_name = str(zip_file.with_suffix(""))
+
     print(f"\n>> Creating zip: {zip_file}")
     shutil.make_archive(base_name=base_name, format="zip", root_dir=str(source), base_dir=".")
+
+
+def ps_escape(value: str) -> str:
+    return value.replace("'", "''")
 
 
 def run_powershell_script(script: str):
@@ -115,8 +113,9 @@ def build_backend():
     ensure_exists(BACKEND_PROJECT, "Backend project")
     project_dir = str(Path(BACKEND_PROJECT).parent)
 
-    if Path(BACKEND_PUBLISH_OUTPUT).exists():
-        shutil.rmtree(BACKEND_PUBLISH_OUTPUT)
+    publish_path = Path(BACKEND_PUBLISH_OUTPUT)
+    if publish_path.exists():
+        shutil.rmtree(publish_path)
 
     run_command(["dotnet", "restore", BACKEND_PROJECT], cwd=project_dir)
     run_command(
@@ -168,7 +167,7 @@ try {{
     $remoteFrontendZip = Join-Path $remoteTempDir 'frontend_publish.zip'
 
     Invoke-Command -Session $session -ScriptBlock {{
-        param($remoteTempDir, $remoteApiPath, $remoteFrontendPath, $apiAppPool, $frontendAppPool)
+        param($remoteTempDir, $remoteApiPath, $remoteFrontendPath, $apiAppPool)
 
         Import-Module WebAdministration
 
@@ -200,7 +199,7 @@ try {{
             Get-ChildItem -Path $remoteFrontendPath -Force |
                 Remove-Item -Recurse -Force -ErrorAction Stop
         }}
-    }} -ArgumentList $remoteTempDir, $remoteApiPath, $remoteFrontendPath, $apiAppPool, $frontendAppPool
+    }} -ArgumentList $remoteTempDir, $remoteApiPath, $remoteFrontendPath, $apiAppPool
 
     Copy-Item -Path $localApiZip -Destination $remoteApiZip -ToSession $session -Force
     Copy-Item -Path $localFrontendZip -Destination $remoteFrontendZip -ToSession $session -Force
@@ -220,18 +219,12 @@ try {{
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <system.webServer>
-    <rewrite>
-      <rules>
-        <rule name="Angular Routes" stopProcessing="true">
-          <match url=".*" />
-          <conditions logicalGrouping="MatchAll">
-            <add input="{{REQUEST_FILENAME}}" matchType="IsFile" negate="true" />
-            <add input="{{REQUEST_FILENAME}}" matchType="IsDirectory" negate="true" />
-          </conditions>
-          <action type="Rewrite" url="/index.html" />
-        </rule>
-      </rules>
-    </rewrite>
+    <defaultDocument>
+      <files>
+        <clear />
+        <add value="index.html" />
+      </files>
+    </defaultDocument>
     <staticContent>
       <remove fileExtension=".json" />
       <mimeMap fileExtension=".json" mimeType="application/json" />
@@ -304,6 +297,10 @@ def main():
         print("\n========== DEPLOY START ==========")
         deploy_with_single_session(backend_zip, frontend_zip)
         print("========== DEPLOY DONE ==========")
+
+        if temp_dir.exists():
+            shutil.rmtree(temp_dir)
+            print(f"Removed temp folder: {temp_dir}")
 
         print("\nDeployment completed successfully.")
 
