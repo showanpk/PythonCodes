@@ -9,6 +9,7 @@ from datetime import datetime
 EXCEL_FILE = r"C:\Users\shonk\Downloads\Calthorpe_SessionAttendance_Export.xlsx"
 TABLE_NAME = "dbo.SessionAttendanceimports"
 INVALID_ROWS_OUTPUT_FILE = r"C:\Users\shonk\Downloads\Calthorpe_SessionAttendanceimports_InvalidRows.xlsx"
+REQUIRE_SESSION_MATCH = False
 
 SERVER = "20.68.160.100,1433"
 DATABASE = "SahelihubCRM"
@@ -239,7 +240,7 @@ def insert_attendance_imports():
     conn = get_connection()
     cur = conn.cursor()
     cur.fast_executemany = True
-    sessions_lookup = fetch_sessions_lookup(conn)
+    sessions_lookup = fetch_sessions_lookup(conn) if REQUIRE_SESSION_MATCH else {}
 
     insert_sql = f"""
     INSERT INTO {TABLE_NAME}
@@ -274,9 +275,9 @@ def insert_attendance_imports():
 
     prepared_rows = []
     rejected_rows = []
-    skipped_missing_session_id = 0
+    missing_session_id = 0
     resolved_session_id_from_lookup = 0
-    skipped_unmatched_session_lookup = 0
+    unmatched_session_lookup = 0
     skipped_invalid_participant_id = 0
     skipped_sql_error = 0
     inserted = 0
@@ -291,20 +292,21 @@ def insert_attendance_imports():
 
         session_id = parse_int(row["SessionId"])
         if session_id is None:
-            skipped_missing_session_id += 1
-            session_key = (
-                session_name,
-                to_date_key(session_date),
-                to_time_key(session_start_time),
-                to_time_key(session_end_time),
-            )
-            session_id = sessions_lookup.get(session_key)
-            if session_id is None:
-                row_dict["Reason"] = "Missing/invalid SessionId and no match found in dbo.Sessions"
-                rejected_rows.append(row_dict)
-                skipped_unmatched_session_lookup += 1
-                continue
-            resolved_session_id_from_lookup += 1
+            missing_session_id += 1
+            if REQUIRE_SESSION_MATCH:
+                session_key = (
+                    session_name,
+                    to_date_key(session_date),
+                    to_time_key(session_start_time),
+                    to_time_key(session_end_time),
+                )
+                session_id = sessions_lookup.get(session_key)
+                if session_id is None:
+                    row_dict["Reason"] = "Missing/invalid SessionId and no match found in dbo.Sessions"
+                    rejected_rows.append(row_dict)
+                    unmatched_session_lookup += 1
+                    continue
+                resolved_session_id_from_lookup += 1
 
         participant_raw = clean_value(row["ParticipantId"])
         participant_id = parse_int(row["ParticipantId"])
@@ -369,9 +371,9 @@ def insert_attendance_imports():
         pd.DataFrame(rejected_rows).to_excel(INVALID_ROWS_OUTPUT_FILE, index=False)
 
     print(f"Inserted rows: {inserted}")
-    print(f"Skipped rows - missing/invalid SessionId: {skipped_missing_session_id}")
+    print(f"Rows with missing/invalid SessionId: {missing_session_id}")
     print(f"Resolved SessionId via lookup: {resolved_session_id_from_lookup}")
-    print(f"Skipped rows - no session match for lookup: {skipped_unmatched_session_lookup}")
+    print(f"Skipped rows - no session match for lookup: {unmatched_session_lookup}")
     print(f"Skipped rows - invalid ParticipantId: {skipped_invalid_participant_id}")
     print(f"Skipped rows - SQL insert errors: {skipped_sql_error}")
     if rejected_rows:
