@@ -298,10 +298,6 @@ def main():
         deploy_with_single_session(backend_zip, frontend_zip)
         print("========== DEPLOY DONE ==========")
 
-        if temp_dir.exists():
-            shutil.rmtree(temp_dir)
-            print(f"Removed temp folder: {temp_dir}")
-
         print("\nDeployment completed successfully.")
 
     except Exception as exc:
