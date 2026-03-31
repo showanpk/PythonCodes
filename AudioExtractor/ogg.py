@@ -110,8 +110,8 @@ def transcribe_ogg_to_docx(
 if __name__ == "__main__":
     """
     Usage:
-        python ogg_to_word.py "C:\\path\\to\\audio.ogg"
-        python ogg_to_word.py "C:\\path\\to\\audio.ogg" "C:\\path\\to\\output.docx"
+        python ogg_to_word.py "C:\\path\\to\\audio.mp4"
+        python ogg_to_word.py "C:\\path\\to\\audio.mp4" "C:\\path\\to\\output.docx"
 
     Optional quick edits inside the function call below:
     - model_size="small"   -> faster
@@ -119,10 +119,10 @@ if __name__ == "__main__":
     - language="en"        -> force English
     """
 
-    def _clean_path(raw: str) -> str:
+    def _clean_path(raw: str) -> str:   
         return raw.strip().strip('"').strip("'")
 
-    default_input = Path.home() / "Downloads" / "WhatsApp Ptt 2026-03-26 at 12.37.03.ogg"
+    default_input = Path.home() / "Downloads" / "WhatsApp Audio 2026-03-30 at 14.48.03.mp4"
     default_output = Path.home() / "Downloads"
 
     if len(sys.argv) >= 2:
@@ -135,9 +135,9 @@ if __name__ == "__main__":
         print(f"Using default output path: {output_docx}")
     else:
         print("No input path was provided in the command.")
-        print("Paste a full audio path, e.g. C:\\Users\\shonk\\Downloads\\file.ogg")
+        print("Paste a full audio path, e.g. C:\\Users\\shonk\\Downloads\\file.mp4")
 
-        input_audio = _clean_path(input("Input .ogg path: "))
+        input_audio = _clean_path(input("Input audio path: "))
         if not input_audio:
             print("Input path is required.")
             sys.exit(1)
