@@ -5,12 +5,64 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import plotly.io as pio
 from sqlalchemy import create_engine
 import pyodbc
 from urllib.parse import quote_plus
 import os
 import warnings
 warnings.filterwarnings('ignore')
+
+
+# ============================================
+# VISUAL THEME (CSS-LIKE STYLING)
+# ============================================
+THEME = {
+    "bg": "#f6f8fb",
+    "panel": "#ffffff",
+    "text": "#12263a",
+    "muted": "#5c6b7a",
+    "grid": "#d7dee7",
+    "accent": "#1f77b4",
+    "ok": "#2ca02c",
+    "warn": "#ff7f0e",
+    "danger": "#d62728",
+    "palette": ["#1f77b4", "#2ca02c", "#ff7f0e", "#d62728", "#9467bd", "#17becf"],
+}
+
+
+def apply_visual_theme():
+    sns.set_theme(style="whitegrid", palette=THEME["palette"])
+    plt.rcParams.update(
+        {
+            "figure.facecolor": THEME["bg"],
+            "axes.facecolor": THEME["panel"],
+            "savefig.facecolor": THEME["bg"],
+            "axes.edgecolor": THEME["grid"],
+            "axes.labelcolor": THEME["text"],
+            "axes.titlecolor": THEME["text"],
+            "xtick.color": THEME["muted"],
+            "ytick.color": THEME["muted"],
+            "grid.color": THEME["grid"],
+            "font.family": "Segoe UI",
+            "font.size": 10,
+            "axes.titleweight": "bold",
+            "axes.spines.top": False,
+            "axes.spines.right": False,
+        }
+    )
+
+    pio.templates["citycouncil"] = go.layout.Template(
+        layout=go.Layout(
+            paper_bgcolor=THEME["bg"],
+            plot_bgcolor=THEME["panel"],
+            font=dict(family="Segoe UI", color=THEME["text"]),
+            colorway=THEME["palette"],
+            xaxis=dict(gridcolor=THEME["grid"], zeroline=False),
+            yaxis=dict(gridcolor=THEME["grid"], zeroline=False),
+        )
+    )
+    pio.templates.default = "citycouncil"
 
 # ============================================
 # DATABASE CONNECTION (SQL Server)
@@ -64,9 +116,9 @@ def fetch_data():
         Bmivalue,
         SystolicBp,
         DiastolicBp,
-        PhysicalActivityMinutes,
-        TotalSleepHours,
-        StressLevel,
+        Movement AS PhysicalActivityMinutes,
+        SleepQuality AS TotalSleepHours,
+        (11 - Resilience) AS StressLevel,
         FeelingOptimistic,
         FeelingRelaxed,
         FeelingConfident,
@@ -230,11 +282,11 @@ def plot_bmi_distribution(df):
 # 6. PHYSICAL ACTIVITY (Donut Chart)
 # ============================================
 def plot_physical_activity(df):
-    # Define active as >=30 minutes
-    df['is_active'] = df['PhysicalActivityMinutes'] >= 30
+    # Movement is a 1-10 score in source data; treat >=6 as more active.
+    df['is_active'] = df['PhysicalActivityMinutes'] >= 6
     activity_summary = df.groupby('is_active').size()
     
-    labels = ['Active Days (≥30 min)', 'Inactive Days (<30 min)']
+    labels = ['Higher Activity Score (>=6)', 'Lower Activity Score (<6)']
     values = [activity_summary.get(True, 0), activity_summary.get(False, 0)]
     colors = ['#2ecc71', '#e74c3c']
     
@@ -252,10 +304,10 @@ def plot_physical_activity(df):
                          alpha=0.3, color='blue')
     axes[1].plot(activity_trend['AssessmentDate'], activity_trend['PhysicalActivityMinutes'],
                  marker='o', color='darkblue', linewidth=2)
-    axes[1].set_title('Average Physical Activity Trend')
+    axes[1].set_title('Average Movement Score Trend')
     axes[1].set_xlabel('Date')
-    axes[1].set_ylabel('Minutes per Day')
-    axes[1].axhline(y=30, color='green', linestyle='--', label='Recommended (30 min)')
+    axes[1].set_ylabel('Score (1-10)')
+    axes[1].axhline(y=6, color='green', linestyle='--', label='Reference Score (6)')
     axes[1].legend()
     axes[1].grid(True, alpha=0.3)
     
@@ -268,7 +320,7 @@ def plot_physical_activity(df):
 def plot_sleep_duration(df):
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
     
-    # Gauge chart for average sleep
+    # SleepQuality is a 1-10 score in source data.
     avg_sleep = df['TotalSleepHours'].mean()
     
     # Custom gauge
@@ -276,11 +328,11 @@ def plot_sleep_duration(df):
     gauge_values = [0, 7, 9]  # Less than 7, 7-9, more than 9
     
     axes[0].barh([0], [avg_sleep], color='#3498db', height=0.5)
-    axes[0].set_xlim(0, 12)
+    axes[0].set_xlim(0, 10)
     axes[0].set_ylim(-1, 1)
-    axes[0].axvline(x=7, color='orange', linestyle='--', linewidth=2, label='Minimum (7 hrs)')
-    axes[0].axvline(x=9, color='red', linestyle='--', linewidth=2, label='Maximum (9 hrs)')
-    axes[0].set_title(f'Average Sleep Duration: {avg_sleep:.1f} hours')
+    axes[0].axvline(x=7, color='orange', linestyle='--', linewidth=2, label='Good Sleep Score (>=7)')
+    axes[0].axvline(x=9, color='red', linestyle='--', linewidth=2, label='Very High Sleep Score (9)')
+    axes[0].set_title(f'Average Sleep Quality Score: {avg_sleep:.1f}/10')
     axes[0].legend()
     axes[0].set_yticks([])
     
@@ -289,10 +341,10 @@ def plot_sleep_duration(df):
     axes[1].plot(sleep_trend['AssessmentDate'], sleep_trend['TotalSleepHours'],
                  marker='o', color='purple', linewidth=2)
     axes[1].fill_between(sleep_trend['AssessmentDate'], 7, 9, alpha=0.2, color='green',
-                         label='Recommended Range (7-9 hrs)')
-    axes[1].set_title('Sleep Duration Trend')
+                         label='Target Score Band (7-9)')
+    axes[1].set_title('Sleep Quality Trend')
     axes[1].set_xlabel('Date')
-    axes[1].set_ylabel('Hours')
+    axes[1].set_ylabel('Score (1-10)')
     axes[1].legend()
     axes[1].grid(True, alpha=0.3)
     
@@ -516,6 +568,8 @@ def create_complete_dashboard(df, df_participants):
 # MAIN EXECUTION
 # ============================================
 if __name__ == "__main__":
+    apply_visual_theme()
+
     # Fetch data
     print("Loading data from database...")
     df_assessments, df_participants = fetch_data()
