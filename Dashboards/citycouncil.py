@@ -6,6 +6,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from sqlalchemy import create_engine
+import pyodbc
+from urllib.parse import quote_plus
+import os
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -13,12 +16,37 @@ warnings.filterwarnings('ignore')
 # DATABASE CONNECTION (SQL Server)
 # ============================================
 def get_db_connection():
-    conn_str = (
-        "mssql+pyodbc://@SahelihubCRM/"
-        "?driver=ODBC+Driver+17+for+SQL+Server"
-        "&trusted_connection=yes"
+    server = os.getenv("DB_SERVER", "20.68.160.100,1433")
+    database = os.getenv("DB_DATABASE", "SahelihubCRM")
+    username = os.getenv("DB_USERNAME", "saheli_app")
+    password = os.getenv("DB_PASSWORD", "309183")
+    use_trusted = os.getenv("DB_TRUSTED_CONNECTION", "false").strip().lower() in {"1", "true", "yes", "y"}
+
+    available_drivers = set(pyodbc.drivers())
+    preferred_drivers = [
+        "ODBC Driver 18 for SQL Server",
+        "ODBC Driver 17 for SQL Server",
+        "SQL Server",
+    ]
+    driver = next((d for d in preferred_drivers if d in available_drivers), None)
+    if not driver:
+        raise RuntimeError(
+            "No SQL Server ODBC driver found. Install 'ODBC Driver 18 for SQL Server' or 'ODBC Driver 17 for SQL Server'."
+        )
+
+    auth_part = "Trusted_Connection=yes;" if use_trusted else f"UID={username};PWD={password};"
+    odbc_str = (
+        f"DRIVER={{{driver}}};"
+        f"SERVER={server};"
+        f"DATABASE={database};"
+        "TrustServerCertificate=yes;"
+        f"{auth_part}"
     )
-    engine = create_engine(conn_str)
+
+    engine = create_engine(
+        f"mssql+pyodbc:///?odbc_connect={quote_plus(odbc_str)}",
+        pool_pre_ping=True,
+    )
     return engine
 
 # ============================================
