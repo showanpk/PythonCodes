@@ -29,8 +29,8 @@ import pandas as pd
 # =========================
 # CONFIG
 # =========================
-REG_FILE = r"C:\Users\shonk\Downloads\Main Registration Form(1-1143).xlsx"
-HEALTH_FILE = r"C:\Users\shonk\Downloads\Saheli Hub Health Assessment(1-1477).xlsx"
+REG_FILE = r"C:\Users\shonk\Downloads\Main Registration Form(1-1180).xlsx"
+HEALTH_FILE = r"C:\Users\shonk\Downloads\Saheli Hub Health Assessment(1-1536).xlsx"
 
 REG_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Registrations_Cleaned.xlsx"
 HEALTH_OUTPUT_FILE = r"C:\Users\shonk\source\PythonCodes\New folder\Healthassessments_Prepared.xlsx"
