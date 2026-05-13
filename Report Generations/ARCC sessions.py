@@ -11,6 +11,7 @@ from collections import defaultdict
 import pandas as pd
 import pyodbc
 import openpyxl
+from openpyxl.utils import get_column_letter
 
 
 # ============================================================
@@ -415,8 +416,9 @@ def get_cell_value_from_ws(ws: "openpyxl.worksheet.worksheet.Worksheet", row: in
         return cell.value
 
     # If empty, check merged ranges to see if this cell is inside one
+    coord = f"{get_column_letter(col)}{row}"
     for merged in ws.merged_cells.ranges:
-        if (row, col) in merged:
+        if coord in merged:
             # top-left of merged range
             min_row, min_col = merged.min_row, merged.min_col
             return ws.cell(row=min_row, column=min_col).value
