@@ -1111,9 +1111,34 @@ def main() -> None:
                     raw_day = clean_text(get_row_value(row, col_map["day"]))
                     raw_date = excel_date_to_date(get_row_value(row, col_map["date"]))
                     raw_month = clean_text(get_row_value(row, col_map["month"]))
+                    # First attempt: value from the explicit time column
                     raw_time_value = get_row_value(row, col_map["time"])
                     raw_time_text = clean_text(raw_time_value)
                     parsed_start_time = parse_single_time(raw_time_value)
+
+                    # If no explicit time found, search the whole row (including merged cells)
+                    if not parsed_start_time and ws is not None:
+                        # iterate over all columns in the df for this row
+                        for col_index, col_name in enumerate(df.columns, start=1):
+                            # prefer DataFrame value, else fallback to worksheet merged-cell value
+                            cell_val = get_row_value(row, col_name)
+                            if cell_val is None:
+                                cell_val = get_cell_value_from_ws(ws, source_row, col_index)
+
+                            if cell_val is None:
+                                continue
+
+                            candidate = clean_text(cell_val) if not isinstance(cell_val, (int, float, datetime)) else cell_val
+                            candidate_parsed = parse_single_time(candidate)
+                            if candidate_parsed:
+                                parsed_start_time = candidate_parsed
+                                raw_time_text = str(cell_val)
+                                break
+
+                    # If no time detected but sheet has configured default, use it
+                    if not parsed_start_time and DEFAULT_SESSION_TIMES_BY_SHEET.get(source_sheet_name):
+                        parsed_start_time = parse_single_time(DEFAULT_SESSION_TIMES_BY_SHEET[source_sheet_name])
+                        raw_time_text = DEFAULT_SESSION_TIMES_BY_SHEET[source_sheet_name]
 
                     # Alum Rock Community Centre workbook has grouped rows.
                     # Session/date/time appear once at the top, then following participant rows are blank.
