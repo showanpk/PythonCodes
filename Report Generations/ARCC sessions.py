@@ -251,7 +251,13 @@ def parse_single_time(value: Any) -> Optional[str]:
             total_minutes = round(float(value) * 24 * 60)
             return minutes_to_time_string(total_minutes)
 
+        # Do not treat normal numbers like 1373 or 2026 as times.
+        return None
+
+    # Only treat datetime as time if it actually has a time component.
     if isinstance(value, datetime):
+        if value.hour == 0 and value.minute == 0 and value.second == 0:
+            return None
         return f"{value.hour:02d}:{value.minute:02d}:00"
 
     text = str(value).strip().lower()
@@ -259,33 +265,47 @@ def parse_single_time(value: Any) -> Optional[str]:
     if not text:
         return None
 
-    # Normalize variations of a.m./p.m. first (e.g. 'a.m.', 'a m', 'am')
-    text = re.sub(r"\b(a\.?m\.?|a m)\b", "am", text)
-    text = re.sub(r"\b(p\.?m\.?|p m)\b", "pm", text)
+    # Avoid parsing dates as times.
+    if re.search(r"\d{1,2}[/-]\d{1,2}[/-]\d{2,4}", text):
+        return None
 
-    # Replace dots between digits with colon (e.g. 12.15 -> 12:15)
-    text = re.sub(r"(?<=\d)\.(?=\d)", ":", text)
-
-    # Collapse multiple spaces
     text = re.sub(r"\s+", " ", text)
 
-    # If the text contains a range like '09:30 - 10:30' or '9.30 to 10.30', take the first part
-    range_match = re.search(r"(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)[\s-–to]{1,6}(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)", text)
+    # Normalise a.m. / p.m. before changing dots.
+    text = (
+        text
+        .replace("a.m.", "am")
+        .replace("p.m.", "pm")
+        .replace("a.m", "am")
+        .replace("p.m", "pm")
+        .replace("a m", "am")
+        .replace("p m", "pm")
+    )
+
+    # If a range exists, take only the first time.
+    # Examples: 09:30 - 10:30, 9.30 to 10.30, 12.15 p.m. - 1.15 p.m.
+    range_match = re.search(
+        r"(\d{1,2}(?::|\.)?\d{0,2}\s*(?:am|pm)?)"
+        r"\s*(?:-|–|—|to)\s*"
+        r"(\d{1,2}(?::|\.)?\d{0,2}\s*(?:am|pm)?)",
+        text,
+    )
+
     if range_match:
         text = range_match.group(1)
+    else:
+        embedded = re.search(
+            r"(\d{1,2}(?::|\.)?\d{0,2}\s*(?:am|pm)?)",
+            text,
+        )
+        if embedded:
+            text = embedded.group(1)
 
-    # Sometimes time is embedded after text like 'Session 1 - 09.30' or 'Chair Exercise 09:30'
-    embedded = re.search(r"(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)", text)
-    if embedded:
-        text = embedded.group(1)
-
-    # Remove trailing/leading non-digit characters
-    text = text.strip(" -–")
-
-    # Remove spaces around am/pm (e.g. '9 am' -> '9am')
-    text = text.replace(" ", "")
+    text = text.strip()
+    text = re.sub(r"\s+", "", text)
 
     suffix = None
+
     if text.endswith("am"):
         suffix = "am"
         text = text[:-2]
@@ -293,7 +313,10 @@ def parse_single_time(value: Any) -> Optional[str]:
         suffix = "pm"
         text = text[:-2]
 
-    # Handles '1230' or '930'
+    # 12.15 -> 12:15
+    text = text.replace(".", ":")
+
+    # 1230 -> 12:30, 930 -> 9:30
     if ":" not in text and text.isdigit():
         if len(text) == 4:
             text = f"{text[:2]}:{text[2:]}"
@@ -1116,29 +1139,24 @@ def main() -> None:
                     raw_time_text = clean_text(raw_time_value)
                     parsed_start_time = parse_single_time(raw_time_value)
 
-                    # If no explicit time found, search the whole row (including merged cells)
-                    if not parsed_start_time and ws is not None:
-                        # iterate over all columns in the df for this row
-                        for col_index, col_name in enumerate(df.columns, start=1):
-                            # prefer DataFrame value, else fallback to worksheet merged-cell value
-                            cell_val = get_row_value(row, col_name)
-                            if cell_val is None:
-                                cell_val = get_cell_value_from_ws(ws, source_row, col_index)
+                    # If pandas did not read the merged Time cell, get the merged-cell value
+                    # directly from openpyxl using the actual Time column.
+                    if not parsed_start_time and ws is not None and col_map["time"] in df.columns:
+                        time_col_index = list(df.columns).index(col_map["time"]) + 1
+                        merged_time_value = get_cell_value_from_ws(ws, source_row, time_col_index)
 
-                            if cell_val is None:
-                                continue
-
-                            candidate = clean_text(cell_val) if not isinstance(cell_val, (int, float, datetime)) else cell_val
-                            candidate_parsed = parse_single_time(candidate)
-                            if candidate_parsed:
-                                parsed_start_time = candidate_parsed
-                                raw_time_text = str(cell_val)
-                                break
+                        if merged_time_value is not None:
+                            parsed_start_time = parse_single_time(merged_time_value)
+                            raw_time_text = clean_text(merged_time_value) or str(merged_time_value)
 
                     # If no time detected but sheet has configured default, use it
                     if not parsed_start_time and DEFAULT_SESSION_TIMES_BY_SHEET.get(source_sheet_name):
                         parsed_start_time = parse_single_time(DEFAULT_SESSION_TIMES_BY_SHEET[source_sheet_name])
                         raw_time_text = DEFAULT_SESSION_TIMES_BY_SHEET[source_sheet_name]
+
+                    # IMPORTANT: define participant fields before any skip/debug checks
+                    raw_card_value = get_row_value(row, col_map["card"])
+                    raw_name_value = get_row_value(row, col_map["name"])
 
                     # Alum Rock Community Centre workbook has grouped rows.
                     # Session/date/time appear once at the top, then following participant rows are blank.
@@ -1227,7 +1245,6 @@ def main() -> None:
                         rows_skipped += 1
                         continue
 
-                    # raw_card_value and raw_name_value already extracted above
                     raw_emergency_name = get_row_value(row, col_map["emergency_name"])
                     raw_emergency_phone = get_row_value(row, col_map["emergency_phone"])
                     raw_risk = get_row_value(row, col_map["risk"])
