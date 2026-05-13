@@ -1159,6 +1159,38 @@ def main() -> None:
                         current_end_time = make_end_time(parsed_start_time)
                         current_raw_time = raw_time_text
 
+                    # Diagnostic: if date is present but time is missing, for the first 20 occurrences per sheet
+                    if current_date is not None and current_start_time is None:
+                        # Use a per-sheet counter stored in sessions_reused_by_month keys area; use a local debug counter
+                        debug_key = f"_debug_missing_time_{source_sheet_name}"
+                        if debug_key not in locals():
+                            locals()[debug_key] = 0
+                        if locals()[debug_key] < 20:
+                            # collect non-empty cells for this row and previous row
+                            row_vals = []
+                            prev_vals = []
+                            for col_index, col_name in enumerate(df.columns, start=1):
+                                v = get_row_value(row, col_name)
+                                if v is None and ws is not None:
+                                    v = get_cell_value_from_ws(ws, source_row, col_index)
+                                if v is not None:
+                                    row_vals.append((col_index, col_name, v))
+
+                                # previous row
+                                prev_row_idx = max(1, source_row - 1)
+                                pv = None
+                                if ws is not None:
+                                    pv = get_cell_value_from_ws(ws, prev_row_idx, col_index)
+                                if pv is not None:
+                                    prev_vals.append((col_index, col_name, pv))
+
+                            print("DEBUG missing time context:")
+                            print(f"Sheet={source_sheet_name} Row={source_row}")
+                            print(f"CurrentDate={current_date} CurrentTime={current_start_time}")
+                            print("Row values:", ", ".join([f"{chr(64+c)}{source_row}={v}" for c,_,v in row_vals]))
+                            print("Previous row values:", ", ".join([f"{chr(64+c)}{source_row-1}={v}" for c,_,v in prev_vals]))
+                            locals()[debug_key] += 1
+
                     activity_name = sheet_activity_name
                     session_date = current_date
                     day_of_week = normalise_day(current_day, session_date)
@@ -1167,11 +1199,15 @@ def main() -> None:
                     end_time = current_end_time
                     raw_time_for_notes = current_raw_time
 
-                    # Extract raw row-level member fields early so skip logs include them
-                    raw_card_value = get_row_value(row, col_map["card"])
-                    raw_name_value = get_row_value(row, col_map["name"])
+                    # raw_card_value and raw_name_value were extracted earlier
 
                     if not activity_name or not session_date or not start_time or not end_time:
+                        # If the row is completely blank (no card, no name, no time/session), don't spam logs
+                        if not raw_card_value and not raw_name_value and not raw_session and not raw_time_text:
+                            rows_skipped += 1
+                            rows_skipped_missing_carried_datetime += 1
+                            continue
+
                         rows_skipped += 1
                         rows_skipped_missing_carried_datetime += 1
                         print(
