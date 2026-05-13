@@ -1090,6 +1090,10 @@ def main() -> None:
                     end_time = current_end_time
                     raw_time_for_notes = current_raw_time
 
+                    # Extract raw row-level member fields early so skip logs include them
+                    raw_card_value = get_row_value(row, col_map["card"])
+                    raw_name_value = get_row_value(row, col_map["name"])
+
                     if not activity_name or not session_date or not start_time or not end_time:
                         rows_skipped += 1
                         rows_skipped_missing_carried_datetime += 1
@@ -1100,8 +1104,8 @@ def main() -> None:
                             f"RawSession={raw_session}",
                             f"CurrentDate={session_date}",
                             f"CurrentTime={start_time}",
-                            f"Card={card_number if 'card_number' in locals() else None}",
-                            f"Name={(member_name if 'member_name' in locals() else None)}",
+                            f"RawCard={clean_text(raw_card_value)}",
+                            f"RawName={clean_text(raw_name_value)}",
                         )
                         continue
 
@@ -1110,8 +1114,7 @@ def main() -> None:
                         rows_skipped += 1
                         continue
 
-                    raw_card_value = get_row_value(row, col_map["card"])
-                    raw_name_value = get_row_value(row, col_map["name"])
+                    # raw_card_value and raw_name_value already extracted above
                     raw_emergency_name = get_row_value(row, col_map["emergency_name"])
                     raw_emergency_phone = get_row_value(row, col_map["emergency_phone"])
                     raw_risk = get_row_value(row, col_map["risk"])
