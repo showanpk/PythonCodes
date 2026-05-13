@@ -10,6 +10,7 @@ from collections import defaultdict
 
 import pandas as pd
 import pyodbc
+import openpyxl
 
 
 # ============================================================
@@ -50,6 +51,12 @@ DEFAULT_ACTIVITY_CATEGORY = "Fitness"
 # Alum Rock Community Centre register usually has start time only, not end time.
 # This creates EndTime automatically.
 DEFAULT_SESSION_DURATION_MINUTES = 60
+
+# Per-sheet default session start times (use only when no time can be detected)
+DEFAULT_SESSION_TIMES_BY_SHEET: dict[str, str] = {
+    # "Chair Based": "10:00",
+    # "Walk & Talk": "10:00",
+}
 
 TEXT_NULLS = {
     "",
@@ -259,7 +266,23 @@ def parse_single_time(value: Any) -> Optional[str]:
     # Replace dots between digits with colon (e.g. 12.15 -> 12:15)
     text = re.sub(r"(?<=\d)\.(?=\d)", ":", text)
 
-    # Remove spaces to normalize variants like '12:15 pm' -> '12:15pm'
+    # Collapse multiple spaces
+    text = re.sub(r"\s+", " ", text)
+
+    # If the text contains a range like '09:30 - 10:30' or '9.30 to 10.30', take the first part
+    range_match = re.search(r"(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)[\s-–to]{1,6}(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)", text)
+    if range_match:
+        text = range_match.group(1)
+
+    # Sometimes time is embedded after text like 'Session 1 - 09.30' or 'Chair Exercise 09:30'
+    embedded = re.search(r"(\d{1,2}[:\.]?\d{0,2}\s*(?:am|pm)?)", text)
+    if embedded:
+        text = embedded.group(1)
+
+    # Remove trailing/leading non-digit characters
+    text = text.strip(" -–")
+
+    # Remove spaces around am/pm (e.g. '9 am' -> '9am')
     text = text.replace(" ", "")
 
     suffix = None
@@ -270,11 +293,12 @@ def parse_single_time(value: Any) -> Optional[str]:
         suffix = "pm"
         text = text[:-2]
 
-    # Handles 1230 as 12:30 and 930 as 9:30.
-    if ":" not in text and len(text) == 4 and text.isdigit():
-        text = f"{text[:2]}:{text[2:]}"
-    elif ":" not in text and len(text) == 3 and text.isdigit():
-        text = f"{text[0]}:{text[1:]}"
+    # Handles '1230' or '930'
+    if ":" not in text and text.isdigit():
+        if len(text) == 4:
+            text = f"{text[:2]}:{text[2:]}"
+        elif len(text) == 3:
+            text = f"{text[0]}:{text[1:]}"
 
     match = re.match(r"^(\d{1,2})(?::(\d{1,2}))?$", text)
 
@@ -355,6 +379,26 @@ def get_row_value(row: pd.Series, column_name: Optional[str]) -> Optional[Any]:
         return None
 
     return row[column_name]
+
+
+def get_cell_value_from_ws(ws: "openpyxl.worksheet.worksheet.Worksheet", row: int, col: int) -> Optional[Any]:
+    # Return the cell value, falling back to merged cell top-left if needed.
+    try:
+        cell = ws.cell(row=row, column=col)
+    except Exception:
+        return None
+
+    if cell.value is not None:
+        return cell.value
+
+    # If empty, check merged ranges to see if this cell is inside one
+    for merged in ws.merged_cells.ranges:
+        if (row, col) in merged:
+            # top-left of merged range
+            min_row, min_col = merged.min_row, merged.min_col
+            return ws.cell(row=min_row, column=min_col).value
+
+    return None
 
 
 # ============================================================
@@ -966,6 +1010,8 @@ def main() -> None:
     created_at = datetime.now(timezone.utc).replace(microsecond=0, tzinfo=None)
 
     excel = pd.ExcelFile(INPUT_FILE)
+    # Also open with openpyxl (data_only) for merged-cell lookup and richer cell inspection
+    workbook = openpyxl.load_workbook(INPUT_FILE, data_only=True)
 
     sessions_created = 0
     sessions_reused = 0
@@ -1031,6 +1077,12 @@ def main() -> None:
                     header=0,
                     dtype=object,
                 )
+
+                # worksheet for merged-cell lookups
+                try:
+                    ws = workbook[sheet_name]
+                except Exception:
+                    ws = None
 
                 if df.empty:
                     continue
