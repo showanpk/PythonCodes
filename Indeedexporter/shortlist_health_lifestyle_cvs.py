@@ -1,13 +1,28 @@
 import re
 import sys
 import unicodedata
+from datetime import datetime
 from pathlib import Path
 from typing import Any
+from xml.sax.saxutils import escape
 
 import pandas as pd
 from docx import Document
 from openpyxl.styles import Alignment, Font, PatternFill
 from pypdf import PdfReader
+from reportlab.lib import colors
+from reportlab.lib.enums import TA_CENTER
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.units import mm
+from reportlab.platypus import (
+    PageBreak,
+    Paragraph,
+    SimpleDocTemplate,
+    Spacer,
+    Table,
+    TableStyle,
+)
 from striprtf.striprtf import rtf_to_text
 
 
@@ -27,6 +42,7 @@ RESULTS_FOLDER = CV_FOLDER.parent
 
 OUTPUT_EXCEL = RESULTS_FOLDER / "Health_Lifestyle_CV_Shortlist.xlsx"
 OUTPUT_CSV = RESULTS_FOLDER / "Health_Lifestyle_All_Candidates.csv"
+OUTPUT_PDF = RESULTS_FOLDER / "Health_Lifestyle_CV_Shortlist.pdf"
 
 SUPPORTED_EXTENSIONS = {
     ".pdf",
@@ -725,6 +741,377 @@ def format_worksheet(worksheet) -> None:
 
 
 # =========================================================
+# PDF FORMATTING
+# =========================================================
+
+def pdf_text(value: Any, empty_text: str = "Not provided") -> str:
+    if value is None:
+        return empty_text
+
+    try:
+        if pd.isna(value):
+            return empty_text
+    except (TypeError, ValueError):
+        pass
+
+    text = str(value).strip()
+
+    if not text:
+        return empty_text
+
+    text = "".join(
+        character
+        if character in "\n\t" or ord(character) >= 32
+        else " "
+        for character in text
+    )
+
+    return escape(text).replace("\n", "<br/>")
+
+
+def add_pdf_footer(canvas, document) -> None:
+    canvas.saveState()
+    canvas.setStrokeColor(colors.HexColor("#D9EAD3"))
+    canvas.line(
+        document.leftMargin,
+        13 * mm,
+        A4[0] - document.rightMargin,
+        13 * mm,
+    )
+    canvas.setFillColor(colors.HexColor("#5F6368"))
+    canvas.setFont("Helvetica", 8)
+    canvas.drawString(
+        document.leftMargin,
+        8 * mm,
+        "Health and Lifestyle Coordinator CV Shortlist",
+    )
+    canvas.drawRightString(
+        A4[0] - document.rightMargin,
+        8 * mm,
+        f"Page {canvas.getPageNumber()}",
+    )
+    canvas.restoreState()
+
+
+def create_shortlist_pdf(
+    top_candidates: pd.DataFrame,
+    output_path: Path,
+) -> None:
+    styles = getSampleStyleSheet()
+
+    title_style = ParagraphStyle(
+        "ShortlistTitle",
+        parent=styles["Title"],
+        fontName="Helvetica-Bold",
+        fontSize=20,
+        leading=24,
+        alignment=TA_CENTER,
+        textColor=colors.HexColor("#1F4E3D"),
+        spaceAfter=5 * mm,
+    )
+
+    subtitle_style = ParagraphStyle(
+        "ShortlistSubtitle",
+        parent=styles["Normal"],
+        fontSize=10,
+        leading=14,
+        alignment=TA_CENTER,
+        textColor=colors.HexColor("#5F6368"),
+        spaceAfter=7 * mm,
+    )
+
+    candidate_heading_style = ParagraphStyle(
+        "CandidateHeading",
+        parent=styles["Heading1"],
+        fontName="Helvetica-Bold",
+        fontSize=16,
+        leading=20,
+        textColor=colors.HexColor("#1F4E3D"),
+        spaceAfter=5 * mm,
+    )
+
+    body_style = ParagraphStyle(
+        "ShortlistBody",
+        parent=styles["BodyText"],
+        fontSize=9,
+        leading=13,
+        textColor=colors.HexColor("#202124"),
+    )
+
+    table_header_style = ParagraphStyle(
+        "ShortlistTableHeader",
+        parent=body_style,
+        fontName="Helvetica-Bold",
+        textColor=colors.white,
+        alignment=TA_CENTER,
+    )
+
+    label_style = ParagraphStyle(
+        "ShortlistLabel",
+        parent=body_style,
+        fontName="Helvetica-Bold",
+        textColor=colors.HexColor("#1F4E3D"),
+    )
+
+    document = SimpleDocTemplate(
+        str(output_path),
+        pagesize=A4,
+        rightMargin=16 * mm,
+        leftMargin=16 * mm,
+        topMargin=16 * mm,
+        bottomMargin=20 * mm,
+        title="Health and Lifestyle Coordinator CV Shortlist",
+        author="Saheli Hub",
+    )
+
+    story = [
+        Paragraph(
+            "Health and Lifestyle Coordinator",
+            title_style,
+        ),
+        Paragraph(
+            "CV Shortlist",
+            title_style,
+        ),
+        Paragraph(
+            (
+                f"Top {len(top_candidates)} candidates - "
+                f"created {datetime.now():%d %B %Y at %H:%M}"
+            ),
+            subtitle_style,
+        ),
+    ]
+
+    summary_data = [
+        [
+            Paragraph("Rank", table_header_style),
+            Paragraph("Candidate", table_header_style),
+            Paragraph("Score", table_header_style),
+            Paragraph("Essential criteria", table_header_style),
+        ]
+    ]
+
+    for _, candidate in top_candidates.iterrows():
+        essential_result = (
+            f"{int(candidate['Essential Criteria Met'])} of "
+            f"{int(candidate['Essential Criteria Total'])}"
+        )
+
+        summary_data.append(
+            [
+                Paragraph(
+                    pdf_text(candidate["Review Rank"]),
+                    body_style,
+                ),
+                Paragraph(
+                    pdf_text(candidate["Candidate"]),
+                    body_style,
+                ),
+                Paragraph(
+                    f"{float(candidate['Overall Score']):.2f}",
+                    body_style,
+                ),
+                Paragraph(
+                    essential_result,
+                    body_style,
+                ),
+            ]
+        )
+
+    summary_table = Table(
+        summary_data,
+        colWidths=[
+            16 * mm,
+            86 * mm,
+            25 * mm,
+            51 * mm,
+        ],
+        repeatRows=1,
+        hAlign="LEFT",
+    )
+
+    summary_table.setStyle(
+        TableStyle(
+            [
+                (
+                    "BACKGROUND",
+                    (0, 0),
+                    (-1, 0),
+                    colors.HexColor("#1F4E3D"),
+                ),
+                ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                (
+                    "GRID",
+                    (0, 0),
+                    (-1, -1),
+                    0.4,
+                    colors.HexColor("#C9D8D0"),
+                ),
+                (
+                    "ROWBACKGROUNDS",
+                    (0, 1),
+                    (-1, -1),
+                    [
+                        colors.white,
+                        colors.HexColor("#F4F8F6"),
+                    ],
+                ),
+                ("LEFTPADDING", (0, 0), (-1, -1), 6),
+                ("RIGHTPADDING", (0, 0), (-1, -1), 6),
+                ("TOPPADDING", (0, 0), (-1, -1), 6),
+                ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
+            ]
+        )
+    )
+
+    story.extend(
+        [
+            summary_table,
+            Spacer(1, 6 * mm),
+            Paragraph(
+                (
+                    "This automated review supports shortlisting only. "
+                    "Check the original CV and interview evidence before "
+                    "making a recruitment decision."
+                ),
+                body_style,
+            ),
+        ]
+    )
+
+    for candidate_number, (_, candidate) in enumerate(
+        top_candidates.iterrows(),
+        start=1,
+    ):
+        story.append(PageBreak())
+
+        rank = int(candidate["Review Rank"])
+        candidate_name = pdf_text(candidate["Candidate"])
+
+        story.append(
+            Paragraph(
+                f"#{rank} - {candidate_name}",
+                candidate_heading_style,
+            )
+        )
+
+        essential_result = (
+            f"{int(candidate['Essential Criteria Met'])} of "
+            f"{int(candidate['Essential Criteria Total'])} met"
+        )
+
+        strong_evidence = pdf_text(
+            candidate["Strong Evidence"],
+            "No strong evidence was extracted.",
+        ).replace(" || ", "<br/><br/>- ")
+
+        if strong_evidence != "No strong evidence was extracted.":
+            strong_evidence = f"- {strong_evidence}"
+
+        details_data = [
+            [
+                Paragraph("Overall score", label_style),
+                Paragraph(
+                    (
+                        f"{float(candidate['Overall Score']):.2f} "
+                        "out of 100"
+                    ),
+                    body_style,
+                ),
+            ],
+            [
+                Paragraph("Essential criteria", label_style),
+                Paragraph(essential_result, body_style),
+            ],
+            [
+                Paragraph("Original CV file", label_style),
+                Paragraph(
+                    pdf_text(candidate["CV File"]),
+                    body_style,
+                ),
+            ],
+            [
+                Paragraph("Essential gaps", label_style),
+                Paragraph(
+                    pdf_text(
+                        candidate["Essential Gaps"],
+                        "No essential gaps detected.",
+                    ),
+                    body_style,
+                ),
+            ],
+            [
+                Paragraph("Strong evidence", label_style),
+                Paragraph(strong_evidence, body_style),
+            ],
+            [
+                Paragraph("Review notes", label_style),
+                Paragraph(
+                    pdf_text(
+                        candidate["Extraction or Review Notes"],
+                        "No extraction or review notes.",
+                    ),
+                    body_style,
+                ),
+            ],
+        ]
+
+        details_table = Table(
+            details_data,
+            colWidths=[
+                42 * mm,
+                136 * mm,
+            ],
+            hAlign="LEFT",
+        )
+
+        details_table.setStyle(
+            TableStyle(
+                [
+                    (
+                        "BACKGROUND",
+                        (0, 0),
+                        (0, -1),
+                        colors.HexColor("#EAF2EE"),
+                    ),
+                    ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                    (
+                        "GRID",
+                        (0, 0),
+                        (-1, -1),
+                        0.4,
+                        colors.HexColor("#C9D8D0"),
+                    ),
+                    ("LEFTPADDING", (0, 0), (-1, -1), 7),
+                    ("RIGHTPADDING", (0, 0), (-1, -1), 7),
+                    ("TOPPADDING", (0, 0), (-1, -1), 7),
+                    ("BOTTOMPADDING", (0, 0), (-1, -1), 7),
+                ]
+            )
+        )
+
+        story.append(details_table)
+
+        if candidate_number == len(top_candidates):
+            story.append(Spacer(1, 4 * mm))
+            story.append(
+                Paragraph(
+                    (
+                        "End of shortlist. Retain this report securely "
+                        "because it contains candidate information."
+                    ),
+                    body_style,
+                )
+            )
+
+    document.build(
+        story,
+        onFirstPage=add_pdf_footer,
+        onLaterPages=add_pdf_footer,
+    )
+
+
+# =========================================================
 # REPORT CREATION
 # =========================================================
 
@@ -834,6 +1221,11 @@ def create_reports(
         for worksheet in writer.book.worksheets:
             format_worksheet(worksheet)
 
+    create_shortlist_pdf(
+        top_candidates,
+        OUTPUT_PDF,
+    )
+
 
 # =========================================================
 # MAIN
@@ -917,6 +1309,7 @@ def main() -> None:
     print(f"Candidates reviewed: {len(results)}")
     print(f"Excel report: {OUTPUT_EXCEL}")
     print(f"CSV report: {OUTPUT_CSV}")
+    print(f"PDF shortlist: {OUTPUT_PDF}")
     print()
     print(
         "Important: Review the original CVs and interview evidence "
