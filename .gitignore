@@ -1,3 +1,13 @@
 .venv/
 __pycache__/
 *.pyc
+
+# Excel files
+*.xlsx
+*.xls
+*.xlsm
+
+# Excel temporary/lock files
+~$*.xlsx
+~$*.xls
+~$*.xlsm
