@@ -1,0 +1,863 @@
+﻿Action,Date,Venue,Activity,SourceFile,SourceSheet,SourceSessionRef,SessionId,SourceCard,SourceRawIdentity,SourceName,MemberRef,Detail
+REVIEW_SOURCE_CARD_NAME_CONFLICT,,,Tennis,multiple,,,,,,,,"card 484 names=['Saffiyah', 'Shukriya Aabdulkerim']"
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-05|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-06|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-11|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-12|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-18|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-20|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-25|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-26,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-26|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-27|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-06-29,Ward End Park,Tennis,Tennis Register 2024.xlsx,Tennis,2024-06-29|Ward End Park,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-07-30,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-07-30|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-08-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-08-01|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-09-10,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-09-10|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-09-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-09-12|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-09-17,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-09-17|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-09-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-09-24|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-09-24,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-09-24|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-01,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-01|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-08|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-08,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-08|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-10|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-15,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-15|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-17|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-22|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-10-29,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-10-29|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-11-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-11-12|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-11-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-11-14|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-11-21,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2024.xlsx,Tennis,2024-11-21|Calthorpe Wellbeing Hub,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-12-12,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-12-12|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REVIEW_2024_SESSION_TIME_MISSING,2024-12-19,Handsworth,Tennis,Tennis Register 2024.xlsx,Tennis,2024-12-19|Handsworth,,,,,,2024 source has no time and CRM has no Tennis session for this venue/date; refusing to invent time
+REUSE_SESSION,2025-12-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-02|11:00:00|Handsworth,1129,,,,,SessionId=1129; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2025-12-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-02|11:00:00|Handsworth,1129,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-02|11:00:00|Handsworth,1129,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-02|11:00:00|Handsworth,1129,,Shamila,Shamila,LITE:5e88b0f6-d306-4299-a6a6-518bc29a0a2a,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-02|11:00:00|Handsworth,1129,841,841,Adama,FULL:5317,REUSE_FULL_BY_CARD
+REUSE_SESSION,2025-12-03,Heathmount,Tennis,Tennis Register 2025 (2).xlsx,Heathmount,2025-12-03|09:15:00|Heathmount,1167,,,,,SessionId=1167; CRM time=09:15:00-10:15:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2025-12-03,Heathmount,Tennis,Tennis Register 2025 (2).xlsx,Heathmount,2025-12-03|09:15:00|Heathmount,1167,,,,,session has no valid attendee rows
+REUSE_SESSION,2025-12-03,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-03|10:45:00|Wardend,1144,,,,,SessionId=1144; CRM time=10:45:00-12:45:00
+CREATE_ATTENDANCE,2025-12-03,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-03|10:45:00|Wardend,1144,,Shabana Khalid,Shabana Khalid,LITE:bbd39e7e-18ab-4667-94ec-3703dd660a22,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-03,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-03|10:45:00|Wardend,1144,,Iffat Shaheen,Iffat Shaheen,LITE:35d5e37c-0258-4ae3-aed3-f2b20782a6ec,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-03,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-03|10:45:00|Wardend,1144,,Shasmeen Imran,Shasmeen Imran,LITE:05a33f7f-e299-442c-828f-c3d2135636cd,CREATE_LITE
+REVIEW_AMBIGUOUS_LITE_NAME,2025-12-03,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-03|10:45:00|Wardend,,,Naseem Akhtar,Naseem Akhtar,,"LITE-185[dob=1984-02-28,postcode=B129PY] | LITE-772[dob=1943-05-07,postcode=-]"
+REUSE_SESSION,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,,,,,SessionId=1676; CRM time=12:00:00-13:00:00
+SKIP_EXISTING_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,705,705,sheila cain,FULL:5058,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,602,602,khiran nissa chaudhry,FULL:5001,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,384,384,Yuk Chun Lam,FULL:5204,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,511,511,,FULL:9691,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,691,691,Catherine Charlery,FULL:4908,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2025-12-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-05|12:00:00|Calthorpe,1676,707,707,Christine Inniss,FULL:5061,REUSE_FULL_BY_CARD
+REUSE_SESSION,2025-12-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-06|10:00:00|Wardend,1145,,,,,SessionId=1145; CRM time=10:00:00-12:00:00
+CREATE_ATTENDANCE,2025-12-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-06|10:00:00|Wardend,1145,,Jaweria Malik,Jaweria Malik,LITE:08bfe739-5153-450c-9797-d3dafb1cf83b,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-06|10:00:00|Wardend,1145,,Aisha Malik,Aisha Malik,LITE:04812379-19ef-4804-92bc-ad2eb2da9aba,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-06|10:00:00|Wardend,1145,,Iffat Shaheen,Iffat Shaheen,LITE:35d5e37c-0258-4ae3-aed3-f2b20782a6ec,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2025-12-06|10:00:00|Wardend,1145,,Noreen,Noreen,LITE:b8e5979d-4da0-49f5-893a-3e3dbe262a20,CREATE_LITE
+REUSE_SESSION,2025-12-09,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-09|11:00:00|Handsworth,1130,,,,,SessionId=1130; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2025-12-09,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-09|11:00:00|Handsworth,1130,841,841,Adama,FULL:5317,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-09,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-09|11:00:00|Handsworth,1130,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-09,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-09|11:00:00|Handsworth,1130,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-09,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-09|11:00:00|Handsworth,1130,,Shamila,Shamila,LITE:5e88b0f6-d306-4299-a6a6-518bc29a0a2a,CREATE_LITE
+REUSE_SESSION,2025-12-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-10|16:00:00|Calthorpe,1037,,,,,SessionId=1037; CRM time=16:00:00-17:00:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2025-12-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-10|16:00:00|Calthorpe,1037,,,,,session has no valid attendee rows
+REUSE_SESSION,2025-12-10,Heathmount,Tennis,Tennis Register 2025 (2).xlsx,Heathmount,2025-12-10|09:15:00|Heathmount,1168,,,,,SessionId=1168; CRM time=09:15:00-10:15:00
+SOURCE_CANCELLED_SESSION,2025-12-10,Heathmount,Tennis,Tennis Register 2025 (2).xlsx,Heathmount,2025-12-10|09:15:00|Heathmount,1168,,,,,cancelled
+REUSE_SESSION,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,,,,SessionId=1151; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Aqsa Hamza,Aqsa Hamza,LITE:8A8E46D9-7A02-4023-B935-6D46A081E8F2,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Fatima Younas,Fatima Younas,LITE:45b34c29-985b-4aac-8ab8-8c14972027fb,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,523,Nuha Aied Eisa Mohamed,Nuha Aied Eisa Mohamed,FULL:5275,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Nalia Bi,Nalia Bi,LITE:27d78913-adab-42b7-af2f-97eeaf91f532,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Nabeela Kasir,Nabeela Kasir,LITE:87e278f1-f247-44e7-90a9-339388ca47d5,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-11|10:00:00|Parkfield,1151,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+REUSE_SESSION,2025-12-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-12|12:00:00|Calthorpe,1678,,,,,SessionId=1678; CRM time=12:00:00-13:00:00
+SKIP_EXISTING_ATTENDANCE,2025-12-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-12|12:00:00|Calthorpe,1678,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2025-12-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-12|12:00:00|Calthorpe,1678,411,411,Zeenat Hussein,FULL:4331,REUSE_FULL_BY_CARD
+REUSE_SESSION,2025-12-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-16|16:00:00|Calthorpe,1039,,,,,SessionId=1039; CRM time=16:00:00-17:00:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2025-12-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2025-12-16|16:00:00|Calthorpe,1039,,,,,session has no valid attendee rows
+REUSE_SESSION,2025-12-16,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-16|11:00:00|Handsworth,1131,,,,,SessionId=1131; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2025-12-16,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-16|11:00:00|Handsworth,1131,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-16,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2025-12-16|11:00:00|Handsworth,1131,,Reina Begum,Reina Begum,LITE:1c35280c-0618-49e9-ab58-4105d73f5ccc,CREATE_LITE
+REUSE_SESSION,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,,,,SessionId=1152; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Aqsa Hamza,Aqsa Hamza,LITE:8A8E46D9-7A02-4023-B935-6D46A081E8F2,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Fatima Younas,Fatima Younas,LITE:45b34c29-985b-4aac-8ab8-8c14972027fb,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,523,Nuha Aied Eisa Mohamed,Nuha Aied Eisa Mohamed,FULL:5275,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Nalia Bi,Nalia Bi,LITE:27d78913-adab-42b7-af2f-97eeaf91f532,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Nabeela Kasir (new to tennis),Nabeela Kasir (new to tennis),LITE:87e278f1-f247-44e7-90a9-339388ca47d5,CREATE_LITE
+CREATE_ATTENDANCE,2025-12-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2025-12-18|10:00:00|Parkfield,1152,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+REUSE_SESSION,2026-01-13,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-13|11:00:00|Handsworth,1132,,,,,SessionId=1132; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-01-13,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-13|11:00:00|Handsworth,1132,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-13,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-13|11:00:00|Handsworth,1132,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-13,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-13|11:00:00|Handsworth,1132,841,841,Adama,FULL:5317,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,,,,,SessionId=1681; CRM time=12:15:00-13:15:00
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,1236,1236,Faiza Musa,FULL:4942,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,824,824,,FULL:5288,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,441,441,Monica Clemenson,FULL:4369,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,691,691,Catherine Charlery,FULL:4908,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,681,681,Yan Mei,FULL:4935,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,,nasra hashi,nasra hashi,LITE:a940d89b-4d47-49ef-8607-b52602198f6a,CREATE_LITE
+SKIP_EXISTING_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|12:15:00|Calthorpe,1681,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|16:00:00|Calthorpe,1680,,,,,SessionId=1680; CRM time=16:00:00-17:00:00
+CREATE_ATTENDANCE,2026-01-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-14|16:00:00|Calthorpe,1680,996,Yaz Saleh,Yaz Saleh,FULL:5137,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,,,,,SessionId=1153; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,,Nemat Hamid,Nemat Hamid,LITE:b42ddc38-0c85-4c59-b200-6b4ae8f1f7b1,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-15,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-15|10:00:00|Parkfield,1153,523,Nuha Aied Eisa Mohamed (523),Nuha Aied Eisa Mohamed,FULL:5275,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,,,,,SessionId=1682; CRM time=11:30:00-12:30:00
+SKIP_EXISTING_ATTENDANCE,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,742,742,Khalda Begum,FULL:5114,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,797,797,,FULL:5298,REUSE_FULL_BY_CARD
+REVIEW_SUSPICIOUS_CARD_WITHOUT_NAME,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,,2253606,2253606,,,source card/value=2253606; not in CRM; no usable source name
+CREATE_ATTENDANCE,2026-01-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-16|11:30:00|Calthorpe,1682,,Fatima,Fatima,LITE:27b6d563-3174-46c5-a0d2-8bbda4d98d56,CREATE_LITE
+REUSE_SESSION,2026-01-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-20|16:00:00|Calthorpe,1043,,,,,SessionId=1043; CRM time=16:00:00-17:00:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2026-01-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-20|16:00:00|Calthorpe,1043,,,,,session has no valid attendee rows
+REUSE_SESSION,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,,,,,SessionId=1133; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,841,841,Adama,FULL:5317,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,842,842,Aasia,FULL:5318,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,,newart?,newart?,LITE:d8ba4269-dcdb-4df0-a6dc-e66ef97a1ceb,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-20|11:00:00|Handsworth,1133,843,Imrana (843),Imrana,FULL:5316,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,,,,SessionId=1169; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,F.N,F.N,LITE:956d2cd9-8628-4b87-88c3-4bf9b5c8a6fd,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,IFN,IFN,LITE:ccbdb5f2-61a0-4911-9868-0dfaf3972a49,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,MEL,MEL,LITE:6329b984-f82f-43d4-956b-359c36a06794,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,S.S,S.S,LITE:3cda4d7c-02d8-41de-b9bd-a6dcc2398010,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-20,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-20|14:10:00|St Albans,1169,,Y.U,Y.U,LITE:ba3cf180-5afb-4671-bec7-226a67759c6e,CREATE_LITE
+REUSE_SESSION,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,,,,,SessionId=1154; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,523,Nuha Aied Eisa Mohamed (523),Nuha Aied Eisa Mohamed,FULL:5275,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,,Nemat Hamid,Nemat Hamid,LITE:b42ddc38-0c85-4c59-b200-6b4ae8f1f7b1,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-22,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-22|10:00:00|Parkfield,1154,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+REUSE_SESSION,2026-01-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-27|16:00:00|Calthorpe,1044,,,,,SessionId=1044; CRM time=16:00:00-17:00:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2026-01-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-27|16:00:00|Calthorpe,1044,,,,,session has no valid attendee rows
+REUSE_SESSION,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,,,,,SessionId=1134; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,842,Aasia (842),Aasia,FULL:5318,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,841,841,Adama,FULL:5317,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-27,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-01-27|11:00:00|Handsworth,1134,543,Zaib Unnisa,Zaib Unnisa,FULL:5329,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,,,,SessionId=1170; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,A.K,A.K,LITE:94d0b25e-2dc6-451b-a6dc-1dec1dd41a5d,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-27,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-01-27|14:10:00|St Albans,1170,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,CREATE_LITE
+REUSE_SESSION,2026-01-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-28|12:15:00|Calthorpe,1685,,,,,SessionId=1685; CRM time=12:15:00-13:15:00
+SKIP_EXISTING_ATTENDANCE,2026-01-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-28|12:15:00|Calthorpe,1685,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-28|12:15:00|Calthorpe,1685,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-01-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-28|12:15:00|Calthorpe,1685,742,742,Khalda Begum,FULL:5114,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,,,,SessionId=1155; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,Nabeela Yasir,Nabeela Yasir,LITE:7f92c283-b834-464f-b1a4-0908c97da27a,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,Newmat Hamdi,Newmat Hamdi,LITE:2284328a-ee96-4837-9802-b2ba94975966,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+CREATE_ATTENDANCE,2026-01-29,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-01-29|10:00:00|Parkfield,1155,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+REUSE_SESSION,2026-01-30,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-30|12:15:00|Calthorpe,1686,,,,,SessionId=1686; CRM time=12:15:00-13:15:00
+SKIP_EXISTING_ATTENDANCE,2026-01-30,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-01-30|12:15:00|Calthorpe,1686,797,797,,FULL:5298,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-02-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-03|16:00:00|Calthorpe,1687,,,,,SessionId=1687; CRM time=16:00:00-17:00:00
+CREATE_ATTENDANCE,2026-02-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-03|16:00:00|Calthorpe,1687,,elizabeth,elizabeth,LITE:a955b716-0080-456d-99f4-f40e0b5680f0,CREATE_LITE
+SKIP_EXISTING_ATTENDANCE,2026-02-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-03|16:00:00|Calthorpe,1687,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-03|16:00:00|Calthorpe,1687,,Soukania,Soukania,LITE:627b26db-4393-4956-98f0-c6a4584db395,CREATE_LITE
+REUSE_SESSION,2026-02-03,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-03|11:00:00|Handsworth,1135,,,,,SessionId=1135; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-02-03,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-03|11:00:00|Handsworth,1135,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-03,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-03|11:00:00|Handsworth,1135,842,Aasia (842),Aasia,FULL:5318,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-03,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-03|11:00:00|Handsworth,1135,841,Adama (841),Adama,FULL:5317,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-03,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-03|11:00:00|Handsworth,1135,543,Zaib Unnisa (543),Zaib Unnisa,FULL:5329,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-02-04,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-04|09:30:00|Wardend,1146,,,,,SessionId=1146; CRM time=09:30:00-11:30:00
+CREATE_ATTENDANCE,2026-02-04,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-04|09:30:00|Wardend,1146,,Iffat Shaheen,Iffat Shaheen,LITE:35d5e37c-0258-4ae3-aed3-f2b20782a6ec,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-04,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-04|09:30:00|Wardend,1146,,Shabana Khalid,Shabana Khalid,LITE:bbd39e7e-18ab-4667-94ec-3703dd660a22,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-04,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-04|09:30:00|Wardend,1146,,Mahria,Mahria,LITE:10aab5e5-b067-43bc-9d87-59594da26700,CREATE_LITE
+REUSE_SESSION,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,,,,,SessionId=1156; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-05|10:00:00|Parkfield,1156,,Nabeela Kasir,Nabeela Kasir,LITE:87e278f1-f247-44e7-90a9-339388ca47d5,CREATE_LITE
+REUSE_SESSION,2026-02-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-06|11:30:00|Calthorpe,1688,,,,,SessionId=1688; CRM time=11:30:00-12:30:00
+SKIP_EXISTING_ATTENDANCE,2026-02-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-06|11:30:00|Calthorpe,1688,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-06|11:30:00|Calthorpe,1688,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-02-07,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-07|10:00:00|Wardend,1147,,,,,SessionId=1147; CRM time=10:00:00-12:00:00
+CREATE_ATTENDANCE,2026-02-07,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-07|10:00:00|Wardend,1147,,Saidia,Saidia,LITE:12ab5dfa-c79a-4cba-96cc-432f1a8a27a2,CREATE_LITE
+REUSE_SESSION,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,,,,,SessionId=1689; CRM time=16:00:00-17:00:00
+CREATE_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,,majuha,majuha,LITE:4234acd6-2753-403e-86f9-2acc41cb6b7c,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,,zeinab ali,zeinab ali,LITE:d2080982-899e-4ff6-8d66-a071a6c5e511,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,676,676,Elizabeth Douglis,FULL:4885,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,625,625,Zaida Rahman,FULL:5013,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,703,703,Romna Eusuf,FULL:5054,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,704,704,Lorraine Blake,FULL:5055,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,717,717,Kalsoom Bibi,FULL:5079,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-10|16:00:00|Calthorpe,1689,,ronnie,ronnie,LITE:F6E5AE6B-03D6-4D22-8CBE-9300B4182A37,REUSE_LITE_BY_EXACT_NAME
+REUSE_SESSION,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,,,,,SessionId=1136; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,842,Aasia (842),Aasia,FULL:5318,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,543,Zaib Unnisa (543),Zaib Unnisa,FULL:5329,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,,Hussna Iqbal,Hussna Iqbal,LITE:5c0ad183-669f-4cc8-8be3-15ea9791a6e9,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,841,Adama (841),Adama,FULL:5317,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,,Shemila,Shemila,LITE:5177b9af-0200-402d-b1e7-208defc03838,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,,Rattie,Rattie,LITE:58150486-366c-4aaa-a4d8-2f0acc29db48,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-10,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-10|11:00:00|Handsworth,1136,,Reina Begum,Reina Begum,LITE:1c35280c-0618-49e9-ab58-4105d73f5ccc,CREATE_LITE
+REUSE_SESSION,2026-02-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-11|12:15:00|Calthorpe,1690,,,,,SessionId=1690; CRM time=12:15:00-13:15:00
+SKIP_EXISTING_ATTENDANCE,2026-02-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-11|12:15:00|Calthorpe,1690,995,995,May Mei Kam Kwok,FULL:5136,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-11|12:15:00|Calthorpe,1690,604,604,Blossom Smith,FULL:4998,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-02-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-11|12:15:00|Calthorpe,1690,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-11|12:15:00|Calthorpe,1690,613,613,Murium Ishaq,FULL:4985,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-02-11,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-11|09:30:00|Wardend,1148,,,,,SessionId=1148; CRM time=09:30:00-11:30:00
+CREATE_ATTENDANCE,2026-02-11,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-11|09:30:00|Wardend,1148,,Iffat Shaheen,Iffat Shaheen,LITE:35d5e37c-0258-4ae3-aed3-f2b20782a6ec,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-11,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-11|09:30:00|Wardend,1148,,Mahria Iqbal,Mahria Iqbal,LITE:0cfb95cc-4c30-4446-a5de-34fcc7602a79,CREATE_LITE
+REUSE_SESSION,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,,,,SessionId=1157; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,523,Nuha Aied Eisa Mohamed (523),Nuha Aied Eisa Mohamed,FULL:5275,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,Fatima Younas,Fatima Younas,LITE:45b34c29-985b-4aac-8ab8-8c14972027fb,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-12|10:00:00|Parkfield,1157,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+REUSE_SESSION,2026-02-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-13|10:30:00|Calthorpe,1691,,,,,SessionId=1691; CRM time=10:30:00-12:30:00
+SKIP_EXISTING_ATTENDANCE,2026-02-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-13|10:30:00|Calthorpe,1691,550,550,Tamanna choudhury,FULL:4667,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-13|10:30:00|Calthorpe,1691,,zeinab ali,zeinab ali,LITE:d2080982-899e-4ff6-8d66-a071a6c5e511,CREATE_LITE
+REUSE_SESSION,2026-02-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-13|16:00:00|Calthorpe,1692,,,,,SessionId=1692; CRM time=16:00:00-17:00:00
+SKIP_EXISTING_ATTENDANCE,2026-02-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-13|16:00:00|Calthorpe,1692,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-02-14,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-14|10:00:00|Wardend,15893,,,,,SessionId=15893; template=4489
+SOURCE_CANCELLED_SESSION,2026-02-14,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-02-14|10:00:00|Wardend,15893,,,,,Bad weather got cancelled
+REUSE_SESSION,2026-02-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-17|16:00:00|Calthorpe,1693,,,,,SessionId=1693; CRM time=16:00:00-17:00:00
+CREATE_ATTENDANCE,2026-02-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-17|16:00:00|Calthorpe,1693,996,yaz Saleh,yaz Saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-17|16:00:00|Calthorpe,1693,,zee,zee,LITE:d28fefd1-e4b1-4e97-a5d4-d731a495ceee,CREATE_LITE
+REUSE_SESSION,2026-02-17,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-17|11:00:00|Handsworth,1137,,,,,SessionId=1137; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-02-17,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-17|11:00:00|Handsworth,1137,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-17,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-17|11:00:00|Handsworth,1137,543,Zaib Unnisa (543),Zaib Unnisa,FULL:5329,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-17,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-17|11:00:00|Handsworth,1137,,Reina Begum,Reina Begum,LITE:1c35280c-0618-49e9-ab58-4105d73f5ccc,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-17,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-02-17|11:00:00|Handsworth,1137,,Shemila,Shemila,LITE:5177b9af-0200-402d-b1e7-208defc03838,CREATE_LITE
+CREATE_SESSION,2026-02-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-18|12:15:00|Calthorpe,15894,,,,,SessionId=15894; template=618
+CREATE_ATTENDANCE,2026-02-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-18|12:15:00|Calthorpe,15894,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-18|12:15:00|Calthorpe,15894,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-18|12:15:00|Calthorpe,15894,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-18|12:15:00|Calthorpe,15894,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-02-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-20|10:30:00|Calthorpe,15895,,,,,SessionId=15895; template=618
+CREATE_ATTENDANCE,2026-02-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-20|10:30:00|Calthorpe,15895,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-20|10:30:00|Calthorpe,15895,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-20|10:30:00|Calthorpe,15895,,zeenab ali,zeenab ali,LITE:c38d0d4a-298e-4d31-8dd7-b8c8ddcb3f5d,CREATE_LITE
+REUSE_SESSION,2026-02-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-24|16:00:00|Calthorpe,1062,,,,,SessionId=1062; CRM time=16:00:00-17:00:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2026-02-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-24|16:00:00|Calthorpe,1062,,,,,session has no valid attendee rows
+REUSE_SESSION,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,,,,SessionId=1171; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,A.K,A.K,LITE:94d0b25e-2dc6-451b-a6dc-1dec1dd41a5d,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-02-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-02-24|14:10:00|St Albans,1171,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,CREATE_LITE
+REUSE_SESSION,2026-02-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-25|12:15:00|Calthorpe,1695,,,,,SessionId=1695; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-02-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-25|12:15:00|Calthorpe,1695,,zeinab ali,zeinab ali,LITE:d2080982-899e-4ff6-8d66-a071a6c5e511,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-25|12:15:00|Calthorpe,1695,996,yaz Saleh,yaz Saleh,FULL:5137,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-02-26,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-26|10:00:00|Parkfield,1158,,,,,SessionId=1158; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-02-26,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-26|10:00:00|Parkfield,1158,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-26,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-26|10:00:00|Parkfield,1158,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-26,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-26|10:00:00|Parkfield,1158,,sandra,sandra,LITE:e42c5b7a-7744-478d-8516-4a37c2259eae,CREATE_LITE
+CREATE_ATTENDANCE,2026-02-26,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-02-26|10:00:00|Parkfield,1158,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+REUSE_SESSION,2026-02-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-27|10:30:00|Calthorpe,1696,,,,,SessionId=1696; CRM time=10:30:00-11:30:00
+SKIP_EXISTING_ATTENDANCE,2026-02-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-27|10:30:00|Calthorpe,1696,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-02-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-02-27|10:30:00|Calthorpe,1696,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,,,,SessionId=1172; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,A.K,A.K,LITE:94d0b25e-2dc6-451b-a6dc-1dec1dd41a5d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-03,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-03|14:10:00|St Albans,1172,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,REUSE_LITE_BY_EXACT_NAME
+CREATE_SESSION,2026-03-04,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-04|12:15:00|Calthorpe,15896,,,,,SessionId=15896; template=618
+CREATE_ATTENDANCE,2026-03-04,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-04|12:15:00|Calthorpe,15896,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-04,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-04|12:15:00|Calthorpe,15896,,michele (new),michele (new),LITE:87df4e4c-1994-47e9-95ca-545877201249,CREATE_LITE
+REUSE_SESSION,2026-03-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-05|10:00:00|Parkfield,1159,,,,,SessionId=1159; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-03-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-05|10:00:00|Parkfield,1159,526,Tayyaba Nazir (526),Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-05|10:00:00|Parkfield,1159,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-05|10:00:00|Parkfield,1159,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-05,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-05|10:00:00|Parkfield,1159,,rashida Ikhalq,rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_SESSION,2026-03-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-06|10:00:00|Calthorpe,15897,,,,,SessionId=15897; template=618
+CREATE_ATTENDANCE,2026-03-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-06|10:00:00|Calthorpe,15897,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-06|10:00:00|Calthorpe,15897,568,568,Mehreen Yousaf,FULL:9709,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-06|10:00:00|Calthorpe,15897,346,346,Sadia Ahmed,FULL:4511,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,,,,SessionId=1173; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,A.K,A.K,LITE:94d0b25e-2dc6-451b-a6dc-1dec1dd41a5d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-10,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-10|14:10:00|St Albans,1173,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,REUSE_LITE_BY_EXACT_NAME
+CREATE_SESSION,2026-03-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-11|10:00:00|Calthorpe,15898,,,,,SessionId=15898; template=618
+CREATE_ATTENDANCE,2026-03-11,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-11|10:00:00|Calthorpe,15898,,arcc,arcc,LITE:6e2aa25e-e3b9-4ced-a456-08bf82092118,CREATE_LITE
+REUSE_SESSION,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,,,,,SessionId=1160; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-12,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-12|10:00:00|Parkfield,1160,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+CREATE_SESSION,2026-03-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-13|10:00:00|Calthorpe,15899,,,,,SessionId=15899; template=618
+CREATE_ATTENDANCE,2026-03-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-13|10:00:00|Calthorpe,15899,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-13,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-13|10:00:00|Calthorpe,15899,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-03-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-18|10:00:00|Calthorpe,15900,,,,,SessionId=15900; template=618
+CREATE_ATTENDANCE,2026-03-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-18|10:00:00|Calthorpe,15900,411,411,Zeenat Hussein,FULL:4331,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-18|10:00:00|Calthorpe,15900,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-18|10:00:00|Calthorpe,15900,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-18,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-18|10:00:00|Calthorpe,15900,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-03-19,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-19|10:00:00|Parkfield,1161,,,,,SessionId=1161; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-03-19,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-19|10:00:00|Parkfield,1161,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-19,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-19|10:00:00|Parkfield,1161,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-19,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-19|10:00:00|Parkfield,1161,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-19,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-03-19|10:00:00|Parkfield,1161,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-03-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-20|10:00:00|Calthorpe,15901,,,,,SessionId=15901; template=618
+SOURCE_CANCELLED_SESSION,2026-03-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-20|10:00:00|Calthorpe,15901,,,,,EID
+CREATE_SESSION,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,,,,,SessionId=15902; template=618
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,,adele,adele,LITE:12135b41-cdbc-4c9f-b97c-8229042593cf,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,,zee,zee,LITE:d28fefd1-e4b1-4e97-a5d4-d731a495ceee,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-24|10:00:00|Calthorpe,15902,,rose,rose,LITE:dd0a2590-0d09-4f0f-ab23-4c5080fac99e,CREATE_LITE
+REUSE_SESSION,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,,,,SessionId=1174; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,L.D,L.D,LITE:5a3c1ad1-1d3e-4fc1-8ee2-c252c425a7fa,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,H.E,H.E,LITE:00b6f68d-b8dd-453b-872e-5e67009e8e3f,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,A.K,A.K,LITE:94d0b25e-2dc6-451b-a6dc-1dec1dd41a5d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-24,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-24|14:10:00|St Albans,1174,,M.O,M.O,LITE:0b9661e5-bd8b-4e01-aa20-bf2dd0a45f0d,REUSE_LITE_BY_EXACT_NAME
+CREATE_SESSION,2026-03-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-25|10:00:00|Calthorpe,15903,,,,,SessionId=15903; template=618
+CREATE_ATTENDANCE,2026-03-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-25|10:00:00|Calthorpe,15903,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-25,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-25|10:00:00|Calthorpe,15903,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-03-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-27|12:15:00|Calthorpe,15904,,,,,SessionId=15904; template=618
+SOURCE_ZERO_ATTENDANCE_SESSION,2026-03-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-03-27|12:15:00|Calthorpe,15904,,,,,session has no valid attendee rows
+REUSE_SESSION,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,,,,SessionId=419; CRM time=11:30:00-12:30:00
+SKIP_EXISTING_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,Rosemarie,Rosemarie,LITE:1e15a18b-0a6c-4219-ad98-3ef30ae97c06,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,Rose,Rose,LITE:dd0a2590-0d09-4f0f-ab23-4c5080fac99e,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,Rabia,Rabia,LITE:04667eeb-fcc2-43f0-b3ef-9ca3547a1e05,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,Gaurav,Gaurav,LITE:c47b707a-c186-420b-8fe2-719307e27256,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,,Habibu Hussain,Habibu Hussain,LITE:06290dba-2c66-4902-9875-ff14cb8266da,CREATE_LITE
+SKIP_EXISTING_ATTENDANCE,2026-03-31,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-03-31|11:30:00|Cannon Hill,419,373,373,Syeda Begum,FULL:5183,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,,,,SessionId=1138; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,Zabusa,Zabusa,LITE:585a0587-65a7-4dbb-a9b1-502093592082,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,Rina,Rina,LITE:c4345b0b-9752-436b-b983-beb01dbee1d4,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,Fateha,Fateha,LITE:0a0bab37-d7e4-4e3e-9592-bd2f1fd3dcdd,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,Shanon,Shanon,LITE:2dcc2aec-8375-457d-95d8-c80c16e22cfa,CREATE_LITE
+CREATE_ATTENDANCE,2026-03-31,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-03-31|11:00:00|Handsworth,1138,,Huma,Huma,LITE:c5b7f74a-4755-40f4-9b86-7ab50a8ae88f,CREATE_LITE
+REUSE_SESSION,2026-03-31,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-31|14:10:00|St Albans,1175,,,,,SessionId=1175; CRM time=14:10:00-14:55:00
+REVIEW_CANCELLED_SESSION_HAS_ATTENDANCE,2026-03-31,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-31|14:10:00|St Albans,1175,,,,,SessionId=1175 has 1 attended CRM rows
+SOURCE_CANCELLED_SESSION,2026-03-31,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-03-31|14:10:00|St Albans,1175,,,,,Easter
+REUSE_SESSION,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,,,,,SessionId=499; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,,zainab,zainab,LITE:bcc0e267-4ac9-4ff6-9b32-2c155aa4dd03,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,538,538,,FULL:5341,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,,tasnime,tasnime,LITE:90a0c8dc-bb9a-4015-9bce-499718fa51fd,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,,nirdesh,nirdesh,LITE:78d0399c-e069-4760-a8ae-a3aef4e334b1,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-01|12:15:00|Calthorpe,499,,sawsan,sawsan,LITE:a2036ea7-b656-46a7-8dd6-8c606e4a5205,CREATE_LITE
+REUSE_SESSION,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,,,,,SessionId=420; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,,Michelle lawton,Michelle lawton,LITE:0e99fe74-abd0-4dc0-89d1-661a058ed688,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,,Sara Salau,Sara Salau,LITE:d2ea2870-4c9d-4a43-841b-d19f6cec8459,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,,Aiteen Davis,Aiteen Davis,LITE:5c09e92d-3ba6-4b96-838d-162589dc4898,CREATE_LITE
+SKIP_EXISTING_ATTENDANCE,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,705,705,sheila cain,FULL:5058,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-07,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-07|11:30:00|Cannon Hill,420,411,411,Zeenat Hussein,FULL:4331,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,,,,SessionId=1139; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,Aminata,Aminata,LITE:99a5c1dd-32dd-46b7-93ef-a41f0a67f942,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,Zabusa,Zabusa,LITE:585a0587-65a7-4dbb-a9b1-502093592082,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,Shanon,Shanon,LITE:2dcc2aec-8375-457d-95d8-c80c16e22cfa,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,Huma,Huma,LITE:c5b7f74a-4755-40f4-9b86-7ab50a8ae88f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-07,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-07|11:00:00|Handsworth,1139,,Adamata,Adamata,LITE:144ceeb0-eea5-42ab-90ad-2890b2a1460c,CREATE_LITE
+REUSE_SESSION,2026-04-07,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-07|14:10:00|St Albans,1176,,,,,SessionId=1176; CRM time=14:10:00-14:55:00
+REVIEW_CANCELLED_SESSION_HAS_ATTENDANCE,2026-04-07,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-07|14:10:00|St Albans,1176,,,,,SessionId=1176 has 1 attended CRM rows
+SOURCE_CANCELLED_SESSION,2026-04-07,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-07|14:10:00|St Albans,1176,,,,,Easter
+REUSE_SESSION,2026-04-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-08|12:15:00|Calthorpe,500,,,,,SessionId=500; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-04-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-08|12:15:00|Calthorpe,500,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-08|12:15:00|Calthorpe,500,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-08|12:15:00|Calthorpe,500,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-08|12:15:00|Calthorpe,500,625,625,Zaida Rahman,FULL:5013,REUSE_FULL_BY_CARD
+REVIEW_SESSION_TIME_CONFLICT,2026-04-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-10|12:15:00|Calthorpe,,,,,,source=12:15:00-13:15:00; CRM same-date candidates=580:10:00:00-11:30:00
+REUSE_SESSION,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,,,,,SessionId=1697; CRM time=16:30:00-17:30:00
+CREATE_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,663,663,Khlood Mohammed Elzoheny,FULL:4957,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,540,540,,FULL:9902,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,625,625,Zaida Rahman,FULL:5013,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-14|16:30:00|Calthorpe,1697,1447,1447,Sobia shah,FULL:9887,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-04-14,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-14|11:30:00|Cannon Hill,421,,,,,SessionId=421; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-04-14,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-14|11:30:00|Cannon Hill,421,,Rosemarie,Rosemarie,LITE:1e15a18b-0a6c-4219-ad98-3ef30ae97c06,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-14|11:30:00|Cannon Hill,421,,monica,monica,LITE:9ecbdbe4-b92c-4b8f-bc85-9c0c33123a02,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-14|11:30:00|Cannon Hill,421,,Rose,Rose,LITE:dd0a2590-0d09-4f0f-ab23-4c5080fac99e,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-14|11:30:00|Cannon Hill,421,,Habibu,Habibu,LITE:c0d96508-e3a7-496e-a04d-41b54845627b,CREATE_LITE
+REUSE_SESSION,2026-04-14,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-14|11:00:00|Handsworth,1140,,,,,SessionId=1140; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-04-14,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-14|11:00:00|Handsworth,1140,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-14,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-14|11:00:00|Handsworth,1140,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-14,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-14|11:00:00|Handsworth,1140,,Zabusa,Zabusa,LITE:585a0587-65a7-4dbb-a9b1-502093592082,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-14|11:00:00|Handsworth,1140,842,Aasia (842),Aasia,FULL:5318,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,,,,SessionId=1177; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-14,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-14|14:10:00|St Albans,1177,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+REUSE_SESSION,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,,,,SessionId=1162; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-16|10:00:00|Parkfield,1162,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+REUSE_SESSION,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,,,,SessionId=422; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,Habibu Hussain,Habibu Hussain,LITE:06290dba-2c66-4902-9875-ff14cb8266da,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,705,705,sheila cain,FULL:5058,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,Natalie,Natalie,LITE:798ee76f-4d31-410d-93fb-f9bfdc513c98,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,Sharon,Sharon,LITE:5e466f35-57cb-4c16-8032-a5494e849cf3,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,Laura,Laura,LITE:A49C7D37-B1C6-4AB1-A912-BF2456983F37,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,Monssa,Monssa,LITE:f5170d8c-2c4d-402d-90f0-7d4eaa89d091,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-21|11:30:00|Cannon Hill,422,,afsa NasH,afsa NasH,LITE:f8953288-c8db-46a5-8977-74cb070d4da6,CREATE_LITE
+REUSE_SESSION,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,,,,SessionId=1141; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,Zabusa,Zabusa,LITE:585a0587-65a7-4dbb-a9b1-502093592082,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,Shanon,Shanon,LITE:2dcc2aec-8375-457d-95d8-c80c16e22cfa,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,Huma,Huma,LITE:c5b7f74a-4755-40f4-9b86-7ab50a8ae88f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,Adamata,Adamata,LITE:144ceeb0-eea5-42ab-90ad-2890b2a1460c,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-21|11:00:00|Handsworth,1141,,Fateha,Fateha,LITE:0a0bab37-d7e4-4e3e-9592-bd2f1fd3dcdd,CREATE_LITE
+REUSE_SESSION,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,,,,SessionId=1178; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-21,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-21|14:10:00|St Albans,1178,,A.O,A.O,LITE:35041574-406b-4627-b654-ae72e6ab9da3,CREATE_LITE
+REUSE_SESSION,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,,,,SessionId=1163; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,nessa,nessa,LITE:54a5495c-ba9c-4d73-9b70-97ac18953f1e,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Iram shahzad,Iram shahzad,LITE:d8282ece-056d-42d7-9d40-962cca641680,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Tahseen,Tahseen,LITE:710fefbb-29b8-4c06-9123-04ed62b26a2b,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Gazala,Gazala,LITE:65747c4a-7dd6-4147-aada-79136e815ad5,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,Simon,Simon,LITE:8d075ebe-327a-4799-b984-4863fe80a217,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-23,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-23|10:00:00|Parkfield,1163,,sozane kauser,sozane kauser,LITE:941670ed-53f8-4dc1-90f5-1ccd75c38cfd,CREATE_LITE
+REUSE_SESSION,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,,,,,SessionId=1698; CRM time=16:30:00-17:30:00
+CREATE_ATTENDANCE,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,663,663,Khlood Mohammed Elzoheny,FULL:4957,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,1536,1536,Anisah Kassim,FULL:9941,REUSE_FULL_BY_CARD
+SKIP_EXISTING_ATTENDANCE,2026-04-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-28|16:30:00|Calthorpe,1698,373,373,Syeda Begum,FULL:5183,REUSE_FULL_BY_CARD
+REUSE_SESSION,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,,,,SessionId=423; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,Habibu Hussain,Habibu Hussain,LITE:06290dba-2c66-4902-9875-ff14cb8266da,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,shelia,shelia,LITE:c60e83fa-878d-4133-a9a0-b8a39903717a,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,Natalie,Natalie,LITE:798ee76f-4d31-410d-93fb-f9bfdc513c98,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,Sharon,Sharon,LITE:5e466f35-57cb-4c16-8032-a5494e849cf3,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,Laura,Laura,LITE:A49C7D37-B1C6-4AB1-A912-BF2456983F37,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,Monssa,Monssa,LITE:f5170d8c-2c4d-402d-90f0-7d4eaa89d091,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-04-28|11:30:00|Cannon Hill,423,,afsa NasH,afsa NasH,LITE:f8953288-c8db-46a5-8977-74cb070d4da6,CREATE_LITE
+REUSE_SESSION,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,,,,,SessionId=1142; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,,Tazim,Tazim,LITE:8872429c-f95f-4179-93f8-b3e2519f3dcc,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,,Shemila,Shemila,LITE:5177b9af-0200-402d-b1e7-208defc03838,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-04-28|11:00:00|Handsworth,1142,,Razia,Razia,LITE:8302878d-a6be-4587-a3ac-da8374ff6d70,CREATE_LITE
+REUSE_SESSION,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,,,,SessionId=1179; CRM time=14:10:00-14:55:00
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,LD,LD,LITE:ccde4bed-49d0-4035-816e-b698a7d79285,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,HE,HE,LITE:3d0bfff5-4aa9-41c0-8ff0-f2bd02bef504,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,AK,AK,LITE:b009d63d-cc13-44be-8640-70f2c1400478,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,ML,ML,LITE:b924f49b-2ad9-48d0-a76c-1b6221a38787,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,L.A,L.A,LITE:06a55ec2-ebc2-424f-89a8-8b42c0c5e096,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,S.B,S.B,LITE:78efc7a3-f1e2-40a8-8643-3d104791b647,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,Z.B,Z.B,LITE:5e30831f-b672-4ff2-aa17-8720ec99d0d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,R.E,R.E,LITE:77fc08c2-1be7-40ee-b5b6-31a53e489104,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,J.G,J.G,LITE:5d2a0785-6f04-4b5e-8f4c-a66e0bcebc34,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,A.H,A.H,LITE:2c85afad-a6ab-4b43-be8c-cde0b9484d31,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,A.N,A.N,LITE:2a90ed5f-2643-4ec9-9331-336c3dfc2c4c,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,E.N,E.N,LITE:a15c908d-e190-4100-96b9-e2cdf31dd10c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,H.N,H.N,LITE:68dfcab6-9844-47ed-a5b6-d69b795bbfe0,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,M.L,M.L,LITE:187f1df4-4edc-48a4-ae01-a43c2878ce7d,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,A.M,A.M,LITE:770b6884-d9ec-48d5-927b-edd5b39bcea1,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,U.N,U.N,LITE:d5442481-b6f9-47b9-8d1e-2a242bab674c,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,F.O,F.O,LITE:afbf16bd-985a-4360-b553-995bb124e3e8,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,S.Y.S,S.Y.S,LITE:e1b238f3-484a-4162-9853-f33437597c4a,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-04-28,St Albans,Tennis,Tennis Register 2025 (2).xlsx,St Albans,2026-04-28|14:10:00|St Albans,1179,,Y.Y,Y.Y,LITE:2f7cff89-5cf7-4041-949c-7b34f8f2d97d,REUSE_LITE_BY_EXACT_NAME
+REUSE_SESSION,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,,,,,SessionId=503; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,440,440,Hindukush Saeed,FULL:4368,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,413,413,Aisha Saeed,FULL:4329,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,,naseema,naseema,LITE:4feb3848-e4e6-4780-9683-d676bd581768,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-04-29|12:15:00|Calthorpe,503,,nasra,nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+REUSE_SESSION,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,,,,SessionId=1164; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Iram shahzad,Iram shahzad,LITE:d8282ece-056d-42d7-9d40-962cca641680,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Tahseen,Tahseen,LITE:710fefbb-29b8-4c06-9123-04ed62b26a2b,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Gazala,Gazala,LITE:65747c4a-7dd6-4147-aada-79136e815ad5,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,Simon,Simon,LITE:8d075ebe-327a-4799-b984-4863fe80a217,CREATE_LITE
+CREATE_ATTENDANCE,2026-04-30,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-04-30|10:00:00|Parkfield,1164,,sozane kauser,sozane kauser,LITE:941670ed-53f8-4dc1-90f5-1ccd75c38cfd,CREATE_LITE
+REUSE_SESSION,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,,,,,SessionId=583; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,549,549,nasreen akhtar,FULL:4682,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,543,543,Zaib Unnisa,FULL:5329,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,,,Catherine,LITE:9b36b85c-2123-4b09-b679-a1632300643d,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-01|10:00:00|Calthorpe,583,,,Seemina,LITE:06380d89-b8e2-41ff-8814-7a45ed48fe2f,CREATE_LITE
+CREATE_SESSION,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,,,,,SessionId=15905; template=618
+CREATE_ATTENDANCE,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,663,663,Khlood Mohammed Elzoheny,FULL:4957,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,631,631,Habiba Hussain,FULL:5024,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,,,Rabia k,LITE:a6709329-c28c-4bf5-8424-c8da4d5b31d2,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-05|16:30:00|Calthorpe,15905,,,Shireen B,LITE:014d79bb-0407-4735-9334-e0628df86d46,CREATE_LITE
+REUSE_SESSION,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,,,,SessionId=424; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,nassar,nassar,LITE:9dce46bf-6f36-4aed-ba4e-7a5a4e264172,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,Ruhma nassar,Ruhma nassar,LITE:47408ad1-093d-4c20-b3a0-d7f1ccb644a0,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,May,May,LITE:d47b78b0-9c14-49bc-a687-8f75bc7cd9d0,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,Asra,Asra,LITE:01a3a2b1-6e3c-4b6b-a197-bb78bf2414ad,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,Mishal K.,Mishal K.,LITE:fe9984de-bb76-41fb-9385-d9495dcdf3fe,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,Haffsa N.,Haffsa N.,LITE:8dfc7285-4c3c-44a4-bddf-d95f70d6caa0,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-05|11:30:00|Cannon Hill,424,,Zay,Zay,LITE:f74815ad-fdc2-48bb-b26f-d0a44ea00c19,CREATE_LITE
+REUSE_SESSION,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,,,,SessionId=1143; CRM time=11:00:00-11:45:00
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,1034,1034,Aminata Kamara,FULL:4671,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,1023,1023,Kalsoom Iqbal,FULL:4619,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,tazim,Tazim,LITE:8872429c-f95f-4179-93f8-b3e2519f3dcc,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,Zabusa,Zabusa,LITE:585a0587-65a7-4dbb-a9b1-502093592082,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,Fateha,Fateha,LITE:0a0bab37-d7e4-4e3e-9592-bd2f1fd3dcdd,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,Huma,Huma,LITE:c5b7f74a-4755-40f4-9b86-7ab50a8ae88f,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-05,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-05|11:00:00|Handsworth,1143,,Yasmeea,Yasmeea,LITE:27f0b573-a004-4701-aa0b-6fb880dfd093,CREATE_LITE
+REUSE_SESSION,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,,,,SessionId=504; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,,Hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,,Nasima,LITE:E7B267C0-D0FD-44A4-B9EC-8ACF7AA3A0A9,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,691,691,Catherine Charlery,FULL:4908,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,527,527,,FULL:5273,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,zeehab,zeehab,LITE:0a76c3f5-f457-4907-a2b6-a5b10c133d0a,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,catherine,catherine,LITE:9b36b85c-2123-4b09-b679-a1632300643d,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-06,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-06|12:15:00|Calthorpe,504,,nasra,nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+REUSE_SESSION,2026-05-07,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-07|10:00:00|Parkfield,1165,,,,,SessionId=1165; CRM time=10:00:00-11:00:00
+REVIEW_CANCELLED_SESSION_HAS_ATTENDANCE,2026-05-07,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-07|10:00:00|Parkfield,1165,,,,,SessionId=1165 has 1 attended CRM rows
+SOURCE_CANCELLED_SESSION,2026-05-07,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-07|10:00:00|Parkfield,1165,,,,,closed
+REUSE_SESSION,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,,,,,SessionId=584; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,411,411,Zeenat Hussein,FULL:4331,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-08|10:00:00|Calthorpe,584,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,,,,,SessionId=15906; template=618
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,,,Rabia k,LITE:a6709329-c28c-4bf5-8424-c8da4d5b31d2,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,,,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,,,Fatima ch,LITE:e3261fab-e890-46dc-a35a-6189edccae0f,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-12|16:30:00|Calthorpe,15906,,,Femy Merali,LITE:bba40bc2-679d-493b-b603-a9dc2f3dfa51,CREATE_LITE
+REUSE_SESSION,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,,,,,SessionId=425; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,373,373,Syeda Begum,FULL:5183,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,,Habibu Hussain,Habibu Hussain,LITE:06290dba-2c66-4902-9875-ff14cb8266da,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,,afsa NasH,afsa NasH,LITE:f8953288-c8db-46a5-8977-74cb070d4da6,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,,ILHAAM,ILHAAM,LITE:efb0ce96-8b77-41bc-9625-d94f434ece36,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-12,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-12|11:30:00|Cannon Hill,425,,SYEDA,SYEDA,LITE:9a46681d-e48b-4dea-9d24-fc2db2f61d07,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-05-12,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-12|11:00:00|Handsworth,,,,,,source=11:00:00-11:45:00; CRM same-date candidates=465:11:15:00-12:00:00
+REUSE_SESSION,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,,,,SessionId=1166; CRM time=10:00:00-11:00:00
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,Rashida Ikhalq,Rashida Ikhalq,LITE:7e084ca7-bc46-4bd2-a9a4-6aa4ba5e6287,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,526,Tayyaba Nazir,Tayyaba Nazir,FULL:5272,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,Maida Zahid,Maida Zahid,LITE:E56BF0DA-7227-4872-9C16-9491BB3F3907,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,Gazalgh Hussain,Gazalgh Hussain,LITE:1a4d7804-c019-4f0e-bfab-1d779a3f466f,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,Shler Mahmoud,Shler Mahmoud,LITE:f28cdbec-7906-4aa3-90df-c7477d283720,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-14,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-14|10:00:00|Parkfield,1166,,Farah Younas,Farah Younas,LITE:b68e5ebc-390a-4d4a-89a0-22c654b0204f,CREATE_LITE
+REUSE_SESSION,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,,,,,SessionId=585; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,663,663,Khlood Mohammed Elzoheny,FULL:4957,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,1536,1536,Anisah Kassim,FULL:9941,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-15|10:00:00|Calthorpe,585,373,373,Syeda Begum,FULL:5183,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,,,SessionId=15907; template=618
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,Rabia k,LITE:a6709329-c28c-4bf5-8424-c8da4d5b31d2,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,Makkia Ali,LITE:F9E5A648-753C-4CA4-A8C4-2E17AD1F0D28,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,Femy Merali,LITE:bba40bc2-679d-493b-b603-a9dc2f3dfa51,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,Fatima ch,LITE:e3261fab-e890-46dc-a35a-6189edccae0f,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-19|16:30:00|Calthorpe,15907,,,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+REUSE_SESSION,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,,,,SessionId=426; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,MUMTAZ,MUMTAZ,LITE:0edb0e1c-c8b8-4ff0-bdb8-7604151460c8,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,RAHMA NASSAR,RAHMA NASSAR,LITE:65314396-f43f-4742-9dca-510fec2bb73f,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,ILHAAM,ILHAAM,LITE:efb0ce96-8b77-41bc-9625-d94f434ece36,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,ASRA,ASRA,LITE:01a3a2b1-6e3c-4b6b-a197-bb78bf2414ad,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,ZAINAB,ZAINAB,LITE:bcc0e267-4ac9-4ff6-9b32-2c155aa4dd03,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-19,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-19|11:30:00|Cannon Hill,426,,HAFSA NASSAR,HAFSA NASSAR,LITE:f0d944bd-6bfb-4ec9-bd50-d55b3b3048b3,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-05-19,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-19|11:00:00|Handsworth,,,,,,source=11:00:00-11:45:00; CRM same-date candidates=466:11:15:00-12:00:00
+REUSE_SESSION,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,,,,,SessionId=506; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,,KALDA,KALDA,LITE:1acdfa9c-2d8f-43f3-9e09-2b16b4230312,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,,ZAINAB,ZAINAB,LITE:bcc0e267-4ac9-4ff6-9b32-2c155aa4dd03,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,513,513,,FULL:5260,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,,PANNA BEGUM,PANNA BEGUM,LITE:8c8e4a12-1fae-48bd-9841-7accd8f31294,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-20,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-20|12:15:00|Calthorpe,506,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-05-21,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-21|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=546:10:30:00-11:30:00
+REUSE_SESSION,2026-05-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-22|10:00:00|Calthorpe,586,,,,,SessionId=586; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-05-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-22|10:00:00|Calthorpe,586,,ZAINAB,ZAINAB,LITE:bcc0e267-4ac9-4ff6-9b32-2c155aa4dd03,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-22|10:00:00|Calthorpe,586,,PANNA BEGUM,PANNA BEGUM,LITE:8c8e4a12-1fae-48bd-9841-7accd8f31294,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-22|10:00:00|Calthorpe,586,,Kaiynaat Azmat,kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-22,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-22|10:00:00|Calthorpe,586,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_SESSION,2026-05-26,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-26|16:30:00|Calthorpe,15908,,,,,SessionId=15908; template=618
+SOURCE_CANCELLED_SESSION,2026-05-26,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-26|16:30:00|Calthorpe,15908,,,,,servre heat/eid
+REUSE_SESSION,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,,,,SessionId=427; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,ILHAAM,ILHAAM,LITE:efb0ce96-8b77-41bc-9625-d94f434ece36,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,Julia visting,Julia visting,LITE:410a3b89-b421-4c5b-9dd4-f58b806e80f5,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,Tia visting,Tia visting,LITE:876ea4c6-c4e4-4b5b-9cbd-d41d650b48ab,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,Roze,Roze,LITE:094be61c-d8eb-40f9-96fa-5f12ab8274f5,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-26,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-05-26|11:30:00|Cannon Hill,427,,Yaz,Yaz,LITE:ad4c5c99-d59b-4a8d-a9d7-ae167aee3a76,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-05-26,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-05-26|11:00:00|Handsworth,,,,,,source=11:00:00-11:45:00; CRM same-date candidates=467:11:15:00-12:00:00
+REVIEW_SESSION_TIME_CONFLICT,2026-05-27,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-27|16:30:00|Calthorpe,,,,,,source=16:30:00-17:30:00; CRM same-date candidates=507:12:15:00-13:15:00
+REVIEW_SESSION_TIME_CONFLICT,2026-05-28,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-05-28|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=547:10:30:00-11:30:00
+REUSE_SESSION,2026-05-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-29|10:00:00|Calthorpe,587,,,,,SessionId=587; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-05-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-29|10:00:00|Calthorpe,587,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-29|10:00:00|Calthorpe,587,771,771,Sylvia Williams,FULL:5149,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-05-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-29|10:00:00|Calthorpe,587,,zainab,zainab,LITE:bcc0e267-4ac9-4ff6-9b32-2c155aa4dd03,CREATE_LITE
+CREATE_ATTENDANCE,2026-05-29,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-05-29|10:00:00|Calthorpe,587,,Rabia K,Rabia K,LITE:a6709329-c28c-4bf5-8424-c8da4d5b31d2,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-02,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-02|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4396:16:00:00-18:00:00, 4512:16:00:00-18:00:00"
+REUSE_SESSION,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,,,,SessionId=428; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,ILHAAM,ILHAAM,LITE:efb0ce96-8b77-41bc-9625-d94f434ece36,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,Suffia,Suffia,LITE:cf5521bf-7cfb-4462-bab8-6b3e0b73145e,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,claire H/ new,claire H/ new,LITE:12281ea0-1418-434b-9278-0d8bb053b035,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,Hamda,Hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-02,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-02|11:30:00|Cannon Hill,428,,Suaad,Suaad,LITE:89496f8d-4147-4ff0-a7f1-548a14265632,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-02,Handsworth,Tennis,Tennis Register 2025 (2).xlsx,Handsworth,2026-06-02|11:00:00|Handsworth,,,,,,source=11:00:00-11:45:00; CRM same-date candidates=468:11:15:00-12:00:00
+REUSE_SESSION,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,,,,SessionId=508; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,Sara,Sara,LITE:680652E8-5E37-47F9-9CAA-0A76DC22A24A,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,Suffyah,Suffyah,LITE:5d36f823-13ed-4cfe-b3e8-b4158bde1870,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,Ann Marie,Ann Marie,LITE:fbdb6b12-7083-4a13-9277-5ad3797a38eb,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,norma,norma,LITE:a9f23cd1-cef6-453d-954c-b567ec4e00b4,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,Kaalda,Kaalda,LITE:6dd5bd60-ba97-4585-b907-221f3642da51,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,nasra,nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-06-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-03|12:15:00|Calthorpe,508,,May May,May May,LITE:d8b4e4ab-2938-4b5d-b187-283f00d6f8d3,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-04,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-06-04|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=548:10:30:00-11:30:00
+REUSE_SESSION,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,,,,SessionId=588; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,May May,May May,LITE:d8b4e4ab-2938-4b5d-b187-283f00d6f8d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,700,700,Joy Williams,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,yaz,yaz,LITE:ad4c5c99-d59b-4a8d-a9d7-ae167aee3a76,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,Suffyah,Suffyah,LITE:5d36f823-13ed-4cfe-b3e8-b4158bde1870,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,joy,joy,LITE:073d707d-3418-451f-8483-d6f91d692b5c,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,syliva,syliva,LITE:9659f8eb-4f96-432c-82a3-27788673e546,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-05,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-05|10:00:00|Calthorpe,588,,Saffiyah,Saffiyah,LITE:c3ead7f5-ffed-414b-913b-4f1d5b1c36ea,CREATE_LITE
+REUSE_SESSION,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,,,,SessionId=4480; CRM time=11:00:00-12:00:00
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Nasra,Nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,hamda,hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Naneba Khan,Naneba Khan,LITE:3a60a5da-8579-4e10-b791-c8f45fa73b9d,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Susan Keely,Susan Keely,LITE:98b07b2a-6f14-4302-987d-90ba04f6087a,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Kerian,Kerian,LITE:09a55969-c6c4-434a-af66-96e5deeac7ed,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Basarah,Basarah,LITE:ff6bc792-a7d4-42ae-811b-c9607149efe0,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Nasrat Bibi,Nasrat Bibi,LITE:d4f3f25e-aaa7-41d6-b7c5-be61ceff3969,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Rosa Raffia,Rosa Raffia,LITE:124f57c9-5a6a-4538-9c30-b13f2ec03cb9,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Semeena Assan,Semeena Assan,LITE:34c176de-96da-48fd-9102-72f623ab40cd,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-06,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-06|11:00:00|Wardend,4480,,Ava Jovis,Ava Jovis,LITE:b73e8690-f6cc-4b5d-beac-a5527b0f5da9,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-09,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-09|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4397:16:00:00-18:00:00, 4513:16:00:00-18:00:00"
+REUSE_SESSION,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,,,,SessionId=429; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,hamda,hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,illhaam,illhaam,LITE:8d956d6b-c12a-40b8-bdc3-6d9d4ba32e24,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,kiynatt,kiynatt,LITE:48e73c32-f582-4dab-8219-116253f77940,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,Suaad,Suaad,LITE:89496f8d-4147-4ff0-a7f1-548a14265632,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-09,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-09|11:30:00|Cannon Hill,429,,suffiyah,suffiyah,LITE:b4023513-c03e-41db-8da3-958188544881,CREATE_LITE
+REUSE_SESSION,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,,,,,SessionId=509; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,617,617,Yvonne Finch,FULL:4981,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,,yaz,yaz,LITE:ad4c5c99-d59b-4a8d-a9d7-ae167aee3a76,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,,Illham,Illham,LITE:79a8ab0d-2915-47c9-8500-23891dcb8e0a,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,,May May,May May,LITE:d8b4e4ab-2938-4b5d-b187-283f00d6f8d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-10,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-10|12:15:00|Calthorpe,509,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-11,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-06-11|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=549:10:30:00-11:30:00
+REUSE_SESSION,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,589,,,,,SessionId=589; CRM time=10:00:00-11:30:00
+REVIEW_CARD_NAME_MISMATCH,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,,484,484,Saffiyah,,card 484 CRM='Shukriya Aabdulkerim' source='Saffiyah' similarity=0.29
+CREATE_ATTENDANCE,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,589,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,589,,illaam,illaam,LITE:bb9fc5e0-c575-43db-87e3-a28542b98c2c,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,589,,Norma,Norma,LITE:a9f23cd1-cef6-453d-954c-b567ec4e00b4,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-12,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-12|10:00:00|Calthorpe,589,,Monica,Monica,LITE:9ecbdbe4-b92c-4b8f-bc85-9c0c33123a02,CREATE_LITE
+REUSE_SESSION,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,,,,SessionId=4481; CRM time=11:00:00-12:00:00
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Nasra,Nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Hamda,Hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Naneba Khan,Naneba Khan,LITE:3a60a5da-8579-4e10-b791-c8f45fa73b9d,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Susan Keely,Susan Keely,LITE:98b07b2a-6f14-4302-987d-90ba04f6087a,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Kerian,Kerian,LITE:09a55969-c6c4-434a-af66-96e5deeac7ed,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Basarah,Basarah,LITE:ff6bc792-a7d4-42ae-811b-c9607149efe0,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Nasrat Bibi,Nasrat Bibi,LITE:d4f3f25e-aaa7-41d6-b7c5-be61ceff3969,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Rosa Raffia,Rosa Raffia,LITE:124f57c9-5a6a-4538-9c30-b13f2ec03cb9,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Semeena Assan,Semeena Assan,LITE:34c176de-96da-48fd-9102-72f623ab40cd,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-13,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-13|11:00:00|Wardend,4481,,Ava Jovis,Ava Jovis,LITE:b73e8690-f6cc-4b5d-beac-a5527b0f5da9,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-16,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-16|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4398:16:00:00-18:00:00, 4514:16:00:00-18:00:00"
+REUSE_SESSION,2026-06-16,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-16|11:30:00|Cannon Hill,430,,,,,SessionId=430; CRM time=11:30:00-12:30:00
+CREATE_ATTENDANCE,2026-06-16,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-16|11:30:00|Cannon Hill,430,,Masoomah,Masoomah,LITE:588ac62c-171a-47f2-8265-6a440ba98661,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-16,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-16|11:30:00|Cannon Hill,430,,illhaam,illhaam,LITE:8d956d6b-c12a-40b8-bdc3-6d9d4ba32e24,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-16,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-16|11:30:00|Cannon Hill,430,,saffiyah,saffiyah,LITE:c3ead7f5-ffed-414b-913b-4f1d5b1c36ea,CREATE_LITE
+REUSE_SESSION,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,,,,SessionId=510; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Hamda,Hamda,LITE:61C10A89-D0FF-4D31-B29F-8B32BC1FDAB7,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Nasra,Nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Mia,Mia,LITE:e64c0e9e-16e8-4a0e-a200-00df221c881d,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Saffiyah,Saffiyah,LITE:c3ead7f5-ffed-414b-913b-4f1d5b1c36ea,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Illhaam,Illhaam,LITE:8d956d6b-c12a-40b8-bdc3-6d9d4ba32e24,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,Faven,Faven,LITE:8271a8af-df12-48c1-940d-da29205c0fe2,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-17|12:15:00|Calthorpe,510,,May May,May May,LITE:d8b4e4ab-2938-4b5d-b187-283f00d6f8d3,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-18,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-06-18|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=550:10:30:00-11:30:00
+REUSE_SESSION,2026-06-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-19|10:00:00|Calthorpe,590,,,,,SessionId=590; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-06-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-19|10:00:00|Calthorpe,590,,JOy,JOy,LITE:073d707d-3418-451f-8483-d6f91d692b5c,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-19,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-19|10:00:00|Calthorpe,590,,syliva,syliva,LITE:9659f8eb-4f96-432c-82a3-27788673e546,CREATE_LITE
+REUSE_SESSION,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,,,,SessionId=4482; CRM time=11:00:00-12:00:00
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Sana,Sana,LITE:f915166f-3495-42db-a152-c7d4576f12f7,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Nasrat Bibi,Nasrat Bibi,LITE:d4f3f25e-aaa7-41d6-b7c5-be61ceff3969,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Avon,Avon,LITE:c548dcc3-cc25-421c-8495-b118df130917,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Razia,Razia,LITE:8302878d-a6be-4587-a3ac-da8374ff6d70,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Nazia,Nazia,LITE:0bc102b7-3318-4a82-aeb6-1d2a745ac2d0,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Mureen,Mureen,LITE:de8ca6a3-f370-4c0b-9440-9bcbd7d6061b,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Suyad,Suyad,LITE:6fed4afe-9793-48a2-a564-23f8e3e06141,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Noreen,Noreen,LITE:b8e5979d-4da0-49f5-893a-3e3dbe262a20,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-20,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-20|11:00:00|Wardend,4482,,Suzanne,Suzanne,LITE:58ded41f-3832-4e17-adcc-ed05154029e7,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-23,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-23|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4399:16:00:00-18:00:00, 4515:16:00:00-18:00:00"
+REUSE_SESSION,2026-06-23,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-23|11:30:00|Cannon Hill,431,,,,,SessionId=431; CRM time=11:30:00-12:30:00
+SOURCE_ZERO_ATTENDANCE_SESSION,2026-06-23,Cannon Hill Park,Tennis,Tennis Register 2025 (2).xlsx,Cannon Hill,2026-06-23|11:30:00|Cannon Hill,431,,,,,session has no valid attendee rows
+REVIEW_SESSION_TIME_CONFLICT,2026-06-25,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-06-25|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=551:10:30:00-11:30:00
+REUSE_SESSION,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,,,,SessionId=4483; CRM time=11:00:00-12:00:00
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Nasrat Bibi,Nasrat Bibi,LITE:d4f3f25e-aaa7-41d6-b7c5-be61ceff3969,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Avon,Avon,LITE:c548dcc3-cc25-421c-8495-b118df130917,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Razia,Razia,LITE:8302878d-a6be-4587-a3ac-da8374ff6d70,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Nazia,Nazia,LITE:0bc102b7-3318-4a82-aeb6-1d2a745ac2d0,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Mureen,Mureen,LITE:de8ca6a3-f370-4c0b-9440-9bcbd7d6061b,CREATE_LITE
+CREATE_ATTENDANCE,2026-06-27,Ward End Park,Tennis,Tennis Register 2025 (2).xlsx,Wardend,2026-06-27|11:00:00|Wardend,4483,,Suyad,Suyad,LITE:6fed4afe-9793-48a2-a564-23f8e3e06141,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-06-30,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-06-30|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4400:16:00:00-18:00:00, 4516:16:00:00-18:00:00"
+REUSE_SESSION,2026-07-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-01|12:15:00|Calthorpe,512,,,,,SessionId=512; CRM time=12:15:00-13:15:00
+MARK_SESSION_CANCELLED,2026-07-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-01|12:15:00|Calthorpe,512,,,,,Cancelled due to severe heat
+SOURCE_CANCELLED_SESSION,2026-07-01,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-01|12:15:00|Calthorpe,512,,,,,Cancelled due to severe heat
+REVIEW_SESSION_TIME_CONFLICT,2026-07-02,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-07-02|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=552:10:30:00-11:30:00
+REUSE_SESSION,2026-07-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-03|10:00:00|Calthorpe,592,,,,,SessionId=592; CRM time=10:00:00-11:30:00
+CREATE_ATTENDANCE,2026-07-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-03|10:00:00|Calthorpe,592,700,700,joy,FULL:5049,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-07-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-03|10:00:00|Calthorpe,592,,,syliva,LITE:9659f8eb-4f96-432c-82a3-27788673e546,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-03,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-03|10:00:00|Calthorpe,592,,,illhaam,LITE:8d956d6b-c12a-40b8-bdc3-6d9d4ba32e24,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-07-07,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-07|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4401:16:00:00-18:00:00, 4517:16:00:00-18:00:00"
+REVIEW_SESSION_TIME_CONFLICT,2026-07-08,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-08|10:00:00|Calthorpe,,,,,,source=10:00:00-11:30:00; CRM same-date candidates=513:12:15:00-13:15:00
+REVIEW_SESSION_TIME_CONFLICT,2026-07-09,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-07-09|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=553:10:30:00-11:30:00
+REVIEW_SESSION_TIME_CONFLICT,2026-07-14,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-14|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4402:16:00:00-18:00:00, 4518:16:00:00-18:00:00"
+REUSE_SESSION,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,,,,SessionId=514; CRM time=12:15:00-13:15:00
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,638,638,Hamda Mohammed,FULL:5045,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Nasra,Nasra,LITE:9B19AA97-E33F-4788-96D5-BF99EDC886CE,REUSE_LITE_BY_EXACT_NAME
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Illhaam,Illhaam,LITE:8d956d6b-c12a-40b8-bdc3-6d9d4ba32e24,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Zainat b,Zainat b,LITE:85d097dc-3727-477b-8e20-c8a85212ce44,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Aisha,Aisha,LITE:29c90ad7-197a-4396-92a2-f60e4d383b57,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,lman Abai,lman Abai,LITE:8a301b12-9465-4d12-81a0-d3a8b54b07d3,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,996,996,yazmin saleh,FULL:5137,REUSE_FULL_BY_CARD
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Kaiynaat Azmat,Kaiynaat Azmat,LITE:83ad0410-018b-4bc1-8507-cd4370d3d835,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,Naseem,Naseem,LITE:de0ea6bd-043b-41e9-9b7d-75784f0f5cd5,CREATE_LITE
+CREATE_ATTENDANCE,2026-07-15,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-15|12:15:00|Calthorpe,514,,kiran,kiran,LITE:e76d4a54-f9a2-4a67-83c2-8e3c70f0bc0b,CREATE_LITE
+REVIEW_SESSION_TIME_CONFLICT,2026-07-16,Parkfield Community School,Tennis,Tennis Register 2025 (2).xlsx,Parkfield,2026-07-16|10:00:00|Parkfield,,,,,,source=10:00:00-11:00:00; CRM same-date candidates=554:10:30:00-11:30:00
+REVIEW_SESSION_TIME_CONFLICT,2026-07-17,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-17|12:15:00|Calthorpe,,,,,,source=12:15:00-13:15:00; CRM same-date candidates=594:10:00:00-11:30:00
+REVIEW_SESSION_TIME_CONFLICT,2026-07-21,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-21|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4403:16:00:00-18:00:00, 4519:16:00:00-18:00:00"
+REVIEW_SESSION_TIME_CONFLICT,2026-07-28,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-07-28|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4404:16:00:00-18:00:00, 4520:16:00:00-18:00:00"
+REVIEW_SESSION_TIME_CONFLICT,2026-08-04,Calthorpe Wellbeing Hub,Tennis,Tennis Register 2025 (2).xlsx,Calthorpe,2026-08-04|16:30:00|Calthorpe,,,,,,"source=16:30:00-17:30:00; CRM same-date candidates=4405:16:00:00-18:00:00, 4521:16:00:00-18:00:00"

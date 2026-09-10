@@ -1,0 +1,228 @@
+﻿Action,File,Sheet,Ref,Date,Venue,Detail
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R74,,Ward End Park,name=Natasha Logan; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R75,,Ward End Park,name=Saima Bibi; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R76,,Ward End Park,name=Aneesa Hussain; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R77,,Ward End Park,name=Salma Jan; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R78,,Ward End Park,name=Zahraa Rashid; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R79,,Ward End Park,name=Mushahida Sheikh; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R80,,Ward End Park,name=Amirah Sheikh; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R81,,Ward End Park,name=Nadiya Ali; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R82,,Ward End Park,name=Ikram Haghamed; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R83,,Ward End Park,name=Safraz Bibi; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R84,,Ward End Park,name=Anser Begum; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R85,,Ward End Park,name=Rashida Gandhi; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R86,,Ward End Park,name=Mariya Gandhi; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R87,,Ward End Park,name=Kiran Shabir; source has no date; not attached to an invented session
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2024.xlsx,Tennis,R88,,Ward End Park,name=Farhat Shaheen; source has no date; not attached to an invented session
+SOURCE_2024_UNDATED_COUNT,Tennis Register 2024.xlsx,Tennis,,,,15 undated participant rows skipped
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Calthorpe,R26,2026-01-16,Calthorpe Wellbeing Hub,raw_date=16/01//2026; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R39,2026-02-03,Calthorpe Wellbeing Hub,serial 2026-02-03 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R40,2026-02-03,Calthorpe Wellbeing Hub,serial 2026-02-03 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R42,2026-02-06,Calthorpe Wellbeing Hub,serial 2026-02-06 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-06
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R44,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R45,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R46,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R47,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R48,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R49,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R50,2026-02-10,Calthorpe Wellbeing Hub,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R52,2026-02-11,Calthorpe Wellbeing Hub,serial 2026-02-11 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-11
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R53,2026-02-11,Calthorpe Wellbeing Hub,serial 2026-02-11 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-11
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R54,2026-02-11,Calthorpe Wellbeing Hub,serial 2026-02-11 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-11
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R56,2026-02-13,Calthorpe Wellbeing Hub,serial 2026-02-13 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-13
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R59,2026-02-17,Calthorpe Wellbeing Hub,serial 2026-02-17 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-17
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R61,2026-02-18,Calthorpe Wellbeing Hub,serial 2026-02-18 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-18
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R62,2026-02-18,Calthorpe Wellbeing Hub,serial 2026-02-18 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-18
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R63,2026-02-18,Calthorpe Wellbeing Hub,serial 2026-02-18 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-18
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R65,2026-02-20,Calthorpe Wellbeing Hub,serial 2026-02-20 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-20
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R66,2026-02-20,Calthorpe Wellbeing Hub,serial 2026-02-20 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-20
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R69,2026-02-25,Calthorpe Wellbeing Hub,serial 2026-02-25 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-25
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R71,2026-02-27,Calthorpe Wellbeing Hub,serial 2026-02-27 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-27
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R88,2026-03-24,Calthorpe Wellbeing Hub,serial 2026-04-24 00:00:00 conflicts with Month=March; carried same contiguous session date 2026-03-24
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2025 (2).xlsx,Calthorpe,R153,,Calthorpe Wellbeing Hub,identity=700; no defensible session date
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2025 (2).xlsx,Calthorpe,R159,,Calthorpe Wellbeing Hub,identity=700; no defensible session date
+SOURCE_TIME_INFERRED_FROM_WEEKLY_SEQUENCE,Tennis Register 2025 (2).xlsx,Calthorpe,R271,2026-06-19,Calthorpe Wellbeing Hub,missing source time -> 10:00-11:30 from adjacent Friday Tennis sessions
+SOURCE_DATE_TIME_CARRIED_FROM_PRIOR_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R272,2026-06-19,Calthorpe Wellbeing Hub,participant continuation row -> 2026-06-19 10:00-11:30
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R286,2026-07-01,Calthorpe Wellbeing Hub,serial 2026-07-01 00:00:00 conflicts with Month=uly; carried same contiguous session date 2026-07-01
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R357,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R358,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R359,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R360,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R361,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Calthorpe,R362,2026-08-04,Calthorpe Wellbeing Hub,serial 2026-08-04 00:00:00 conflicts with Month=July; carried same contiguous session date 2026-08-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R3,2025-12-02,Handsworth,serial 2025-12-02 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-02
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R4,2025-12-02,Handsworth,serial 2025-12-02 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-02
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R5,2025-12-02,Handsworth,serial 2025-12-02 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-02
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R8,2025-12-09,Handsworth,serial 2025-12-09 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-09
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R9,2025-12-09,Handsworth,serial 2025-12-09 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-09
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R13,2025-12-16,Handsworth,serial 2025-12-16 00:00:00 conflicts with Month=Decemeber; carried same contiguous session date 2025-12-16
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R33,2026-02-03,Handsworth,serial 2026-02-03 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R34,2026-02-03,Handsworth,serial 2026-02-03 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R35,2026-02-03,Handsworth,serial 2026-02-03 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R38,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R39,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R40,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R41,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R42,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R43,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R44,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R45,2026-02-10,Handsworth,serial 2026-02-10 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-10
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R48,2026-02-17,Handsworth,serial 2026-02-17 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-17
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R49,2026-02-17,Handsworth,serial 2026-02-17 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-17
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R50,2026-02-17,Handsworth,serial 2026-02-17 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-17
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R109,2026-06-02,Handsworth,serial 2026-06-02 00:00:00 conflicts with Month=Junr; carried same contiguous session date 2026-06-02
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Handsworth,R110,2026-06-02,Handsworth,serial 2026-06-02 00:00:00 conflicts with Month=Kune; carried same contiguous session date 2026-06-02
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R21,2026-01-15,Parkfield Community School,serial 2026-01-15 00:00:00 conflicts with Month=December; carried same contiguous session date 2026-01-15
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R22,2026-01-15,Parkfield Community School,serial 2026-01-15 00:00:00 conflicts with Month=December; carried same contiguous session date 2026-01-15
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R23,2026-01-15,Parkfield Community School,serial 2026-01-15 00:00:00 conflicts with Month=December; carried same contiguous session date 2026-01-15
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R24,2026-01-15,Parkfield Community School,serial 2026-01-15 00:00:00 conflicts with Month=December; carried same contiguous session date 2026-01-15
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R25,2026-01-15,Parkfield Community School,serial 2026-01-15 00:00:00 conflicts with Month=December; carried same contiguous session date 2026-01-15
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R42,2026-02-05,Parkfield Community School,serial 2026-02-05 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-05
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R43,2026-02-05,Parkfield Community School,serial 2026-02-05 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-05
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R44,2026-02-05,Parkfield Community School,serial 2026-02-05 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-05
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R45,2026-02-05,Parkfield Community School,serial 2026-02-05 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-05
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R48,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R49,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R50,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R51,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R52,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R53,2026-02-12,Parkfield Community School,serial 2026-02-12 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-12
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R56,2026-02-26,Parkfield Community School,serial 2026-02-26 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-26
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Parkfield,R57,2026-02-26,Parkfield Community School,raw_date=26/02//2026; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R58,2026-02-26,Parkfield Community School,serial 2026-02-26 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-26
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R128,2026-06-18,Parkfield Community School,18/06/20236 -> 2026-06-18 from weekly sequence
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R129,2026-06-18,Parkfield Community School,18/06/20237 -> 2026-06-18 from weekly sequence
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R130,2026-06-18,Parkfield Community School,18/06/20238 -> 2026-06-18 from weekly sequence
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R131,2026-06-18,Parkfield Community School,18/06/20239 -> 2026-06-18 from weekly sequence
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Parkfield,R132,2026-06-18,Parkfield Community School,18/06/20240 -> 2026-06-18 from weekly sequence
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R3,2025-12-03,Ward End Park,serial 2025-12-03 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R4,2025-12-03,Ward End Park,serial 2025-12-03 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R5,2025-12-03,Ward End Park,serial 2025-12-03 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-03
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R8,2025-12-06,Ward End Park,serial 2025-12-06 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-06
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R9,2025-12-06,Ward End Park,serial 2025-12-06 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-06
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R10,2025-12-06,Ward End Park,serial 2025-12-06 00:00:00 conflicts with Month=Decemeber ; carried same contiguous session date 2025-12-06
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R13,2026-02-04,Ward End Park,serial 2026-02-04 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R14,2026-02-04,Ward End Park,serial 2026-02-04 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-04
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,Wardend,R19,2026-02-11,Ward End Park,serial 2026-02-11 00:00:00 conflicts with Month=Febuary; carried same contiguous session date 2026-02-11
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R26,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R27,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R28,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R29,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R30,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R31,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R32,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R33,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R34,2026-06-06,Ward End Park,raw_date=2926-06-06 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R48,2026-06-20,Ward End Park,raw_date=2926-06-20 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R51,2026-06-20,Ward End Park,raw_date=2926-06-20 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R54,2026-06-20,Ward End Park,raw_date=2926-06-20 00:00:00; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R58,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R59,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R60,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R61,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R62,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_DATE_CORRECTED_FROM_CONTEXT,Tennis Register 2025 (2).xlsx,Wardend,R63,2026-06-27,Ward End Park,raw_date=blank; contiguous same day/time as prior row
+SOURCE_SHEET_NAME_NORMALISED,Tennis Register 2025 (2).xlsx,St Albans,,,St Albans,workbook sheet 'St Albans ' treated as 'St Albans'
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R41,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R42,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R43,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R44,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R45,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R46,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R47,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R48,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R49,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R50,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R51,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R52,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R53,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R54,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R55,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R56,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R57,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R58,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_DATE_CORRECTED,Tennis Register 2025 (2).xlsx,St Albans,R59,2026-02-24,St Albans,serial 2026-02-24 00:00:00 conflicts with Month=January; carried same contiguous session date 2026-02-24
+SOURCE_TIME_CORRECTED,Tennis Register 2025 (2).xlsx,Cannon Hill,R70,2026-06-09,Cannon Hill Park,11:30:00-12:33:00 -> 11:30-12:30; incremental source typo within recurring slot
+SOURCE_TIME_CORRECTED,Tennis Register 2025 (2).xlsx,Cannon Hill,R71,2026-06-09,Cannon Hill Park,11:30:00-12:34:00 -> 11:30-12:30; incremental source typo within recurring slot
+SOURCE_TIME_CORRECTED,Tennis Register 2025 (2).xlsx,Cannon Hill,R72,2026-06-09,Cannon Hill Park,11:30:00-12:35:00 -> 11:30-12:30; incremental source typo within recurring slot
+SOURCE_TIME_CORRECTED,Tennis Register 2025 (2).xlsx,Cannon Hill,R73,2026-06-09,Cannon Hill Park,11:30:00-12:36:00 -> 11:30-12:30; incremental source typo within recurring slot
+SOURCE_TIME_CORRECTED,Tennis Register 2025 (2).xlsx,Cannon Hill,R74,2026-06-09,Cannon Hill Park,11:30:00-12:37:00 -> 11:30-12:30; incremental source typo within recurring slot
+SOURCE_UNDATED_ATTENDANCE_SKIPPED,Tennis Register 2025 (2).xlsx,Cannon Hill,R205,,Cannon Hill Park,identity=444; no defensible session date
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R220,2026-06-03,Calthorpe Wellbeing Hub,12:15:00-13:16:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R221,2026-06-03,Calthorpe Wellbeing Hub,12:15:00-13:17:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R222,2026-06-03,Calthorpe Wellbeing Hub,12:15:00-13:18:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R323,2026-07-15,Calthorpe Wellbeing Hub,12:15:00-13:16:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R324,2026-07-15,Calthorpe Wellbeing Hub,12:15:00-13:17:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R325,2026-07-15,Calthorpe Wellbeing Hub,12:15:00-13:18:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R326,2026-07-15,Calthorpe Wellbeing Hub,12:15:00-13:19:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R327,2026-07-15,Calthorpe Wellbeing Hub,12:15:00-13:20:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R331,2026-07-17,Calthorpe Wellbeing Hub,12:15:00-13:16:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R332,2026-07-17,Calthorpe Wellbeing Hub,12:15:00-13:17:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Calthorpe,R333,2026-07-17,Calthorpe Wellbeing Hub,12:15:00-13:18:00 -> 12:15:00-13:15:00
+SOURCE_TIME_CORRECTED_TO_SESSION_MODE,Tennis Register 2025 (2).xlsx,Cannon Hill,R68,2026-06-02,Cannon Hill Park,11:30:00-12:31:00 -> 11:30:00-12:30:00
+REVIEW_SOURCE_CARD_NAME_CONFLICT,multiple,,,,,"card 484 names=['Saffiyah', 'Shukriya Aabdulkerim']"
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2024.xlsx,Tennis,R4,,,Joy Williams -> card 700
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2024.xlsx,Tennis,R5,,,Sylvia Williams -> card 771
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2024.xlsx,Tennis,R54,,,Kalsoom Iqbal -> card 1023
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2024.xlsx,Tennis,R64,,,Zaida Rahman -> card 625
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2024.xlsx,Tennis,R29,,,Zaida Rahman -> card 625
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R5,,,card 841 -> Adama
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R7,,,card 841 -> Adama
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R5,,,Nuha Aied Eisa Mohamed -> card 523
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R6,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R14,,,Nuha Aied Eisa Mohamed -> card 523
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R17,,,card 841 -> Adama
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R15,,,Yaz Saleh -> card 996
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R23,,,Tayyaba Nazir -> card 526
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R21,,,card 841 -> Adama
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R22,,,card 842 -> Aasia
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Handsworth,R29,,,card 841 -> Adama
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Handsworth,R30,,,Zaib Unnisa -> card 543
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R58,,,yaz Saleh -> card 996
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R69,,,yaz Saleh -> card 996
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R66,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R73,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R76,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R81,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R89,,,Tayyaba Nazir -> card 526
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Calthorpe,R136,,,card 543 -> Zaib Unnisa
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R100,,,Tayyaba Nazir -> card 526
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Calthorpe,R171,,,card 1536 -> Anisah Kassim
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R107,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R113,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R210,,,Djemilah Isakjee -> card 559
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R211,,,Faryaal Safdar -> card 560
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R117,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R237,,,Faryaal Safdar -> card 560
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R239,,,lorraine blake -> card 704
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R124,,,Nuha Aied Eisa Mohamed -> card 523
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R125,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R258,,,Djemilah Isakjee -> card 559
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R259,,,Faryaal Safdar -> card 560
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Parkfield,R129,,,Tayyaba Nazir -> card 526
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R277,,,Djemilah Isakjee -> card 559
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Calthorpe,R318,,,card 638 -> Hamda Mohammed
+SOURCE_NAME_INFERRED_FROM_CARD,Tennis Register 2025 (2).xlsx,Calthorpe,R324,,,card 996 -> yazmin saleh
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R337,,,Djemilah Isakjee -> card 559
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R338,,,Faryaal Safdar -> card 560
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R349,,,Faryaal Safdar -> card 560
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R354,,,Djemilah Isakjee -> card 559
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R356,,,Djemilah Isakjee -> card 559
+SOURCE_CARD_RESOLVED_FROM_OTHER_ROW,Tennis Register 2025 (2).xlsx,Calthorpe,R357,,,Faryaal Safdar -> card 560
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Calthorpe,R34,2026-01-28,Calthorpe Wellbeing Hub,"duplicate identity ('CARD', '700')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Handsworth,R78,2026-04-21,Handsworth,"duplicate identity ('CARD', '1034')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Handsworth,R79,2026-04-21,Handsworth,"duplicate identity ('NAME', 'zabusa', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,St Albans,R151,2026-04-21,St Albans,"duplicate identity ('NAME', 'a h', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,St Albans,R152,2026-04-21,St Albans,"duplicate identity ('NAME', 'a n', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,St Albans,R153,2026-04-21,St Albans,"duplicate identity ('NAME', 'e n', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,St Albans,R154,2026-04-21,St Albans,"duplicate identity ('NAME', 'h n', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,St Albans,R155,2026-04-21,St Albans,"duplicate identity ('NAME', 'a o', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Parkfield,R97,2026-04-30,Parkfield Community School,"duplicate identity ('NAME', 'tahseen', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Parkfield,R104,2026-05-14,Parkfield Community School,"duplicate identity ('NAME', 'rashida ikhalq', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Parkfield,R105,2026-05-14,Parkfield Community School,"duplicate identity ('NAME', 'gazalgh hussain', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Parkfield,R111,2026-05-21,Parkfield Community School,"duplicate identity ('NAME', 'gazalgh hussain', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Parkfield,R113,2026-05-21,Parkfield Community School,"duplicate identity ('CARD', '526')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Calthorpe,R203,2026-05-29,Calthorpe Wellbeing Hub,"duplicate identity ('NAME', 'zainab', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Calthorpe,R222,2026-06-03,Calthorpe Wellbeing Hub,"duplicate identity ('NAME', 'norma', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Calthorpe,R232,2026-06-05,Calthorpe Wellbeing Hub,"duplicate identity ('NAME', 'may may', '')"
+SKIP_SOURCE_DUPLICATE_ATTENDANCE,Tennis Register 2025 (2).xlsx,Calthorpe,R351,2026-07-28,Calthorpe Wellbeing Hub,"duplicate identity ('CARD', '617')"
