@@ -1,0 +1,29 @@
+Saheli CRM - Omnia Medical Practice historical migration
+====================================================
+
+Mode: PREVIEW_ROLLBACK
+Delivered source sessions: 183
+Empty source placeholders skipped: 1
+Clean source attendance rows: 1744
+Source period: 2022-11-16 to 2026-01-28
+Review blockers: 0
+Unique participant identities needing REVIEW_PARTICIPANT: 0
+Unique new Lite members proposed: 55
+Unique new FULL participants proposed: 0
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+CREATE_ATTENDANCE: 1744
+CREATE_LITE: 506
+CREATE_SESSION: 183
+REUSE_FULL_BY_CARD: 936
+REUSE_FULL_BY_NAME_AND_PROFILE: 48
+REUSE_FULL_BY_REVIEWED_CARD_DOB_MISMATCH: 21
+REUSE_FULL_BY_REVIEWED_CARD_NAME: 1
+REUSE_LITE_BY_EXACT_NAME: 232
+SOURCE_CARD_RESOLVED_BY_NAME_DOB_ALIAS: 1
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 27
+SOURCE_DATE_CORRECTED: 37
+SOURCE_NONCARD_TEXT_IGNORED: 4
+SOURCE_SAME_NAME_DIFFERENT_DOB_KEPT_SEPARATE: 3
+SOURCE_START_TIME_INFERRED: 3

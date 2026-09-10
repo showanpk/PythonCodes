@@ -1,0 +1,103 @@
+Saheli CRM - Handsworth historical migration
+===========================================
+
+Mode: PREVIEW_ROLLBACK
+Delivered source sessions: 158
+Empty source placeholders skipped: 28
+Clean source attendance rows: 2371
+Source period: 2025-02-11 to 2026-06-02
+Review blockers: 75
+Unique participant identities needing REVIEW_PARTICIPANT: 9
+Unique new Lite members proposed: 67
+Unique new FULL participants proposed: 1
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+CREATE_ATTENDANCE: 2286
+CREATE_FULL_FROM_VALID_CARD: 4
+CREATE_LITE: 377
+CREATE_SESSION: 158
+REUSE_FULL_BY_CARD: 1785
+REUSE_LITE_BY_EXACT_NAME: 130
+REVIEW_PARTICIPANT: 75
+SKIP_EXISTING_ATTENDANCE: 10
+SKIP_SOURCE_DUPLICATE_ATTENDANCE: 1
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 61
+
+BLOCKERS - do not commit until resolved
+---------------------------------------
+2025-09-30 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-09-30 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-07 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-07 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-21 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-21 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-21 | Pilates | Petrona mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).
+2025-10-28 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-28 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-28 | Pilates | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-10-28 | Pilates | Petrona mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).
+2025-11-04 | Pilates | Petrona mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).
+2025-11-11 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-11-11 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-11-25 | Pilates | Petrona mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).
+2025-12-02 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-12-02 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-12-02 | Pilates | Petrona mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).
+2025-12-16 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-12-16 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2025-12-16 | Pilates | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-01-13 | Crochet for Beginners | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-01-13 | Crochet for Advanced | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-01-13 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-01-13 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-01-20 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-01-20 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-01-20 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-01-27 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-01-27 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-02-10 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-02-10 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-02-10 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-02-10 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-02-17 | Crochet for Beginners | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-02-17 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-02-17 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-02-17 | Crochet for Advanced | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-02-24 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-02-24 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-03-03 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-03-03 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-03-10 | Crochet for Beginners | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-10 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-03-10 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-03-10 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-10 | Pilates | Madneep kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Madneep kaur' (name similarity 0.60).
+2026-03-10 | Crochet for Advanced | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-17 | Crochet for Beginners | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-17 | Pilates | Madhubala Mahendra | 512 | REVIEW_PARTICIPANT | Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).
+2026-03-17 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-03-17 | Pilates | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-17 | Pilates | Mandeep Kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).
+2026-03-17 | Crochet for Advanced | Maureen Bennet | 514 | REVIEW_PARTICIPANT | Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).
+2026-03-24 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-03-31 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-04-07 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-04-14 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-04-21 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-04-21 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-04-21 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-04-28 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-04-28 | Pilates | Mandeep Kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).
+2026-04-28 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-05-05 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-05-05 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-05-05 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-05-12 | Crochet for Beginners | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-05-12 | Pilates | Petrona Mason | 516 | REVIEW_PARTICIPANT | Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).
+2026-05-12 | Crochet for Advanced | Shindo Kaur | 515 | REVIEW_PARTICIPANT | Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).
+2026-05-19 | Pilates |  | 1516 | REVIEW_PARTICIPANT | Saheli Card 1516 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.
+2026-06-02 | Crochet for Beginners |  | 1514 | REVIEW_PARTICIPANT | Saheli Card 1514 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.
+2026-06-02 | Pilates |  | 1516 | REVIEW_PARTICIPANT | Saheli Card 1516 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.
+2026-06-02 | Pilates |  | 1511 | REVIEW_PARTICIPANT | Saheli Card 1511 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.
+2026-06-02 | Crochet for Advanced |  | 1514 | REVIEW_PARTICIPANT | Saheli Card 1514 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.

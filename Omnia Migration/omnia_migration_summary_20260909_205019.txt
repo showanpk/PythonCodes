@@ -1,0 +1,27 @@
+Saheli CRM - Omnia Medical Practice historical migration
+====================================================
+
+Mode: AUDIT_ONLY
+Delivered source sessions: 183
+Empty source placeholders skipped: 1
+Clean source attendance rows: 1744
+Source period: 2022-11-16 to 2026-01-28
+Review blockers: 2
+Unique participant identities needing REVIEW_PARTICIPANT: 0
+Unique new Lite members proposed: 0
+Unique new FULL participants proposed: 0
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+REVIEW_SOURCE_DOB_CONFLICT: 2
+SOURCE_CARD_RESOLVED_BY_NAME_DOB_ALIAS: 1
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 27
+SOURCE_DATE_CORRECTED: 37
+SOURCE_NONCARD_TEXT_IGNORED: 4
+SOURCE_SAME_NAME_DIFFERENT_DOB_KEPT_SEPARATE: 1
+SOURCE_START_TIME_INFERRED: 3
+
+BLOCKERS - do not commit until resolved
+---------------------------------------
+ |  | Abida Bi | 210 | REVIEW_SOURCE_DOB_CONFLICT | Exact source name maps to card 210, but no-card DOB 1976-12-15 conflicts with card-profile DOB 1967-12-15; year digits appear transposed. Review before assigning historical attendance.
+ |  | Abida Bi | 210 | REVIEW_SOURCE_DOB_CONFLICT | Exact source name maps to card 210, but no-card DOB 1976-12-15 conflicts with card-profile DOB 1967-12-15; year digits appear transposed. Review before assigning historical attendance.

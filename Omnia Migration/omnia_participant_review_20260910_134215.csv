@@ -1,0 +1,2 @@
+﻿attendance_rows,source_card,source_name,reason,example_date,example_activity,example_source_ref
+1,1328,Ghazal Yasmin,"Saheli Card 1328 belongs to CRM ParticipantID=9727 'Ghazala Yasmin Mahroof', but source row says 'Ghazal Yasmin' (name similarity 0.74). CRM DOB=1972-01-11, postcode=B83ED, mobile=7458366072; source DOB=NULL, postcode=NULL.",2026-01-28,Chair Based,2025 REGISTER!BA106

@@ -1,0 +1,11 @@
+﻿attendance_rows,source_card,source_name,reason,example_date,example_activity,example_source_ref
+26,515,Shindo Kaur,"Saheli Card 515 belongs to CRM participant 'Shahida Wahid', but source row says 'Shindo Kaur' (name similarity 0.50).",2025-09-30,Crochet for Beginners,2025 REGISTER!CV101
+15,514,Maureen Bennet,"Saheli Card 514 belongs to CRM participant 'Kauser Chawdhry', but source row says 'Maureen Bennet' (name similarity 0.28).",2026-01-13,Crochet for Beginners,Crochet and Knit Social!A9:K9
+13,516,Petrona Mason,"Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona Mason' (name similarity 0.24).",2026-01-13,Pilates,Chair Based Pilates!A11:K11
+8,512,Madhubala Mahendra,"Saheli Card 512 belongs to CRM participant 'Madhu Mahandru', but source row says 'Madhubala Mahendra' (name similarity 0.75).",2026-01-20,Pilates,Chair Based Pilates!A22:K22
+5,516,Petrona mason,"Saheli Card 516 belongs to CRM participant 'Malak Sadiah', but source row says 'Petrona mason' (name similarity 0.24).",2025-10-21,Pilates,2025 REGISTER!DF104
+2,1030,Mandeep Kaur,"Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).",2026-03-17,Pilates,Chair Based Pilates!A175:K175
+2,1514,,Saheli Card 1514 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.,2026-06-02,Crochet for Beginners,Crochet and Knit Social!A390:K390
+2,1516,,Saheli Card 1516 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.,2026-05-19,Pilates,Chair Based Pilates!A395:K395
+1,1030,Madneep kaur,"Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Madneep kaur' (name similarity 0.60).",2026-03-10,Pilates,Chair Based Pilates!A154:K154
+1,1511,,Saheli Card 1511 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.,2026-06-02,Pilates,Chair Based Pilates!A438:K438

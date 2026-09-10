@@ -1,0 +1,2 @@
+﻿attendance_rows,source_card,source_name,reason,example_date,example_activity,example_source_ref
+35,210,Abida Bi,"Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.",2023-05-31,Chair Based,2023 REGISTER!BO58

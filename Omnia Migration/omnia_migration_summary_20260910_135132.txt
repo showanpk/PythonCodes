@@ -1,0 +1,68 @@
+Saheli CRM - Omnia Medical Practice historical migration
+====================================================
+
+Mode: PREVIEW_ROLLBACK
+Delivered source sessions: 183
+Empty source placeholders skipped: 1
+Clean source attendance rows: 1744
+Source period: 2022-11-16 to 2026-01-28
+Review blockers: 35
+Unique participant identities needing REVIEW_PARTICIPANT: 1
+Unique new Lite members proposed: 54
+Unique new FULL participants proposed: 0
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+CREATE_ATTENDANCE: 1709
+CREATE_LITE: 471
+CREATE_SESSION: 183
+REUSE_FULL_BY_CARD: 957
+REUSE_FULL_BY_NAME_AND_PROFILE: 48
+REUSE_FULL_BY_REVIEWED_CARD_NAME: 1
+REUSE_LITE_BY_EXACT_NAME: 232
+REVIEW_PARTICIPANT: 35
+SOURCE_CARD_RESOLVED_BY_NAME_DOB_ALIAS: 1
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 27
+SOURCE_CARD_RESOLVED_TRANSPOSED_DOB_PENDING_CRM: 2
+SOURCE_DATE_CORRECTED: 37
+SOURCE_NONCARD_TEXT_IGNORED: 4
+SOURCE_SAME_NAME_DIFFERENT_DOB_KEPT_SEPARATE: 1
+SOURCE_START_TIME_INFERRED: 3
+
+BLOCKERS - do not commit until resolved
+---------------------------------------
+2023-05-31 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-01-10 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-01-17 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-01-24 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-02-14 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-02-21 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-03-06 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-03-20 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-03-27 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-04-17 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-04-24 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-05-01 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-05-15 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-05-22 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-06-05 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-06-12 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-06-26 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-07-03 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-07-17 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-07-24 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-07-31 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-08-07 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-09-18 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-10-02 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-10-09 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-10-16 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-10-23 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-10-30 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-11-06 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-11-13 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-11-20 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-11-27 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-12-04 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-12-11 | Chair Based | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.
+2024-12-18 | Party | Abida Bi | 210 | REVIEW_PARTICIPANT | Saheli Card 210 transposed-DOB review failed: CRM DOB=1966-12-15, expected 1967-12-15 from the later card-bearing Omnia source row.

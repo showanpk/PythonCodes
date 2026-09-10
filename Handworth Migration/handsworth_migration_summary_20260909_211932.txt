@@ -1,0 +1,30 @@
+Saheli CRM - Handsworth historical migration
+===========================================
+
+Mode: COMMIT
+Delivered source sessions: 158
+Empty source placeholders skipped: 28
+Clean source attendance rows: 2371
+Source period: 2025-02-11 to 2026-06-02
+Review blockers: 0
+Unique participant identities needing REVIEW_PARTICIPANT: 0
+Unique new Lite members proposed: 66
+Unique new FULL participants proposed: 3
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+CREATE_ATTENDANCE: 2371
+CREATE_FULL_FROM_VALID_CARD: 124
+CREATE_LITE: 369
+CREATE_SESSION: 158
+REUSE_FULL_BY_CARD: 1788
+REUSE_FULL_BY_REVIEWED_CARD_NAME: 3
+REUSE_FULL_BY_REVIEWED_EXACT_NAME: 19
+REUSE_LITE_BY_EXACT_NAME: 68
+SKIP_SOURCE_DUPLICATE_ATTENDANCE: 1
+SOURCE_CARD_CORRECTED_TO_15XX: 59
+SOURCE_CARD_CORRECTED_TO_511: 1
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 60
+SOURCE_NAME_CANONICALISED: 6
+SOURCE_NAME_INFERRED_FROM_CORRECTED_CARD: 12
+SOURCE_WRONG_CARD_CLEARED: 1

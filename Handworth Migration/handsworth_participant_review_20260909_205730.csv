@@ -1,0 +1,3 @@
+﻿attendance_rows,source_card,source_name,reason,example_date,example_activity,example_source_ref
+3,1030,Mandeep Kaur,"Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).",2026-03-10,Pilates,Chair Based Pilates!A154:K154
+1,1511,,Saheli Card 1511 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.,2026-06-02,Pilates,Chair Based Pilates!A438:K438

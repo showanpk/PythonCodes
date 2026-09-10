@@ -1,0 +1,4 @@
+﻿attendance_rows,source_card,source_name,reason,example_date,example_activity,example_source_ref
+5,,Kalsoom Bi,Exact Lite name match 'Kalsoom Bi' has conflicting DOB (1969-07-04 vs 1953-01-20).,2022-11-16,Chair Based,2023 REGISTER!E45
+1,,Naseem Akhtar,Exact Lite name match 'Naseem Akhtar' has conflicting DOB (1943-05-07 vs 1984-02-28).,2025-05-14,Chair Based,2025 REGISTER!Z31
+1,1328,Ghazal Yasmin,"Saheli Card 1328 belongs to CRM participant 'Ghazala Yasmin Mahroof', but source row says 'Ghazal Yasmin' (name similarity 0.74).",2026-01-28,Chair Based,2025 REGISTER!BA106

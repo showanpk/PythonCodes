@@ -1,0 +1,36 @@
+Saheli CRM - Handsworth historical migration
+===========================================
+
+Mode: PREVIEW_ROLLBACK
+Delivered source sessions: 158
+Empty source placeholders skipped: 28
+Clean source attendance rows: 2371
+Source period: 2025-02-11 to 2026-06-02
+Review blockers: 4
+Unique participant identities needing REVIEW_PARTICIPANT: 2
+Unique new Lite members proposed: 66
+Unique new FULL participants proposed: 3
+
+Action counts (trace rows; member-resolution actions can repeat per attendance)
+--------------------------------------------------------------------------
+CREATE_ATTENDANCE: 2367
+CREATE_FULL_FROM_VALID_CARD: 124
+CREATE_LITE: 369
+CREATE_SESSION: 158
+REUSE_FULL_BY_CARD: 1778
+REUSE_FULL_BY_REVIEWED_EXACT_NAME: 19
+REUSE_LITE_BY_EXACT_NAME: 77
+REVIEW_PARTICIPANT: 4
+SKIP_SOURCE_DUPLICATE_ATTENDANCE: 1
+SOURCE_CARD_CORRECTED_TO_15XX: 59
+SOURCE_CARD_RESOLVED_FROM_OTHER_YEAR: 59
+SOURCE_NAME_CANONICALISED: 6
+SOURCE_NAME_INFERRED_FROM_CORRECTED_CARD: 12
+SOURCE_WRONG_CARD_CLEARED: 1
+
+BLOCKERS - do not commit until resolved
+---------------------------------------
+2026-03-10 | Pilates | Mandeep Kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).
+2026-03-17 | Pilates | Mandeep Kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).
+2026-04-28 | Pilates | Mandeep Kaur | 1030 | REVIEW_PARTICIPANT | Saheli Card 1030 belongs to CRM participant 'Mandeep K Dhaliwal', but source row says 'Mandeep Kaur' (name similarity 0.67).
+2026-06-02 | Pilates |  | 1511 | REVIEW_PARTICIPANT | Saheli Card 1511 is not in CRM and this source row has no usable name; refusing to create a nameless FULL participant.
