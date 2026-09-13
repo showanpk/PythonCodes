@@ -783,7 +783,9 @@ def prepare_row(
         redacted_sample=redacted,
     )
     if not out.date_form_completed:
-        out.warnings.append("Date Form Completed is missing/invalid; migration date will be used for created_at.")
+        out.blockers.append(
+            "Date Form Completed is missing/invalid. Historical registration date must be reviewed before migration."
+        )
 
     if out.date_of_birth:
         try:
