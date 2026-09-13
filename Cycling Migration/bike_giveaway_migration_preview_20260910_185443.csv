@@ -1,0 +1,261 @@
+﻿Action,Giveaway,Date,SourceRow,SourceName,WellbeingCardNumber,Email,Gender,SessionId,MemberRef,Detail
+NEW_SESSION,1,2026-02-17,2,Iffat Shaheen,THE1769791952260,asififfat42@gmail.com,Female,16144,,Created Bike Giveaway session; venue=Various Locations; source did not record venue/time.
+NEW_SESSION,2,2026-03-08,36,Adil Nadeem,THE1772112324159,,Male,16145,,Created Bike Giveaway session; venue=Various Locations; source did not record venue/time.
+NEW_SESSION,3,2026-04-12,72,Umar Akhtar,THE1772143731558,,Male,16146,,Created Bike Giveaway session; venue=Various Locations; source did not record venue/time.
+NEW_SESSION,4,2026-05-30,94,Mohammed Arman ur Rahahm,,,Male,16147,,Created Bike Giveaway session; venue=Various Locations; source did not record venue/time.
+NEW_SESSION,5,2026-07-19,116,Nusrat Bi,THE1774433122384,,Female,16148,,Created Bike Giveaway session; venue=Various Locations; source did not record venue/time.
+NEW_ATTENDANCE,1,2026-02-17,2,Iffat Shaheen,THE1769791952260,asififfat42@gmail.com,Female,16144,FULL:533,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,3,Rajkaran Bopara,THE1769461011391,girl.90@hotmail.co.uk,Female,,LITE:7cb520a2-546e-4c72-9f10-bacce7f95f12,"MembershipId=LITE-773; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,3,Rajkaran Bopara,THE1769461011391,girl.90@hotmail.co.uk,Female,16144,LITE:LITE-773,CREATED_LITE
+CREATED_LITE,1,2026-02-17,4,Javeria Jan,THE1769469411388,javeria.93@hotmail.co.uk,Female,,LITE:00e854ce-2592-4189-8908-b5ca6bfaff69,"MembershipId=LITE-774; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,4,Javeria Jan,THE1769469411388,javeria.93@hotmail.co.uk,Female,16144,LITE:LITE-774,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,5,Abdul Majid,MCR022557262,a Majid3560@live.com,Male,16144,FULL:259,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,6,Khushbukht Alia,THE1769791765487,k.alia12@hotmail.co.uk,Female,,LITE:8c784dc4-440a-439e-beb9-af45cf76c041,"MembershipId=LITE-775; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,6,Khushbukht Alia,THE1769791765487,k.alia12@hotmail.co.uk,Female,16144,LITE:LITE-775,CREATED_LITE
+CREATED_LITE,1,2026-02-17,7,Zeena Yasin,THE1769884049418,zeenayasin01@gmail.com,Female,,LITE:7df6ba88-fb64-4de6-82af-2452ff7156cc,"MembershipId=LITE-776; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,7,Zeena Yasin,THE1769884049418,zeenayasin01@gmail.com,Female,16144,LITE:LITE-776,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,8,Mahesh Patel,MCR022534461,Mash56@googlemail.com,Male,16144,FULL:1037,REUSE_FULL_BY_EMAIL
+NEW_ATTENDANCE,1,2026-02-17,9,Razia RAFIQUE,MCR022570654,razraf@hotmail.co.uk,Male,16144,FULL:812,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,10,Nadhim. Hussain,THE1770466179530,qudeerhussaim123@gmail.com,Male,,LITE:2cfb1c38-e50c-464e-a0b1-a7bc8bbbd034,"MembershipId=LITE-777; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,10,Nadhim. Hussain,THE1770466179530,qudeerhussaim123@gmail.com,Male,16144,LITE:LITE-777,CREATED_LITE
+CREATED_LITE,1,2026-02-17,11,Saima Bi,THE1769553655349,saimaimran.saima@yahoo.com,Female,,LITE:d3d6f8d1-fa6e-4659-879d-de59c31d1faf,"MembershipId=LITE-778; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,11,Saima Bi,THE1769553655349,saimaimran.saima@yahoo.com,Female,16144,LITE:LITE-778,CREATED_LITE
+WARN_REVIEWED_FULL_OVERRIDE,1,2026-02-17,12,Hayat ali,THE1769785179930,Hayatali1963@icloud.com,Male,,FULL:1247,FULL card=1247; ParticipantID=4960; Reviewed exact-name/gender match. FULL 1247 is the established Hayat Ali record (DOB 1963-07-12). The source email is not used for profile matching because live CRM stores that exact email against another participant.
+NEW_ATTENDANCE,1,2026-02-17,12,Hayat ali,THE1769785179930,Hayatali1963@icloud.com,Male,16144,FULL:1247,REUSE_FULL_BY_REVIEWED_OVERRIDE
+NEW_ATTENDANCE,1,2026-02-17,13,Shaheen Akhter,THE1769595682418,Shaheenakhter@hotmail.com,Female,16144,FULL:354,REUSE_FULL_BY_EXACT_NAME
+NEW_ATTENDANCE,1,2026-02-17,14,Farhana Chughtai,THE1769516323510,Farhana.fqc@gmail.com,Female,16144,FULL:388,REUSE_FULL_BY_EMAIL
+NEW_ATTENDANCE,1,2026-02-17,15,Samira Kassim,THE1770187635112,samiramusaid@yahoo.com,Female,16144,FULL:361,REUSE_FULL_BY_EMAIL
+NEW_ATTENDANCE,1,2026-02-17,16,Augusta Sesay,THE1770071442813,augustasesay123@gmail.com,Female,16144,FULL:363,REUSE_FULL_BY_EMAIL
+NEW_ATTENDANCE,1,2026-02-17,17,Murium Ishaq,THE1770465940024,murium7866@icloud.com,Female,16144,FULL:613,REUSE_FULL_BY_DUPLICATE_PROFILE_EVIDENCE
+CREATED_LITE,1,2026-02-17,18,Safraz,THE1770201762848,safrazbibi@outlook.com,Female,,LITE:05a99497-4f46-4a93-95f8-401e7e383f6a,"MembershipId=LITE-779; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,18,Safraz,THE1770201762848,safrazbibi@outlook.com,Female,16144,LITE:LITE-779,CREATED_LITE
+WARN_REVIEWED_FULL_OVERRIDE,1,2026-02-17,19,Yasmeen Akhtar,MCR022558122,yasmeen-akhtar@hotmail.co.uk,Female,,FULL:1135,"FULL card=1135; ParticipantID=4784; Reviewed exact-name/gender match. FULL 1135 is the established active Yasmeen Akhtar record with substantial prior CRM attendance, including activity on the Giveaway 1 date; competing FULL 357 has no attendance."
+NEW_ATTENDANCE,1,2026-02-17,19,Yasmeen Akhtar,MCR022558122,yasmeen-akhtar@hotmail.co.uk,Female,16144,FULL:1135,REUSE_FULL_BY_REVIEWED_OVERRIDE
+WARN_REVIEWED_FULL_OVERRIDE,1,2026-02-17,20,Shamim Akhtar,MCR022496285,Shamim-akhtar@hotmail.co.uk,Female,,FULL:1460,FULL card=1460; ParticipantID=9927; Reviewed exact-name/gender match. FULL 1460 is the only Shamim Akhtar candidate with a personal email closely matching the source email stem.
+NEW_ATTENDANCE,1,2026-02-17,20,Shamim Akhtar,MCR022496285,Shamim-akhtar@hotmail.co.uk,Female,16144,FULL:1460,REUSE_FULL_BY_REVIEWED_OVERRIDE
+CREATED_LITE,1,2026-02-17,21,Hifza din,THE1764434778464,hifnu@icloud.com,Female,,LITE:6467cc0b-a4f0-4220-aede-2a6b1d059cf0,"MembershipId=LITE-780; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,21,Hifza din,THE1764434778464,hifnu@icloud.com,Female,16144,LITE:LITE-780,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,22,ISHRAT PARVEEN,THE1770202904059,Romeoalpha413@gmail.com,Female,16144,FULL:356,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,23,Nagina bibi,THE1769864702680,naginab271@gmail.com,Female,,LITE:b9dfca6f-5b21-4d50-b404-f073c9527756,"MembershipId=LITE-781; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,23,Nagina bibi,THE1769864702680,naginab271@gmail.com,Female,16144,LITE:LITE-781,CREATED_LITE
+CREATED_LITE,1,2026-02-17,24,Safia kousar,THE1769895349694,Ashfaq.007@live.com,Female,,LITE:295053d7-802b-483e-b383-fc5d95d57681,"MembershipId=LITE-782; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,24,Safia kousar,THE1769895349694,Ashfaq.007@live.com,Female,16144,LITE:LITE-782,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,25,Mrs Surraya Begum,THE1769956186552,aksarajpoot220@gmail.com,Female,16144,FULL:426,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,26,Saqab,THE1770058858482,saqab-ali@hotmail.co.uk,Male,,LITE:5653e42a-9b6c-4ea7-a707-65cb4877119b,"MembershipId=LITE-783; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,26,Saqab,THE1770058858482,saqab-ali@hotmail.co.uk,Male,16144,LITE:LITE-783,CREATED_LITE
+CREATED_LITE,1,2026-02-17,27,Tayeaar,THE1769979215975,tayear1@yahoo.com,Male,,LITE:5f21065a-f704-431d-94f1-29fd5a442b5b,"MembershipId=LITE-784; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,27,Tayeaar,THE1769979215975,tayear1@yahoo.com,Male,16144,LITE:LITE-784,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,28,Mohammed malik,THE1770408147201,sajid_khan@live.co.uk,Male,16144,LITE:LITE-22,REUSE_LITE_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,29,Munir Ahmed,THE1770028821176,munirahmad15g@hotmail.com,Male,,LITE:04370ca7-cb4b-4ba9-bec9-b891ffe6fc6b,"MembershipId=LITE-785; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,29,Munir Ahmed,THE1770028821176,munirahmad15g@hotmail.com,Male,16144,LITE:LITE-785,CREATED_LITE
+CREATED_LITE,1,2026-02-17,30,Ibrahim Mahmood,THE1769979216086,taboo2426@gmail.com,Male,,LITE:aac2a9e9-425f-4c9d-8ac0-76dec34c14b3,"MembershipId=LITE-786; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,30,Ibrahim Mahmood,THE1769979216086,taboo2426@gmail.com,Male,16144,LITE:LITE-786,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,31,Fakhra Ahmed,THE1770463632758,fakhra.ahmed0@gmail.com,Female,16144,FULL:468,REUSE_FULL_BY_DUPLICATE_PROFILE_EVIDENCE
+CREATED_LITE,1,2026-02-17,32,Sadya Nazir,THE1770439117238,sadyanazir202@gmail.com,Female,,LITE:bade29c6-bfc8-4bb5-966a-e7d1216f4dc8,"MembershipId=LITE-787; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,32,Sadya Nazir,THE1770439117238,sadyanazir202@gmail.com,Female,16144,LITE:LITE-787,CREATED_LITE
+CREATED_LITE,1,2026-02-17,33,Natasha Logan,THE1770474426202,niyyahlog@hotmail.co.uk,Female,,LITE:42aefa39-1a24-48e5-b2a1-f70fff165a51,"MembershipId=LITE-788; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,33,Natasha Logan,THE1770474426202,niyyahlog@hotmail.co.uk,Female,16144,LITE:LITE-788,CREATED_LITE
+NEW_ATTENDANCE,1,2026-02-17,34,Tamanna Choudhury,THE1769519835551,,Female,16144,FULL:550,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,1,2026-02-17,35,Jarrar Mughal,THE1771950108390,,Male,,LITE:5cc01f20-dcee-41bd-953f-446ff7196a63,"MembershipId=LITE-789; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,1,2026-02-17,35,Jarrar Mughal,THE1771950108390,,Male,16144,LITE:LITE-789,CREATED_LITE
+CREATED_LITE,2,2026-03-08,36,Adil Nadeem,THE1772112324159,,Male,,LITE:681f340c-8396-4560-8b1c-5c8acad0b200,"MembershipId=LITE-790; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,36,Adil Nadeem,THE1772112324159,,Male,16145,LITE:LITE-790,CREATED_LITE
+CREATED_LITE,2,2026-03-08,37,Bilal ibrar,THE1772124060822,,Male,,LITE:9fc06662-0b32-4a1e-9f0e-9aa276bad797,"MembershipId=LITE-791; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,37,Bilal ibrar,THE1772124060822,,Male,16145,LITE:LITE-791,CREATED_LITE
+CREATED_LITE,2,2026-03-08,38,Mohamed abd el djalil Ben hamla,THE1769884450749,,Male,,LITE:4196fe86-5018-4107-ac28-993ada76c3fa,"MembershipId=LITE-792; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,38,Mohamed abd el djalil Ben hamla,THE1769884450749,,Male,16145,LITE:LITE-792,CREATED_LITE
+CREATED_LITE,2,2026-03-08,39,Sajid mahmood,THE1771317547538,,Male,,LITE:60cc0288-34e4-4fd2-b425-8113015af028,"MembershipId=LITE-793; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE_DISTINCT_SOURCE_IDENTITY."
+NEW_ATTENDANCE,2,2026-03-08,39,Sajid mahmood,THE1771317547538,,Male,16145,LITE:LITE-793,CREATED_LITE_DISTINCT_SOURCE_IDENTITY
+CREATED_LITE,2,2026-03-08,40,Ibrahim Muthana Mohanish,THE1772137287893,,Male,,LITE:ca83d4de-c9e1-4914-896e-a92cdab51679,"MembershipId=LITE-794; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,40,Ibrahim Muthana Mohanish,THE1772137287893,,Male,16145,LITE:LITE-794,CREATED_LITE
+CREATED_LITE,2,2026-03-08,41,Mariya Mohanish,THE1772124733987,,Female,,LITE:2eb54bcb-1a93-4981-bc4b-7bd556589abe,"MembershipId=LITE-795; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,41,Mariya Mohanish,THE1772124733987,,Female,16145,LITE:LITE-795,CREATED_LITE
+CREATED_LITE,2,2026-03-08,42,Khadija Kaleem,THE1772116281101,,Female,,LITE:568dde0d-4832-46e8-a956-792495790501,"MembershipId=LITE-796; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,42,Khadija Kaleem,THE1772116281101,,Female,16145,LITE:LITE-796,CREATED_LITE
+CREATED_LITE,2,2026-03-08,43,Mousin Javed,THE1772138003697,,Male,,LITE:965b736b-cf66-459a-842c-730916b22eb3,"MembershipId=LITE-797; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,43,Mousin Javed,THE1772138003697,,Male,16145,LITE:LITE-797,CREATED_LITE
+CREATED_LITE,2,2026-03-08,44,Khadijah ibrar,THE1772124126951,,Female,,LITE:88913430-c482-4e9d-95fd-3fb2276cf1e5,"MembershipId=LITE-798; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,44,Khadijah ibrar,THE1772124126951,,Female,16145,LITE:LITE-798,CREATED_LITE
+CREATED_LITE,2,2026-03-08,45,Faisal hussain,THE1772134641931,,Male,,LITE:da39048f-e6a1-4d9c-a119-966dc968370f,"MembershipId=LITE-799; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,45,Faisal hussain,THE1772134641931,,Male,16145,LITE:LITE-799,CREATED_LITE
+CREATED_LITE,2,2026-03-08,46,Dewan Rasid,THE1772131225869,,Male,,LITE:50c6ee73-f6ea-4762-8c86-e6defce32203,"MembershipId=LITE-800; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,46,Dewan Rasid,THE1772131225869,,Male,16145,LITE:LITE-800,CREATED_LITE
+CREATED_LITE,2,2026-03-08,47,Noor Akhtar,THE1772136120896,,Female,,LITE:27041792-6ab6-4819-943f-5c27859019a5,"MembershipId=LITE-801; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,47,Noor Akhtar,THE1772136120896,,Female,16145,LITE:LITE-801,CREATED_LITE
+CREATED_LITE,2,2026-03-08,48,Romusa Babekir,THE1771963175067,,Female,,LITE:9a7803b3-28c7-4e24-b9ca-ba1f7907d4c3,"MembershipId=LITE-802; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,48,Romusa Babekir,THE1771963175067,,Female,16145,LITE:LITE-802,CREATED_LITE
+CREATED_LITE,2,2026-03-08,49,Saeed Ahmed,THE1770463699726,,Male,,LITE:62356d0d-0055-48b0-83cd-eff8a38e7bc0,"MembershipId=LITE-803; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,49,Saeed Ahmed,THE1770463699726,,Male,16145,LITE:LITE-803,CREATED_LITE
+NEW_ATTENDANCE,2,2026-03-08,50,Hanadi Ahmed,THE1772206579635,,Female,16145,LITE:LITE-199,REUSE_LITE_BY_EXACT_NAME
+CREATED_LITE,2,2026-03-08,51,Mohammed Ali,THE1772206580052,,Male,,LITE:f2f55000-6d0f-4f78-b942-ad72a9030b27,"MembershipId=LITE-804; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,51,Mohammed Ali,THE1772206580052,,Male,16145,LITE:LITE-804,CREATED_LITE
+CREATED_LITE,2,2026-03-08,52,Mariam Jahangir,THE1772148216587,,Female,,LITE:b4b84f85-6ecc-4cb7-9b19-b86e58f4ee7b,"MembershipId=LITE-805; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,52,Mariam Jahangir,THE1772148216587,,Female,16145,LITE:LITE-805,CREATED_LITE
+WARN_SOURCE_WELLBEING_ID_CONFLICT_IGNORED,2,2026-03-08,53,Umar Akhtar,THE1772143731558,,Male,,,"Wellbeing ID THE1772143731558 is used for multiple source names: umar akhtar, zara zaheer. ID ignored for member resolution; name/email/gender rules continue."
+CREATED_LITE,2,2026-03-08,53,Umar Akhtar,THE1772143731558,,Male,,LITE:9bf85119-d655-47a4-bf5d-5886625b1e9c,"MembershipId=LITE-806; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,53,Umar Akhtar,THE1772143731558,,Male,16145,LITE:LITE-806,CREATED_LITE
+CREATED_LITE,2,2026-03-08,54,FARHAD Ali,THE1772287686149,,Male,,LITE:63d0405b-3661-42db-9ecd-cccb2968b3d7,"MembershipId=LITE-807; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,54,FARHAD Ali,THE1772287686149,,Male,16145,LITE:LITE-807,CREATED_LITE
+CREATED_LITE,2,2026-03-08,55,Zarqa Malik,THE1772142362004,,Female,,LITE:d3426529-5c75-4ed8-9690-cb0c75837d6d,"MembershipId=LITE-808; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,55,Zarqa Malik,THE1772142362004,,Female,16145,LITE:LITE-808,CREATED_LITE
+CREATED_LITE,2,2026-03-08,56,Usama Saeed,THE1772142361716,,Male,,LITE:64cbaef1-3332-4440-a4bb-0918f576d088,"MembershipId=LITE-809; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,56,Usama Saeed,THE1772142361716,,Male,16145,LITE:LITE-809,CREATED_LITE
+CREATED_LITE,2,2026-03-08,57,Sabriya Abdou-Sahota,THE1772201639612,,Female,,LITE:79a5ebd1-8881-4e9d-b0a1-5441c55a5f60,"MembershipId=LITE-810; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,57,Sabriya Abdou-Sahota,THE1772201639612,,Female,16145,LITE:LITE-810,CREATED_LITE
+CREATED_LITE,2,2026-03-08,58,Muhammad Imran,THE1772282496463,,Male,,LITE:6f96a226-f5fa-4a64-9daa-c123a954ef66,"MembershipId=LITE-811; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,58,Muhammad Imran,THE1772282496463,,Male,16145,LITE:LITE-811,CREATED_LITE
+CREATED_LITE,2,2026-03-08,59,Ashfaq Hussain,THE1772141411474,,Male,,LITE:41a3e24c-09d1-403f-bd4d-04f1bcad41ba,"MembershipId=LITE-812; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,59,Ashfaq Hussain,THE1772141411474,,Male,16145,LITE:LITE-812,CREATED_LITE
+CREATED_LITE,2,2026-03-08,60,Osama Hassan,THE1772187355307,,Male,,LITE:2efe2eb5-394c-4603-b697-86f654ba526c,"MembershipId=LITE-813; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,60,Osama Hassan,THE1772187355307,,Male,16145,LITE:LITE-813,CREATED_LITE
+CREATED_LITE,2,2026-03-08,61,Afnan,THE1772171399077,,Female,,LITE:9b0b5531-69a5-4838-ac5c-4a05f913de65,"MembershipId=LITE-814; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,61,Afnan,THE1772171399077,,Female,16145,LITE:LITE-814,CREATED_LITE
+CREATED_LITE,2,2026-03-08,62,Ifrah Ramzan,THE1772114011350,,Female,,LITE:128ca247-8e18-4d24-8c23-7f9f8c5c8b97,"MembershipId=LITE-815; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,62,Ifrah Ramzan,THE1772114011350,,Female,16145,LITE:LITE-815,CREATED_LITE
+CREATED_LITE,2,2026-03-08,63,Azhar Mohammed,THE1772288130519,,Male,,LITE:02514131-b00e-4a09-a562-9394c8035b92,"MembershipId=LITE-816; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,63,Azhar Mohammed,THE1772288130519,,Male,16145,LITE:LITE-816,CREATED_LITE
+CREATED_LITE,2,2026-03-08,64,Adil Muhammad,THE1772134609139,,Male,,LITE:c428d637-8a05-4e3e-a7d3-52678b449666,"MembershipId=LITE-817; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,64,Adil Muhammad,THE1772134609139,,Male,16145,LITE:LITE-817,CREATED_LITE
+CREATED_LITE,2,2026-03-08,65,Ishbah Azhar,THE1772288130402,,Female,,LITE:35354d59-ae2f-41a6-ba9e-f5c6a14b173f,"MembershipId=LITE-818; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,65,Ishbah Azhar,THE1772288130402,,Female,16145,LITE:LITE-818,CREATED_LITE
+CREATED_LITE,2,2026-03-08,66,Sajid Mahmood,THE1772287596941,,Male,,LITE:fe79d6db-8569-41e8-8e89-449e12ec0625,"MembershipId=LITE-819; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE_DISTINCT_SOURCE_IDENTITY."
+NEW_ATTENDANCE,2,2026-03-08,66,Sajid Mahmood,THE1772287596941,,Male,16145,LITE:LITE-819,CREATED_LITE_DISTINCT_SOURCE_IDENTITY
+CREATED_LITE,2,2026-03-08,67,Safya Abadat,THE1772141098214,,Female,,LITE:c984ce63-e8ef-455b-9ac2-4d510b5e1bd7,"MembershipId=LITE-820; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,67,Safya Abadat,THE1772141098214,,Female,16145,LITE:LITE-820,CREATED_LITE
+CREATED_LITE,2,2026-03-08,68,Fatima Zaman,THE1772035145322,,Female,,LITE:4d5316e5-d261-4901-8133-6d4e81256ef6,"MembershipId=LITE-821; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,68,Fatima Zaman,THE1772035145322,,Female,16145,LITE:LITE-821,CREATED_LITE
+CREATED_LITE,2,2026-03-08,69,Sana Nadeem,,,Female,,LITE:7bbe0aef-cd7c-4846-b98b-66b969040e95,"MembershipId=LITE-822; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,69,Sana Nadeem,,,Female,16145,LITE:LITE-822,CREATED_LITE
+CREATED_LITE,2,2026-03-08,70,Rahees Farooq,THE1772113835504,,Male,,LITE:65878626-a558-4f2b-85ff-5e17b8cb7f14,"MembershipId=LITE-823; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,70,Rahees Farooq,THE1772113835504,,Male,16145,LITE:LITE-823,CREATED_LITE
+CREATED_LITE,2,2026-03-08,71,Mirza Sana-Ullah Safdar Begg,THE1772440394365,,Male,,LITE:d3bf48c7-01ac-481a-8638-605a51555b5e,"MembershipId=LITE-824; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,2,2026-03-08,71,Mirza Sana-Ullah Safdar Begg,THE1772440394365,,Male,16145,LITE:LITE-824,CREATED_LITE
+NEW_ATTENDANCE,3,2026-04-12,72,Umar Akhtar,THE1772143731558,,Male,16146,LITE:LITE-806,CREATED_LITE
+CREATED_LITE,3,2026-04-12,73,Kashif Akhtar,THE1772368281960,,Male,,LITE:b36883b5-aafa-4ce3-ae1c-735bc9115daf,"MembershipId=LITE-825; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,73,Kashif Akhtar,THE1772368281960,,Male,16146,LITE:LITE-825,CREATED_LITE
+WARN_SOURCE_WELLBEING_ID_CONFLICT_IGNORED,3,2026-04-12,74,Zara Zaheer,THE1772143731558,,Female,,,"Wellbeing ID THE1772143731558 is used for multiple source names: umar akhtar, zara zaheer. ID ignored for member resolution; name/email/gender rules continue."
+CREATED_LITE,3,2026-04-12,74,Zara Zaheer,THE1772143731558,,Female,,LITE:6853d334-e0f8-4118-a8c6-5072eeea828a,"MembershipId=LITE-826; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,74,Zara Zaheer,THE1772143731558,,Female,16146,LITE:LITE-826,CREATED_LITE
+NEW_ATTENDANCE,3,2026-04-12,75,Rebecca Akomanyi,THE1772995821856,,Female,16146,FULL:866,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,3,2026-04-12,76,Qari zahoor Ahmed,THE1773245864948,,Male,,LITE:20522c0b-a459-41d2-ba20-c3d2b13249b1,"MembershipId=LITE-827; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,76,Qari zahoor Ahmed,THE1773245864948,,Male,16146,LITE:LITE-827,CREATED_LITE
+NEW_ATTENDANCE,3,2026-04-12,77,Mageela Nasser,,,Female,16146,FULL:781,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,3,2026-04-12,78,Malik Imtiaz,THE1773252132362,,Male,,LITE:152292d4-1321-44ec-b758-518ae11a2b16,"MembershipId=LITE-828; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,78,Malik Imtiaz,THE1773252132362,,Male,16146,LITE:LITE-828,CREATED_LITE
+CREATED_LITE,3,2026-04-12,79,Mr Nasar Rafique,THE1770671725974,,Male,,LITE:d6a2db1a-4fea-4e12-b778-1f65baca2ba5,"MembershipId=LITE-829; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,79,Mr Nasar Rafique,THE1770671725974,,Male,16146,LITE:LITE-829,CREATED_LITE
+CREATED_LITE,3,2026-04-12,80,Muhammad Asif,THE1772135450953,,Male,,LITE:4028a78f-6e1b-4525-95b0-93e1da3442c5,"MembershipId=LITE-830; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,80,Muhammad Asif,THE1772135450953,,Male,16146,LITE:LITE-830,CREATED_LITE
+CREATED_LITE,3,2026-04-12,81,Khizar Zaman,THE1773515876421,,Male,,LITE:78955f5b-5c32-434d-b2fe-d8a169955806,"MembershipId=LITE-831; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,81,Khizar Zaman,THE1773515876421,,Male,16146,LITE:LITE-831,CREATED_LITE
+CREATED_LITE,3,2026-04-12,82,ADAM HASNAN BUTT,THE1772127337202,,Male,,LITE:0bc58bce-9fd5-4bfd-8049-2110bfbca40f,"MembershipId=LITE-832; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,82,ADAM HASNAN BUTT,THE1772127337202,,Male,16146,LITE:LITE-832,CREATED_LITE
+CREATED_LITE,3,2026-04-12,83,Sara Said,THE1773344616621,,Female,,LITE:171d4304-2d18-413d-957f-012cd57461bf,"MembershipId=LITE-833; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,83,Sara Said,THE1773344616621,,Female,16146,LITE:LITE-833,CREATED_LITE
+CREATED_LITE,3,2026-04-12,84,Indy Gangotra,THE172215016151,,Female,,LITE:b1b88bcc-4f1e-4c4a-aeeb-20cae2b15574,"MembershipId=LITE-834; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,84,Indy Gangotra,THE172215016151,,Female,16146,LITE:LITE-834,CREATED_LITE
+CREATED_LITE,3,2026-04-12,85,Sameena Khatun Iqbal,THE1775559812673,,Female,,LITE:0c25d26a-8895-489a-989d-0951cb8c5b88,"MembershipId=LITE-835; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,85,Sameena Khatun Iqbal,THE1775559812673,,Female,16146,LITE:LITE-835,CREATED_LITE
+CREATED_LITE,3,2026-04-12,86,Summaya,THE1773154936317,,Female,,LITE:3923c47b-341a-4060-8944-cb02d6be458c,"MembershipId=LITE-836; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,86,Summaya,THE1773154936317,,Female,16146,LITE:LITE-836,CREATED_LITE
+CREATED_LITE,3,2026-04-12,87,Rashid Ali,THE1774022343612,,Male,,LITE:c94a4821-f7b3-4a1c-8651-6c7f416c8b24,"MembershipId=LITE-837; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,87,Rashid Ali,THE1774022343612,,Male,16146,LITE:LITE-837,CREATED_LITE
+NEW_ATTENDANCE,3,2026-04-12,88,Yvonne Finch,,,Female,16146,FULL:617,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,3,2026-04-12,89,Joy,,,Female,,LITE:048fb4cc-2dc8-4d86-957e-5028065327e8,"MembershipId=LITE-838; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,89,Joy,,,Female,16146,LITE:LITE-838,CREATED_LITE
+CREATED_LITE,3,2026-04-12,90,Anisha,,,Female,,LITE:b30a790e-8342-4b23-9936-7f79fd7f6ae6,"MembershipId=LITE-839; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,90,Anisha,,,Female,16146,LITE:LITE-839,CREATED_LITE
+CREATED_LITE,3,2026-04-12,91,Aisha Ahmed,,,Female,,LITE:e3215657-baf2-4d43-ae5a-5197100ef654,"MembershipId=LITE-840; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,91,Aisha Ahmed,,,Female,16146,LITE:LITE-840,CREATED_LITE
+CREATED_LITE,3,2026-04-12,92,Abdul hanan,,,Male,,LITE:80e454bf-c7a9-41a4-87b0-7e53ec1ffae0,"MembershipId=LITE-841; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,92,Abdul hanan,,,Male,16146,LITE:LITE-841,CREATED_LITE
+CREATED_LITE,3,2026-04-12,93,Mohammed sadiq ur rahman,,,Male,,LITE:96deed67-9203-4228-b4a5-7d489aa75b29,"MembershipId=LITE-842; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,3,2026-04-12,93,Mohammed sadiq ur rahman,,,Male,16146,LITE:LITE-842,CREATED_LITE
+CREATED_LITE,4,2026-05-30,94,Mohammed Arman ur Rahahm,,,Male,,LITE:02288702-ce48-4a31-a614-6ee9670de601,"MembershipId=LITE-843; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,94,Mohammed Arman ur Rahahm,,,Male,16147,LITE:LITE-843,CREATED_LITE
+CREATED_LITE,4,2026-05-30,95,Irfan Ahmed,THE1776402888057,,Male,,LITE:d83d70f2-c9c1-48b7-9e58-9a66067804c0,"MembershipId=LITE-844; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,95,Irfan Ahmed,THE1776402888057,,Male,16147,LITE:LITE-844,CREATED_LITE
+CREATED_LITE,4,2026-05-30,96,Tasawar Hussain,THE1779284304164,,Male,,LITE:f210c3ea-2457-4282-a088-4bc741f99b4d,"MembershipId=LITE-845; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,96,Tasawar Hussain,THE1779284304164,,Male,16147,LITE:LITE-845,CREATED_LITE
+CREATED_LITE,4,2026-05-30,97,Wasim Nazam,THE1772819630695,,Male,,LITE:ac27c418-8fd4-4981-b51f-0230c3afa58e,"MembershipId=LITE-846; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,97,Wasim Nazam,THE1772819630695,,Male,16147,LITE:LITE-846,CREATED_LITE
+CREATED_LITE,4,2026-05-30,98,Sehrish Sattar,THE1776505377246,,Female,,LITE:55159a49-9c86-4f53-841d-8e0428c1b158,"MembershipId=LITE-847; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,98,Sehrish Sattar,THE1776505377246,,Female,16147,LITE:LITE-847,CREATED_LITE
+CREATED_LITE,4,2026-05-30,99,Misba Hussain,THE1772862295970,,Female,,LITE:6816c335-4acf-48be-8671-a3eac019faaa,"MembershipId=LITE-848; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,99,Misba Hussain,THE1772862295970,,Female,16147,LITE:LITE-848,CREATED_LITE
+CREATED_LITE,4,2026-05-30,100,Sabba Majid,THE1776184603889,,Female,,LITE:40caf737-ee41-48ff-b24e-d5c3fb264ab7,"MembershipId=LITE-849; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,100,Sabba Majid,THE1776184603889,,Female,16147,LITE:LITE-849,CREATED_LITE
+NEW_ATTENDANCE,4,2026-05-30,101,Muneebah Kara,1774430000000,,Female,16147,FULL:811,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,4,2026-05-30,102,Aurfan Fazil,THE1772983062714,,Male,,LITE:c47bc30e-df03-4c33-b39c-9bf2bd9ca9f6,"MembershipId=LITE-850; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,102,Aurfan Fazil,THE1772983062714,,Male,16147,LITE:LITE-850,CREATED_LITE
+CREATED_LITE,4,2026-05-30,103,Arshad Khan,THE1776509026251,,Male,,LITE:b553f5b4-b448-42ea-a38a-6509f6a78207,"MembershipId=LITE-851; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,103,Arshad Khan,THE1776509026251,,Male,16147,LITE:LITE-851,CREATED_LITE
+CREATED_LITE,4,2026-05-30,104,Iman Aurfan,THE1772984626234,,Female,,LITE:d0a36676-e68d-482f-b412-4ab5181e0a3f,"MembershipId=LITE-852; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,104,Iman Aurfan,THE1772984626234,,Female,16147,LITE:LITE-852,CREATED_LITE
+CREATED_LITE,4,2026-05-30,105,Lilah Aurfan,THE1772984626456,,Female,,LITE:4e1fb98a-7984-4b18-b86c-50cdde776dcf,"MembershipId=LITE-853; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,105,Lilah Aurfan,THE1772984626456,,Female,16147,LITE:LITE-853,CREATED_LITE
+CREATED_LITE,4,2026-05-30,106,Mohammed Asad Saheed,THE1772460385197,,Male,,LITE:8e801fd6-93e3-421a-a602-2a3358cfff86,"MembershipId=LITE-854; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,106,Mohammed Asad Saheed,THE1772460385197,,Male,16147,LITE:LITE-854,CREATED_LITE
+CREATED_LITE,4,2026-05-30,107,Shabir khan,THE1772461160113,,Male,,LITE:c983ebe2-3896-40f7-8f70-ab1f00fde82d,"MembershipId=LITE-855; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,107,Shabir khan,THE1772461160113,,Male,16147,LITE:LITE-855,CREATED_LITE
+CREATED_LITE,4,2026-05-30,108,Shanza Naeem,THE1779470087286,,Female,,LITE:f7fa6cbc-49f8-482b-940c-db76211467e7,"MembershipId=LITE-856; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,108,Shanza Naeem,THE1779470087286,,Female,16147,LITE:LITE-856,CREATED_LITE
+CREATED_LITE,4,2026-05-30,109,Mohammed Haroon,THE1779623522527,,Male,,LITE:75beae01-39d1-47bf-949d-6c5ad57d5584,"MembershipId=LITE-857; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,109,Mohammed Haroon,THE1779623522527,,Male,16147,LITE:LITE-857,CREATED_LITE
+CREATED_LITE,4,2026-05-30,110,Muskaan Hussain,THE1778839526125,,Female,,LITE:c6dc3a50-f1fb-496d-a435-58e8d2de541a,"MembershipId=LITE-858; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,110,Muskaan Hussain,THE1778839526125,,Female,16147,LITE:LITE-858,CREATED_LITE
+CREATED_LITE,4,2026-05-30,111,Anayah Hussain,THE1773068833791,,Female,,LITE:ec362447-a8db-4940-b353-6ca2d0a820bc,"MembershipId=LITE-859; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,111,Anayah Hussain,THE1773068833791,,Female,16147,LITE:LITE-859,CREATED_LITE
+CREATED_LITE,4,2026-05-30,112,Shakil hussain,THE1775998326421,,Male,,LITE:1d83f32c-03ef-494f-8348-8374da38ef95,"MembershipId=LITE-860; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,112,Shakil hussain,THE1775998326421,,Male,16147,LITE:LITE-860,CREATED_LITE
+CREATED_LITE,4,2026-05-30,113,Muhammad Riaz Ahmed,THE1772490102765,,Male,,LITE:e1b04937-85c1-49c2-9615-2d84c98724c8,"MembershipId=LITE-861; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,113,Muhammad Riaz Ahmed,THE1772490102765,,Male,16147,LITE:LITE-861,CREATED_LITE
+CREATED_LITE,4,2026-05-30,114,Maryum Hussan,THE1779822168022,,Male,,LITE:390cbae2-2979-4104-80f5-606b9cd75c54,"MembershipId=LITE-862; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,4,2026-05-30,114,Maryum Hussan,THE1779822168022,,Male,16147,LITE:LITE-862,CREATED_LITE
+NEW_ATTENDANCE,4,2026-05-30,115,Hanif Hall,THE1779809694060,,Male,16147,FULL:1416,REUSE_FULL_BY_EXACT_NAME
+NEW_ATTENDANCE,5,2026-07-19,116,Nusrat Bi,THE1774433122384,,Female,16148,FULL:820,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,5,2026-07-19,117,Anton Martynenko,THE1781520385084,,Male,,LITE:b9634d49-4f08-43fc-a8e2-b7cdd0565f6a,"MembershipId=LITE-863; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,117,Anton Martynenko,THE1781520385084,,Male,16148,LITE:LITE-863,CREATED_LITE
+CREATED_LITE,5,2026-07-19,118,Natalia Malysh,THE1781520384054,,Female,,LITE:b3d4dc07-1054-4eb2-b038-773b35ccf8a7,"MembershipId=LITE-864; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,118,Natalia Malysh,THE1781520384054,,Female,16148,LITE:LITE-864,CREATED_LITE
+NEW_ATTENDANCE,5,2026-07-19,119,Gulshan Begum,THE1780548136309,,Female,16148,FULL:177,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,5,2026-07-19,120,Zahid Hussain,THE1781519404812,,Male,,LITE:92ec6342-f93c-4de0-bd5d-bba1fee40240,"MembershipId=LITE-865; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,120,Zahid Hussain,THE1781519404812,,Male,16148,LITE:LITE-865,CREATED_LITE
+CREATED_LITE,5,2026-07-19,121,khurshid Hussain,THE1781519610331,,Male,,LITE:93f95111-e214-45d4-9417-308ffddefdfc,"MembershipId=LITE-866; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,121,khurshid Hussain,THE1781519610331,,Male,16148,LITE:LITE-866,CREATED_LITE
+CREATED_LITE,5,2026-07-19,122,Changez Hussain,THE1780434542984,,Male,,LITE:43f12e8b-acac-4f0f-b8a1-f798bb9e8a94,"MembershipId=LITE-867; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,122,Changez Hussain,THE1780434542984,,Male,16148,LITE:LITE-867,CREATED_LITE
+CREATED_LITE,5,2026-07-19,123,Nusayba Nabeel,THE1780118239335,,Female,,LITE:71688abf-742e-43b8-bc54-8b0ec3307f80,"MembershipId=LITE-868; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,123,Nusayba Nabeel,THE1780118239335,,Female,16148,LITE:LITE-868,CREATED_LITE
+CREATED_LITE,5,2026-07-19,124,Tajammul Abbas,THE1780167943595,,Male,,LITE:e05a2bdf-f309-4580-bdae-f8b2d97fc7cd,"MembershipId=LITE-869; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,124,Tajammul Abbas,THE1780167943595,,Male,16148,LITE:LITE-869,CREATED_LITE
+CREATED_LITE,5,2026-07-19,125,Saad mahmood,1779830000000,,Male,,LITE:7dbe4538-9924-49bc-b82d-409bf8739fad,"MembershipId=LITE-870; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,125,Saad mahmood,1779830000000,,Male,16148,LITE:LITE-870,CREATED_LITE
+NEW_ATTENDANCE,5,2026-07-19,126,Abdul Bawazir,1780080000000,,Male,16148,LITE:LITE-302,REUSE_LITE_BY_EXACT_NAME
+CREATED_LITE,5,2026-07-19,127,Asif Khan,THE1781105951899,,Male,,LITE:836f6a57-d866-4694-a771-b428c363fdc5,"MembershipId=LITE-871; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,127,Asif Khan,THE1781105951899,,Male,16148,LITE:LITE-871,CREATED_LITE
+CREATED_LITE,5,2026-07-19,128,Ansar Mehmood,THE177678879629,,Male,,LITE:51778267-b684-42b6-90b3-69d2c2613243,"MembershipId=LITE-872; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,128,Ansar Mehmood,THE177678879629,,Male,16148,LITE:LITE-872,CREATED_LITE
+CREATED_LITE,5,2026-07-19,129,Mirza Amjed Baig,THE1781519389947,,Male,,LITE:ad0963a3-83f6-4b63-933e-ab3ae4b8b4a5,"MembershipId=LITE-873; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,129,Mirza Amjed Baig,THE1781519389947,,Male,16148,LITE:LITE-873,CREATED_LITE
+CREATED_LITE,5,2026-07-19,130,Shamaila begum,THE1780417239791,,Female,,LITE:83708be5-8f4d-4d31-afe3-8da7ebac4eb8,"MembershipId=LITE-874; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,130,Shamaila begum,THE1780417239791,,Female,16148,LITE:LITE-874,CREATED_LITE
+CREATED_LITE,5,2026-07-19,131,Abdurrahman ibn mubarek,THE178007454081,,Male,,LITE:bc99befd-f626-4556-92f8-6b619ec4eb35,"MembershipId=LITE-875; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,131,Abdurrahman ibn mubarek,THE178007454081,,Male,16148,LITE:LITE-875,CREATED_LITE
+CREATED_LITE,5,2026-07-19,132,Nagina Najib,THE1780331976488,,Female,,LITE:aba3db88-8f4f-4835-b95e-bfeb63d6afe3,"MembershipId=LITE-876; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,132,Nagina Najib,THE1780331976488,,Female,16148,LITE:LITE-876,CREATED_LITE
+CREATED_LITE,5,2026-07-19,133,Safaa najib,THE1780332352111,,Female,,LITE:7587c589-b19c-4445-a06f-eb7e84b68e3c,"MembershipId=LITE-877; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,133,Safaa najib,THE1780332352111,,Female,16148,LITE:LITE-877,CREATED_LITE
+CREATED_LITE,5,2026-07-19,134,Maqsood Ahmed Khan,THE1781531572924,,Male,,LITE:4553dfe1-b4d8-4bce-b5c9-e229f645806a,"MembershipId=LITE-878; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,134,Maqsood Ahmed Khan,THE1781531572924,,Male,16148,LITE:LITE-878,CREATED_LITE
+NEW_ATTENDANCE,5,2026-07-19,135,Salma Bibi,THE1778839518063,,Female,16148,FULL:298,REUSE_FULL_BY_EXACT_NAME
+CREATED_LITE,5,2026-07-19,136,Bushra,MCR022529524,,Female,,LITE:a28ac2b2-edcd-4a8c-ac84-598910f11775,"MembershipId=LITE-879; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,136,Bushra,MCR022529524,,Female,16148,LITE:LITE-879,CREATED_LITE
+CREATED_LITE,5,2026-07-19,137,Mohammed Jawaid,1780420000000,,Male,,LITE:35cff3a0-2739-44ef-824a-8e476c9f7984,"MembershipId=LITE-880; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,137,Mohammed Jawaid,1780420000000,,Male,16148,LITE:LITE-880,CREATED_LITE
+WARN_REVIEWED_FULL_OVERRIDE,5,2026-07-19,138,Noreen Akhtar,THE1774433555904,,Female,,FULL:1626,FULL card=1626; ParticipantID=10032; Reviewed exact-name/gender match. FULL 1626 is the current fully-profiled female Noreen Akhtar record active in 2026; no exact source Wellbeing-ID match was found elsewhere in CRM.
+NEW_ATTENDANCE,5,2026-07-19,138,Noreen Akhtar,THE1774433555904,,Female,16148,FULL:1626,REUSE_FULL_BY_REVIEWED_OVERRIDE
+CREATED_LITE,5,2026-07-19,139,Eijaz Chatoi,,,Male,,LITE:810455e9-d28f-40e6-96c1-db350ded8212,"MembershipId=LITE-881; source Wellbeing ID retained only in migration/attendance notes, not used as Saheli Card Number. Resolution=CREATED_LITE."
+NEW_ATTENDANCE,5,2026-07-19,139,Eijaz Chatoi,,,Male,16148,LITE:LITE-881,CREATED_LITE
+WARN_REVIEWED_FULL_OVERRIDE,5,2026-07-19,140,Shahida Ali,,,Female,,FULL:1067,FULL card=1067; ParticipantID=4679; Reviewed exact-name/gender match. FULL 1067 is the established fully-profiled female Shahida Ali record; competing LITE-441 is sparse.
+NEW_ATTENDANCE,5,2026-07-19,140,Shahida Ali,,,Female,16148,FULL:1067,REUSE_FULL_BY_REVIEWED_OVERRIDE
