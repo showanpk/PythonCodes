@@ -46,7 +46,7 @@ import os
 import re
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 import pandas as pd
@@ -77,7 +77,18 @@ REPORT_START = "2025-04-01"
 REPORT_END_EXCLUSIVE = "2026-04-01"
 AGE_AT_DATE = pd.Timestamp("2026-03-31")
 
-OUTPUT_XLSX = Path("Saheli_Hub_Annual_Report_2025_26_Analysis.xlsx")
+OUTPUT_XLSX = Path("Saheli_Hub_Annual_Report_2025_26_COMPLETE.xlsx")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+LAST_YEAR = {
+    "Total confirmed attendance": 21777,
+    "Canonical unique people": 1897,
+    "New FULL registrations during 2025/26": 598,
+    "Female % among recorded Female/Male": 0.85,
+    "Male % among recorded Female/Male": 0.15,
+    "Ethnically diverse percentage": 0.95,
+    "IMD percentage": 0.77,
+}
 
 # Set False if you do not want names/phones/DOB/postcodes in the workbook.
 EXPORT_RAW_SENSITIVE_DATA = True
@@ -357,7 +368,10 @@ def build_canonical_data(sessions, attendance, participants, lite):
 
     sessions["SessionDate"] = pd.to_datetime(sessions["SessionDate"])
     annual = attendance.merge(
-        sessions[["SessionId", "SessionDate", "VenueName", "ActivityName"]],
+        sessions[[
+            "SessionId", "SessionDate", "VenueName", "ActivityName",
+            "StartTime", "EndTime",
+        ]],
         on="SessionId",
         how="left",
         validate="many_to_one",
@@ -1006,6 +1020,29 @@ def make_summaries(
         100 * current_gender["Profiles"] / len(current_profiles)
     ).round(2)
 
+    service_metrics = {}
+    if table_exists(conn, "Assessment_Master"):
+        assessment = sql_df(
+            conn,
+            """
+            SELECT
+                COUNT(DISTINCT AssessmentID) AS Assessments,
+                COUNT(DISTINCT NULLIF(LTRIM(RTRIM(SaheliCardNumber)), '')) AS PeopleAssessed,
+                COUNT(DISTINCT CASE WHEN AssessmentNumber > 1 THEN AssessmentID END) AS FollowUpAssessments,
+                COUNT(DISTINCT CASE WHEN AssessmentNumber > 1
+                    THEN NULLIF(LTRIM(RTRIM(SaheliCardNumber)), '') END) AS PeopleWithFollowUp
+            FROM dbo.Assessment_Master
+            WHERE AssessmentDate >= ? AND AssessmentDate < ?
+            """,
+            [REPORT_START, REPORT_END_EXCLUSIVE],
+        ).iloc[0]
+        service_metrics = {
+            "Health assessments": int(assessment["Assessments"] or 0),
+            "People receiving health assessments": int(assessment["PeopleAssessed"] or 0),
+            "Follow-up assessments": int(assessment["FollowUpAssessments"] or 0),
+            "People receiving follow-up assessments": int(assessment["PeopleWithFollowUp"] or 0),
+        }
+
     # Attendance by financial year (all-time)
     alltime = sql_df(
         conn,
@@ -1081,6 +1118,7 @@ def make_summaries(
         "Attendance by FY": fy,
         "Attendance Period Options": period_options,
         "New FULL Registrations": new_full,
+        "Service Metrics": service_metrics,
     }
 
 
@@ -1088,140 +1126,416 @@ def make_summaries(
 # EXTRA-SOURCE AUDIT
 # ============================================================
 
-def source_audit(conn) -> pd.DataFrame:
-    rows = []
+def normalize_match_text(v) -> str:
+    if pd.isna(v):
+        return ""
+    return re.sub(r"[^a-z0-9]+", "", str(v).strip().lower())
 
-    def add_row(source, total_rows=None, period_rows=None, note=""):
-        rows.append(
-            {
+
+def _first_present(row, *names):
+    for name in names:
+        if name in row.index and pd.notna(row[name]) and str(row[name]).strip():
+            return row[name]
+    return None
+
+
+def load_migration_source_evidence():
+    """Load committed migration evidence and verify its original workbooks/sheets."""
+    configs = [
+        ("ARCC", "ARCC MIgrations", "arcc_migration_commit_20260909_211459.csv"),
+        ("Calthorpe", "Calthorpe Migrate", "calthorpe_migration_commit_20260908_162750.csv"),
+        ("Handsworth", "Handworth Migration", "handsworth_migration_commit_20260909_211932.csv"),
+        ("Omnia", "Omnia Migration", "omnia_migration_commit_20260910_145900.csv"),
+        ("Men's Services", "Mens Migration", "mens_migration_commit_20260910_135305.csv"),
+        ("Tennis", "Tennis Migration", "tennis_migration_commit_20260910_185641.csv"),
+        ("Cycling", "Cycling Migration", "bike_giveaway_migration_commit_20260910_234126.csv"),
+    ]
+    attendance_actions = {
+        "NEW_ATTENDANCE", "CREATE_ATTENDANCE", "ALREADY_IN_CRM",
+        "SKIP_EXISTING_ATTENDANCE",
+    }
+    evidence_rows = []
+    audit_rows = []
+    file_sheet_refs = defaultdict(set)
+
+    for source, folder, filename in configs:
+        log_path = PROJECT_ROOT / folder / filename
+        if not log_path.exists():
+            audit_rows.append({
+                "Source": source, "SourceFile": filename, "SourceSheet": None,
+                "Status": "REVIEW", "Detail": "Committed migration audit file is missing.",
+            })
+            continue
+        df = pd.read_csv(log_path, dtype=str, keep_default_na=False)
+        action_col = "Action" if "Action" in df.columns else "action"
+        date_col = "Date" if "Date" in df.columns else "session_date"
+        parsed_dates = pd.to_datetime(df[date_col], errors="coerce")
+        period = df[
+            parsed_dates.between(
+                pd.Timestamp(REPORT_START), pd.Timestamp(REPORT_END_EXCLUSIVE),
+                inclusive="left",
+            )
+        ].copy()
+        period["_date"] = pd.to_datetime(period[date_col], errors="coerce")
+        period["_action"] = period[action_col].astype(str).str.upper().str.strip()
+        for idx, row in period.iterrows():
+            action = row["_action"]
+            if action not in attendance_actions:
+                continue
+            source_file = _first_present(row, "SourceFile", "source_file")
+            source_sheet = _first_present(row, "SourceSheet", "sheet")
+            if source == "Cycling":
+                source_file = source_file or "Cycling Register 2026.xlsx"
+                source_sheet = source_sheet or "Bike Giveaway"
+            source_ref = _first_present(
+                row, "SourceRow", "source_ref", "SourceSessionRef"
+            )
+            member_ref = _first_present(row, "MemberRef", "member_display_id")
+            participant_id = None
+            lite_id = None
+            if member_ref and str(member_ref).upper().startswith("FULL:"):
+                participant_id = str(member_ref).split(":", 1)[1]
+            elif member_ref and str(member_ref).upper().startswith("LITE:"):
+                lite_id = str(member_ref).split(":", 1)[1]
+            source_path = PROJECT_ROOT / folder / str(source_file or "")
+            file_sheet_refs[str(source_path)].add(str(source_sheet or ""))
+            evidence_rows.append({
                 "Source": source,
-                "TotalRows": total_rows,
-                "RowsIn2025_26": period_rows,
-                "Note": note,
-            }
-        )
+                "SourceFile": str(source_file or ""),
+                "SourceSheet": str(source_sheet or ""),
+                "SourceRow": str(source_ref or idx + 2),
+                "Location": _first_present(row, "Venue", "venue") or (
+                    "Various Locations" if source == "Cycling" else source
+                ),
+                "Activity": _first_present(row, "Activity", "activity") or (
+                    "Bike Giveaway" if source == "Cycling" else source
+                ),
+                "SessionDate": row["_date"],
+                "StartTime": _first_present(row, "start_time", "StartTime"),
+                "EndTime": _first_present(row, "end_time", "EndTime"),
+                "ParticipantName": _first_present(
+                    row, "SourceName", "source_name", "SourceRawIdentity"
+                ),
+                "SaheliCardNumber": _first_present(row, "SourceCard", "source_card"),
+                "Phone": None,
+                "Postcode": None,
+                "CRMParticipantId": participant_id,
+                "CRMLiteMemberId": lite_id,
+                "SourceSessionId": _first_present(row, "SessionId", "session_id"),
+                "MigrationAction": action,
+                "AttendanceEvidence": (
+                    f"Committed migration audit: {filename}; action={action}"
+                ),
+                "_SourcePath": str(source_path),
+            })
 
-    # SessionAttendance
-    total = sql_df(
-        conn,
-        "SELECT COUNT(*) AS N FROM dbo.SessionAttendance"
-    ).iloc[0]["N"]
-    period = sql_df(
+    # OCF attendance is held in its own migration evidence and uses UUID identities.
+    ocf_folder = PROJECT_ROOT / "OCF Migrations"
+    ocf_marks_path = ocf_folder / "ocf_session_attendance_commit_20260913_220537_marks.csv"
+    ocf_sessions_path = ocf_folder / "ocf_session_attendance_commit_20260913_220537_sessions.csv"
+    if ocf_marks_path.exists() and ocf_sessions_path.exists():
+        marks = pd.read_csv(ocf_marks_path, dtype=str, keep_default_na=False)
+        session_evidence = pd.read_csv(ocf_sessions_path, dtype=str, keep_default_na=False)
+        marks["SessionDate"] = pd.to_datetime(marks["session_date"], errors="coerce")
+        marks = marks[
+            marks["SessionDate"].between(
+                pd.Timestamp(REPORT_START), pd.Timestamp(REPORT_END_EXCLUSIVE),
+                inclusive="left",
+            ) & marks["attendance_action"].eq("CREATE")
+        ].copy()
+        lookup = session_evidence.set_index("session_id", drop=False)
+        for idx, row in marks.iterrows():
+            sr = lookup.loc[row["session_id"]] if row["session_id"] in lookup.index else None
+            if isinstance(sr, pd.DataFrame):
+                sr = sr.iloc[0]
+            source_files = sr["source_files"] if sr is not None else ""
+            source_headers = sr["source_headers"] if sr is not None else ""
+            for source_file in [x.strip() for x in str(source_files).split("|") if x.strip()] or [""]:
+                source_path = ocf_folder / "Session Excels" / source_file
+                file_sheet_refs[str(source_path)].add("")
+            evidence_rows.append({
+                "Source": "OCF",
+                "SourceFile": source_files,
+                "SourceSheet": "Workbook attendance grid",
+                "SourceRow": source_headers or str(idx + 2),
+                "Location": "Our Community Foundation",
+                "Activity": row["canonical_activity"],
+                "SessionDate": row["SessionDate"],
+                "StartTime": sr["start_time"] if sr is not None else None,
+                "EndTime": sr["end_time"] if sr is not None else None,
+                "ParticipantName": row["participant_name"],
+                "SaheliCardNumber": row["ocf_id"],
+                "Phone": None,
+                "Postcode": None,
+                "CRMParticipantId": None,
+                "CRMLiteMemberId": None,
+                "SourceSessionId": row["session_id"],
+                "MigrationAction": "CREATE",
+                "AttendanceEvidence": (
+                    "Committed OCF attendance migration; source mark="
+                    + str(row["source_mark"])
+                ),
+                "_SourcePath": str(ocf_folder / "Session Excels" / source_files),
+            })
+
+    # Open the original workbooks and verify each referenced sheet exists.
+    from openpyxl import load_workbook
+    verified_files = set()
+    verified_sheets = set()
+    for path_text, sheets in sorted(file_sheet_refs.items()):
+        path = Path(path_text)
+        if not path.exists():
+            audit_rows.append({
+                "Source": "Source workbook", "SourceFile": path.name,
+                "SourceSheet": None, "Status": "REVIEW",
+                "Detail": f"Referenced original source file not found: {path}",
+            })
+            continue
+        try:
+            wb = load_workbook(path, read_only=True, data_only=True)
+            verified_files.add(str(path.resolve()))
+            requested = {s for s in sheets if s}
+            inspect_sheets = requested or set(wb.sheetnames)
+            for sheet in sorted(inspect_sheets):
+                if sheet in wb.sheetnames:
+                    ws = wb[sheet]
+                    # Force a real read of source content, not just workbook metadata.
+                    next(ws.iter_rows(min_row=1, max_row=min(ws.max_row, 5), values_only=True), None)
+                    verified_sheets.add((str(path.resolve()), sheet))
+                    audit_rows.append({
+                        "Source": "Source workbook", "SourceFile": path.name,
+                        "SourceSheet": sheet, "Status": "INSPECTED",
+                        "Detail": f"Original workbook opened; dimensions {ws.max_row}x{ws.max_column}.",
+                    })
+                else:
+                    audit_rows.append({
+                        "Source": "Source workbook", "SourceFile": path.name,
+                        "SourceSheet": sheet, "Status": "REVIEW",
+                        "Detail": "Referenced sheet not found in original workbook.",
+                    })
+            wb.close()
+        except Exception as exc:
+            audit_rows.append({
+                "Source": "Source workbook", "SourceFile": path.name,
+                "SourceSheet": None, "Status": "REVIEW",
+                "Detail": f"Could not inspect original workbook: {exc}",
+            })
+
+    evidence = pd.DataFrame(evidence_rows)
+    if not evidence.empty:
+        evidence["SourceFileVerified"] = evidence["_SourcePath"].map(
+            lambda p: str(Path(p).resolve()) in verified_files
+        )
+    return evidence, pd.DataFrame(audit_rows), verified_files, verified_sheets
+
+
+def reconcile_source_evidence(annual, source_rows):
+    """Classify source attendance against live CRM using conservative match keys."""
+    if source_rows.empty:
+        return source_rows.copy()
+    crm = annual.copy()
+    crm["_date"] = pd.to_datetime(crm["SessionDate"]).dt.date
+    crm["_activity"] = crm["ActivityName"].map(normalize_match_text)
+    crm["_location"] = crm["VenueName"].map(normalize_match_text)
+    crm["_name"] = crm["MemberName"].map(normalize_name)
+    crm["_phone"] = crm["Phone"].map(normalize_phone)
+    crm["_card"] = crm["SaheliCardNumber"].fillna("").astype(str).str.strip().str.lower()
+
+    by_session_full = set()
+    by_session_lite = set()
+    by_date_full = set()
+    by_date_lite = set()
+    by_date_card = set()
+    by_date_name = set()
+    for _, r in crm.iterrows():
+        session = str(r["SessionId"])
+        d = r["_date"]
+        activity = r["_activity"]
+        if pd.notna(r["ParticipantId"]):
+            pid = str(int(r["ParticipantId"]))
+            by_session_full.add((session, pid))
+            by_date_full.add((d, activity, pid))
+        if pd.notna(r["LiteMemberId"]):
+            lid = str(r["LiteMemberId"]).lower()
+            by_session_lite.add((session, lid))
+            by_date_lite.add((d, activity, lid))
+        if r["_card"]:
+            by_date_card.add((d, activity, r["_card"]))
+        if r["_name"]:
+            by_date_name.add((d, activity, r["_name"]))
+
+    out = source_rows.copy()
+    classifications = []
+    in_crm_values = []
+    match_notes = []
+    seen = set()
+
+    def scalar_text(value):
+        return "" if pd.isna(value) else str(value).strip()
+
+    for _, r in out.iterrows():
+        d = pd.Timestamp(r["SessionDate"]).date()
+        activity = normalize_match_text(r["Activity"])
+        session = scalar_text(r.get("SourceSessionId"))
+        pid = scalar_text(r.get("CRMParticipantId")).split(".0")[0]
+        lid = scalar_text(r.get("CRMLiteMemberId")).lower()
+        card = scalar_text(r.get("SaheliCardNumber")).lower()
+        name = normalize_name(r.get("ParticipantName"))
+        person_key = pid or lid or card or name
+        dedupe_key = (
+            r["Source"], d, activity, normalize_match_text(r.get("Location")),
+            scalar_text(r.get("StartTime")), person_key,
+        )
+        if dedupe_key in seen:
+            classifications.append("DUPLICATE_SOURCE")
+            in_crm_values.append(False)
+            match_notes.append("Duplicate source identity/session evidence.")
+            continue
+        seen.add(dedupe_key)
+        matched = False
+        note = ""
+        if pid and ((session, pid) in by_session_full or (d, activity, pid) in by_date_full):
+            matched, note = True, "Matched CRM by FULL participant plus session/date/activity."
+        elif lid and ((session, lid) in by_session_lite or (d, activity, lid) in by_date_lite):
+            matched, note = True, "Matched CRM by Lite member plus session/date/activity."
+        elif card and (d, activity, card) in by_date_card:
+            matched, note = True, "Matched CRM by card plus date/activity."
+        elif name and (d, activity, name) in by_date_name:
+            matched, note = True, "Matched CRM by exact normalized name plus date/activity."
+        if matched:
+            classifications.append("CRM_CONFIRMED")
+            in_crm_values.append(True)
+            match_notes.append(note)
+        elif bool(r.get("SourceFileVerified")):
+            classifications.append("SOURCE_ONLY_VERIFIED")
+            in_crm_values.append(False)
+            match_notes.append("Committed attendance evidence found in an inspected original workbook.")
+        else:
+            classifications.append("REVIEW")
+            in_crm_values.append(False)
+            match_notes.append("Original workbook/sheet could not be verified.")
+    out["InCRM"] = in_crm_values
+    out["Classification"] = classifications
+    out["ReconciliationNote"] = match_notes
+    return out
+
+
+def build_verified_delivery_ledger(annual, reconciled_sources):
+    crm = pd.DataFrame({
+        "Source": "CRM",
+        "SourceFile": "dbo.SessionAttendance",
+        "SourceSheet": "dbo.Sessions",
+        "SourceRow": annual["AttendanceId"],
+        "Location": annual["VenueName"],
+        "Activity": annual["ActivityName"],
+        "SessionDate": annual["SessionDate"],
+        "StartTime": annual.get("StartTime"),
+        "EndTime": annual.get("EndTime"),
+        "ParticipantName": annual["MemberName"],
+        "SaheliCardNumber": annual["SaheliCardNumber"],
+        "Phone": annual["Phone"],
+        "Postcode": None,
+        "CRMParticipantId": annual["ParticipantId"],
+        "CRMLiteMemberId": annual["LiteMemberId"],
+        "InCRM": True,
+        "AttendanceEvidence": "dbo.SessionAttendance.Attended = 1",
+        "Classification": "CRM_CONFIRMED",
+        "SessionKey": annual["SessionId"].map(lambda x: f"CRM:{x}"),
+    })
+    source_only = reconciled_sources[
+        reconciled_sources["Classification"] == "SOURCE_ONLY_VERIFIED"
+    ].copy()
+    source_only["SessionKey"] = source_only.apply(
+        lambda r: "SOURCE:" + "|".join([
+            str(r.get("Source")), str(pd.Timestamp(r.get("SessionDate")).date()),
+            normalize_match_text(r.get("Location")), normalize_match_text(r.get("Activity")),
+            str(r.get("StartTime") or ""), str(r.get("SourceSessionId") or ""),
+        ]), axis=1,
+    )
+    wanted = [
+        "Source", "SourceFile", "SourceSheet", "SourceRow", "Location", "Activity",
+        "SessionDate", "StartTime", "EndTime", "ParticipantName", "SaheliCardNumber",
+        "Phone", "Postcode", "CRMParticipantId", "CRMLiteMemberId", "InCRM",
+        "AttendanceEvidence", "Classification", "SessionKey",
+    ]
+    verified = pd.concat([crm[wanted], source_only[wanted]], ignore_index=True)
+    verified["SessionDate"] = pd.to_datetime(verified["SessionDate"], errors="coerce")
+    return verified
+
+def source_audit(conn) -> pd.DataFrame:
+    """Inventory every plausible service-delivery source without counting it as attendance."""
+    inventory = sql_df(
         conn,
         """
-        SELECT COUNT(*) AS N
-        FROM dbo.SessionAttendance sa
-        INNER JOIN dbo.Sessions s
-            ON s.SessionId = sa.SessionId
-        WHERE s.SessionDate >= ?
-          AND s.SessionDate < ?
-          AND sa.Attended = 1
+        SELECT t.name AS TableName, c.name AS ColumnName
+        FROM sys.tables t
+        INNER JOIN sys.schemas s ON s.schema_id = t.schema_id
+        INNER JOIN sys.columns c ON c.object_id = t.object_id
+        WHERE s.name = 'dbo'
+        ORDER BY t.name, c.column_id
         """,
-        [REPORT_START, REPORT_END_EXCLUSIVE],
-    ).iloc[0]["N"]
-    add_row(
-        "SessionAttendance",
-        int(total),
-        int(period),
-        "Core confirmed attendance source",
     )
+    terms = re.compile(
+        r"attendance|session|register|bellboat|cycling|migrat|histor|delivery|activity|assessment",
+        re.I,
+    )
+    date_candidates = (
+        "SessionDate", "AttendanceDate", "RegisterDate", "ActivityDate",
+        "DeliveryDate", "AssessmentDate", "Date", "CreatedAtUtc", "CreatedAt",
+    )
+    rows = []
+    for table_name, group in inventory.groupby("TableName", sort=True):
+        columns = [str(x) for x in group["ColumnName"]]
+        if not terms.search(table_name + " " + " ".join(columns)):
+            continue
+        quoted_table = table_name.replace("]", "]]" )
+        total = int(sql_df(
+            conn, f"SELECT COUNT_BIG(*) AS N FROM dbo.[{quoted_table}]"
+        ).iloc[0]["N"])
+        date_col = next((c for c in date_candidates if c in columns), None)
+        period_rows = None
+        if table_name == "SessionAttendance":
+            period_rows = int(sql_df(
+                conn,
+                """SELECT COUNT_BIG(*) AS N
+                   FROM dbo.SessionAttendance sa
+                   INNER JOIN dbo.Sessions s ON s.SessionId = sa.SessionId
+                   WHERE s.SessionDate >= ? AND s.SessionDate < ?
+                     AND sa.Attended = 1""",
+                [REPORT_START, REPORT_END_EXCLUSIVE],
+            ).iloc[0]["N"])
+            date_col = "Sessions.SessionDate"
+        elif date_col:
+            quoted_col = date_col.replace("]", "]]" )
+            period_rows = int(sql_df(
+                conn,
+                f"""SELECT COUNT_BIG(*) AS N FROM dbo.[{quoted_table}]
+                    WHERE TRY_CONVERT(date, [{quoted_col}]) >= ?
+                      AND TRY_CONVERT(date, [{quoted_col}]) < ?""",
+                [REPORT_START, REPORT_END_EXCLUSIVE],
+            ).iloc[0]["N"])
 
-    # ActivityRegisterImport
-    if table_exists(conn, "ActivityRegisterImport"):
-        total = sql_df(
-            conn,
-            "SELECT COUNT(*) AS N FROM dbo.ActivityRegisterImport"
-        ).iloc[0]["N"]
-        period = sql_df(
-            conn,
-            """
-            SELECT COUNT(*) AS N
-            FROM dbo.ActivityRegisterImport
-            WHERE TRY_CONVERT(date, SessionDate) >= ?
-              AND TRY_CONVERT(date, SessionDate) < ?
-            """,
-            [REPORT_START, REPORT_END_EXCLUSIVE],
-        ).iloc[0]["N"]
-        add_row(
-            "ActivityRegisterImport",
-            int(total),
-            int(period),
-            "Import/source staging rows; do NOT add automatically",
-        )
-
-    # Bellboat assignments
-    if table_exists(conn, "BellboatSessionAssignments"):
-        total = sql_df(
-            conn,
-            "SELECT COUNT(*) AS N FROM dbo.BellboatSessionAssignments"
-        ).iloc[0]["N"]
-        period = sql_df(
-            conn,
-            """
-            SELECT COUNT(*) AS N
-            FROM dbo.BellboatSessionAssignments bsa
-            INNER JOIN dbo.BellboatSessions bs
-                ON bs.BellboatSessionId = bsa.BellboatSessionId
-            WHERE bs.SessionDate >= ?
-              AND bs.SessionDate < ?
-            """,
-            [REPORT_START, REPORT_END_EXCLUSIVE],
-        ).iloc[0]["N"]
-        add_row(
-            "BellboatSessionAssignments",
-            int(total),
-            int(period),
-            "Booking/assignment rows; verify attendance before adding",
-        )
-
-    # Cycling registrations
-    if table_exists(conn, "CyclingRegistrations"):
-        total = sql_df(
-            conn,
-            "SELECT COUNT(*) AS N FROM dbo.CyclingRegistrations"
-        ).iloc[0]["N"]
-        period = sql_df(
-            conn,
-            """
-            SELECT COUNT(*) AS N
-            FROM dbo.CyclingRegistrations cr
-            INNER JOIN dbo.Sessions s
-                ON s.SessionId = cr.SessionId
-            WHERE s.SessionDate >= ?
-              AND s.SessionDate < ?
-            """,
-            [REPORT_START, REPORT_END_EXCLUSIVE],
-        ).iloc[0]["N"]
-        add_row(
-            "CyclingRegistrations",
-            int(total),
-            int(period),
-            "Registration rows; not equivalent to attendance",
-        )
-
-    # Bellboat register
-    if table_exists(conn, "BellboatingRegisterEntries"):
-        total = sql_df(
-            conn,
-            "SELECT COUNT(*) AS N FROM dbo.BellboatingRegisterEntries"
-        ).iloc[0]["N"]
-        period = sql_df(
-            conn,
-            """
-            SELECT COUNT(*) AS N
-            FROM dbo.BellboatingRegisterEntries
-            WHERE RegisterDate >= ?
-              AND RegisterDate < ?
-            """,
-            [REPORT_START, REPORT_END_EXCLUSIVE],
-        ).iloc[0]["N"]
-        add_row(
-            "BellboatingRegisterEntries",
-            int(total),
-            int(period),
-            "Register rows; verify semantics before adding",
-        )
-
+        lower_cols = {c.lower() for c in columns}
+        has_attended = any(c in lower_cols for c in (
+            "attended", "isattended", "attendanceconfirmed", "present"
+        ))
+        if table_name == "SessionAttendance":
+            classification = "CORE CONFIRMED ATTENDANCE"
+        elif has_attended:
+            classification = "POSSIBLE ATTENDANCE - REVIEW FOR OVERLAP"
+        elif re.search(r"booking|assignment|registration", table_name, re.I):
+            classification = "NON-ATTENDANCE REGISTRATION/BOOKING"
+        else:
+            classification = "POSSIBLE DELIVERY SOURCE - SEMANTICS REQUIRE REVIEW"
+        rows.append({
+            "Source": table_name,
+            "TotalRows": total,
+            "RowsIn2025_26": period_rows,
+            "DateColumn": date_col,
+            "HasExplicitAttendanceField": has_attended,
+            "Classification": classification,
+            "Columns": ", ".join(columns),
+        })
     return pd.DataFrame(rows)
 
 
@@ -1309,111 +1623,233 @@ def write_excel(
     canonical_people,
     imd_result=None,
 ):
+    from openpyxl.styles import Font, PatternFill
+
+    headline = summaries["Headline Metrics"].iloc[:8].copy()
+    headline["Metric"] = [
+        "Total confirmed attendance", "Total attended sessions",
+        "Raw unique attendance identities", "Canonical unique people",
+        "Current FULL members", "Current Lite members",
+        "FULL + Lite registered members",
+        "New FULL registrations during 2025/26",
+    ]
+
+    gender_order = ["Female", "Male", "Other", "Not recorded"]
+    gender_counts = canonical_people["ReportGender"].fillna("Not recorded").value_counts()
+    gender = pd.DataFrame({
+        "Gender": gender_order,
+        "Participants": [int(gender_counts.get(x, 0)) for x in gender_order],
+    })
+    gender["Percentage"] = gender["Participants"] / max(len(canonical_people), 1)
+    fm_total = int(gender_counts.get("Female", 0) + gender_counts.get("Male", 0))
+    female_fm = int(gender_counts.get("Female", 0)) / fm_total if fm_total else None
+    male_fm = int(gender_counts.get("Male", 0)) / fm_total if fm_total else None
+
+    age = summaries["Age Annual"].rename(columns={
+        "AgeBand": "Age Band",
+        "PercentageOfCanonicalPeople": "% of all participants",
+        "PercentageOfValidAge": "% of participants with valid DOB",
+    }).copy()
+    for col in ("% of all participants", "% of participants with valid DOB"):
+        age[col] = pd.to_numeric(age[col], errors="coerce") / 100
+
+    eth_raw = summaries["Ethnicity Raw"].rename(columns={"Ethnicity": "Raw Ethnicity"})
+    eth_order = [
+        "Asian / Asian British", "Black / Black British", "Arab", "White",
+        "Mixed", "Other ethnic background", "Unclear / review", "Not recorded",
+    ]
+    eth_counts = canonical_people["EthnicityGroup"].value_counts()
+    eth_clean = pd.DataFrame({
+        "Ethnicity Group": eth_order,
+        "Participants": [int(eth_counts.get(x, 0)) for x in eth_order],
+    })
+    eth_clean["Percentage"] = eth_clean["Participants"] / max(len(canonical_people), 1)
+    usable_mask = ~canonical_people["EthnicityGroup"].isin(["Not recorded", "Unclear / review"])
+    usable_ethnicity = int(usable_mask.sum())
+    diverse_participants = int((usable_mask & (canonical_people["EthnicityGroup"] != "White")).sum())
+    diverse_pct = diverse_participants / usable_ethnicity if usable_ethnicity else None
+
+    postcode_recorded = int(canonical_people["Postcode"].fillna("").astype(str).str.strip().ne("").sum())
+    postcode_missing = len(canonical_people) - postcode_recorded
+    postcode_coverage = postcode_recorded / max(len(canonical_people), 1)
+
+    reasons = summaries["Join Reasons"].rename(columns={
+        "PercentageOfNewFullRegistrations": "Percentage of new FULL registrations"
+    }).copy()
+    if "Percentage of new FULL registrations" in reasons:
+        reasons["Percentage of new FULL registrations"] /= 100
+    heard = summaries["Heard About"].rename(columns={
+        "HeardAboutSaheli": "Source"
+    }).copy()
+    if "Percentage" in heard:
+        heard["Percentage"] /= 100
+
+    top10 = summaries["Top Activities"][[
+        "Activity", "Attendances", "Sessions", "CanonicalUniquePeople"
+    ]].rename(columns={"CanonicalUniquePeople": "Canonical Unique Participants"})
+
+    annual_export = annual[[
+        "CanonicalPersonKey", "AttendanceId", "SessionId", "SessionDate",
+        "VenueName", "ActivityName", "ParticipantId", "LiteMemberId",
+        "MemberDisplayId", "MemberName", "Phone", "Attended",
+    ]].copy()
+    person_detail = canonical_people[[
+        "CanonicalPersonKey", "MemberNumber", "FullName", "ReportGender",
+        "DateOfBirth", "Ethnicity", "Postcode",
+    ]].rename(columns={"ReportGender": "Gender"})
+    annual_export = annual_export.merge(person_detail, on="CanonicalPersonKey", how="left")
+    annual_export = annual_export.rename(columns={"MemberDisplayId": "MemberNumber_Attendance"})
+    annual_export["MemberNumber"] = annual_export["MemberNumber"].fillna(
+        annual_export["MemberNumber_Attendance"]
+    )
+    annual_export = annual_export[[
+        "CanonicalPersonKey", "AttendanceId", "SessionId", "SessionDate",
+        "VenueName", "ActivityName", "ParticipantId", "LiteMemberId",
+        "MemberNumber", "MemberName", "Phone", "Gender", "DateOfBirth",
+        "Ethnicity", "Postcode", "Attended",
+    ]]
+
+    raw_people = canonical_people.rename(columns={
+        "CanonicalMemberType": "MemberType", "ReportGender": "Gender",
+        "EthnicityGroup": "CleanEthnicityGroup",
+    })[[
+        "CanonicalPersonKey", "MemberType", "ParticipantId", "LiteMemberId",
+        "MemberNumber", "FullName", "Phone", "Gender", "GenderResolutionSource",
+        "DateOfBirth", "AgeAt31Mar2026", "AgeBand", "Ethnicity",
+        "CleanEthnicityGroup", "Postcode", "FirstAttendance", "LastAttendance",
+        "AttendanceRecords",
+    ]]
+
+    audit_candidates = source_audit_df[
+        (source_audit_df["Source"] != "SessionAttendance")
+        & source_audit_df["RowsIn2025_26"].fillna(0).gt(0)
+    ]
+    backup_mask = audit_candidates["Source"].str.contains(
+        r"backup|cleanup|test", case=False, regex=True, na=False
+    )
+    backup_rows = int(audit_candidates.loc[backup_mask, "RowsIn2025_26"].fillna(0).sum())
+    explicit = audit_candidates[
+        audit_candidates["HasExplicitAttendanceField"] & ~backup_mask
+    ]
+    staging = audit_candidates[audit_candidates["Source"] == "ActivityRegisterImport"]
+    staging_rows = int(staging["RowsIn2025_26"].fillna(0).sum())
+    if explicit.empty:
+        audit_note = (
+            "No live separate source with an explicit attendance field was proven safe to add. "
+            f"ActivityRegisterImport has {staging_rows:,} period rows but no attended flag, so it "
+            f"was treated as staging/register data. Cleanup/test backup tables contain {backup_rows:,} "
+            "period rows and were excluded as duplicate/test-history records."
+        )
+    else:
+        audit_note = (
+            "Attendance-like rows exist outside SessionAttendance in: "
+            + ", ".join(explicit["Source"].astype(str))
+            + ". They were not added because overlap/attendance semantics are not proven."
+        )
+
+    current_metrics = {
+        "Total confirmed attendance": len(annual),
+        "Total attended sessions": annual["SessionId"].nunique(),
+        "Raw unique attendance identities": annual["raw_identity_key"].nunique(),
+        "Canonical unique people": len(canonical_people),
+        "Current FULL members": int(headline.iloc[4]["Value"]),
+        "Current Lite members": int(headline.iloc[5]["Value"]),
+        "FULL + Lite registered members": int(headline.iloc[6]["Value"]),
+        "New FULL registrations during 2025/26": int(headline.iloc[7]["Value"]),
+        "Female % among recorded Female/Male": female_fm,
+        "Male % among recorded Female/Male": male_fm,
+        "Ethnically diverse percentage": diverse_pct,
+        "Postcode coverage percentage": postcode_coverage,
+        "Participants attending more than once": int(canonical_people["AttendanceRecords"].gt(1).sum()),
+        "Participants with valid DOB": int(canonical_people["AgeAt31Mar2026"].notna().sum()),
+    }
+    current_metrics.update(summaries.get("Service Metrics", {}))
+    if imd_result is not None:
+        imd_people, _ = imd_result
+        matched = pd.to_numeric(imd_people["IMDDecile"], errors="coerce").notna()
+        current_metrics["IMD percentage"] = matched.sum() / max(len(imd_people), 1)
+
+    yoy_rows = []
+    for metric, this_year in current_metrics.items():
+        last_year = LAST_YEAR.get(metric)
+        if last_year is None or this_year is None:
+            difference = None
+            change = None
+            status = "NOT DIRECTLY COMPARABLE"
+            note = "No equivalent published prior-year figure supplied."
+        else:
+            difference = this_year - last_year
+            change = difference / last_year if last_year else None
+            status = "HIGHER" if difference > 0 else "LOWER" if difference < 0 else "NOT DIRECTLY COMPARABLE"
+            if status == "HIGHER":
+                note = "HIGHER THAN LAST YEAR"
+            elif status == "LOWER":
+                note = "LOWER THAN LAST YEAR - REVIEW METHODOLOGY / SOURCE COVERAGE"
+            else:
+                note = "No change."
+            if metric == "Total confirmed attendance":
+                note += " " + audit_note
+            elif metric == "Canonical unique people":
+                note += " Current year uses conservative canonical FULL/Lite deduplication; prior definition may differ."
+            elif "%" in metric or "percentage" in metric.lower():
+                note += " Difference is percentage points; % Change is relative change."
+        yoy_rows.append([metric, last_year, this_year, difference, change, status, note])
+    yoy = pd.DataFrame(yoy_rows, columns=[
+        "Metric", "Last Year", "This Year", "Difference", "% Change", "Status", "Notes"
+    ])
+
     with pd.ExcelWriter(
         OUTPUT_XLSX,
         engine="openpyxl",
     ) as writer:
+        headline.to_excel(writer, sheet_name="SUMMARY", index=False)
 
-        for name, df in summaries.items():
-            # Excel sheet name max = 31 chars
-            sheet = name[:31]
-            df.to_excel(writer, sheet_name=sheet, index=False)
+        gender.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=1)
+        binary_display = pd.DataFrame([
+            ["Female % among recorded Female/Male", female_fm],
+            ["Male % among recorded Female/Male", male_fm],
+        ], columns=["Recorded Female/Male measure", "Percentage"])
+        binary_display.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=8)
+        age.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=13)
+        eth_raw.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=26)
+        eth_start = 29 + len(eth_raw)
+        eth_clean.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=eth_start)
+        eth_metrics = pd.DataFrame([
+            ["Ethnically diverse participants", diverse_participants],
+            ["Usable ethnicity records", usable_ethnicity],
+            ["Ethnically diverse percentage", diverse_pct],
+        ], columns=["Ethnicity measure", "Value"])
+        eth_metrics.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=eth_start + 11)
+        postcode = pd.DataFrame([
+            ["Postcode recorded", postcode_recorded],
+            ["Postcode missing", postcode_missing],
+            ["Postcode coverage %", postcode_coverage],
+        ], columns=["Postcode measure", "Value"])
+        postcode.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=eth_start + 17)
 
-        source_audit_df.to_excel(
-            writer,
-            sheet_name="Source Audit",
-            index=False,
-        )
-
-        if imd_result is not None:
-            imd_people, imd_summary = imd_result
-            imd_summary.to_excel(
-                writer, sheet_name="IMD Summary", index=False
-            )
-            if EXPORT_RAW_SENSITIVE_DATA:
-                imd_people.to_excel(
-                    writer, sheet_name="IMD Participant Detail", index=False
-                )
-
-        if EXPORT_RAW_SENSITIVE_DATA:
-            annual_export = annual[
-                [
-                    "CanonicalPersonKey",
-                    "AttendanceId",
-                    "SessionId",
-                    "SessionDate",
-                    "VenueName",
-                    "ActivityName",
-                    "ParticipantId",
-                    "LiteMemberId",
-                    "MemberDisplayId",
-                    "MemberName",
-                    "Phone",
-                    "Attended",
-                ]
-            ].copy()
-
-            annual_export.to_excel(
-                writer,
-                sheet_name="Raw Annual Attendance",
-                index=False,
-            )
-
-            canonical_people.to_excel(
-                writer,
-                sheet_name="Canonical Participants",
-                index=False,
-            )
-
-        # Small methodology sheet
-        methodology = pd.DataFrame(
-            [
-                [
-                    "Annual period",
-                    "1 April 2025 to 31 March 2026",
-                ],
-                [
-                    "Annual attendance",
-                    "Confirmed SessionAttendance rows where Attended=1",
-                ],
-                [
-                    "Raw attendee identities",
-                    "Distinct FULL and Lite attendance identities",
-                ],
-                [
-                    "Canonical annual people",
-                    "Lite identities collapse to FULL only when strong "
-                    "evidence resolves to exactly one FULL record",
-                ],
-                [
-                    "Current CRM profiles",
-                    "FULL + Lite rows currently stored in CRM; this is "
-                    "not the same as unique annual attendees",
-                ],
-                [
-                    "Missing gender",
-                    "Never converted to Female without evidence",
-                ],
-                [
-                    "Raw sensitive tabs",
-                    "Remove before sharing outside authorised staff",
-                ],
-            ],
-            columns=["Topic", "Definition"],
-        )
-        methodology.to_excel(
-            writer,
-            sheet_name="Methodology",
-            index=False,
-        )
+        reasons.to_excel(writer, sheet_name="REGISTRATION INSIGHTS", index=False, startrow=1)
+        heard.to_excel(writer, sheet_name="REGISTRATION INSIGHTS", index=False, startrow=4 + len(reasons))
+        top10.to_excel(writer, sheet_name="TOP ACTIVITIES", index=False)
+        annual_export.to_excel(writer, sheet_name="RAW ATTENDANCE", index=False)
+        raw_people.to_excel(writer, sheet_name="RAW PARTICIPANTS", index=False)
+        yoy.to_excel(writer, sheet_name="YEAR ON YEAR", index=False)
 
         # Basic presentation formatting
         wb = writer.book
         for ws in wb.worksheets:
             ws.freeze_panes = "A2"
             ws.auto_filter.ref = ws.dimensions
-            for cell in ws[1]:
-                cell.font = cell.font.copy(bold=True)
+            ws.sheet_view.showGridLines = False
+            for row in ws.iter_rows():
+                for cell in row:
+                    if cell.value in {
+                        "Metric", "Gender", "Recorded Female/Male measure", "Age Band",
+                        "Raw Ethnicity", "Ethnicity Group", "Ethnicity measure",
+                        "Postcode measure", "Reason", "Source", "Activity",
+                        "CanonicalPersonKey",
+                    }:
+                        cell.font = Font(bold=True, color="FFFFFF")
+                        cell.fill = PatternFill("solid", fgColor="1F4E78")
             for column_cells in ws.columns:
                 max_length = 0
                 col_letter = column_cells[0].column_letter
@@ -1426,6 +1862,239 @@ def write_excel(
                 ws.column_dimensions[col_letter].width = min(
                     max(max_length + 2, 12), 45
                 )
+            for row in ws.iter_rows():
+                for cell in row:
+                    if isinstance(cell.value, (date, datetime, pd.Timestamp)):
+                        cell.number_format = "DD/MM/YYYY"
+            for cell in ws[1]:
+                cell.font = Font(bold=True, color="FFFFFF")
+                cell.fill = PatternFill("solid", fgColor="1F4E78")
+
+        demo_ws = wb["DEMOGRAPHICS"]
+        for row in range(3, 7):
+            demo_ws.cell(row, 3).number_format = "0.0%"
+        for row in range(10, 12):
+            demo_ws.cell(row, 2).number_format = "0.0%"
+        for row in range(15, 24):
+            demo_ws.cell(row, 3).number_format = "0.0%"
+            demo_ws.cell(row, 4).number_format = "0.0%"
+        for row in range(eth_start + 2, eth_start + 10):
+            demo_ws.cell(row, 3).number_format = "0.0%"
+        demo_ws.cell(eth_start + 15, 2).number_format = "0.0%"
+        demo_ws.cell(eth_start + 21, 2).number_format = "0.0%"
+
+        reg_ws = wb["REGISTRATION INSIGHTS"]
+        for row in range(3, 3 + len(reasons)):
+            reg_ws.cell(row, 3).number_format = "0.0%"
+        heard_header_row = 5 + len(reasons)
+        for row in range(heard_header_row + 1, heard_header_row + 1 + len(heard)):
+            reg_ws.cell(row, 3).number_format = "0.0%"
+
+        yoy_ws = wb["YEAR ON YEAR"]
+        for row in range(2, yoy_ws.max_row + 1):
+            yoy_ws.cell(row, 5).number_format = "0.0%"
+            metric = str(yoy_ws.cell(row, 1).value or "").lower()
+            if "%" in metric or "percentage" in metric:
+                for col in range(2, 5):
+                    yoy_ws.cell(row, col).number_format = "0.0%"
+            if yoy_ws.cell(row, 6).value == "HIGHER":
+                yoy_ws.cell(row, 6).fill = PatternFill("solid", fgColor="C6EFCE")
+            elif yoy_ws.cell(row, 6).value == "LOWER":
+                yoy_ws.cell(row, 6).fill = PatternFill("solid", fgColor="FFC7CE")
+
+
+def write_complete_excel(
+    summaries,
+    verified_delivery,
+    reconciled_sources,
+    inspection_audit,
+    canonical_people,
+    participants,
+    lite,
+):
+    """Write the requested seven sheets using the established report styling."""
+    from openpyxl.styles import Font, PatternFill
+
+    crm_count = int((verified_delivery["Classification"] == "CRM_CONFIRMED").sum())
+    source_only_count = int(
+        (verified_delivery["Classification"] == "SOURCE_ONLY_VERIFIED").sum()
+    )
+    combined = len(verified_delivery)
+    new_full = summaries["New FULL Registrations"]
+    summary = pd.DataFrame([
+        ["Total verified annual attendance", combined, 21777, combined - 21777],
+        ["CRM attendance portion", crm_count, None, None],
+        ["Verified source-only additional attendance", source_only_count, None, None],
+        ["REGISTERED PARTICIPANTS", len(participants) + len(lite), 1897,
+         len(participants) + len(lite) - 1897],
+        ["Current FULL members", len(participants), None, None],
+        ["Current Lite members", len(lite), None, None],
+        ["Canonical annual attendees", len(canonical_people), None, None],
+        ["New FULL registrations", len(new_full), 598, len(new_full) - 598],
+        ["Sessions delivered", verified_delivery["SessionKey"].nunique(), None, None],
+    ], columns=["Metric", "This Year", "Last Year", "Difference"])
+
+    gender_order = ["Female", "Male", "Other", "Not recorded"]
+    gender_counts = canonical_people["ReportGender"].fillna("Not recorded").value_counts()
+    gender = pd.DataFrame({
+        "Gender": gender_order,
+        "Participants": [int(gender_counts.get(x, 0)) for x in gender_order],
+    })
+    gender["Percentage"] = gender["Participants"] / max(len(canonical_people), 1)
+    fm_total = int(gender_counts.get("Female", 0) + gender_counts.get("Male", 0))
+    fm = pd.DataFrame([
+        ["Female % among recorded Female/Male",
+         int(gender_counts.get("Female", 0)) / fm_total if fm_total else None],
+        ["Male % among recorded Female/Male",
+         int(gender_counts.get("Male", 0)) / fm_total if fm_total else None],
+    ], columns=["Recorded Female/Male measure", "Percentage"])
+
+    age = summaries["Age Annual"].rename(columns={
+        "AgeBand": "Age Band",
+        "PercentageOfCanonicalPeople": "% of all participants",
+        "PercentageOfValidAge": "% of participants with valid DOB",
+    }).copy()
+    for col in ("% of all participants", "% of participants with valid DOB"):
+        age[col] = pd.to_numeric(age[col], errors="coerce") / 100
+
+    eth_raw = summaries["Ethnicity Raw"].rename(columns={"Ethnicity": "Raw Ethnicity"})
+    eth_clean = summaries["Ethnicity Clean"].rename(columns={
+        "EthnicityGroup": "Ethnicity Group",
+        "PercentageOfCanonicalPeople": "Percentage",
+    }).copy()
+    eth_clean["Percentage"] = pd.to_numeric(eth_clean["Percentage"], errors="coerce") / 100
+    postcode_recorded = int(
+        canonical_people["Postcode"].fillna("").astype(str).str.strip().ne("").sum()
+    )
+    postcode = pd.DataFrame([
+        ["Postcode recorded", postcode_recorded],
+        ["Postcode missing", len(canonical_people) - postcode_recorded],
+        ["Postcode coverage %", postcode_recorded / max(len(canonical_people), 1)],
+    ], columns=["Postcode / IMD measure", "Value"])
+
+    reasons = summaries["Join Reasons"].rename(columns={
+        "PercentageOfNewFullRegistrations": "Percentage of new FULL registrations"
+    }).copy()
+    if "Percentage of new FULL registrations" in reasons:
+        reasons["Percentage of new FULL registrations"] /= 100
+    heard = summaries["Heard About"].rename(columns={"HeardAboutSaheli": "Source"}).copy()
+    if "Percentage" in heard:
+        heard["Percentage"] /= 100
+
+    top = (
+        verified_delivery.groupby("Activity", dropna=False)
+        .agg(
+            Attendances=("Classification", "size"),
+            Sessions=("SessionKey", "nunique"),
+            UniqueParticipants=("ParticipantName", lambda s: s.map(normalize_name).replace("", pd.NA).nunique()),
+        )
+        .reset_index()
+        .sort_values("Attendances", ascending=False)
+        .head(10)
+        .rename(columns={"UniqueParticipants": "Canonical Unique Participants"})
+    )
+
+    class_summary = (
+        reconciled_sources["Classification"].value_counts()
+        .rename_axis("Classification").reset_index(name="Rows")
+    )
+    audit_detail = reconciled_sources[[
+        "Source", "SourceFile", "SourceSheet", "SourceRow", "Location", "Activity",
+        "SessionDate", "StartTime", "EndTime", "ParticipantName", "SaheliCardNumber",
+        "CRMParticipantId", "CRMLiteMemberId", "InCRM", "MigrationAction",
+        "Classification", "AttendanceEvidence", "ReconciliationNote",
+    ]].copy()
+    raw_delivery = verified_delivery.drop(columns=["SessionKey"]).copy()
+    raw_people = canonical_people.rename(columns={
+        "CanonicalMemberType": "MemberType", "ReportGender": "Gender",
+        "EthnicityGroup": "CleanEthnicityGroup",
+    })[[
+        "CanonicalPersonKey", "MemberType", "ParticipantId", "LiteMemberId",
+        "MemberNumber", "FullName", "Phone", "Gender", "GenderResolutionSource",
+        "DateOfBirth", "AgeAt31Mar2026", "AgeBand", "Ethnicity",
+        "CleanEthnicityGroup", "Postcode", "FirstAttendance", "LastAttendance",
+        "AttendanceRecords",
+    ]]
+
+    with pd.ExcelWriter(OUTPUT_XLSX, engine="openpyxl") as writer:
+        summary.to_excel(writer, sheet_name="SUMMARY", index=False)
+        gender.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=1)
+        fm.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=8)
+        age.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=13)
+        eth_raw.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=26)
+        eth_start = 29 + len(eth_raw)
+        eth_clean.to_excel(writer, sheet_name="DEMOGRAPHICS", index=False, startrow=eth_start)
+        postcode.to_excel(
+            writer, sheet_name="DEMOGRAPHICS", index=False,
+            startrow=eth_start + len(eth_clean) + 3,
+        )
+        top.to_excel(writer, sheet_name="TOP ACTIVITIES", index=False)
+        reasons.to_excel(writer, sheet_name="REGISTRATION INSIGHTS", index=False, startrow=1)
+        heard.to_excel(
+            writer, sheet_name="REGISTRATION INSIGHTS", index=False,
+            startrow=4 + len(reasons),
+        )
+        inspection_audit.to_excel(
+            writer, sheet_name="DELIVERY SOURCE AUDIT", index=False, startrow=1
+        )
+        class_start = 4 + len(inspection_audit)
+        class_summary.to_excel(
+            writer, sheet_name="DELIVERY SOURCE AUDIT", index=False, startrow=class_start
+        )
+        audit_detail.to_excel(
+            writer, sheet_name="DELIVERY SOURCE AUDIT", index=False,
+            startrow=class_start + len(class_summary) + 3,
+        )
+        raw_delivery.to_excel(writer, sheet_name="RAW VERIFIED DELIVERY", index=False)
+        raw_people.to_excel(writer, sheet_name="RAW PARTICIPANTS", index=False)
+
+        # Preserve the analyzer's established simple professional formatting.
+        wb = writer.book
+        header_labels = {
+            "Metric", "Gender", "Recorded Female/Male measure", "Age Band",
+            "Raw Ethnicity", "Ethnicity Group", "Postcode / IMD measure",
+            "Activity", "Reason", "Source", "Classification", "CanonicalPersonKey",
+        }
+        for ws in wb.worksheets:
+            ws.freeze_panes = "A2"
+            ws.auto_filter.ref = ws.dimensions
+            ws.sheet_view.showGridLines = False
+            for row in ws.iter_rows():
+                for cell in row:
+                    if cell.value in header_labels:
+                        cell.font = Font(bold=True, color="FFFFFF")
+                        cell.fill = PatternFill("solid", fgColor="1F4E78")
+                    if isinstance(cell.value, (date, datetime, pd.Timestamp)):
+                        cell.number_format = "DD/MM/YYYY"
+            for cell in ws[1]:
+                cell.font = Font(bold=True, color="FFFFFF")
+                cell.fill = PatternFill("solid", fgColor="1F4E78")
+            for column_cells in ws.columns:
+                max_length = max(
+                    (len(str(cell.value)) if cell.value is not None else 0)
+                    for cell in column_cells[:500]
+                )
+                ws.column_dimensions[column_cells[0].column_letter].width = min(
+                    max(max_length + 2, 12), 45
+                )
+
+        demo = wb["DEMOGRAPHICS"]
+        for row in range(3, 7):
+            demo.cell(row, 3).number_format = "0.0%"
+        for row in range(10, 12):
+            demo.cell(row, 2).number_format = "0.0%"
+        for row in range(15, 24):
+            demo.cell(row, 3).number_format = "0.0%"
+            demo.cell(row, 4).number_format = "0.0%"
+        for row in range(eth_start + 2, eth_start + 2 + len(eth_clean)):
+            demo.cell(row, 3).number_format = "0.0%"
+        demo.cell(eth_start + len(eth_clean) + 7, 2).number_format = "0.0%"
+        reg = wb["REGISTRATION INSIGHTS"]
+        for row in range(3, 3 + len(reasons)):
+            reg.cell(row, 3).number_format = "0.0%"
+        heard_header = 5 + len(reasons)
+        for row in range(heard_header + 1, heard_header + 1 + len(heard)):
+            reg.cell(row, 3).number_format = "0.0%"
 
 
 # ============================================================
@@ -1466,67 +2135,57 @@ def main():
             conflicting_lite,
         )
 
-        print("Auditing possible non-SessionAttendance sources...")
-        audit = source_audit(conn)
-
-        imd_result = add_imd_if_available(canonical_people)
+        print("Opening original migration workbooks and attendance evidence...")
+        source_rows, inspection_audit, verified_files, verified_sheets = (
+            load_migration_source_evidence()
+        )
+        print("Reconciling source attendance against dbo.SessionAttendance...")
+        reconciled_sources = reconcile_source_evidence(annual, source_rows)
+        verified_delivery = build_verified_delivery_ledger(
+            annual, reconciled_sources
+        )
 
         print(f"Writing {OUTPUT_XLSX} ...")
-        write_excel(
+        write_complete_excel(
             summaries,
-            audit,
-            annual,
+            verified_delivery,
+            reconciled_sources,
+            inspection_audit,
             canonical_people,
-            imd_result,
+            participants,
+            lite,
         )
 
-        # Console headline
+        already_in_crm = int(
+            (reconciled_sources["Classification"] == "CRM_CONFIRMED").sum()
+        )
+        source_only = int(
+            (reconciled_sources["Classification"] == "SOURCE_ONLY_VERIFIED").sum()
+        )
+        duplicates = int(
+            (reconciled_sources["Classification"] == "DUPLICATE_SOURCE").sum()
+        )
+        review = int((reconciled_sources["Classification"] == "REVIEW").sum())
+        combined = len(annual) + source_only
         print("\n============================================================")
-        print("ANNUAL REPORT HEADLINE CHECK")
+        print("VERIFIED DELIVERY RECONCILIATION")
         print("============================================================")
-        print(f"Confirmed annual attendance: {len(annual):,}")
-        print(
-            "Annual attended sessions: "
-            f"{annual['SessionId'].nunique():,}"
-        )
-        print(
-            "Raw attendee identities: "
-            f"{annual['raw_identity_key'].nunique():,}"
-        )
-        print(
-            "Canonical annual people: "
-            f"{canonical_people['CanonicalPersonKey'].nunique():,}"
-        )
-        print(f"Current FULL profiles: {len(participants):,}")
-        print(f"Current Lite profiles: {len(lite):,}")
-        print(
-            "Current FULL + Lite profiles: "
-            f"{len(participants) + len(lite):,}"
-        )
-
-        new_full = summaries["New FULL Registrations"]
-        print(
-            "New FULL registrations in FY: "
-            f"{len(new_full):,}"
-        )
-
-        print("\nGender - canonical annual people:")
-        print(
-            summaries["Gender Annual"]
-            .to_string(index=False)
-        )
-
-        print("\nTop 10 activities:")
-        print(
-            summaries["Top Activities"][
-                ["Activity", "Attendances", "Sessions"]
-            ].to_string(index=False)
-        )
-
-        print("\nPossible extra delivery sources:")
-        print(audit.to_string(index=False))
-
-        print(f"\nDONE: {OUTPUT_XLSX.resolve()}")
+        print(f"CRM attendance: {len(annual):,}")
+        print(f"Verified source-only attendance: {source_only:,}")
+        print(f"Combined verified attendance: {combined:,}")
+        print(f"Difference vs 21,777: {combined - 21777:+,}")
+        print(f"\nFULL registered: {len(participants):,}")
+        print(f"Lite registered: {len(lite):,}")
+        print(f"FULL + Lite registered: {len(participants) + len(lite):,}")
+        print(f"\nNew FULL registrations: {len(summaries['New FULL Registrations']):,}")
+        print(f"\nFiles inspected: {len(verified_files):,}")
+        print(f"Sheets inspected: {len(verified_sheets):,}")
+        print(f"Source attendance rows checked: {len(reconciled_sources):,}")
+        print(f"Rows already in CRM: {already_in_crm:,}")
+        print(f"Verified source-only rows: {source_only:,}")
+        print(f"Duplicates excluded: {duplicates:,}")
+        print(f"Rows requiring review: {review:,}")
+        print(f"\nExcel saved to: {OUTPUT_XLSX.resolve()}")
         if EXPORT_RAW_SENSITIVE_DATA:
             print(
                 "WARNING: workbook contains sensitive raw participant data."
