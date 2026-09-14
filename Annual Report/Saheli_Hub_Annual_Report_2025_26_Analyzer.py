@@ -78,6 +78,9 @@ REPORT_END_EXCLUSIVE = "2026-04-01"
 AGE_AT_DATE = pd.Timestamp("2026-03-31")
 
 OUTPUT_XLSX = Path("Saheli_Hub_Annual_Report_2025_26_COMPLETE.xlsx")
+BRANDED_OUTPUT_XLSX = Path(
+    "Saheli_Hub_Annual_Report_2025_26_COMPLETE_BRANDED.xlsx"
+)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 LAST_YEAR = {
@@ -2097,6 +2100,476 @@ def write_complete_excel(
             reg.cell(row, 3).number_format = "0.0%"
 
 
+def apply_saheli_branding(input_path, output_path):
+    """Presentation-only pass: brand, chart, and add documented Bellboat reporting."""
+    from copy import copy
+    from openpyxl import load_workbook
+    from openpyxl.chart import BarChart, DoughnutChart, Reference
+    from openpyxl.chart.label import DataLabelList
+    from openpyxl.chart.marker import DataPoint
+    from openpyxl.styles import Alignment, Border, Font, PatternFill, Side
+    from openpyxl.worksheet.table import Table, TableStyleInfo
+
+    magenta = "C2185B"
+    pink = "E91E63"
+    pale_pink = "FCE4EC"
+    yellow = "FFC107"
+    orange = "F59E0B"
+    dark = "2B2B2B"
+    grey = "6B7280"
+    white = "FFFFFF"
+    light_grey = "F3F4F6"
+    thin_grey = Side(style="thin", color="D1D5DB")
+
+    wb = load_workbook(input_path)
+
+    def title_band(ws, title, subtitle, end_col):
+        ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=end_col)
+        ws["A1"] = "SAHELI HUB  |  " + title
+        ws["A1"].font = Font(name="Aptos Display", size=20, bold=True, color=white)
+        ws["A1"].fill = PatternFill("solid", fgColor=magenta)
+        ws["A1"].alignment = Alignment(vertical="center")
+        ws.row_dimensions[1].height = 34
+        ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=end_col)
+        ws["A2"] = subtitle
+        ws["A2"].font = Font(name="Aptos", size=10, color=dark, italic=True)
+        ws["A2"].fill = PatternFill("solid", fgColor=yellow)
+        ws["A2"].alignment = Alignment(vertical="center")
+        ws.row_dimensions[2].height = 22
+        ws.sheet_view.showGridLines = False
+
+    def style_header(ws, row, start_col, end_col):
+        for col in range(start_col, end_col + 1):
+            cell = ws.cell(row, col)
+            cell.font = Font(name="Aptos", bold=True, color=white)
+            cell.fill = PatternFill("solid", fgColor=magenta)
+            cell.alignment = Alignment(vertical="center", wrap_text=True)
+            cell.border = Border(bottom=Side(style="medium", color=yellow))
+        ws.row_dimensions[row].height = 28
+
+    def section_label(ws, cell_ref, text, end_col=None):
+        cell = ws[cell_ref]
+        cell.value = text
+        if end_col:
+            ws.merge_cells(
+                start_row=cell.row, start_column=cell.column,
+                end_row=cell.row, end_column=end_col,
+            )
+        cell.font = Font(name="Aptos Display", size=12, bold=True, color=white)
+        cell.fill = PatternFill("solid", fgColor=magenta)
+        cell.alignment = Alignment(vertical="center")
+        ws.row_dimensions[cell.row].height = 24
+
+    def style_chart(chart, title, horizontal=False):
+        chart.title = title
+        chart.style = 10
+        chart.height = 7.5
+        chart.width = 12.5
+        chart.legend = None if horizontal else chart.legend
+        chart.graphical_properties = None
+        if chart.series:
+            chart.series[0].graphicalProperties.solidFill = magenta
+            chart.series[0].graphicalProperties.line.solidFill = magenta
+        chart.dLbls = DataLabelList()
+        chart.dLbls.showVal = True
+
+    def color_donut(chart, colors):
+        if not chart.series:
+            return
+        points = []
+        for idx, color in enumerate(colors):
+            point = DataPoint(idx=idx)
+            point.graphicalProperties.solidFill = color
+            point.graphicalProperties.line.solidFill = white
+            points.append(point)
+        chart.series[0].dPt = points
+
+    def add_table(ws, ref, name, style="TableStyleMedium2"):
+        if not any(t.ref == ref for t in ws.tables.values()):
+            table = Table(displayName=name, ref=ref)
+            table.tableStyleInfo = TableStyleInfo(
+                name=style, showFirstColumn=False, showLastColumn=False,
+                showRowStripes=True, showColumnStripes=False,
+            )
+            ws.add_table(table)
+
+    # SUMMARY dashboard -------------------------------------------------
+    ws = wb["SUMMARY"]
+    source_values = {
+        ws.cell(r, 1).value: ws.cell(r, 2).value
+        for r in range(2, ws.max_row + 1)
+    }
+    last_values = {
+        ws.cell(r, 1).value: ws.cell(r, 3).value
+        for r in range(2, ws.max_row + 1)
+    }
+    ws.delete_rows(1, ws.max_row)
+    title_band(
+        ws, "ANNUAL REPORT 2025/26",
+        "Verified delivery, reach and registration overview  |  1 April 2025 – 31 March 2026",
+        16,
+    )
+    kpis = [
+        ("Total verified attendance", source_values["Total verified annual attendance"]),
+        ("CRM attendance", source_values["CRM attendance portion"]),
+        ("Verified source-only", source_values["Verified source-only additional attendance"]),
+        ("Registered participants", source_values["REGISTERED PARTICIPANTS"]),
+        ("New FULL registrations", source_values["New FULL registrations"]),
+        ("Sessions delivered", source_values["Sessions delivered"]),
+    ]
+    card_positions = [(1, 4), (6, 4), (11, 4), (1, 8), (6, 8), (11, 8)]
+    for (label, value), (col, row) in zip(kpis, card_positions):
+        ws.merge_cells(start_row=row, start_column=col, end_row=row, end_column=col + 3)
+        ws.merge_cells(start_row=row + 1, start_column=col, end_row=row + 2, end_column=col + 3)
+        label_cell = ws.cell(row, col)
+        value_cell = ws.cell(row + 1, col)
+        label_cell.value = label
+        value_cell.value = value
+        label_cell.fill = PatternFill("solid", fgColor=magenta)
+        label_cell.font = Font(name="Aptos", bold=True, color=white, size=10)
+        label_cell.alignment = Alignment(horizontal="center", vertical="center")
+        value_cell.fill = PatternFill("solid", fgColor=pale_pink)
+        value_cell.font = Font(name="Aptos Display", bold=True, color=magenta, size=24)
+        value_cell.number_format = "#,##0"
+        value_cell.alignment = Alignment(horizontal="center", vertical="center")
+        for r in range(row, row + 3):
+            for c in range(col, col + 4):
+                ws.cell(r, c).border = Border(
+                    left=thin_grey, right=thin_grey, top=thin_grey, bottom=thin_grey
+                )
+
+    section_label(ws, "A13", "CURRENT YEAR VS PREVIOUS PUBLISHED FIGURES", 4)
+    comparison = [
+        ["Metric", "2025/26", "Previous published", "Difference"],
+        ["Attendance", source_values["Total verified annual attendance"], 21777,
+         source_values["Total verified annual attendance"] - 21777],
+        ["Registered participants*", source_values["REGISTERED PARTICIPANTS"], 1897,
+         source_values["REGISTERED PARTICIPANTS"] - 1897],
+        ["New registrations", source_values["New FULL registrations"], 598,
+         source_values["New FULL registrations"] - 598],
+    ]
+    for r_idx, row in enumerate(comparison, 14):
+        for c_idx, value in enumerate(row, 1):
+            ws.cell(r_idx, c_idx, value)
+    style_header(ws, 14, 1, 4)
+    ws["A18"] = "*Current registered participants are FULL + Lite CRM profiles; the prior published participant definition may differ."
+    ws.merge_cells("A18:D19")
+    ws["A18"].alignment = Alignment(wrap_text=True, vertical="top")
+    ws["A18"].font = Font(name="Aptos", size=9, italic=True, color=grey)
+
+    section_label(ws, "A21", "ATTENDANCE EVIDENCE", 2)
+    evidence = [
+        ["Evidence", "Attendances"],
+        ["CRM attendance", source_values["CRM attendance portion"]],
+        ["Verified source-only", source_values["Verified source-only additional attendance"]],
+    ]
+    for r_idx, row in enumerate(evidence, 22):
+        for c_idx, value in enumerate(row, 1):
+            ws.cell(r_idx, c_idx, value)
+    style_header(ws, 22, 1, 2)
+    ws["A27"] = "Bellboat: 114 documented working participation records are reported separately and are not added to the organisation-wide total."
+    ws.merge_cells("A27:P28")
+    ws["A27"].fill = PatternFill("solid", fgColor=yellow)
+    ws["A27"].font = Font(name="Aptos", bold=True, color=dark)
+    ws["A27"].alignment = Alignment(wrap_text=True, vertical="center")
+
+    chart = BarChart()
+    chart.type = "col"
+    chart.add_data(Reference(ws, min_col=2, max_col=3, min_row=14, max_row=17), titles_from_data=True)
+    chart.set_categories(Reference(ws, min_col=1, min_row=15, max_row=17))
+    style_chart(chart, "Current year vs previous published figures")
+    chart.series[0].graphicalProperties.solidFill = magenta
+    chart.series[1].graphicalProperties.solidFill = yellow
+    chart.legend.position = "b"
+    ws.add_chart(chart, "F13")
+
+    donut = DoughnutChart()
+    donut.add_data(Reference(ws, min_col=2, min_row=22, max_row=24), titles_from_data=True)
+    donut.set_categories(Reference(ws, min_col=1, min_row=23, max_row=24))
+    donut.holeSize = 58
+    style_chart(donut, "How verified attendance was constructed")
+    donut.legend.position = "b"
+    color_donut(donut, [magenta, yellow])
+    ws.add_chart(donut, "L13")
+    ws.freeze_panes = "A4"
+    for col in range(1, 17):
+        ws.column_dimensions[ws.cell(1, col).column_letter].width = 13
+    ws.column_dimensions["A"].width = 29
+
+    # DEMOGRAPHICS ------------------------------------------------------
+    ws = wb["DEMOGRAPHICS"]
+    ws.insert_rows(1, 4)
+    title_band(ws, "DEMOGRAPHICS", "Canonical annual attendees; missing values remain explicitly recorded", 15)
+    section_label(ws, "A4", "GENDER", 3)
+    gender_header = 6
+    style_header(ws, gender_header, 1, 3)
+    section_label(ws, "A13", "RECORDED FEMALE / MALE", 2)
+    style_header(ws, 14, 1, 2)
+    section_label(ws, "A18", "AGE PROFILE", 4)
+    style_header(ws, 19, 1, 4)
+    gender_chart = DoughnutChart()
+    gender_chart.add_data(Reference(ws, min_col=2, min_row=6, max_row=10), titles_from_data=True)
+    gender_chart.set_categories(Reference(ws, min_col=1, min_row=7, max_row=10))
+    gender_chart.holeSize = 58
+    style_chart(gender_chart, "Gender of annual attendees")
+    gender_chart.legend.position = "b"
+    color_donut(gender_chart, [magenta, yellow, orange, "BDBDBD"])
+    ws.add_chart(gender_chart, "F4")
+
+    age_chart = BarChart()
+    age_chart.type = "bar"
+    age_chart.add_data(Reference(ws, min_col=4, min_row=19, max_row=27), titles_from_data=True)
+    age_chart.set_categories(Reference(ws, min_col=1, min_row=20, max_row=27))
+    style_chart(age_chart, "Age profile (% of participants with valid DOB)", horizontal=True)
+    age_chart.x_axis.numFmt = "0%"
+    age_chart.height = 8.5
+    ws.add_chart(age_chart, "F19")
+
+    # Find ethnicity table after row insertion by its header text.
+    eth_header = next(
+        cell.row for row in ws.iter_rows() for cell in row
+        if cell.value == "Ethnicity Group"
+    )
+    section_label(ws, f"A{eth_header - 1}", "CLEANED ETHNICITY", 3)
+    style_header(ws, eth_header, 1, 3)
+    eth_end = eth_header
+    while eth_end + 1 <= ws.max_row and ws.cell(eth_end + 1, 1).value not in (None, ""):
+        eth_end += 1
+    eth_chart = DoughnutChart()
+    eth_chart.add_data(Reference(ws, min_col=2, min_row=eth_header, max_row=eth_end), titles_from_data=True)
+    eth_chart.set_categories(Reference(ws, min_col=1, min_row=eth_header + 1, max_row=eth_end))
+    eth_chart.holeSize = 58
+    style_chart(eth_chart, "Cleaned ethnicity groups")
+    eth_chart.legend.position = "r"
+    color_donut(eth_chart, [magenta, pink, yellow, orange, "8E24AA", "6D4C41", "BDBDBD", "E0E0E0"])
+    ws.add_chart(eth_chart, f"F{eth_header - 1}")
+    headline_row = eth_end + 2
+    ws.cell(headline_row, 1, "97% ethnically diverse")
+    ws.merge_cells(start_row=headline_row, start_column=1, end_row=headline_row, end_column=3)
+    ws.cell(headline_row, 1).font = Font(name="Aptos Display", size=16, bold=True, color=magenta)
+    ws.cell(headline_row, 1).fill = PatternFill("solid", fgColor=pale_pink)
+    ws.cell(headline_row, 1).alignment = Alignment(horizontal="center")
+    ws.cell(headline_row + 1, 1, "Based on usable recorded ethnicity.")
+    ws.merge_cells(start_row=headline_row + 1, start_column=1, end_row=headline_row + 1, end_column=3)
+    ws.cell(headline_row + 1, 1).alignment = Alignment(horizontal="center")
+    ws.cell(headline_row + 3, 1, "IMD data not available from current loaded sources.")
+    ws.merge_cells(start_row=headline_row + 3, start_column=1, end_row=headline_row + 3, end_column=4)
+    ws.cell(headline_row + 3, 1).font = Font(italic=True, color=grey)
+    ws.freeze_panes = "A6"
+    ws.column_dimensions["A"].width = 34
+    ws.column_dimensions["B"].width = 16
+    ws.column_dimensions["C"].width = 22
+    ws.column_dimensions["D"].width = 28
+
+    # TOP ACTIVITIES ----------------------------------------------------
+    ws = wb["TOP ACTIVITIES"]
+    ws.insert_rows(1, 4)
+    title_band(ws, "TOP ACTIVITIES", "Top 10 activities from the combined verified-delivery ledger", 16)
+    style_header(ws, 5, 1, 4)
+    activity_chart = BarChart()
+    activity_chart.type = "bar"
+    activity_chart.add_data(Reference(ws, min_col=2, min_row=5, max_row=15), titles_from_data=True)
+    activity_chart.set_categories(Reference(ws, min_col=1, min_row=6, max_row=15))
+    style_chart(activity_chart, "Top 10 activities by verified attendance", horizontal=True)
+    activity_chart.height = 10
+    activity_chart.width = 16
+    ws.add_chart(activity_chart, "F5")
+    ws["A18"] = "Bellboat working participation is reported on the BELLBOAT sheet and is not silently added to verified attendance."
+    ws.merge_cells("A18:D20")
+    ws["A18"].fill = PatternFill("solid", fgColor=yellow)
+    ws["A18"].alignment = Alignment(wrap_text=True, vertical="center")
+    ws.freeze_panes = "A6"
+    ws.column_dimensions["A"].width = 38
+
+    # REGISTRATION INSIGHTS -------------------------------------------
+    ws = wb["REGISTRATION INSIGHTS"]
+    ws.insert_rows(1, 4)
+    title_band(ws, "REGISTRATION INSIGHTS", "Why new FULL members joined and how they heard about Saheli", 15)
+    section_label(ws, "A4", "TOP REASONS PEOPLE JOIN", 3)
+    style_header(ws, 6, 1, 3)
+    heard_header = next(
+        cell.row for row in ws.iter_rows() for cell in row
+        if cell.value == "Source"
+    )
+    section_label(ws, f"A{heard_header - 1}", "HOW PEOPLE HEARD ABOUT SAHELI", 3)
+    style_header(ws, heard_header, 1, 3)
+    reason_end = heard_header - 3
+    reason_chart = BarChart()
+    reason_chart.type = "bar"
+    reason_chart.add_data(Reference(ws, min_col=3, min_row=6, max_row=reason_end), titles_from_data=True)
+    reason_chart.set_categories(Reference(ws, min_col=1, min_row=7, max_row=reason_end))
+    style_chart(reason_chart, "Top reasons people join", horizontal=True)
+    reason_chart.x_axis.numFmt = "0%"
+    reason_chart.height = 9
+    ws.add_chart(reason_chart, "E5")
+    heard_end = heard_header
+    while heard_end + 1 <= ws.max_row and ws.cell(heard_end + 1, 1).value not in (None, ""):
+        heard_end += 1
+    heard_chart = DoughnutChart()
+    heard_chart.add_data(Reference(ws, min_col=2, min_row=heard_header, max_row=heard_end), titles_from_data=True)
+    heard_chart.set_categories(Reference(ws, min_col=1, min_row=heard_header + 1, max_row=heard_end))
+    heard_chart.holeSize = 58
+    style_chart(heard_chart, "How people heard about Saheli")
+    heard_chart.legend.position = "r"
+    color_donut(heard_chart, [magenta, pink, yellow, orange, "8E24AA", "6D4C41", "BDBDBD"])
+    ws.add_chart(heard_chart, f"E{heard_header - 1}")
+    ws.freeze_panes = "A6"
+    ws.column_dimensions["A"].width = 42
+
+    # BELLBOAT ---------------------------------------------------------
+    if "BELLBOAT" in wb.sheetnames:
+        del wb["BELLBOAT"]
+    ws = wb.create_sheet("BELLBOAT", 4)
+    title_band(
+        ws, "BELLBOAT REPORT",
+        "Documented working participation — data available from current sources",
+        15,
+    )
+    bell_kpis = [
+        ("Working participation", 114), ("Unique named participants", 83),
+        ("Sessions / events", 11), ("Unique detailed profiles", 52),
+    ]
+    for (label, value), col in zip(bell_kpis, (1, 5, 9, 13)):
+        ws.merge_cells(start_row=4, start_column=col, end_row=4, end_column=col + 2)
+        ws.merge_cells(start_row=5, start_column=col, end_row=6, end_column=col + 2)
+        ws.cell(4, col, label)
+        ws.cell(5, col, value)
+        ws.cell(4, col).fill = PatternFill("solid", fgColor=magenta)
+        ws.cell(4, col).font = Font(bold=True, color=white)
+        ws.cell(4, col).alignment = Alignment(horizontal="center")
+        ws.cell(5, col).fill = PatternFill("solid", fgColor=pale_pink)
+        ws.cell(5, col).font = Font(size=22, bold=True, color=magenta)
+        ws.cell(5, col).alignment = Alignment(horizontal="center", vertical="center")
+        ws.cell(5, col).number_format = "#,##0"
+    note = (
+        "Bellboat working participation is based on documented delivery records. "
+        "The source file does not contain a separate Attended Yes/No field, so the "
+        "114 participation figure remains a documented working participation total."
+    )
+    ws.merge_cells("A8:O10")
+    ws["A8"] = note
+    ws["A8"].fill = PatternFill("solid", fgColor=yellow)
+    ws["A8"].font = Font(bold=True, color=dark)
+    ws["A8"].alignment = Alignment(wrap_text=True, vertical="center")
+
+    monthly = [("Month", "Participation"), ("May 2025", 46), ("Jun 2025", 8),
+               ("Jul 2025", 10), ("Sep 2025", 50)]
+    delivery = [("Delivery type", "Participation", "Sessions"),
+                ("Bellboating", 73, 9),
+                ("Bellboating & Kayaking Combined", 36, 1), ("Kayaking", 5, 1)]
+    bell_gender = [("Gender", "Profiles"), ("Female", 46), ("Male", 6)]
+    bell_age = [("Age band", "Profiles"), ("Under 16", 15), ("16-25", 6),
+                ("26-35", 4), ("36-45", 5), ("46-55", 8), ("56-65", 2),
+                ("66-75", 1), ("Unknown", 11)]
+    for start_row, rows in ((13, monthly), (29, delivery), (44, bell_gender), (58, bell_age)):
+        for r_off, row in enumerate(rows):
+            for c_off, value in enumerate(row):
+                ws.cell(start_row + r_off, 1 + c_off, value)
+        style_header(ws, start_row, 1, len(rows[0]))
+
+    chart = BarChart()
+    chart.type = "col"
+    chart.add_data(Reference(ws, min_col=2, min_row=13, max_row=17), titles_from_data=True)
+    chart.set_categories(Reference(ws, min_col=1, min_row=14, max_row=17))
+    style_chart(chart, "Bellboat participation by month")
+    ws.add_chart(chart, "D13")
+    chart = BarChart()
+    chart.type = "bar"
+    chart.add_data(Reference(ws, min_col=2, min_row=29, max_row=32), titles_from_data=True)
+    chart.set_categories(Reference(ws, min_col=1, min_row=30, max_row=32))
+    style_chart(chart, "Bellboat and kayaking delivery", horizontal=True)
+    ws.add_chart(chart, "E28")
+    chart = DoughnutChart()
+    chart.add_data(Reference(ws, min_col=2, min_row=44, max_row=46), titles_from_data=True)
+    chart.set_categories(Reference(ws, min_col=1, min_row=45, max_row=46))
+    chart.holeSize = 58
+    style_chart(chart, "Bellboat profile gender")
+    chart.legend.position = "b"
+    color_donut(chart, [magenta, yellow])
+    ws.add_chart(chart, "D43")
+    chart = BarChart()
+    chart.type = "bar"
+    chart.add_data(Reference(ws, min_col=2, min_row=58, max_row=66), titles_from_data=True)
+    chart.set_categories(Reference(ws, min_col=1, min_row=59, max_row=66))
+    style_chart(chart, "Bellboat age profile", horizontal=True)
+    ws.add_chart(chart, "D57")
+    ws["A69"] = "The Bellboat 114 is not included in the organisation-wide verified attendance total because source-only reconciliation is not proven."
+    ws.merge_cells("A69:O70")
+    ws["A69"].font = Font(italic=True, color=grey)
+    ws["A69"].alignment = Alignment(wrap_text=True)
+    ws.freeze_panes = "A4"
+    ws.column_dimensions["A"].width = 38
+    ws.column_dimensions["B"].width = 18
+    ws.column_dimensions["C"].width = 14
+    for col in range(4, 16):
+        ws.column_dimensions[ws.cell(1, col).column_letter].width = 12
+
+    # AUDIT and raw sheets --------------------------------------------
+    audit = wb["DELIVERY SOURCE AUDIT"]
+    audit.insert_rows(1, 4)
+    title_band(
+        audit, "DELIVERY SOURCE AUDIT",
+        "Inspected source workbooks, reconciliation classifications and row-level evidence",
+        18,
+    )
+    audit.freeze_panes = "A6"
+    for row in audit.iter_rows():
+        if row[0].value in {"Source", "Classification"}:
+            style_header(audit, row[0].row, 1, 18 if row[0].value == "Source" else 2)
+    audit.column_dimensions["A"].width = 22
+    audit.column_dimensions["B"].width = 42
+    audit.column_dimensions["C"].width = 30
+    audit.column_dimensions["D"].width = 22
+    for col in (17, 18):
+        letter = audit.cell(1, col).column_letter
+        audit.column_dimensions[letter].width = 52
+    for row in audit.iter_rows(min_row=5, max_row=min(audit.max_row, 250)):
+        for cell in row:
+            cell.alignment = copy(cell.alignment)
+            cell.alignment = Alignment(
+                horizontal=cell.alignment.horizontal,
+                vertical="top", wrap_text=cell.column in (2, 3, 17, 18),
+            )
+
+    for sheet_name, table_name in (
+        ("RAW VERIFIED DELIVERY", "RawVerifiedDeliveryTable"),
+        ("RAW PARTICIPANTS", "RawParticipantsTable"),
+    ):
+        raw = wb[sheet_name]
+        raw.insert_rows(1, 3)
+        title_band(raw, sheet_name.replace("RAW ", "RAW DATA — "),
+                   "Filtered supporting data for authorised reporting use", raw.max_column)
+        style_header(raw, 4, 1, raw.max_column)
+        add_table(raw, f"A4:{raw.cell(raw.max_row, raw.max_column).coordinate}", table_name)
+        raw.freeze_panes = "A5"
+        raw.auto_filter.ref = f"A4:{raw.cell(raw.max_row, raw.max_column).coordinate}"
+        for col in range(1, raw.max_column + 1):
+            header = str(raw.cell(4, col).value or "")
+            width = 16
+            if any(x in header for x in ("Evidence", "Name", "Activity", "Location")):
+                width = 28
+            if header in ("AttendanceEvidence",):
+                width = 45
+            raw.column_dimensions[raw.cell(4, col).column_letter].width = width
+        for row in raw.iter_rows(min_row=5, max_row=min(raw.max_row, 300)):
+            for cell in row:
+                if isinstance(cell.value, (date, datetime, pd.Timestamp)):
+                    cell.number_format = "DD/MM/YYYY"
+
+    # Consistent print/page settings for presentation sheets.
+    for sheet_name in ("SUMMARY", "DEMOGRAPHICS", "TOP ACTIVITIES", "REGISTRATION INSIGHTS", "BELLBOAT"):
+        sheet = wb[sheet_name]
+        sheet.sheet_properties.pageSetUpPr.fitToPage = True
+        sheet.page_setup.fitToWidth = 1
+        sheet.page_setup.fitToHeight = 0
+        sheet.page_margins.left = 0.25
+        sheet.page_margins.right = 0.25
+        sheet.page_margins.top = 0.4
+        sheet.page_margins.bottom = 0.4
+
+    wb.save(output_path)
+
+
 # ============================================================
 # MAIN
 # ============================================================
@@ -2155,6 +2628,8 @@ def main():
             participants,
             lite,
         )
+        print("Applying Saheli branding, dashboard charts and Bellboat report...")
+        apply_saheli_branding(OUTPUT_XLSX, BRANDED_OUTPUT_XLSX)
 
         already_in_crm = int(
             (reconciled_sources["Classification"] == "CRM_CONFIRMED").sum()
@@ -2185,7 +2660,7 @@ def main():
         print(f"Verified source-only rows: {source_only:,}")
         print(f"Duplicates excluded: {duplicates:,}")
         print(f"Rows requiring review: {review:,}")
-        print(f"\nExcel saved to: {OUTPUT_XLSX.resolve()}")
+        print(f"\nExcel saved to: {BRANDED_OUTPUT_XLSX.resolve()}")
         if EXPORT_RAW_SENSITIVE_DATA:
             print(
                 "WARNING: workbook contains sensitive raw participant data."
