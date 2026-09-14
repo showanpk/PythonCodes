@@ -1,0 +1,69 @@
+{
+  "_note": "TEMPORARY PLACEHOLDER TIMES ONLY - replace with verified OCF timetable times later. Do not treat these as historical truth.",
+  "Girls Cricket": {
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "Girls Football": {
+    "Tuesday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "Wednesday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "Boys Football": {
+    "Tuesday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "Girls Youth Club": {
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "Youth Club (Mixed)": {
+    "Monday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "Wednesday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "Thursday": {
+      "start": "12:00",
+      "end": "13:00"
+    },
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "HAF": {
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  },
+  "XLR8": {
+    "default": {
+      "start": "12:00",
+      "end": "13:00"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+﻿activity,activity_type,source_programme,action,id,existing_type_id,notes
+Girl's Cricket,Cricket,Girls Cricket,REUSE,29eb6232-a84b-4307-8ad9-e438c6c2881a,8d6464aa-3dea-4e28-9406-59673e1137d3,Existing canonical activity reused.
+Boys Cricket,Cricket,Boys Cricket,REUSE,9f0719de-f96e-4d31-9cf4-670064a0f68e,8d6464aa-3dea-4e28-9406-59673e1137d3,Existing canonical activity reused.
+Girls Football,FootBall,Girls Football,REUSE,c89c98ac-c59d-45b5-817c-50053a7e5a1a,a90f467e-6211-43ea-8583-9591cb72d49e,Existing canonical activity reused.
+Boys Football,FootBall,Boys Football,REUSE,50f63ea8-bce8-481e-9d9d-57c79df1d626,a90f467e-6211-43ea-8583-9591cb72d49e,Existing canonical activity reused.
+Girls Youth Club,Youth Club,Girls Youth Club,REUSE,df158332-1788-4d99-aa78-65adb5e8cbfd,221d3adf-5083-484a-9610-a170fbc98af8,Existing canonical activity reused.
+Youth Club (Mixed),Youth Club,Youth Club (Mixed),REUSE,f6c8f5ed-33c8-4d85-b4d9-5a0e7480ca3a,221d3adf-5083-484a-9610-a170fbc98af8,Existing canonical activity reused.
+HAF,HAF,HAF,REUSE,728d8bbc-85bd-498c-8d8c-dba3805d92e9,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,Existing canonical activity reused.
+XLR8,XLR8,XLR8,REUSE,77cca719-57ec-4cf8-9491-b4c34d0283b0,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,Existing canonical activity reused.

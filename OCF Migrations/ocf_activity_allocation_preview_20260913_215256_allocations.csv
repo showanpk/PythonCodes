@@ -1,0 +1,441 @@
+﻿participant_id,ocf_id,participant_name,activity_type,activity_type_id,action,source_programmes,source_statuses,source_files,source_rows,notes
+c0075410-c097-4347-afee-337e37fb3a35,OCF-AF-0052,Aaminah Farooq,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+1cc1d43c-637e-44a4-b85b-d8db2ec6c726,OCF-AH-0074,Arisha Hussain,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Inactive,1,1,Existing active allocation retained.
+158037f6-c0f2-4ba9-af13-a1a37e136552,OCF-AI-0108,Amelia Iqbal,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Cricket,1,1,Existing active allocation retained.
+aad756b7-4f91-411c-bf25-1e932ae9825c,OCF-AN-0110,Anayah Nadeem,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,HAF,1,1,Existing active allocation retained.
+73bb5b38-c756-4d61-993c-55b06498a3db,OCF-EA-0107,Eiman Ali,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+e309aa55-f2ac-4ea0-a200-23469df7fa0a,OCF-EH-0012,Esha Hussain,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+94778eb7-2b25-47ad-81b4-3130d57baafc,OCF-HA-0059,Haram Afzal,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+80389551-2637-4271-9f69-a0de9495be07,OCF-HS-0058,Haddiya Seher,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+1b39cfaa-28ff-4fdd-aad9-d7b1b4f3661b,OCF-LM-0023,Lana Mersiha Hoque,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+185a0c33-6406-4fdd-beb9-20d17d4e8d3a,OCF-MJ-0004,Maryam Jamil,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+c1d0135a-cff8-4d66-a26e-e6919d5a1d27,OCF-SJ-0003,Sidra Jamil,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+9b225db4-6ffc-4625-bc05-ce235f8411f4,OCF-UA-0015,Umme-Habiba Aamin,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+3016ca81-5f36-4504-89ba-e2cf030196c1,OCF-ZA-0006,Zainab Ayaz,Cricket,8d6464aa-3dea-4e28-9406-59673e1137d3,REUSE_ACTIVE,Girls Cricket,Active,1,1,Existing active allocation retained.
+98c27d94-74e1-42af-960d-10b77bdbdd3a,OCF-AA-0025,Amayah Ali Ashianan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,6,6,Existing active allocation retained.
+54f191be-6a8a-4b8d-8212-4b2771f9d40b,OCF-AA-0057,Anaya Afzal,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+592d9a42-3273-41ff-b1ef-9014b58afe5b,OCF-AA-0080,Asiya Al-Anisi,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,3,3,Existing active allocation retained.
+3e78047c-ff8a-475b-a987-780f46645b38,OCF-AA-0131,Abdullah Ahmad,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+341bfd77-73a5-4bb1-9833-09bbcbb7a55e,OCF-AA-0201,Ahsan Ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+7faf22bf-a8fa-4a0c-b28a-4025133a5080,OCF-AA-0225,Abdul Aleem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+d340d4c2-4bcf-48d3-afb3-a004744685e8,OCF-AB-0010,Aanisah Bibi,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+afaf05ca-eb80-44f2-bb86-1c8f7d1ae186,OCF-AB-0133,AbuBakr Babar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+b105c113-49b8-4a9d-9ef5-3c4133a69596,OCF-AB-0182,Ayyan Badil,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+ab40798e-8e57-4abe-899f-66a033d45bf8,OCF-AH-0017,Anayah Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,3,3,Existing active allocation retained.
+1cc1d43c-637e-44a4-b85b-d8db2ec6c726,OCF-AH-0074,Arisha Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Inactive,3,3,Existing active allocation retained.
+43d82bd0-c5dd-4a6a-91b3-567abc480dce,OCF-AH-0151,Amaan hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+ab6ff6b9-5ccf-4023-800a-f37e8b09efed,OCF-AI-0038,Adina Irfan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,5,5,Existing active allocation retained.
+999ede11-ee9b-48d2-ad79-f8e486165010,OCF-AI-0039,Ameena Irfan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,2,2,Existing active allocation retained.
+d3ddebce-9eba-44e3-8660-836bf55e8a14,OCF-AI-0103,Aminah Imran,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+81768ead-fad4-44e7-8e87-ab4fe717f715,OCF-AK-0029,Aalia khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+da790519-c244-4eb6-8b1f-9716e7eacb68,OCF-AK-0213,Adam Khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+346c535b-184b-4926-9e81-e3b55894b5c1,OCF-AM-0005,Aanisah Malik,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+0e9d4aa0-9752-4cb0-9d23-66e30f18048e,OCF-AM-0101,Anaum Munawar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+7c158843-67ab-4643-8069-85e392c51ef3,OCF-AM-0178,ayaan mahmood,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+adef6ecb-4ee1-4838-a8ae-9b747a492ecf,OCF-AM-0209,Ayaan Mohammed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+a7e9d138-7c54-45f9-87b1-2463596a43f5,OCF-AN-0067,Amal Nadif,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF,1,1,Existing active allocation retained.
+db19665d-c870-4ac0-a480-0417b9f6fdbe,OCF-AN-0126,Ayaan Nadeem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+95229bd3-f357-40bd-ad69-6f7666da7854,OCF-AR-0181,Abdul Rahman Saleh,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+94364b5a-3ae9-48e8-829c-adc847295fbf,OCF-AR-0184,Abdul Rahman Zahid,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+6264c1fb-b19d-44c0-8f7a-187a17b06ecd,OCF-AR-0223,Adnan Rehman,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+14dd5548-97aa-4ed8-8c94-45d1038dc305,OCF-AS-0104,Aeman Shabir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+6a4d2cf5-12ff-463d-bb4d-cc564484cdb9,OCF-AS-0105,Amara Shabir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+3ceddfba-ea7b-425c-80cd-fbb3d2f190ef,OCF-AS-0109,Anaya Saleem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+2eeb460c-c164-4c02-b69f-1734c547daca,OCF-AS-0129,Abdullah Saleh,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+607eac70-26e1-4f01-9e2c-696d98a24b0d,OCF-AS-0155,Aadil Said,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+869581dc-b983-401d-a092-bdab1df40bad,OCF-AS-0157,ayaan sabir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,5,5,Existing active allocation retained.
+653377e8-85ae-4f33-bf11-1ea9802e7e6a,OCF-AS-0204,Azaan Sabir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+52ded7ec-319c-4d8d-8d5d-e8680009d752,OCF-AW-0177,Adnan Wazir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+07865d85-258e-4e62-9e61-6e3761cd1391,OCF-AZ-0093,Amelia Zimmadar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+05b0d753-2976-4de4-8192-32ce979c31d8,OCF-AZ-0099,Atiyah Zamir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+53bbc869-2a74-4a48-bae7-ce62e0efcf67,OCF-BA-0089,Bdor Abdulalem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+a653b151-f99d-4032-92e9-09774a74f466,OCF-DS-0197,Danyal shahid,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+73bb5b38-c756-4d61-993c-55b06498a3db,OCF-EA-0107,Eiman Ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+e309aa55-f2ac-4ea0-a200-23469df7fa0a,OCF-EH-0012,Esha Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+be1e7842-6551-46c7-b769-e7610474dd97,OCF-EM-0097,Eilaf Mahmood,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+a462960f-75f2-4b98-a466-56e19bb5797c,OCF-ES-0180,eesa shazad,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+51fd149b-2a13-43bd-90c2-f6e271c4c9af,OCF-EW-0096,Evelyn winters,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+ec3cffc2-fcbf-45f3-95c1-117907c6ab21,OCF-FB-0127,Faris Bashir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+d34d7947-33ea-47f3-9eef-237cd9cb6994,OCF-FG-0212,Falak Gul,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+2c281097-a5de-4f6c-b035-aa0a5b625f64,OCF-FM-0205,Filip Mihai,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+9da92845-ec35-4637-87c5-2df28d96c1f6,OCF-GA-0081,Gulalai Ahmad,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,3,3,Existing active allocation retained.
+b2f3396d-af74-4609-804e-8ab53fe92fee,OCF-HA-0008,Hidayah Ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+3856e45f-4c6c-4eb8-a295-cc44bf0494f7,OCF-HA-0022,Hafsa Ahmed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,6,6,Existing active allocation retained.
+94778eb7-2b25-47ad-81b4-3130d57baafc,OCF-HA-0059,Haram Afzal,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+896c90cd-604a-4d64-89fe-eba327175f55,OCF-HA-0150,Haider Ali Tahir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+38af655a-f696-4ba2-be54-71820d000918,OCF-HH-0139,Hasnain Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+5c2bd45d-9458-432a-b296-d7822f759f09,OCF-HM-0156,Haroun Meslou,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+afbdd157-7ca7-4cd0-aa60-f2854b2c6259,OCF-HP-0046,Heidi price,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+c640499a-4a91-4106-b009-bbbae41f4a61,OCF-HR-0135,Hashim Ramzan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+fbc804db-f65f-4a40-bc6f-13add57779c2,OCF-HS-0056,Husna Shazadi,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Inactive,2,2,Existing active allocation retained.
+80389551-2637-4271-9f69-a0de9495be07,OCF-HS-0058,Haddiya Seher,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+ab53c9f7-dab6-4f18-84c8-df5a9e14afb4,OCF-II-0026,Isha Iqbal,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,6,6,Existing active allocation retained.
+f56a25b0-a4d0-40b2-bc7c-6ce461f7aa06,OCF-II-0100,Isra Imran,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+8ef2bad5-8590-411e-8bd3-28fd8e3d1f16,OCF-IK-0083,Inayah khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+945c74d3-2e0a-4bf0-b2b3-de9994d43b67,OCF-IK-0145,Ismail khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+2ac6d67b-7fbf-49b4-8528-25d70f6f8d6a,OCF-IK-0203,Izaan Khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+cfe9d27f-52cd-41a1-b039-a4b16b609c22,OCF-IM-0138,Ibad Masood,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+66a35e7d-4237-4aaa-86cd-7e811fcaa48c,OCF-IR-0198,Ibrahim rehman,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+299312fc-0af4-4799-845b-65e7deab5a03,OCF-JS-0077,Jomana Salem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,3,3,Existing active allocation retained.
+bccb0c45-3173-4948-a750-79601ff1aec3,OCF-KD-0018,Khathijah ditta,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF,1,1,Existing active allocation retained.
+dd63e421-8e76-45fd-ba42-ae0204da3870,OCF-KK-0219,Kamran Khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+1b39cfaa-28ff-4fdd-aad9-d7b1b4f3661b,OCF-LM-0023,Lana Mersiha Hoque,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+2d0a606d-fdc5-4d2e-8cba-d80749af71b6,OCF-LN-0028,Leena nisar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+6333711f-d3c9-406a-8267-0c5ff3d3e3ec,OCF-LT-0045,Lily-Ann Thompson,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+b87a9586-f35e-411f-b8f5-d551370fa466,OCF-LW-0217,Luqman Wazir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+97431778-532d-459a-a837-d861eb12c86c,OCF-MA-0053,Malayeka Asad,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,3,3,Existing active allocation retained.
+7991595c-df37-457c-89a5-9d87e3fe82f3,OCF-MA-0088,Maya Abdulalem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+0520cc72-1481-4c86-a4da-741c8377f58b,OCF-MA-0149,Mohammed Alihassn,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+6950b48d-c9d5-499d-b301-310d4805b5bc,OCF-MA-0199,Mustafa ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+4cfef57f-121e-4c8f-b3cd-00d433144d02,OCF-MB-0118,Mariam Bello,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+e1fee359-9896-4e60-a412-a9a9fd20d355,OCF-MB-0153,Mohammed Bilal hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,14,Existing active allocation retained.
+be27b57a-24cb-4336-9a91-2d2d4c9a7a01,OCF-MF-0192,Mohammed Faizaan Ikhlaq,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+6d00315f-c7a2-43d3-9e74-55ad9a6f0af5,OCF-MH-0013,Muskaan Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,HAF+Football,3,3,Existing active allocation retained.
+e0051c3d-978d-4253-96a0-d9d6ad5f9a97,OCF-MH-0171,Muhammed Huzaifah,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+8e046ff5-4bcf-441a-afe6-9d42df6efe6e,OCF-MI-0136,Mohammad Ibraheem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Football,7,7,Existing active allocation retained.
+185a0c33-6406-4fdd-beb9-20d17d4e8d3a,OCF-MJ-0004,Maryam Jamil,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+00973e30-bb4d-406c-9dc0-c5e07179cadd,OCF-MK-0106,Maisha Khanum,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+aa49bbe5-7204-4d6a-981b-e7a3eefd7ba3,OCF-MM-0112,Maryama Mohammed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Youth Hub,1,1,Existing active allocation retained.
+bf0a367f-bf22-4ccf-8b78-038056b834ed,OCF-MM-0137,Mohammed Musa,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+7ba563f2-00fc-4207-ba75-dfecd95d93cf,OCF-MM-0174,Mohammed Musin,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+e7e48301-5824-4f92-ab0b-8a5c37b723eb,OCF-MM-0208,Mustafa Malik,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+2817a7de-6a84-4ebb-8323-f7c55ff17d0a,OCF-MN-0200,Muhammed Nubaid Musahid,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+dd49beeb-851b-429a-91ed-556af5abb32a,OCF-MO-0170,Mohammed Owais,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+f96d19ec-c8b6-48b1-b096-fadefa4d2f20,OCF-MR-0191,Mohammed riaz,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+16b88008-89de-4437-a902-c76aeddce3ef,OCF-MS-0011,Malaak Salem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,4,4,Existing active allocation retained.
+11c89c1d-c613-4433-a675-6882c872bff1,OCF-MS-0143,Mohammed Sudais,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+dbb80e85-ed03-41fa-aa25-a6e783d79dc5,OCF-MS-0144,Mohammed sulaiman,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+793172be-0723-42a3-b38d-65427eb24924,OCF-MS-0206,muhummud sallamuth ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,14,Existing active allocation retained.
+2cf6c373-8cac-4a0f-8948-ae062a6da2cd,OCF-MS-0211,Mohammed Suffiyaan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+6f755d9d-81b6-481c-83d5-ed00c67e9b2c,OCF-NA-0047,Nayla Aaboane,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,4,4,Existing active allocation retained.
+53eb3de2-0582-46ed-8427-cfa1897d59ff,OCF-NA-0091,Noor Ahmed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,2,2,Existing active allocation retained.
+b7f91572-bfa8-4a52-bbde-a69838a1aae6,OCF-NH-0221,Naffis Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+dcde0a2d-8606-4c50-a4d6-b51fb08b2269,OCF-NN-0196,Noman Naeem,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+bc5e2cb9-6603-47a1-ad2c-4123f049f533,OCF-OM-0215,Omar moustapha,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+70301575-5b0c-425a-864b-e8e9eb1a0882,OCF-RH-0042,Rumaysa Hassan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+ac7b78e3-a86b-487e-aea9-671ff9b3dd13,OCF-RK-0224,Rehaan khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+8620d17d-7cb3-4ae5-8803-141fcfbae0c4,OCF-RM-0043,Rawan Mutahar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+5b120d4f-ef3e-40eb-9bbf-63f470ad90d7,OCF-SA-0007,Sumayyah Ali,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,5,5,Existing active allocation retained.
+03e4540a-9f00-4962-82e1-c8fe5d55068a,OCF-SA-0062,Sumaya Abdinasir Hussein,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+72bf1e2a-619a-4109-a151-69b929d0d43c,OCF-SA-0082,Safa Arfan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,3,3,Existing active allocation retained.
+4c7e875b-7673-4c1c-b732-f95199bc2505,OCF-SB-0183,Sohail Badil,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+f6aeedf8-2745-4fc7-9d37-a6eeefc48c42,OCF-SD-0216,Shazain Daud,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+677c2cca-3389-431e-9771-f3d61c508722,OCF-SF-0222,Shehzad Faisan Ahmed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+b2c862d5-c71e-4c52-85d5-94a22ecbde1a,OCF-SH-0009,Safeerah Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,3,3,Existing active allocation retained.
+fe910009-d3f2-4c24-a8c4-5c791e7da7f9,OCF-SH-0027,Safa Husain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,2,2,Existing active allocation retained.
+be8a6bc6-28e5-4f10-bac0-2a671d5299ce,OCF-SH-0152,Sufyaan Hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+4678508a-781c-4a86-85ae-2a37276b9ac8,OCF-SH-0179,subhaan hussain,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+0ea4d3f4-8405-4451-b3d0-4e0b80fe0f11,OCF-SI-0207,Saifullah Ishaq,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+c1d0135a-cff8-4d66-a26e-e6919d5a1d27,OCF-SJ-0003,Sidra Jamil,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+f40d3968-4a3d-435c-9dce-05bc543b3fb7,OCF-SK-0030,Saara khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,4,4,Existing active allocation retained.
+cb4752ac-c0c5-46e6-baa8-fd2338c070b4,OCF-SS-0070,Sumaiyah Shaista Begum,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+54fe11a7-db24-456b-af8d-1c8e5aec5866,OCF-SV-0049,Shynia Virk Jane Carter,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+167a2cb9-b220-4c89-ad9c-a0b8fe48aaca,OCF-SW-0185,Sulimaan Wazir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+d884c841-f4f8-422e-9591-8514bde1738e,OCF-TA-0202,Taysir Ahmed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Inactive,7,7,Existing active allocation retained.
+9b225db4-6ffc-4625-bc05-ce235f8411f4,OCF-UA-0015,Umme-Habiba Aamin,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+13efcc79-ded8-47f6-99e9-5d083c4f2d47,OCF-UH-0220,Umar Habib,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+042c8620-b82c-44a5-add4-0f4586ce7b91,OCF-UI-0041,Umm-E-Hani Idris,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,5,5,Existing active allocation retained.
+82600abe-7e59-4ec0-998d-4750a2c9dd59,OCF-UL-0173,Usman lone,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+f1487214-357b-4c41-9d00-0062c0813e97,OCF-YH-0128,Yahya Hamood,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+9129f49a-9663-4163-92f5-7988f9a651ef,OCF-YM-0210,Yusuf Mohammed,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,HAF,7,7,Existing active allocation retained.
+4cc62484-0325-4e66-b10e-6d5c1f5e9439,OCF-YS-0124,Yusra Sheikh,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,1,1,Existing active allocation retained.
+7e5985ed-b589-446b-924b-547a343f6c7d,OCF-YS-0193,Yasin sattar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+3016ca81-5f36-4504-89ba-e2cf030196c1,OCF-ZA-0006,Zainab Ayaz,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Active,6,6,Existing active allocation retained.
+76e70695-f50e-4907-85f5-c6f0dc1817e8,OCF-ZB-0140,Zidan Bashir,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,9,Existing active allocation retained.
+e725be6b-4091-4e79-8fbc-a10071064544,OCF-ZG-0154,Zakariya Gullet,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+d32df2e1-9e70-48ce-a5b9-48b0dc803f9e,OCF-ZH-0125,Zain Hamood,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+36fc0d07-1880-4301-9a60-ca58154073fe,OCF-ZI-0142,Zakariya Ibrar,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Boys Football,Active,7,7,Existing active allocation retained.
+2a788a23-a763-444f-a394-f4080c0ed4cf,OCF-ZK-0048,Zara khan,FootBall,a90f467e-6211-43ea-8583-9591cb72d49e,REUSE_ACTIVE,Girls Football,Football,4,4,Existing active allocation retained.
+54f191be-6a8a-4b8d-8212-4b2771f9d40b,OCF-AA-0057,Anaya Afzal,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+cd59e5c6-416c-4892-b48a-5a952e4dee56,OCF-AA-0172,Ayaan Ali/Sabir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+341bfd77-73a5-4bb1-9833-09bbcbb7a55e,OCF-AA-0201,Ahsan Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+7faf22bf-a8fa-4a0c-b28a-4025133a5080,OCF-AA-0225,Abdul Aleem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,2,2,Existing active allocation retained.
+cab0b7e9-583a-470a-a6f4-bcbb398d8d04,OCF-AA-0236,Ahad Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+37eab8df-13c0-4797-b280-7d646b8e3c4a,OCF-AA-0242,Ahmed Ali Faraz,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+d340d4c2-4bcf-48d3-afb3-a004744685e8,OCF-AB-0010,Aanisah Bibi,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+afaf05ca-eb80-44f2-bb86-1c8f7d1ae186,OCF-AB-0133,AbuBakr Babar,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+b105c113-49b8-4a9d-9ef5-3c4133a69596,OCF-AB-0182,Ayyan Badil,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+c0075410-c097-4347-afee-337e37fb3a35,OCF-AF-0052,Aaminah Farooq,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+ab40798e-8e57-4abe-899f-66a033d45bf8,OCF-AH-0017,Anayah Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF+Football,4,5,Existing active allocation retained.
+0a8f8a2d-db69-4b52-8e88-aaba0d9f0ca1,OCF-AH-0086,Anaya Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+ab6ff6b9-5ccf-4023-800a-f37e8b09efed,OCF-AI-0038,Adina Irfan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF+Football,1,1,Existing active allocation retained.
+1e89df3a-e67e-4a36-a6be-845f177d79af,OCF-AI-0251,Abdirahman Ibrahim,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+da790519-c244-4eb6-8b1f-9716e7eacb68,OCF-AK-0213,Adam Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+e1e89b7a-5b44-4482-b8d3-bc71d01fad6e,OCF-AK-0261,Abdullahi Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+276c5447-5b97-4e38-ad63-140e71511a95,OCF-AM-0065,Amaya Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+0de1ad90-be31-4884-8c9f-03dd00652ee6,OCF-AM-0111,Arisha Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+b2f7d0fa-41a0-4e17-9740-9145e8644db6,OCF-AM-0163,Armaan Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+adef6ecb-4ee1-4838-a8ae-9b747a492ecf,OCF-AM-0209,Ayaan Mohammed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+c5a3741d-b137-48e7-85b1-245334f31362,OCF-AM-0254,Abubakar Mustafa,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,2,2,Existing active allocation retained.
+aefdae11-d578-485f-8175-6fdbbac71196,OCF-AM-0273,Amir Mahmood,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,2,Existing active allocation retained.
+a7e9d138-7c54-45f9-87b1-2463596a43f5,OCF-AN-0067,Amal Nadif,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+aad756b7-4f91-411c-bf25-1e932ae9825c,OCF-AN-0110,Anayah Nadeem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+db19665d-c870-4ac0-a480-0417b9f6fdbe,OCF-AN-0126,Ayaan Nadeem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+95229bd3-f357-40bd-ad69-6f7666da7854,OCF-AR-0181,Abdul Rahman Saleh,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+94364b5a-3ae9-48e8-829c-adc847295fbf,OCF-AR-0184,Abdul Rahman Zahid,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+6264c1fb-b19d-44c0-8f7a-187a17b06ecd,OCF-AR-0223,Adnan Rehman,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+93727b1d-9f3f-470a-b982-c4602aec40a1,OCF-AR-0247,Aqeel Raza,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+3ceddfba-ea7b-425c-80cd-fbb3d2f190ef,OCF-AS-0109,Anaya Saleem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+2eeb460c-c164-4c02-b69f-1734c547daca,OCF-AS-0129,Abdullah Saleh,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+607eac70-26e1-4f01-9e2c-696d98a24b0d,OCF-AS-0155,Aadil Said,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+869581dc-b983-401d-a092-bdab1df40bad,OCF-AS-0157,ayaan sabir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+653377e8-85ae-4f33-bf11-1ea9802e7e6a,OCF-AS-0204,Azaan Sabir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+52ded7ec-319c-4d8d-8d5d-e8680009d752,OCF-AW-0177,Adnan Wazir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+f6655200-7492-4f95-95a3-767201d6a7ec,OCF-BA-0195,Bilal ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+b204709f-0fd4-42a4-ad61-da07807144cb,OCF-BH-0233,Bilal Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,2,2,Existing active allocation retained.
+f2153f5d-ac7f-41f0-b908-cd276bfae96b,OCF-DA-0229,Danish Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+daf27cfa-89d5-4459-845b-e3bca2a7093f,OCF-DK-0265,Deen Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+24d44ca6-508e-4671-a0a9-167ccffa6591,OCF-DM-0252,Dawood Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,2,2,Existing active allocation retained.
+263f21ab-a723-4075-bcdc-46ad09951a8a,OCF-DS-0255,David Stoica,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+73bb5b38-c756-4d61-993c-55b06498a3db,OCF-EA-0107,Eiman Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+f62496ed-657b-4a71-ae7b-7393e35de551,OCF-ED-0019,Eliza Ditta,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+e309aa55-f2ac-4ea0-a200-23469df7fa0a,OCF-EH-0012,Esha Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,4,Existing active allocation retained.
+fb382fd2-d1ef-4db2-a224-38a6b1bd95e3,OCF-ES-0034,Eemaan Shazad,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,4,5,Existing active allocation retained.
+cbd03bd2-7ea1-418f-9c6c-6e348ccfa71e,OCF-EZ-0253,Ehsanullah zamankhail,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+6a5f150e-5189-458f-a841-93335c7cfc0e,OCF-FA-0279,Farhan Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+ec3cffc2-fcbf-45f3-95c1-117907c6ab21,OCF-FB-0127,Faris Bashir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+d34d7947-33ea-47f3-9eef-237cd9cb6994,OCF-FG-0212,Falak Gul,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+f5e0c972-c765-4819-a463-772116474326,OCF-FM-0194,Farhaan Mirza,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+2c281097-a5de-4f6c-b035-aa0a5b625f64,OCF-FM-0205,Filip Mihai,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+353807c1-8cdd-4c5f-86f1-15d622b2ab62,OCF-FO-0061,Farida Osman,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+9da92845-ec35-4637-87c5-2df28d96c1f6,OCF-GA-0081,Gulalai Ahmad,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+b2f3396d-af74-4609-804e-8ab53fe92fee,OCF-HA-0008,Hidayah Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+3856e45f-4c6c-4eb8-a295-cc44bf0494f7,OCF-HA-0022,Hafsa Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+94778eb7-2b25-47ad-81b4-3130d57baafc,OCF-HA-0059,Haram Afzal,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+896c90cd-604a-4d64-89fe-eba327175f55,OCF-HA-0150,Haider Ali Tahir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+09606b27-0894-48f7-9789-41ed5ab598da,OCF-HA-0214,Haroon Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+83826f01-f050-4197-a80e-751364fce92c,OCF-HA-0277,Hammad Asim,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+a6dd0281-cd7e-487f-b662-031b1d0bfde5,OCF-HA-0278,Haider Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+37a81dc7-e4e1-4a48-a4cb-9e8ced859839,OCF-HH-0226,Hishaam Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+672a0f95-c115-4ef0-b24b-5667d2cf7a33,OCF-HI-0266,Hamza Islam,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+5c2bd45d-9458-432a-b296-d7822f759f09,OCF-HM-0156,Haroun Meslou,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+f91793dd-8079-4f5e-80d8-e80a7050cece,OCF-HM-0246,Hamza Musa,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+a5722276-1126-4b86-aa9b-a75599395d8c,OCF-HM-0283,Hassan Mohammed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+a55a9ab0-87a7-4a2c-983e-371e2f7d4674,OCF-HN-0147,Hamza Nasar,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+d1eb30a4-6944-44c9-b3b8-82b7fcc8e6ed,OCF-HQ-0167,Hamzah Qadir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+c640499a-4a91-4106-b009-bbbae41f4a61,OCF-HR-0135,Hashim Ramzan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+80389551-2637-4271-9f69-a0de9495be07,OCF-HS-0058,Haddiya Seher,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+b8b8b8f9-6eec-42fe-94bc-7955a20b96c4,OCF-IA-0280,Islam Abbas,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+ab53c9f7-dab6-4f18-84c8-df5a9e14afb4,OCF-II-0026,Isha Iqbal,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF+Football,1,1,Existing active allocation retained.
+9c1dd5c0-7cf3-46f3-b3f2-567a95d65551,OCF-II-0186,Ismaeel iqbal,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+00e36664-f7f6-4127-9b8e-f6a184579071,OCF-II-0187,Isa iqbal,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active; HAF,2,2,Existing active allocation retained.
+93dcaa97-b113-48f1-b947-f29a68a7aa00,OCF-IJ-0033,Iqra Jamil,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+306864c4-f6d4-420d-977d-c2524e556445,OCF-IM-0256,Ibraahim Mohammed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,2,2,Existing active allocation retained.
+d66a38c4-df4f-4e55-b7ba-bb187c34fe70,OCF-IN-0031,Isha Noor Bi,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+66a35e7d-4237-4aaa-86cd-7e811fcaa48c,OCF-IR-0198,Ibrahim rehman,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+b947f966-9452-4e37-913f-b7711d12d5b9,OCF-JK-0064,Jannat Kahatoon,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+b24b3d8b-3fde-4cbd-8fc6-6147b9d4c72a,OCF-JQ-0166,Junaid Qadir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+299312fc-0af4-4799-845b-65e7deab5a03,OCF-JS-0077,Jomana Salem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF+Football,4,4,Existing active allocation retained.
+aa23c717-1d20-4cf9-8657-ca1f61617785,OCF-KA-0248,Khizar Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+bccb0c45-3173-4948-a750-79601ff1aec3,OCF-KD-0018,Khathijah ditta,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+dd63e421-8e76-45fd-ba42-ae0204da3870,OCF-KK-0219,Kamran Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+9cce3c23-c178-4547-9466-3bf80968d6f6,OCF-KM-0275,Kasim Muhammad,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+1b39cfaa-28ff-4fdd-aad9-d7b1b4f3661b,OCF-LM-0023,Lana Mersiha Hoque,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+b87a9586-f35e-411f-b8f5-d551370fa466,OCF-LW-0217,Luqman Wazir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+2819942a-f744-4c7b-88c1-6a62a3ed14b5,OCF-MA-0016,Maryam Abdirizaq,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,2,2,Existing active allocation retained.
+4a1ca449-7e04-4fbe-92fa-e7fcaf2a4b9a,OCF-MA-0035,Muskaan Asif,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+17306bd4-2ba1-4fc7-b08c-7ced1a1ba677,OCF-MA-0162,Muhammad Ali Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+6950b48d-c9d5-499d-b301-310d4805b5bc,OCF-MA-0199,Mustafa ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+2d5bbb03-4c9c-4fac-9770-e729fde15b00,OCF-MA-0218,Mohammed Adam,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+25f1d31e-e8b2-470e-9f0a-877a1ae109b6,OCF-MA-0250,Mustafa Aden,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,3,4,Existing active allocation retained.
+ee392187-b3a2-4d72-bc90-ad1be1f843e7,OCF-MA-0269,Muhammed Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+7f9de89f-1f02-4a4e-92fa-4a50b6ea7fa8,OCF-MA-0272,Mohammed Ayaan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+a1ed7a68-0e68-4811-a25c-73a1f103ef5f,OCF-MF-0161,Muhammed Faizan Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+be27b57a-24cb-4336-9a91-2d2d4c9a7a01,OCF-MF-0192,Mohammed Faizaan Ikhlaq,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+6d00315f-c7a2-43d3-9e74-55ad9a6f0af5,OCF-MH-0013,Muskaan Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF+Football,1,1,Existing active allocation retained.
+e0051c3d-978d-4253-96a0-d9d6ad5f9a97,OCF-MH-0171,Muhammed Huzaifah,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+8e046ff5-4bcf-441a-afe6-9d42df6efe6e,OCF-MI-0136,Mohammad Ibraheem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+b2e48fd5-c408-41ea-aa79-a47df380ad8a,OCF-MI-0257,Mohammed Isa Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+451d10bd-104b-45c1-a8ed-892e4e2e94b8,OCF-MI-0259,Muhammad Ibrahim,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,2,2,Existing active allocation retained.
+185a0c33-6406-4fdd-beb9-20d17d4e8d3a,OCF-MJ-0004,Maryam Jamil,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+8f0b320a-0d6f-4a9f-9462-d28fd463395f,OCF-MJ-0258,Mohammeed Jibraeel,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+00973e30-bb4d-406c-9dc0-c5e07179cadd,OCF-MK-0106,Maisha Khanum,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+6f829292-702f-418b-9276-55deea845d2f,OCF-MK-0165,Muhammad Kabeer Touqeer,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF; Inactive,2,2,Existing active allocation retained.
+7ba563f2-00fc-4207-ba75-dfecd95d93cf,OCF-MM-0174,Mohammed Musin,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+e7e48301-5824-4f92-ab0b-8a5c37b723eb,OCF-MM-0208,Mustafa Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+d0803a7f-7f15-46b1-b6d2-de5cd1cb4cfb,OCF-MN-0032,Medinah Noor Bi,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+0c56ea1d-7d40-48b3-9605-26eda5900805,OCF-MN-0037,Manha Naeem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+bcddb56d-3f74-4be9-ab93-b0bb1d131456,OCF-MN-0146,Muhammad Noor uddin,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+dd49beeb-851b-429a-91ed-556af5abb32a,OCF-MO-0170,Mohammed Owais,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+16b88008-89de-4437-a902-c76aeddce3ef,OCF-MS-0011,Malaak Salem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+9ba7a7d5-2727-4d8e-bdef-5da6ff1e7895,OCF-MS-0036,Menaal Shazad,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,3,3,Existing active allocation retained.
+11c89c1d-c613-4433-a675-6882c872bff1,OCF-MS-0143,Mohammed Sudais,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+793172be-0723-42a3-b38d-65427eb24924,OCF-MS-0206,muhummud sallamuth ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+2cf6c373-8cac-4a0f-8948-ae062a6da2cd,OCF-MS-0211,Mohammed Suffiyaan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+fb0b5b2e-28e4-415f-88b9-521d64e80b8f,OCF-NA-0060,Naba Al-Shuaiby,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+b7f91572-bfa8-4a52-bbde-a69838a1aae6,OCF-NH-0221,Naffis Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+dcde0a2d-8606-4c50-a4d6-b51fb08b2269,OCF-NN-0196,Noman Naeem,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+9c9071e2-0a7e-4ab4-93e6-a335dd15e87b,OCF-RB-0148,Rehan baz,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+ac7b78e3-a86b-487e-aea9-671ff9b3dd13,OCF-RK-0224,Rehaan khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+5b120d4f-ef3e-40eb-9bbf-63f470ad90d7,OCF-SA-0007,Sumayyah Ali,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+72bf1e2a-619a-4109-a151-69b929d0d43c,OCF-SA-0082,Safa Arfan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+4c7e875b-7673-4c1c-b732-f95199bc2505,OCF-SB-0183,Sohail Badil,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+f6aeedf8-2745-4fc7-9d37-a6eeefc48c42,OCF-SD-0216,Shazain Daud,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,3,3,Existing active allocation retained.
+51ded6c0-3d6c-42fa-b2cb-c8271df29e12,OCF-SF-0040,Salma Farah,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+677c2cca-3389-431e-9771-f3d61c508722,OCF-SF-0222,Shehzad Faisan Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+b2c862d5-c71e-4c52-85d5-94a22ecbde1a,OCF-SH-0009,Safeerah Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+fe910009-d3f2-4c24-a8c4-5c791e7da7f9,OCF-SH-0027,Safa Husain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Football,1,1,Existing active allocation retained.
+0ea4d3f4-8405-4451-b3d0-4e0b80fe0f11,OCF-SI-0207,Saifullah Ishaq,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+c1d0135a-cff8-4d66-a26e-e6919d5a1d27,OCF-SJ-0003,Sidra Jamil,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+b413838a-dc7f-4498-a0cc-bda65fe1a12e,OCF-SN-0276,Subhaan Nasar,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+62b5cba0-6a10-4b55-8dc4-7f0a5e081085,OCF-SS-0262,Shahyaan Shazad,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+167a2cb9-b220-4c89-ad9c-a0b8fe48aaca,OCF-SW-0185,Sulimaan Wazir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+844fcb1f-51e9-464d-b6e6-e2dba95a5061,OCF-SW-0245,Subhan Wasim,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+fc587d5c-7285-4547-8bc1-95027fb6ee2f,OCF-TA-0044,Tulin Abbas,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+d884c841-f4f8-422e-9591-8514bde1738e,OCF-TA-0202,Taysir Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+9b225db4-6ffc-4625-bc05-ce235f8411f4,OCF-UA-0015,Umme-Habiba Aamin,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+13efcc79-ded8-47f6-99e9-5d083c4f2d47,OCF-UH-0220,Umar Habib,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+ee5a8f97-dc01-4512-906a-28cb8ac8fb67,OCF-UH-0243,Umar Hussain,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+c471647c-26a8-4f46-98b5-97f120df9d8f,OCF-UM-0092,Umayah Musahid,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+acdda94a-42ce-4d3f-b703-5cb9359295ee,OCF-YA-0274,Yahya Ahmed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+f1487214-357b-4c41-9d00-0062c0813e97,OCF-YH-0128,Yahya Hamood,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+b9d1c922-be6e-4041-9d39-de8730293229,OCF-YK-0164,Yaseen Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+cabd0bff-4b48-4004-bc31-54e9bb1165ce,OCF-YK-0260,Yousaf Khan,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,2,2,Existing active allocation retained.
+9129f49a-9663-4163-92f5-7988f9a651ef,OCF-YM-0210,Yusuf Mohammed,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,HAF,1,1,Existing active allocation retained.
+7e5985ed-b589-446b-924b-547a343f6c7d,OCF-YS-0193,Yasin sattar,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active; Inactive,2,2,Existing active allocation retained.
+3016ca81-5f36-4504-89ba-e2cf030196c1,OCF-ZA-0006,Zainab Ayaz,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,4,4,Existing active allocation retained.
+76e70695-f50e-4907-85f5-c6f0dc1817e8,OCF-ZB-0140,Zidan Bashir,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+e725be6b-4091-4e79-8fbc-a10071064544,OCF-ZG-0154,Zakariya Gullet,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,1,1,Existing active allocation retained.
+d32df2e1-9e70-48ce-a5b9-48b0dc803f9e,OCF-ZH-0125,Zain Hamood,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Active,2,2,Existing active allocation retained.
+5fa58a1a-61ce-4752-8777-cbb919c3dac5,OCF-ZM-0244,Zain Malik,HAF,0eee056e-cbea-4a56-a075-fe2fe9cb3ee4,REUSE_ACTIVE,HAF,Inactive,1,1,Existing active allocation retained.
+cd59e5c6-416c-4892-b48a-5a952e4dee56,OCF-AA-0172,Ayaan Ali/Sabir,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+d340d4c2-4bcf-48d3-afb3-a004744685e8,OCF-AB-0010,Aanisah Bibi,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+1cc1d43c-637e-44a4-b85b-d8db2ec6c726,OCF-AH-0074,Arisha Hussain,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Inactive,1,1,Existing active allocation retained.
+db19665d-c870-4ac0-a480-0417b9f6fdbe,OCF-AN-0126,Ayaan Nadeem,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+f62496ed-657b-4a71-ae7b-7393e35de551,OCF-ED-0019,Eliza Ditta,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,HAF,1,1,Existing active allocation retained.
+e309aa55-f2ac-4ea0-a200-23469df7fa0a,OCF-EH-0012,Esha Hussain,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+a462960f-75f2-4b98-a466-56e19bb5797c,OCF-ES-0180,eesa shazad,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+ec3cffc2-fcbf-45f3-95c1-117907c6ab21,OCF-FB-0127,Faris Bashir,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+b2f3396d-af74-4609-804e-8ab53fe92fee,OCF-HA-0008,Hidayah Ali,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+3856e45f-4c6c-4eb8-a295-cc44bf0494f7,OCF-HA-0022,Hafsa Ahmed,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Football,1,1,Existing active allocation retained.
+299312fc-0af4-4799-845b-65e7deab5a03,OCF-JS-0077,Jomana Salem,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,HAF+Football,1,1,Existing active allocation retained.
+bccb0c45-3173-4948-a750-79601ff1aec3,OCF-KD-0018,Khathijah ditta,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,HAF,1,1,Existing active allocation retained.
+2819942a-f744-4c7b-88c1-6a62a3ed14b5,OCF-MA-0016,Maryam Abdirizaq,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Inactive,1,1,Existing active allocation retained.
+185a0c33-6406-4fdd-beb9-20d17d4e8d3a,OCF-MJ-0004,Maryam Jamil,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+7ba563f2-00fc-4207-ba75-dfecd95d93cf,OCF-MM-0174,Mohammed Musin,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+16b88008-89de-4437-a902-c76aeddce3ef,OCF-MS-0011,Malaak Salem,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Football,1,1,Existing active allocation retained.
+5b120d4f-ef3e-40eb-9bbf-63f470ad90d7,OCF-SA-0007,Sumayyah Ali,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+c1d0135a-cff8-4d66-a26e-e6919d5a1d27,OCF-SJ-0003,Sidra Jamil,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+9b225db4-6ffc-4625-bc05-ce235f8411f4,OCF-UA-0015,Umme-Habiba Aamin,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+3016ca81-5f36-4504-89ba-e2cf030196c1,OCF-ZA-0006,Zainab Ayaz,XLR8,11e8bf53-1d69-4969-a9a1-3e76cb0618d6,REUSE_ACTIVE,XLR8,Active,1,1,Existing active allocation retained.
+592d9a42-3273-41ff-b1ef-9014b58afe5b,OCF-AA-0080,Asiya Al-Anisi,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,2,2,Existing active allocation retained.
+59729a64-da07-471a-b751-369398940157,OCF-AA-0094,Alizah Abbasi,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,1,1,Existing active allocation retained.
+c6519b99-45a7-4f17-b965-9db188bc305d,OCF-AA-0095,Alishbah Abbasi,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,1,1,Existing active allocation retained.
+3e78047c-ff8a-475b-a987-780f46645b38,OCF-AA-0131,Abdullah Ahmad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+341bfd77-73a5-4bb1-9833-09bbcbb7a55e,OCF-AA-0201,Ahsan Ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+7faf22bf-a8fa-4a0c-b28a-4025133a5080,OCF-AA-0225,Abdul Aleem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+cab0b7e9-583a-470a-a6f4-bcbb398d8d04,OCF-AA-0236,Ahad Ahmed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+d340d4c2-4bcf-48d3-afb3-a004744685e8,OCF-AB-0010,Aanisah Bibi,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+afaf05ca-eb80-44f2-bb86-1c8f7d1ae186,OCF-AB-0133,AbuBakr Babar,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+b105c113-49b8-4a9d-9ef5-3c4133a69596,OCF-AB-0182,Ayyan Badil,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+c0075410-c097-4347-afee-337e37fb3a35,OCF-AF-0052,Aaminah Farooq,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,3,3,Existing active allocation retained.
+cd5b9a48-9d89-4edc-8c5f-d898f5eb5a45,OCF-AG-0073,Atina Ghissanejad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,1,1,Existing active allocation retained.
+ab40798e-8e57-4abe-899f-66a033d45bf8,OCF-AH-0017,Anayah Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF+Football,4,4,Existing active allocation retained.
+1cc1d43c-637e-44a4-b85b-d8db2ec6c726,OCF-AH-0074,Arisha Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,3,3,Existing active allocation retained.
+43d82bd0-c5dd-4a6a-91b3-567abc480dce,OCF-AH-0151,Amaan hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+d3ddebce-9eba-44e3-8660-836bf55e8a14,OCF-AI-0103,Aminah Imran,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,2,2,Existing active allocation retained.
+da790519-c244-4eb6-8b1f-9716e7eacb68,OCF-AK-0213,Adam Khan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+b543a644-c043-49d5-83fe-3b6de677d523,OCF-AK-0238,Abdul Khalil,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+346c535b-184b-4926-9e81-e3b55894b5c1,OCF-AM-0005,Aanisah Malik,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,1,1,Existing active allocation retained.
+df89dec9-20cf-40c3-9fa6-044788a0a340,OCF-AM-0076,Aisha Mahammad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,1,1,Existing active allocation retained.
+7c158843-67ab-4643-8069-85e392c51ef3,OCF-AM-0178,ayaan mahmood,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+adef6ecb-4ee1-4838-a8ae-9b747a492ecf,OCF-AM-0209,Ayaan Mohammed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,4,Existing active allocation retained.
+db19665d-c870-4ac0-a480-0417b9f6fdbe,OCF-AN-0126,Ayaan Nadeem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+95229bd3-f357-40bd-ad69-6f7666da7854,OCF-AR-0181,Abdul Rahman Saleh,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+94364b5a-3ae9-48e8-829c-adc847295fbf,OCF-AR-0184,Abdul Rahman Zahid,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+6264c1fb-b19d-44c0-8f7a-187a17b06ecd,OCF-AR-0223,Adnan Rehman,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,5,Existing active allocation retained.
+cbd94e1c-a0d9-46ad-a141-5c93111e7624,OCF-AS-0079,Afnan Shams,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,2,2,Existing active allocation retained.
+2eeb460c-c164-4c02-b69f-1734c547daca,OCF-AS-0129,Abdullah Saleh,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+607eac70-26e1-4f01-9e2c-696d98a24b0d,OCF-AS-0155,Aadil Said,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+869581dc-b983-401d-a092-bdab1df40bad,OCF-AS-0157,ayaan sabir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+653377e8-85ae-4f33-bf11-1ea9802e7e6a,OCF-AS-0204,Azaan Sabir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+d72d4c93-dbd7-4efb-b683-bde0809d4540,OCF-AS-0235,Andria sulava,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+52ded7ec-319c-4d8d-8d5d-e8680009d752,OCF-AW-0177,Adnan Wazir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+f6655200-7492-4f95-95a3-767201d6a7ec,OCF-BA-0195,Bilal ahmed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+a653b151-f99d-4032-92e9-09774a74f466,OCF-DS-0197,Danyal shahid,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+73bb5b38-c756-4d61-993c-55b06498a3db,OCF-EA-0107,Eiman Ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,2,2,Existing active allocation retained.
+f62496ed-657b-4a71-ae7b-7393e35de551,OCF-ED-0019,Eliza Ditta,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,3,3,Existing active allocation retained.
+e309aa55-f2ac-4ea0-a200-23469df7fa0a,OCF-EH-0012,Esha Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,6,6,Existing active allocation retained.
+a462960f-75f2-4b98-a466-56e19bb5797c,OCF-ES-0180,eesa shazad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+ec3cffc2-fcbf-45f3-95c1-117907c6ab21,OCF-FB-0127,Faris Bashir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+d34d7947-33ea-47f3-9eef-237cd9cb6994,OCF-FG-0212,Falak Gul,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+2c281097-a5de-4f6c-b035-aa0a5b625f64,OCF-FM-0205,Filip Mihai,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+b2f3396d-af74-4609-804e-8ab53fe92fee,OCF-HA-0008,Hidayah Ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+3856e45f-4c6c-4eb8-a295-cc44bf0494f7,OCF-HA-0022,Hafsa Ahmed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,6,6,Existing active allocation retained.
+94778eb7-2b25-47ad-81b4-3130d57baafc,OCF-HA-0059,Haram Afzal,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,2,2,Existing active allocation retained.
+896c90cd-604a-4d64-89fe-eba327175f55,OCF-HA-0150,Haider Ali Tahir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+38af655a-f696-4ba2-be54-71820d000918,OCF-HH-0139,Hasnain Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+5c2bd45d-9458-432a-b296-d7822f759f09,OCF-HM-0156,Haroun Meslou,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+c640499a-4a91-4106-b009-bbbae41f4a61,OCF-HR-0135,Hashim Ramzan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+80389551-2637-4271-9f69-a0de9495be07,OCF-HS-0058,Haddiya Seher,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,2,2,Existing active allocation retained.
+c84f02fc-cc64-4d84-9a4b-b82803652433,OCF-HZ-0237,Hasan Zaman,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+f56a25b0-a4d0-40b2-bc7c-6ce461f7aa06,OCF-II-0100,Isra Imran,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,2,2,Existing active allocation retained.
+00e36664-f7f6-4127-9b8e-f6a184579071,OCF-II-0187,Isa iqbal,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+945c74d3-2e0a-4bf0-b2b3-de9994d43b67,OCF-IK-0145,Ismail khan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+2ac6d67b-7fbf-49b4-8528-25d70f6f8d6a,OCF-IK-0203,Izaan Khan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+cfe9d27f-52cd-41a1-b039-a4b16b609c22,OCF-IM-0138,Ibad Masood,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,4,Existing active allocation retained.
+66a35e7d-4237-4aaa-86cd-7e811fcaa48c,OCF-IR-0198,Ibrahim rehman,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+ffd5e8a4-b496-49de-a68b-d9d45d340cc4,OCF-JS-0024,Jenan Shams,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,2,2,Existing active allocation retained.
+299312fc-0af4-4799-845b-65e7deab5a03,OCF-JS-0077,Jomana Salem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF+Football,5,5,Existing active allocation retained.
+bc2b9d82-8723-4939-b6f5-f088a5bc9b83,OCF-JT-0078,Jennat Talib,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,1,1,Existing active allocation retained.
+bccb0c45-3173-4948-a750-79601ff1aec3,OCF-KD-0018,Khathijah ditta,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,3,3,Existing active allocation retained.
+dd63e421-8e76-45fd-ba42-ae0204da3870,OCF-KK-0219,Kamran Khan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+f2d1d579-119f-405f-ad19-5f774ba17941,OCF-LG-0071,Layla Ghissanejad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,1,1,Existing active allocation retained.
+b4420812-80e6-4d65-b8d6-254432848f4f,OCF-LK-0020,Liyana Khalif,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,1,1,Existing active allocation retained.
+1b39cfaa-28ff-4fdd-aad9-d7b1b4f3661b,OCF-LM-0023,Lana Mersiha Hoque,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,6,6,Existing active allocation retained.
+b87a9586-f35e-411f-b8f5-d551370fa466,OCF-LW-0217,Luqman Wazir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+2819942a-f744-4c7b-88c1-6a62a3ed14b5,OCF-MA-0016,Maryam Abdirizaq,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,2,2,Existing active allocation retained.
+0520cc72-1481-4c86-a4da-741c8377f58b,OCF-MA-0149,Mohammed Alihassn,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+6950b48d-c9d5-499d-b301-310d4805b5bc,OCF-MA-0199,Mustafa ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+e1fee359-9896-4e60-a412-a9a9fd20d355,OCF-MB-0153,Mohammed Bilal hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,8,Existing active allocation retained.
+be27b57a-24cb-4336-9a91-2d2d4c9a7a01,OCF-MF-0192,Mohammed Faizaan Ikhlaq,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+6d00315f-c7a2-43d3-9e74-55ad9a6f0af5,OCF-MH-0013,Muskaan Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF+Football,1,1,Existing active allocation retained.
+e0051c3d-978d-4253-96a0-d9d6ad5f9a97,OCF-MH-0171,Muhammed Huzaifah,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+8e046ff5-4bcf-441a-afe6-9d42df6efe6e,OCF-MI-0136,Mohammad Ibraheem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Football,4,4,Existing active allocation retained.
+185a0c33-6406-4fdd-beb9-20d17d4e8d3a,OCF-MJ-0004,Maryam Jamil,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+00973e30-bb4d-406c-9dc0-c5e07179cadd,OCF-MK-0106,Maisha Khanum,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,2,2,Existing active allocation retained.
+bf0a367f-bf22-4ccf-8b78-038056b834ed,OCF-MM-0137,Mohammed Musa,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+7ba563f2-00fc-4207-ba75-dfecd95d93cf,OCF-MM-0174,Mohammed Musin,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+e7e48301-5824-4f92-ab0b-8a5c37b723eb,OCF-MM-0208,Mustafa Malik,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+2817a7de-6a84-4ebb-8323-f7c55ff17d0a,OCF-MN-0200,Muhammed Nubaid Musahid,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+dd49beeb-851b-429a-91ed-556af5abb32a,OCF-MO-0170,Mohammed Owais,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+f96d19ec-c8b6-48b1-b096-fadefa4d2f20,OCF-MR-0191,Mohammed riaz,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,4,Existing active allocation retained.
+16b88008-89de-4437-a902-c76aeddce3ef,OCF-MS-0011,Malaak Salem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,5,5,Existing active allocation retained.
+11c89c1d-c613-4433-a675-6882c872bff1,OCF-MS-0143,Mohammed Sudais,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+dbb80e85-ed03-41fa-aa25-a6e783d79dc5,OCF-MS-0144,Mohammed sulaiman,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+793172be-0723-42a3-b38d-65427eb24924,OCF-MS-0206,muhummud sallamuth ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,8,Existing active allocation retained.
+2cf6c373-8cac-4a0f-8948-ae062a6da2cd,OCF-MS-0211,Mohammed Suffiyaan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,4,Existing active allocation retained.
+b7f91572-bfa8-4a52-bbde-a69838a1aae6,OCF-NH-0221,Naffis Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+dcde0a2d-8606-4c50-a4d6-b51fb08b2269,OCF-NN-0196,Noman Naeem,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,5,Existing active allocation retained.
+bc5e2cb9-6603-47a1-ad2c-4123f049f533,OCF-OM-0215,Omar moustapha,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+8887cc06-4f1c-4c41-a703-91e3a48d302e,OCF-RA-0102,Rida Adnan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,2,2,Existing active allocation retained.
+86ce0379-b38f-44a8-8098-5ffbba95d24c,OCF-RB-0085,Ruqayah Bibi,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,1,1,Existing active allocation retained.
+97719ae3-d277-4ffd-b70e-f669dbd7eead,OCF-RG-0072,Roxana Ghissanejad,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,1,1,Existing active allocation retained.
+ac7b78e3-a86b-487e-aea9-671ff9b3dd13,OCF-RK-0224,Rehaan khan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,5,Existing active allocation retained.
+5b120d4f-ef3e-40eb-9bbf-63f470ad90d7,OCF-SA-0007,Sumayyah Ali,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+72bf1e2a-619a-4109-a151-69b929d0d43c,OCF-SA-0082,Safa Arfan,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club; Youth Club (Mixed),Active,2,2,Existing active allocation retained.
+ed26328c-26f9-4df9-a4d3-e7fca62d518e,OCF-SA-0234,Sarj Ahmedzai,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,1,1,Existing active allocation retained.
+4c7e875b-7673-4c1c-b732-f95199bc2505,OCF-SB-0183,Sohail Badil,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+f6aeedf8-2745-4fc7-9d37-a6eeefc48c42,OCF-SD-0216,Shazain Daud,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+677c2cca-3389-431e-9771-f3d61c508722,OCF-SF-0222,Shehzad Faisan Ahmed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,5,Existing active allocation retained.
+b2c862d5-c71e-4c52-85d5-94a22ecbde1a,OCF-SH-0009,Safeerah Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,6,6,Existing active allocation retained.
+4648f7b2-970a-4e85-ad39-1f915a037a07,OCF-SH-0021,Sara-Nur Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,HAF,1,1,Existing active allocation retained.
+be8a6bc6-28e5-4f10-bac0-2a671d5299ce,OCF-SH-0152,Sufyaan Hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+4678508a-781c-4a86-85ae-2a37276b9ac8,OCF-SH-0179,subhaan hussain,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+0ea4d3f4-8405-4451-b3d0-4e0b80fe0f11,OCF-SI-0207,Saifullah Ishaq,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+c1d0135a-cff8-4d66-a26e-e6919d5a1d27,OCF-SJ-0003,Sidra Jamil,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+54fe11a7-db24-456b-af8d-1c8e5aec5866,OCF-SV-0049,Shynia Virk Jane Carter,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Football,1,1,Existing active allocation retained.
+167a2cb9-b220-4c89-ad9c-a0b8fe48aaca,OCF-SW-0185,Sulimaan Wazir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+fc587d5c-7285-4547-8bc1-95027fb6ee2f,OCF-TA-0044,Tulin Abbas,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Inactive,2,2,Existing active allocation retained.
+d884c841-f4f8-422e-9591-8514bde1738e,OCF-TA-0202,Taysir Ahmed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Inactive,4,4,Existing active allocation retained.
+9b225db4-6ffc-4625-bc05-ce235f8411f4,OCF-UA-0015,Umme-Habiba Aamin,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,6,6,Existing active allocation retained.
+13efcc79-ded8-47f6-99e9-5d083c4f2d47,OCF-UH-0220,Umar Habib,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+82600abe-7e59-4ec0-998d-4750a2c9dd59,OCF-UL-0173,Usman lone,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+f1487214-357b-4c41-9d00-0062c0813e97,OCF-YH-0128,Yahya Hamood,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+9129f49a-9663-4163-92f5-7988f9a651ef,OCF-YM-0210,Yusuf Mohammed,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),HAF,4,4,Existing active allocation retained.
+7e5985ed-b589-446b-924b-547a343f6c7d,OCF-YS-0193,Yasin sattar,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+3016ca81-5f36-4504-89ba-e2cf030196c1,OCF-ZA-0006,Zainab Ayaz,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Girls Youth Club,Active,7,7,Existing active allocation retained.
+76e70695-f50e-4907-85f5-c6f0dc1817e8,OCF-ZB-0140,Zidan Bashir,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,8,Existing active allocation retained.
+e725be6b-4091-4e79-8fbc-a10071064544,OCF-ZG-0154,Zakariya Gullet,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+d32df2e1-9e70-48ce-a5b9-48b0dc803f9e,OCF-ZH-0125,Zain Hamood,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.
+36fc0d07-1880-4301-9a60-ca58154073fe,OCF-ZI-0142,Zakariya Ibrar,Youth Club,221d3adf-5083-484a-9610-a170fbc98af8,REUSE_ACTIVE,Youth Club (Mixed),Active,4,4,Existing active allocation retained.

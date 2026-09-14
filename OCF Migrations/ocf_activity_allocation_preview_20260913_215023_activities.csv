@@ -1,0 +1,9 @@
+﻿activity,activity_type,source_programme,action,id,existing_type_id,notes
+Girl's Cricket,Cricket,Girls Cricket,REUSE,29eb6232-a84b-4307-8ad9-e438c6c2881a,8d6464aa-3dea-4e28-9406-59673e1137d3,Existing canonical activity reused.
+Boys Cricket,Cricket,Boys Cricket,CREATE,87c9c532-8d4f-4254-9fa4-5f71dd27a784,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+Girls Football,FootBall,Girls Football,CREATE,f9cdecaf-93aa-41f6-b171-20247bc79b97,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+Boys Football,FootBall,Boys Football,CREATE,d9046409-3c7c-45be-b618-f59339ab8596,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+Girls Youth Club,Youth Club,Girls Youth Club,CREATE,0ef5f42c-ee75-49af-b28c-730bc9ddd5e1,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+Youth Club (Mixed),Youth Club,Youth Club (Mixed),CREATE,0197a60e-47b0-422a-adcf-a0177c7b214a,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+HAF,HAF,HAF,CREATE,7e53a58e-3202-45f2-95ec-b581ce9655f5,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.
+XLR8,XLR8,XLR8,CREATE,8d2900d1-b0b3-48c4-b14e-cf7c66dfacd1,,Historical Monday.com canonical activity. Session timetable fields intentionally left NULL in Phase 1.

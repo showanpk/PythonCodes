@@ -1,0 +1,56 @@
+{
+  "Girls Cricket": {
+    "default": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "Girls Football": {
+    "Tuesday": {
+      "start": "",
+      "end": ""
+    },
+    "Wednesday": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "Boys Football": {
+    "Tuesday": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "Girls Youth Club": {
+    "default": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "Youth Club (Mixed)": {
+    "Monday": {
+      "start": "",
+      "end": ""
+    },
+    "Wednesday": {
+      "start": "",
+      "end": ""
+    },
+    "Thursday": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "HAF": {
+    "default": {
+      "start": "",
+      "end": ""
+    }
+  },
+  "XLR8": {
+    "default": {
+      "start": "",
+      "end": ""
+    }
+  }
+}

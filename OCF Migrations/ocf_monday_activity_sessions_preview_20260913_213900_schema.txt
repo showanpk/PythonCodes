@@ -1,0 +1,111 @@
+OCF CRM RELATED MYSQL SCHEMA - READ ONLY
+========================================================================
+
+[activity_types]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  name | varchar | nullable=NO | default=None | key=UNI | extra=
+  description | text | nullable=YES | default=None | key= | extra=
+  status | enum | nullable=NO | default=Active | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[attendance]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  session_id | char | nullable=NO | default=None | key=MUL | extra=
+  participant_id | char | nullable=NO | default=None | key=MUL | extra=
+  attendance_status | enum | nullable=NO | default=None | key= | extra=
+  attended_at | datetime | nullable=YES | default=None | key= | extra=
+  recorded_by | char | nullable=YES | default=None | key=MUL | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[participant_activity_types]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  participant_id | char | nullable=NO | default=None | key=MUL | extra=
+  activity_type_id | char | nullable=NO | default=None | key=MUL | extra=
+  active | tinyint | nullable=NO | default=1 | key= | extra=
+  assigned_by | char | nullable=YES | default=None | key=MUL | extra=
+  assigned_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[participant_equality]
+  participant_id | char | nullable=NO | default=None | key=PRI | extra=
+  ethnic_origin | varchar | nullable=YES | default=None | key= | extra=
+  religion | varchar | nullable=YES | default=None | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[participant_guardians]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  participant_id | char | nullable=NO | default=None | key=MUL | extra=
+  full_name | varchar | nullable=NO | default=None | key= | extra=
+  relationship | varchar | nullable=YES | default=None | key= | extra=
+  phone_number | varchar | nullable=NO | default=None | key= | extra=
+  email_address | varchar | nullable=YES | default=None | key= | extra=
+  is_primary | tinyint | nullable=NO | default=0 | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[participant_health]
+  participant_id | char | nullable=NO | default=None | key=PRI | extra=
+  lite_health_notes | text | nullable=YES | default=None | key= | extra=
+  has_medical_condition | tinyint | nullable=YES | default=None | key= | extra=
+  medical_condition | text | nullable=YES | default=None | key= | extra=
+  has_dietary_needs_allergies | tinyint | nullable=YES | default=None | key= | extra=
+  dietary_needs_allergies | text | nullable=YES | default=None | key= | extra=
+  takes_medication | tinyint | nullable=YES | default=None | key= | extra=
+  medication | text | nullable=YES | default=None | key= | extra=
+  has_disability | tinyint | nullable=YES | default=None | key= | extra=
+  disability | text | nullable=YES | default=None | key= | extra=
+  gp_details | text | nullable=YES | default=None | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[participant_id_sequences]
+  sequence_name | varchar | nullable=NO | default=None | key=PRI | extra=
+  next_number | bigint | nullable=NO | default=None | key= | extra=
+
+[participants]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  participant_number | bigint | nullable=YES | default=None | key=UNI | extra=
+  ocf_id | varchar | nullable=NO | default=None | key=UNI | extra=
+  registration_type | enum | nullable=NO | default=None | key= | extra=
+  registration_status | enum | nullable=NO | default=None | key=MUL | extra=
+  registration_source | enum | nullable=NO | default=None | key= | extra=
+  first_name | varchar | nullable=YES | default=None | key= | extra=
+  last_name | varchar | nullable=YES | default=None | key= | extra=
+  full_name | varchar | nullable=NO | default=None | key=MUL | extra=
+  date_of_birth | date | nullable=NO | default=None | key= | extra=
+  mobile_number | varchar | nullable=NO | default=None | key=MUL | extra=
+  email_address | varchar | nullable=YES | default=None | key= | extra=
+  postcode | varchar | nullable=NO | default=None | key=MUL | extra=
+  gender | varchar | nullable=YES | default=None | key= | extra=
+  school_name | varchar | nullable=YES | default=None | key= | extra=
+  home_address | text | nullable=YES | default=None | key= | extra=
+  can_walk_home | tinyint | nullable=YES | default=None | key= | extra=
+  date_form_completed | date | nullable=YES | default=None | key= | extra=
+  created_by | char | nullable=YES | default=None | key=MUL | extra=
+  updated_by | char | nullable=YES | default=None | key=MUL | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key=MUL | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[session_registrations]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  session_id | char | nullable=NO | default=None | key=MUL | extra=
+  participant_id | char | nullable=NO | default=None | key=MUL | extra=
+  booking_status | enum | nullable=NO | default=Booked | key= | extra=
+  registration_source | enum | nullable=NO | default=Manual | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
+
+[sessions]
+  id | char | nullable=NO | default=None | key=PRI | extra=
+  activity_id | char | nullable=NO | default=None | key=MUL | extra=
+  assigned_staff_id | char | nullable=YES | default=None | key=MUL | extra=
+  start_at | datetime | nullable=NO | default=None | key=MUL | extra=
+  end_at | datetime | nullable=NO | default=None | key= | extra=
+  status | enum | nullable=NO | default=Upcoming | key= | extra=
+  capacity | int | nullable=YES | default=None | key= | extra=
+  notes | text | nullable=YES | default=None | key= | extra=
+  created_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED
+  updated_at | datetime | nullable=NO | default=CURRENT_TIMESTAMP | key= | extra=DEFAULT_GENERATED on update CURRENT_TIMESTAMP
