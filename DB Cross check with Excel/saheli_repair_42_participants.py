@@ -1,9 +1,9 @@
 """Safely preview or repair exactly 42 Saheli dbo.Participants profiles.
 
 Preview is the default and performs SELECT queries only.  Commit mode must be
-requested explicitly with --commit, validates all 42 records before updating,
-runs all changes in one transaction, re-reads and verifies every mapped field,
-and rolls the entire transaction back on any error.
+requested explicitly with --commit, updates only records with available and
+valid master data, runs the eligible batch in one transaction, re-reads and
+verifies every intended field, and rolls the entire batch back on any error.
 
 Assessments and all participant-linked child tables are intentionally outside
 the scope of this program.
@@ -214,10 +214,11 @@ class ParticipantConnection:
     def update_participant(self, participant_id: int, card: str, values: dict[str, Any]) -> int:
         if not self.commit_mode:
             raise RuntimeError("Safety guard: UPDATE is unavailable outside --commit mode.")
-        if set(values) != set(UPDATE_FIELDS):
-            raise RuntimeError("Safety guard: update field set does not exactly match the approved field list.")
-        assignments = ",".join(f"[{field}]=?" for field in UPDATE_FIELDS)
-        parameters = [values[field] for field in UPDATE_FIELDS] + [participant_id, card]
+        fields = [field for field in UPDATE_FIELDS if field in values]
+        if not fields or set(values) != set(fields) or not set(fields).issubset(UPDATE_FIELDS):
+            raise RuntimeError("Safety guard: update contains no fields or an unapproved field.")
+        assignments = ",".join(f"[{field}]=?" for field in fields)
+        parameters = [values[field] for field in fields] + [participant_id, card]
         cursor = self.connection.cursor()
         cursor.execute(
             f"UPDATE dbo.Participants SET {assignments} WHERE ParticipantID=? AND SaheliCardNumber=?",
@@ -261,6 +262,7 @@ def build_validation(excel: audit.ExcelData, sql_rows: list[dict[str, Any]],
                      metadata: list[dict[str, Any]], prior_audit: dict[str, dict[str, Any]]):
     issues: list[dict[str, Any]] = []
     converted: dict[str, dict[str, Any]] = {}
+    skipped_fields: dict[str, dict[str, str]] = {}
     sql_groups: dict[str, list[dict[str, Any]]] = {}
     for row in sql_rows:
         sql_groups.setdefault(audit.clean_card(row.get("SaheliCardNumber")), []).append(row)
@@ -271,43 +273,62 @@ def build_validation(excel: audit.ExcelData, sql_rows: list[dict[str, Any]],
     }
     for field in UPDATE_FIELDS:
         if field not in mapped_headers:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": "ALL", "Field": field,
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": "ALL", "Field": field,
                            "Issue": "Required Excel header was not mapped; SQL NULL will not be inferred."})
 
     metadata_by_name = {row["ColumnName"]: row for row in metadata}
     for field in UPDATE_FIELDS:
         if field not in metadata_by_name:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": "ALL", "Field": field,
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": "ALL", "Field": field,
                            "Issue": "Approved field does not exist in live dbo.Participants metadata."})
 
     for card in TARGET_CARDS:
         excel_count = (1 if card in excel.participants else 0) + max(0, len(excel.duplicate_cards.get(card, [])) - 1)
-        if excel_count != 1:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": "SaheliCardNumber",
+        if excel_count == 0:
+            issues.append({"Severity": "BLOCKED", "Status": "BLOCKED_MISSING_MASTER_DATA",
+                           "SaheliCardNumber": card, "Field": "SaheliCardNumber",
+                           "Issue": "Master Excel row is missing; no data will be derived from another card."})
+        elif excel_count != 1:
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR",
+                           "SaheliCardNumber": card, "Field": "SaheliCardNumber",
                            "Issue": f"Expected exactly one Excel row; found {excel_count}."})
         sql_count = len(sql_groups.get(card, []))
         if sql_count != 1:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": "SaheliCardNumber",
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": "SaheliCardNumber",
                            "Issue": f"Expected exactly one dbo.Participants row; found {sql_count}."})
         elif sql_groups[card][0].get("ParticipantID") is None:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": "ParticipantID",
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": "ParticipantID",
                            "Issue": "ParticipantID was not resolved."})
 
         if card not in prior_audit:
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": "Prior audit",
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": "Prior audit",
                            "Issue": "Card is absent from the supplied full-audit ParticipantComparison sheet."})
         elif sql_count == 1 and prior_audit[card].get("ParticipantID") != sql_groups[card][0].get("ParticipantID"):
-            issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": "ParticipantID",
+            issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": "ParticipantID",
                            "Issue": "Live ParticipantID differs from the supplied full-audit report."})
 
         if excel_count == 1 and card in excel.participants:
             values: dict[str, Any] = {}
             for field in UPDATE_FIELDS:
                 if field not in excel.participants[card]:
-                    issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": field,
+                    issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": field,
                                    "Issue": "Field absent from parsed Excel row; value will not be treated as blank."})
                     continue
                 raw = excel.participants[card].get(field)
+                if field == "Age":
+                    try:
+                        converted_age = convert_excel_value(field, raw)
+                        if converted_age is None:
+                            raise ValueError("blank")
+                        values[field] = converted_age
+                    except ValueError:
+                        raw_text = str(raw).strip()
+                        reason = f"Excel formula error {raw_text}" if raw_text.startswith("#") else f"Excel Age is blank or non-numeric: {raw!r}"
+                        skipped_fields.setdefault(card, {})[field] = reason
+                        issues.append({"Severity": "WARNING", "Status": "WARNING_SKIPPED_AGE",
+                                       "SaheliCardNumber": card, "Field": "Age",
+                                       "Issue": f"AgeAction=PRESERVE_SQL_VALUE; Reason={reason}"})
+                    continue
                 try:
                     converted_value = convert_excel_value(field, raw)
                     column_meta = metadata_by_name.get(field)
@@ -321,15 +342,17 @@ def build_validation(excel: audit.ExcelData, sql_rows: list[dict[str, Any]],
                             raise ValueError(f"text length {len(converted_value)} exceeds SQL limit {max_chars}")
                     values[field] = converted_value
                 except ValueError as exc:
-                    issues.append({"Severity": "BLOCKING", "SaheliCardNumber": card, "Field": field,
+                    issues.append({"Severity": "BLOCKING", "Status": "VALIDATION_ERROR", "SaheliCardNumber": card, "Field": field,
                                    "Issue": f"Conversion failed: {exc}"})
-            if len(values) == len(UPDATE_FIELDS):
+            required_count = len(UPDATE_FIELDS) - (1 if "Age" in skipped_fields.get(card, {}) else 0)
+            if len(values) == required_count:
                 converted[card] = values
 
-    return issues, converted, sql_groups
+    return issues, converted, sql_groups, skipped_fields
 
 
-def compare_targets(converted: dict[str, dict[str, Any]], sql_groups: dict[str, list[dict[str, Any]]]):
+def compare_targets(converted: dict[str, dict[str, Any]], sql_groups: dict[str, list[dict[str, Any]]],
+                    skipped_fields: dict[str, dict[str, str]], issues: list[dict[str, Any]]):
     before_after = []
     changes = []
     for card in TARGET_CARDS:
@@ -338,6 +361,8 @@ def compare_targets(converted: dict[str, dict[str, Any]], sql_groups: dict[str, 
         changed_fields = []
         if sql and expected:
             for field in UPDATE_FIELDS:
+                if field not in expected:
+                    continue
                 if not values_equal(field, expected[field], sql.get(field)):
                     changed_fields.append(field)
                     changes.append({
@@ -347,6 +372,20 @@ def compare_targets(converted: dict[str, dict[str, Any]], sql_groups: dict[str, 
                         "ExcelMaster": display(expected.get(field)),
                         "WillSetSQLNull": "YES" if expected.get(field) is None else "NO",
                     })
+        card_issues = [item for item in issues if item.get("SaheliCardNumber") == card]
+        missing_master = any(item.get("Status") == "BLOCKED_MISSING_MASTER_DATA" for item in card_issues)
+        validation_error = any(item.get("Status") == "VALIDATION_ERROR" for item in card_issues)
+        skipped_age = "Age" in skipped_fields.get(card, {})
+        if missing_master:
+            status = "BLOCKED_MISSING_MASTER_DATA"
+        elif validation_error or not sql or not expected:
+            status = "VALIDATION_ERROR"
+        elif skipped_age:
+            status = "WARNING_SKIPPED_AGE"
+        elif changed_fields:
+            status = "READY_TO_UPDATE"
+        else:
+            status = "ALREADY_CORRECT"
         before_after.append({
             "SaheliCardNumber": card,
             "ParticipantID": "" if not sql else sql.get("ParticipantID"),
@@ -357,7 +396,9 @@ def compare_targets(converted: dict[str, dict[str, Any]], sql_groups: dict[str, 
             "SQLMobile": "" if not sql else sql.get("MobileNumber"),
             "ExcelMobile": "" if not expected else expected.get("MobileNumber"),
             "ChangeCount": len(changed_fields), "FieldsThatWillChange": ", ".join(changed_fields),
-            "Status": "VALID" if sql and expected else "BLOCKED BY VALIDATION",
+            "Status": status,
+            "AgeAction": "PRESERVE_SQL_VALUE" if skipped_age else ("USE_EXCEL_VALUE" if expected else "NOT_APPLICABLE"),
+            "AgeReason": skipped_fields.get(card, {}).get("Age", ""),
         })
     return before_after, changes
 
@@ -386,15 +427,18 @@ def sql_backup_rows(sql_groups: dict[str, list[dict[str, Any]]]) -> list[dict[st
 
 def report_summary(mode: str, issues, before_after, committed: bool = False,
                    actual_changed: int | None = None) -> list[dict[str, Any]]:
-    valid = [row for row in before_after if row["Status"] == "VALID"]
+    eligible_statuses = {"READY_TO_UPDATE", "ALREADY_CORRECT", "WARNING_SKIPPED_AGE"}
+    valid = [row for row in before_after if row["Status"] in eligible_statuses]
     changing = [row for row in valid if row["ChangeCount"] > 0]
+    blocked = [row for row in before_after if row["Status"] not in eligible_statuses]
     rows = [
         {"Metric": "Mode", "Value": mode},
         {"Metric": "SQL committed", "Value": "YES" if committed else "NO"},
         {"Metric": "Target card count", "Value": len(TARGET_CARDS)},
         {"Metric": "Targets fully validated", "Value": len(valid)},
-        {"Metric": "Targets blocked", "Value": len(TARGET_CARDS) - len(valid)},
-        {"Metric": "Blocking validation issues", "Value": len(issues)},
+        {"Metric": "Targets blocked", "Value": len(blocked)},
+        {"Metric": "Blocking validation issues", "Value": sum(i.get("Severity") != "WARNING" for i in issues)},
+        {"Metric": "Warnings", "Value": sum(i.get("Severity") == "WARNING" for i in issues)},
         {"Metric": "Records requiring field changes", "Value": len(changing)},
         {"Metric": "Records already correct", "Value": len(valid) - len(changing)},
         {"Metric": "Mapped fields", "Value": len(UPDATE_FIELDS)},
@@ -406,14 +450,15 @@ def report_summary(mode: str, issues, before_after, committed: bool = False,
     if actual_changed is not None:
         rows.extend([
             {"Metric": "Records actually changed", "Value": actual_changed},
-            {"Metric": "Records already correct before repair", "Value": 42 - actual_changed},
+            {"Metric": "Records already correct before repair", "Value": len(valid) - actual_changed},
             {"Metric": "Unresolved mapped-field differences", "Value": sum(row["ChangeCount"] for row in valid)},
+            {"Metric": "Verification result", "Value": "PASSED" if committed else "NOT COMMITTED"},
         ])
     return rows
 
 
 def create_report(path: Path, mode: str, excel: audit.ExcelData, sql_groups,
-                  before_after, changes, issues, committed: bool = False,
+                  before_after, changes, issues, skipped_fields, committed: bool = False,
                   actual_changed: int | None = None) -> None:
     workbook = openpyxl.Workbook()
     workbook.remove(workbook.active)
@@ -423,6 +468,10 @@ def create_report(path: Path, mode: str, excel: audit.ExcelData, sql_groups,
     audit.write_sheet(workbook, "SQLBeforeBackup", sql_backup_rows(sql_groups))
     audit.write_sheet(workbook, "ExcelMaster42", excel_master_rows(excel))
     audit.write_sheet(workbook, "ValidationIssues", issues)
+    audit.write_sheet(workbook, "BlockedRecords", [row for row in before_after if row["Status"] in {"BLOCKED_MISSING_MASTER_DATA", "VALIDATION_ERROR"}])
+    skipped_rows = [{"SaheliCardNumber": card, "Field": field, "Action": "PRESERVE_SQL_VALUE", "Reason": reason}
+                    for card, fields in skipped_fields.items() for field, reason in fields.items()]
+    audit.write_sheet(workbook, "SkippedFields", skipped_rows)
     workbook.properties.title = f"Saheli 42 Participant Repair {mode}"
     workbook.properties.subject = "Controlled dbo.Participants-only profile repair"
     workbook.properties.description = "Assessments and linked child tables are excluded."
@@ -433,7 +482,8 @@ def create_report(path: Path, mode: str, excel: audit.ExcelData, sql_groups,
 def validate_report(path: Path) -> None:
     workbook = openpyxl.load_workbook(path, read_only=True, data_only=False)
     try:
-        required = {"Summary", "BeforeAfter", "FieldChanges", "SQLBeforeBackup", "ExcelMaster42", "ValidationIssues"}
+        required = {"Summary", "BeforeAfter", "FieldChanges", "SQLBeforeBackup", "ExcelMaster42",
+                    "ValidationIssues", "BlockedRecords", "SkippedFields"}
         missing = required - set(workbook.sheetnames)
         if missing:
             raise RuntimeError(f"Report is missing sheets: {sorted(missing)}")
@@ -455,12 +505,12 @@ def validate_report(path: Path) -> None:
 
 
 def verify_after(before_sql: dict[str, list[dict[str, Any]]], after_rows: list[dict[str, Any]],
-                 converted: dict[str, dict[str, Any]]) -> list[str]:
+                 converted: dict[str, dict[str, Any]], skipped_fields: dict[str, dict[str, str]]) -> list[str]:
     errors = []
     after_groups: dict[str, list[dict[str, Any]]] = {}
     for row in after_rows:
         after_groups.setdefault(audit.clean_card(row.get("SaheliCardNumber")), []).append(row)
-    for card in TARGET_CARDS:
+    for card in converted:
         before = before_sql[card][0]
         members = after_groups.get(card, [])
         if len(members) != 1:
@@ -471,9 +521,12 @@ def verify_after(before_sql: dict[str, list[dict[str, Any]]], after_rows: list[d
             errors.append(f"Card {card}: ParticipantID changed")
         if audit.clean_card(after["SaheliCardNumber"]) != card:
             errors.append(f"Card {card}: SaheliCardNumber changed")
-        for field in UPDATE_FIELDS:
+        for field in converted[card]:
             if not values_equal(field, converted[card][field], after.get(field)):
                 errors.append(f"Card {card}, {field}: post-update value does not match Excel")
+        for field in skipped_fields.get(card, {}):
+            if not values_equal(field, before.get(field), after.get(field)):
+                errors.append(f"Card {card}, {field}: skipped field did not preserve its SQL BEFORE value")
     return errors
 
 
@@ -512,32 +565,58 @@ def main() -> int:
         print("Reading the 42 target dbo.Participants rows...", flush=True)
         sql_rows = db.fetch_targets()
         metadata = db.fetch_metadata()
-        issues, converted, sql_groups = build_validation(excel, sql_rows, metadata, prior_audit)
-        before_after, changes = compare_targets(converted, sql_groups)
+        issues, converted, sql_groups, skipped_fields = build_validation(excel, sql_rows, metadata, prior_audit)
+        before_after, changes = compare_targets(converted, sql_groups, skipped_fields, issues)
+        eligible_statuses = {"READY_TO_UPDATE", "ALREADY_CORRECT", "WARNING_SKIPPED_AGE"}
+        eligible_cards = [row["SaheliCardNumber"] for row in before_after if row["Status"] in eligible_statuses]
+        changing_cards = [row["SaheliCardNumber"] for row in before_after
+                          if row["Status"] in eligible_statuses and row["ChangeCount"] > 0]
+        already_correct = [row["SaheliCardNumber"] for row in before_after
+                           if row["Status"] == "ALREADY_CORRECT"]
+        blocked_cards = [row["SaheliCardNumber"] for row in before_after
+                         if row["Status"] in {"BLOCKED_MISSING_MASTER_DATA", "VALIDATION_ERROR"}]
+        eligible_converted = {card: converted[card] for card in eligible_cards}
+        print("Eligible target cards: " + ", ".join(eligible_cards))
+        print("Records requiring update: " + (", ".join(changing_cards) or "NONE"))
+        print("Already correct: " + (", ".join(already_correct) or "NONE"))
+        print("Blocked: " + (", ".join(blocked_cards) or "NONE"))
 
         if not args.commit:
             db.rollback()
             output = args.output_dir / f"Saheli_42_Participant_Repair_Preview_{timestamp}.xlsx"
-            create_report(output, "PREVIEW ONLY", excel, sql_groups, before_after, changes, issues, committed=False)
+            create_report(output, "PREVIEW ONLY", excel, sql_groups, before_after, changes, issues,
+                          skipped_fields, committed=False)
             print(f"Preview report: {output}")
-            print(f"Blocking issues: {len(issues)}")
+            print(f"Eligible records: {len(eligible_cards)}")
+            print(f"Records requiring update: {len(changing_cards)}")
+            print(f"Blocked records: {len(blocked_cards)}")
+            print(f"Warnings: {sum(item.get('Severity') == 'WARNING' for item in issues)}")
             print("No SQL data was modified.")
             return 0
 
-        if issues:
+        fatal_issues = [item for item in issues
+                        if item.get("Severity") == "BLOCKING" and item.get("SaheliCardNumber") == "ALL"]
+        if fatal_issues:
             db.rollback()
             output = args.output_dir / f"Saheli_42_Participant_Repair_Preview_{timestamp}.xlsx"
-            create_report(output, "COMMIT BLOCKED - PREVIEW", excel, sql_groups, before_after, changes, issues, committed=False)
-            print(f"COMMIT ABORTED: {len(issues)} blocking validation issue(s).")
+            create_report(output, "COMMIT BLOCKED - PREVIEW", excel, sql_groups, before_after, changes, issues,
+                          skipped_fields, committed=False)
+            print(f"COMMIT ABORTED: {len(fatal_issues)} validation error(s).")
             print(f"Validation report: {output}")
             print("Transaction rolled back; no SQL data was modified.")
             return 2
 
+        confirmation = input("Type UPDATE VALIDATED PARTICIPANTS to continue: ").strip()
+        if confirmation != "UPDATE VALIDATED PARTICIPANTS":
+            db.rollback()
+            print("Confirmation did not match. Transaction rolled back; no SQL data was modified.")
+            return 3
+
         before_path = args.output_dir / f"Saheli_42_Participant_Repair_BEFORE_{timestamp}.xlsx"
-        create_report(before_path, "BEFORE COMMIT BACKUP", excel, sql_groups, before_after, changes, issues, committed=False)
+        create_report(before_path, "BEFORE COMMIT BACKUP", excel, sql_groups, before_after, changes, issues,
+                      skipped_fields, committed=False)
         print(f"Local BEFORE backup created: {before_path}", flush=True)
 
-        changing_cards = [row["SaheliCardNumber"] for row in before_after if row["ChangeCount"] > 0]
         print(f"Updating {len(changing_cards)} changed participant profiles in one transaction...", flush=True)
         for card in changing_cards:
             participant_id = sql_groups[card][0]["ParticipantID"]
@@ -545,9 +624,9 @@ def main() -> int:
             if affected != 1:
                 raise RuntimeError(f"Card {card}: UPDATE affected {affected} rows; expected exactly 1")
 
-        print("Re-reading and verifying all 42 rows before commit...", flush=True)
+        print(f"Re-reading and verifying all {len(eligible_cards)} eligible rows before commit...", flush=True)
         after_rows = db.fetch_targets()
-        verification_errors = verify_after(sql_groups, after_rows, converted)
+        verification_errors = verify_after(sql_groups, after_rows, eligible_converted, skipped_fields)
         if verification_errors:
             raise RuntimeError("Post-update verification failed: " + "; ".join(verification_errors[:20]))
         db.commit()
@@ -556,13 +635,16 @@ def main() -> int:
         after_groups: dict[str, list[dict[str, Any]]] = {}
         for row in after_rows:
             after_groups.setdefault(audit.clean_card(row["SaheliCardNumber"]), []).append(row)
-        after_before_after, after_changes = compare_targets(converted, after_groups)
+        after_before_after, after_changes = compare_targets(converted, after_groups, skipped_fields, issues)
         after_path = args.output_dir / f"Saheli_42_Participant_Repair_AFTER_{timestamp}.xlsx"
-        create_report(after_path, "AFTER COMMIT", excel, sql_groups, after_before_after, after_changes, [],
-                      committed=True, actual_changed=len(changing_cards))
+        create_report(after_path, "AFTER COMMIT", excel, sql_groups, after_before_after, after_changes, issues,
+                      skipped_fields, committed=True, actual_changed=len(changing_cards))
         print(f"AFTER report: {after_path}")
+        print(f"Eligible records: {len(eligible_cards)}")
         print(f"Records changed: {len(changing_cards)}")
-        print(f"Records already correct: {42-len(changing_cards)}")
+        print(f"Records already correct: {len(eligible_cards)-len(changing_cards)}")
+        print(f"Blocked records: {len(blocked_cards)}")
+        print(f"Skipped fields: {sum(len(fields) for fields in skipped_fields.values())}")
         print("Unresolved mapped-field differences: 0")
         return 0
     except Exception:
