@@ -12,6 +12,7 @@ Commands:
   py import_connect_to_work_planner.py --execute
 """
 import argparse
+import os
 import csv
 import re
 import sys
@@ -104,31 +105,117 @@ def choose_planner_tab(context):
     return page
 
 
+def automate_microsoft_signin(context, email):
+    """Best-effort Microsoft 365 email flow. Never handle a passkey or password."""
+    import time
+    end = time.monotonic() + 100
+    email_entered = False
+    signin_clicked = False
+    while time.monotonic() < end:
+        # Microsoft may open login.microsoftonline.com in a separate tab.
+        pages = [p for p in context.pages if not p.is_closed()]
+        for page in pages:
+            try:
+                url = page.url.lower()
+                if '/webui/plan/' in url and '/view/board' in url:
+                    print('Planner Board view is open; sign-in stage complete.')
+                    return
+                if 'microsoft' not in url and 'office' not in url and 'planner' not in url:
+                    continue
+                if 'login.microsoftonline.com' in url or 'login.live.com' in url:
+                    # UPN/email text box on the Microsoft identity provider.
+                    field = first_visible(
+                        page.locator('input[type="email"]'),
+                        page.locator('input[name="loginfmt"]'),
+                        page.locator('input#i0116'),
+                    )
+                    if field is not None and email and not email_entered:
+                        field.fill(email)
+                        next_button = first_visible(
+                            page.locator('input#idSIButton9'),
+                            page.get_by_role('button', name=re.compile(r'^(next|continue|sign in)$', re.I)),
+                        )
+                        if next_button is not None:
+                            next_button.click(timeout=5000)
+                        else:
+                            field.press('Enter')
+                        email_entered = True
+                        print('Email submitted. Complete any passkey/Bluetooth prompts yourself.')
+                        return
+                    # Stop once Microsoft requests credentials or passkey.
+                    if first_visible(page.locator('input[type="password"]')) is not None:
+                        print('Microsoft requested authentication. Continue manually in the browser.')
+                        return
+                elif 'planner' in url and not signin_clicked:
+                    signin = first_visible(
+                        page.get_by_role('button', name=re.compile(r'^sign in$', re.I)),
+                        page.get_by_role('link', name=re.compile(r'^sign in$', re.I)),
+                    )
+                    if signin is not None:
+                        signin.click(timeout=5000)
+                        signin_clicked = True
+                        print('Clicked Sign in.')
+            except Exception:
+                # Dynamic SSO pages often reload between these checks.
+                pass
+        context.pages[0].wait_for_timeout(600)
+    print('Automatic sign-in click was not found. Sign in manually in the browser.')
+
+
+def wait_for_planner_board(context):
+    """Wait for the user to finish the passkey ceremony, without pretending to approve it."""
+    print('Complete passkey authentication in the browser (enable Bluetooth in Windows if asked).')
+    print('Waiting up to 5 minutes for the Connect to Work Board view...')
+    import time
+    deadline = time.monotonic() + 300
+    while time.monotonic() < deadline:
+        for page in context.pages:
+            if not page.is_closed() and '/webui/plan/' in page.url.lower() and '/view/board' in page.url.lower():
+                return page
+        context.pages[0].wait_for_timeout(1000)
+    raise RuntimeError('Planner Board view was not opened within 5 minutes. Sign in and navigate there, then retry.')
+
+
 def find_bucket(page, name):
-    # Match an exact bucket title in a board column. Avoid selecting a similarly
-    # named task or an item in a sidebar.
-    heading = first_visible(
-        page.get_by_role('heading', name=name, exact=True),
-        page.get_by_text(name, exact=True),
-    )
-    if heading is None:
-        try:
-            text = page.locator('body').inner_text(timeout=5000)
-            print('Planner visible page text (first 1200 chars):', repr(text[:1200]))
-        except Exception:
-            pass
-        raise RuntimeError(f'Cannot find Planner bucket: {name!r}. Check the selected browser tab and Board view; attach planner_import_error.png if needed.')
-    # Planner renders columns in several ways depending on its release.
-    # Scope to the nearest container that has an Add task control.
-    for level in range(1, 7):
-        column = heading.locator('xpath=' + '/..' * level)
-        button = first_visible(
-            column.get_by_role('button', name=re.compile(r'add (a )?task', re.I)),
-            column.get_by_text(re.compile(r'^add (a )?task$', re.I)),
+    """Find a named board column without relying on the layout of its children."""
+    heading = page.get_by_role('heading', name=name, exact=True)
+    column = page.locator('[data-testid="task-board-column"]').filter(has=heading)
+    if column.count() != 1:
+        exact_text = page.get_by_text(name, exact=True)
+        column = page.locator('[data-testid="task-board-column"]').filter(has=exact_text)
+    if column.count() != 1:
+        raise RuntimeError(
+            f'Expected exactly one Planner board column for {name!r}; found {column.count()}. '
+            'Confirm Board view and bucket names.'
         )
-        if button is not None:
-            return column, button
-    raise RuntimeError(f'Could not find an Add task button within bucket {name!r}.')
+    return column
+
+
+def open_quick_add(page, column, bucket_name):
+    """Open quick-add within THIS bucket; Planner can mount controls on hover.
+
+    A conventional Playwright click on the inner Add task span was intercepted
+    by its surrounding card/neighboring column after adding the first task.
+    Dispatching a DOM click on the scoped control avoids misdirected screen clicks.
+    """
+    column.scroll_into_view_if_needed(timeout=15000)
+    column.hover(timeout=10000)
+    page.wait_for_timeout(250)
+
+    control = column.locator('[data-testid="task-board-add-card-control"]')
+    label = column.get_by_text(re.compile(r'^add (a )?task$', re.I))
+    if control.count():
+        # The card itself is the event target, not its overlapping text label.
+        control.first.evaluate('(el) => el.click()')
+    elif label.count():
+        # Some Planner builds add the control only on hover or omit its test id.
+        # Click the *scoped* label via DOM events (not force-click coordinates).
+        label.first.evaluate('(el) => el.click()')
+    else:
+        raise RuntimeError(
+            f'No Add task control or text found inside {bucket_name!r} even after hover. '
+            'Planner UI may have changed; screenshot saved. No click attempted.'
+        )
 
 
 def existing_titles_in_bucket(column):
@@ -147,10 +234,10 @@ def is_existing_anywhere(page, title):
 def create_task(page, row):
     bucket_name = str(row['Bucket']).strip()
     title = str(row['TaskTitle']).strip()
-    column, add = find_bucket(page, bucket_name)
+    column = find_bucket(page, bucket_name)
     if is_existing_anywhere(page, title):
         return 'SKIP', 'Exact title already present in visible Planner board'
-    add.click()
+    open_quick_add(page, column, bucket_name)
     page.wait_for_timeout(350)
     input_title = first_visible(
         page.get_by_role('textbox', name=re.compile('task name|task title|name', re.I)),
@@ -174,19 +261,21 @@ def create_task(page, row):
     # Wait for an exact-title element to appear, not for an arbitrary fixed delay.
     # Note: failure here is ambiguous: Planner may already have saved the task.
     try:
-        page.get_by_text(title, exact=True).first.wait_for(state='visible', timeout=12000)
+        column.get_by_text(title, exact=True).first.wait_for(state='visible', timeout=12000)
     except PlaywrightTimeout:
         raise RuntimeError(
             'Task submission was not confirmed within 12 seconds. It MAY have been created. '
             'Check Planner for this exact title before restarting. Do not retry blindly: ' + title
         )
-    return 'CREATED', 'Exact task title appeared on Planner board after submission (title only).'
+    return 'CREATED', f'Exact task title appeared in {bucket_name} after submission (title only).'
 
 
 def main():
     parser = argparse.ArgumentParser(description='Safe browser importer for Microsoft Planner')
     parser.add_argument('--excel', type=Path, default=DEFAULT_XLSX)
     parser.add_argument('--execute', action='store_true', help='Actually create tasks (default is preview)')
+    parser.add_argument('--email', default=os.getenv('PLANNER_LOGIN_EMAIL', ''), help='Microsoft sign-in email; no passwords or passkeys are stored')
+    parser.add_argument('--login-only', action='store_true', help='Only navigate to Microsoft sign-in/passkey; never create tasks')
     parser.add_argument('--limit', type=int, default=0, help='Maximum task rows to attempt; try 1 first')
     args = parser.parse_args()
     if not args.excel.exists():
@@ -210,7 +299,7 @@ def main():
     print(f'Workbook: {args.excel.name} | Total: {len(rows)} | Pending: {len(pending)}')
     for r in pending:
         print(f"  {r.get('TaskKey')}: [{r.get('Bucket')}] {r.get('TaskTitle')} (due: {date_as_text(r.get('DueDateISO')) or 'not set'})")
-    if not args.execute:
+    if not args.execute and not args.login_only:
         print('\nPREVIEW ONLY. No browser was opened and no tasks were created.')
         print('To test just ONE task: py import_connect_to_work_planner.py --execute --limit 1')
         return
@@ -220,17 +309,24 @@ def main():
     print('\nIMPORTANT: this script creates TITLES in the correct buckets only.')
     print('It does not currently transfer task descriptions, priorities or due dates.')
     print('Known existing tasks are skipped; verify other possible duplicates before importing.')
-    if input('Type IMPORT to open Planner and continue: ').strip() != 'IMPORT':
-        print('Cancelled.'); return
+    print('Starting browser automatically. Task creation will begin only once Planner Board view is open.')
     with sync_playwright() as pw:
         context = pw.chromium.launch_persistent_context(str(BROWSER_PROFILE), headless=False, viewport={'width': 1450, 'height': 940})
         page = context.pages[0] if context.pages else context.new_page()
         if not any('planner' in p.url.lower() for p in context.pages):
             page.goto('https://planner.cloud.microsoft/', wait_until='domcontentloaded')
-        print('\nLog in to Microsoft 365 if needed. Open the existing Connect to Work plan in BOARD view.')
-        input('When you have opened Connect to Work in BOARD view, press ENTER here... ')
+        print('\nStarting Microsoft sign-in automation (passkey approval remains manual).')
+        if not args.email:
+            print('Tip: add --email your@company.co.uk to prefill the sign-in email.')
+        automate_microsoft_signin(context, args.email)
+        if args.login_only:
+            print('LOGIN ONLY: No Planner tasks will be created. Complete the passkey yourself.')
+            input('Press ENTER to close this browser when you are finished... ')
+            context.close()
+            return
+        page = wait_for_planner_board(context)
         page = choose_planner_tab(context)
-        if not first_visible(page.get_by_text('Connect to Work', exact=True), page.get_by_role('heading', name='Connect to Work', exact=True)):
+        if 'hoF-jE4uqkqoh39k06WAH5gAHu5t' not in page.url and not first_visible(page.get_by_text('Connect to Work', exact=True), page.get_by_role('heading', name='Connect to Work', exact=True)):
 
             print('WARNING: Could not verify the plan name. Double-check the opened plan.')
             if input('Type YES if the correct plan is open: ') != 'YES':

@@ -3,3 +3,66 @@ CTW-001,Mobilisation & Partners,Arrange MI reporting training with partners,ERRO
 CTW-001,Mobilisation & Partners,Arrange MI reporting training with partners,ERROR,Cannot find Planner bucket: 'Mobilisation & Partners'. Switch to Board view and ensure buckets exist.
 CTW-002,Mobilisation & Partners,Request partner delivery-area and activity breakdown,ERROR,Task was not confirmed on Planner board after submission; verify manually before retrying.
 CTW-003,Mobilisation & Partners,Confirm partner names and contact details,CREATED,Exact task title appeared on Planner board after submission (title only).
+CTW-004,Mobilisation & Partners,Agree secure partner MI submission method,CREATED,Exact task title appeared on Planner board after submission (title only).
+CTW-005,Mobilisation & Partners,Request delivery staff names and work email addresses,ERROR,"Locator.click: Timeout 30000ms exceeded.
+Call log:
+  - waiting for get_by_role(""heading"", name=""Mobilisation & Partners"", exact=True).first.locator(""xpath=/../../../.."").get_by_text(re.compile(r""^add (a )?task$"", re.IGNORECASE)).first
+    - locator resolved to <span class=""___1fj7x0m fmwh1jy f174sivv fcnffxn f1izfyrr fprs0cq fy77jfu fkhj508 f1o700av"">Add task</span>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    35 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+    - element is visible, enabled and stable
+    - scrolling into view if needed
+    - done scrolling
+    - <span class=""___1fj7x0m fmwh1jy f174sivv fcnffxn f1izfyrr fprs0cq fy77jfu fkhj508 f1o700av"">Add task</span> from <li tabindex=""0"" data-index=""1"" data-dnd-role=""column"" data-is-focusable=""true"" data-testid=""task-board-column"" id=""column_PYicC63pHU-O9_uub8ESXpgALQjq"" data-tabster=""{""groupper"":{""tabbability"":2},""focusable"":{}}"" aria-label=""Column Lot 1 – Saheli Lead, Use Ctrl+Alt+Comma and Ctrl+Alt+Period to move this column left or right."" class=""___1jo67qr f22iagw f1vx9l62 flvyvdh f158kwzp f3wv9la f1y6768u f5sgg4l f8edr7s fyi9ghf f173q20n fo52sdc fkeunuu fprs0cq fy77jfu fl2wr2q"">…</li> subtree intercepts pointer events
+  - retrying click action
+    - waiting 500ms
+    - waiting for element to be visible, enabled and stable
+  - element was detached from the DOM, retrying
+    - locator resolved to <span class=""___1fj7x0m fmwh1jy f174sivv fcnffxn f1izfyrr fprs0cq fy77jfu fkhj508 f1o700av"">Add task</span>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+    - retrying click action
+      - waiting 100ms
+    15 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - <div class=""___bid2pr0 fv5o1b5 f10saiw2"" data-testid=""task-board-add-card-control"">…</div> from <div data-can-drag-to-scroll=""true"" data-testid=""task-board-column-body"" class=""___ffb45y0 f1qa90xp f13mwunk fusb6t f1g2tzg5 fprs0cq fy77jfu f22iagw f1vx9l62 flvyvdh f1kn0ov1 fv1xzkr f1diigfv fchlml9 f1qgjqhz fniynbn f1tgnfn4 f1u8cce8 f1yhwmi5 f1lmfglv frdkuqy f81rol6 fztplxc f1fow5ox f1sil6mw f1p9o1ba f15bd9r2"">…</div> subtree intercepts pointer events
+     - retrying click action
+       - waiting 500ms
+"
+CTW-005,Mobilisation & Partners,Request delivery staff names and work email addresses,ERROR,Expected one Add task control in 'Mobilisation & Partners'; found 0. Planner interface may have changed.
+CTW-005,Mobilisation & Partners,Request delivery staff names and work email addresses,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
+CTW-006,Mobilisation & Partners,Create shared Microsoft Teams support group,ERROR,Expected exactly one Planner board column for 'Mobilisation & Partners'; found 0. Confirm Board view and bucket names.
