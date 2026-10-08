@@ -1,0 +1,2 @@
+﻿TaskKey,Bucket,TaskTitle,Result,Note
+CTW-001,Mobilisation & Partners,Arrange MI reporting training with partners,ERROR,Cannot find Planner bucket: 'Mobilisation & Partners'. Switch to Board view and ensure buckets exist.
