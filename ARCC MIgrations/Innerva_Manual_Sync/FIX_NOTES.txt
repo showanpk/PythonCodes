@@ -1,0 +1,19 @@
+Innerva SQL Login Test - Launcher Argument Fix
+================================================
+Issue: "unrecognized arguments: - - t e s t - c o n n e c t i o n"
+Cause: assigning a single-element array through a PowerShell if-expression
+       unwraps it into a string; splatting that string splits it into characters.
+Fix:  run_innerva.ps1 now assigns $scriptArgs inside each if branch.
+
+For the smallest update to your existing installation:
+1. Replace only run_innerva.ps1 with the file in this package.
+2. Double-click 0_TEST_SQL_LOGIN.bat again.
+3. If the login passes, double-click 1_PREVIEW.bat.
+4. Do not use 2_COMMIT.bat until the preview CSV is reviewed.
+
+This fix does not change sync_innerva_to_crm.py, any database schema,
+or any non-Innerva activity.
+
+If the test now shows SQL 18456 (Login failed), the command argument
+issue is resolved. Verify SQL credentials with SSMS before retrying.
+Do not paste passwords or connection strings into chat.

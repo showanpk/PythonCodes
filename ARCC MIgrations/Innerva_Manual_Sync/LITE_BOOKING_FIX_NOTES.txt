@@ -1,0 +1,15 @@
+Innerva Manual Sync — Lite member booking fix
+
+CHANGED: No-Saheli-card Excel rows now check existing dbo.LiteMembers by name
+BEFORE checking whether the same name exists in dbo.Participants.
+
+If LITE matches uniquely (and DOB does not conflict), reuse its LiteMemberId.
+Only a missing SessionAttendance row is inserted; the Lite profile is not updated.
+If already booked for the same SessionId, skip the booking.
+If no Lite match and a FULL identity matches by name, flag manual review rather than
+automatically creating a duplicate member profile.
+For new Lite identities, --create-missing-members remains explicit opt-in.
+Existing FULL/card lookup, session-date/time matching, and other activities unchanged.
+
+Run 0_TEST_SQL_LOGIN.bat then 1_PREVIEW.bat; DO NOT run Commit while the
+preview still shows unresolved data quality reviews.

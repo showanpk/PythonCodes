@@ -1,0 +1,18 @@
+Innerva-only manual sync — confirmed cardless rule
+
+1. If Excel includes a Saheli card, resolve the FULL participant by that card.
+   If the card is missing in CRM, flag REVIEW_MISSING_FULL_MEMBER by default.
+2. If Excel Saheli Card Number is blank, search dbo.LiteMembers by normalized name.
+   - Unique matching Lite + no DOB conflict: reuse LiteMemberId.
+   - Multiple matching Lite members: REVIEW_AMBIGUOUS_LITE until verified.
+   - Unique matching Lite but conflicting DOB: REVIEW_LITE_DOB_CONFLICT.
+   - No Lite name match: automatically create one new Lite member (even if an
+     unrelated FULL participant shares that name) and add its missing booking.
+3. For all members, avoid duplicate SessionAttendance for the same SessionId/member.
+4. An existing member profile is never updated. Other activities are never touched.
+5. No new Lite is created when the destination session is already full.
+6. PREVIEW makes no writes and shows CREATE_LITE_MEMBER for proposed new Lites.
+
+SAFETY: This update changes only the Innerva-only migration tool. Do not run
+COMMIT until all other identity, session and source-quality reviews in Preview
+have been checked. The current launcher can commit despite review warnings.
