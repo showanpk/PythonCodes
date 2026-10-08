@@ -1,2 +1,3 @@
-2026/10/08-21:14:24.236 417c Creating DB C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\shared_proto_db since it was missing.
-2026/10/08-21:14:24.269 417c Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\shared_proto_db/MANIFEST-000001
+2026/10/08-21:43:57.401 699c Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\shared_proto_db/MANIFEST-000001
+2026/10/08-21:43:57.401 699c Recovering log #3
+2026/10/08-21:43:57.402 699c Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\shared_proto_db/000003.log 

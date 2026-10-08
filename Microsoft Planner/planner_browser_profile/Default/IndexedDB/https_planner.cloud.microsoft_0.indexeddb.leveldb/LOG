@@ -1,3 +1,6 @@
-2026/10/08-21:18:19.422 367c Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/MANIFEST-000001
-2026/10/08-21:18:19.423 367c Recovering log #3
-2026/10/08-21:18:19.448 367c Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/000003.log 
+2026/10/08-21:48:59.527 2fd0 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/08-21:48:59.529 2fd0 Recovering log #3
+2026/10/08-21:48:59.583 2fd0 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/000003.log 
+2026/10/08-21:49:46.703 2fd0 Level-0 table #5: started
+2026/10/08-21:49:46.738 2fd0 Level-0 table #5: 1014845 bytes OK
+2026/10/08-21:49:46.740 2fd0 Delete type=0 #3

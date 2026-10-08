@@ -1,2 +1,3 @@
-2026/10/08-21:14:32.935 3ac4 Creating DB C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\GCM Store since it was missing.
-2026/10/08-21:14:32.971 3ac4 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\GCM Store/MANIFEST-000001
+2026/10/08-21:44:03.655 1fc0 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\GCM Store/MANIFEST-000001
+2026/10/08-21:44:03.657 1fc0 Recovering log #3
+2026/10/08-21:44:03.658 1fc0 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\GCM Store/000003.log 

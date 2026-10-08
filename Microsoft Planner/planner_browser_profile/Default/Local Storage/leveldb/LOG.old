@@ -1,5 +1,5 @@
-2026/10/08-21:14:24.087 ff0 Creating DB C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb since it was missing.
-2026/10/08-21:14:24.109 ff0 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/10/08-21:16:04.242 ff0 Level-0 table #5: started
-2026/10/08-21:16:04.266 ff0 Level-0 table #5: 75745 bytes OK
-2026/10/08-21:16:04.274 ff0 Delete type=0 #3
+2026/10/08-21:43:57.283 8a0 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/10/08-21:43:57.292 8a0 Recovering log #9
+2026/10/08-21:43:57.293 8a0 Level-0 table #11: started
+2026/10/08-21:43:57.305 8a0 Level-0 table #11: 76466 bytes OK
+2026/10/08-21:43:57.312 8a0 Delete type=0 #9

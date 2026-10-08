@@ -1,2 +1,5 @@
 ﻿TaskKey,Bucket,TaskTitle,Result,Note
 CTW-001,Mobilisation & Partners,Arrange MI reporting training with partners,ERROR,Cannot find Planner bucket: 'Mobilisation & Partners'. Switch to Board view and ensure buckets exist.
+CTW-001,Mobilisation & Partners,Arrange MI reporting training with partners,ERROR,Cannot find Planner bucket: 'Mobilisation & Partners'. Switch to Board view and ensure buckets exist.
+CTW-002,Mobilisation & Partners,Request partner delivery-area and activity breakdown,ERROR,Task was not confirmed on Planner board after submission; verify manually before retrying.
+CTW-003,Mobilisation & Partners,Confirm partner names and contact details,CREATED,Exact task title appeared on Planner board after submission (title only).

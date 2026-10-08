@@ -25,6 +25,11 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_XLSX = HERE / 'Connect_to_Work_Planner_Task_Import.xlsx'
 BROWSER_PROFILE = HERE / 'planner_browser_profile'  # local login session
 LOG_FILE = HERE / 'planner_import_log.csv'
+ALREADY_CREATED_TITLES = {
+    'arrange mi reporting training with partners',
+    'request partner delivery-area and activity breakdown',
+    'confirm partner names and contact details',
+}
 BUCKETS = [
     'Mobilisation & Partners', 'Lot 1 – Saheli Lead',
     'Lot 3 – Witton Lodge Lead', 'Finance & MI Reporting',
@@ -71,6 +76,34 @@ def first_visible(*locators):
     return None
 
 
+def choose_planner_tab(context):
+    """Select the open plan tab, not the initial landing page."""
+    pages = [p for p in context.pages if not p.is_closed()]
+    print('\nDetected browser tabs:')
+    for i, p in enumerate(pages, 1):
+        try:
+            print(f'  {i}. {p.title()} | {p.url}')
+        except Exception:
+            print(f'  {i}. {p.url}')
+    candidates = [p for p in pages if 'planner' in p.url.lower() or 'tasks.office.com' in p.url.lower()]
+    if not candidates:
+        raise RuntimeError('No Microsoft Planner browser tab is open. Open your Connect to Work plan first.')
+    if len(candidates) == 1:
+        page = candidates[0]
+    else:
+        print('Multiple Planner tabs are open. Choose the number showing Connect to Work.')
+        while True:
+            answer = input('Planner tab number: ').strip()
+            if answer.isdigit() and 1 <= int(answer) <= len(pages) and pages[int(answer)-1] in candidates:
+                page = pages[int(answer)-1]
+                break
+            print('Please enter a Planner tab number from the list.')
+    page.bring_to_front()
+    page.wait_for_load_state('domcontentloaded')
+    print(f'Using tab: {page.url}')
+    return page
+
+
 def find_bucket(page, name):
     # Match an exact bucket title in a board column. Avoid selecting a similarly
     # named task or an item in a sidebar.
@@ -79,7 +112,12 @@ def find_bucket(page, name):
         page.get_by_text(name, exact=True),
     )
     if heading is None:
-        raise RuntimeError(f'Cannot find Planner bucket: {name!r}. Switch to Board view and ensure buckets exist.')
+        try:
+            text = page.locator('body').inner_text(timeout=5000)
+            print('Planner visible page text (first 1200 chars):', repr(text[:1200]))
+        except Exception:
+            pass
+        raise RuntimeError(f'Cannot find Planner bucket: {name!r}. Check the selected browser tab and Board view; attach planner_import_error.png if needed.')
     # Planner renders columns in several ways depending on its release.
     # Scope to the nearest container that has an Add task control.
     for level in range(1, 7):
@@ -132,22 +170,43 @@ def create_task(page, row):
         create.click()
     else:
         input_title.press('Enter')
-    page.wait_for_timeout(800)
-    if not is_existing_anywhere(page, title):
-        raise RuntimeError('Task was not confirmed on Planner board after submission; verify manually before retrying.')
-    return 'CREATED', 'Created title only. Add description, deadline, priority and checklist manually if required.'
+    # The Planner board is updated asynchronously; 0.8 seconds is often too short.
+    # Wait for an exact-title element to appear, not for an arbitrary fixed delay.
+    # Note: failure here is ambiguous: Planner may already have saved the task.
+    try:
+        page.get_by_text(title, exact=True).first.wait_for(state='visible', timeout=12000)
+    except PlaywrightTimeout:
+        raise RuntimeError(
+            'Task submission was not confirmed within 12 seconds. It MAY have been created. '
+            'Check Planner for this exact title before restarting. Do not retry blindly: ' + title
+        )
+    return 'CREATED', 'Exact task title appeared on Planner board after submission (title only).'
 
 
 def main():
     parser = argparse.ArgumentParser(description='Safe browser importer for Microsoft Planner')
     parser.add_argument('--excel', type=Path, default=DEFAULT_XLSX)
     parser.add_argument('--execute', action='store_true', help='Actually create tasks (default is preview)')
-    parser.add_argument('--limit', type=int, default=0, help='Maximum new tasks to create; try 1 first')
+    parser.add_argument('--limit', type=int, default=0, help='Maximum task rows to attempt; try 1 first')
     args = parser.parse_args()
     if not args.excel.exists():
         sys.exit(f'Workbook not found: {args.excel}')
     rows = get_rows(args.excel)
-    pending = [r for r in rows if scrub(r.get('ImportStatus')) in ('', 'pending') and not str(r.get('PlannerTaskID') or '').strip()]
+    logged_created = set()
+    if LOG_FILE.exists():
+        with LOG_FILE.open('r', encoding='utf-8-sig', newline='') as handle:
+            for event in csv.DictReader(handle):
+                if scrub(event.get('Result')) == 'created':
+                    logged_created.add(scrub(event.get('TaskTitle')))
+    pending = [r for r in rows if scrub(r.get('ImportStatus')) in ('', 'pending')
+               and not str(r.get('PlannerTaskID') or '').strip()
+               and scrub(r.get('TaskTitle')) not in ALREADY_CREATED_TITLES
+               and scrub(r.get('TaskTitle')) not in logged_created]
+    already_created = [r for r in rows if scrub(r.get('TaskTitle')) in ALREADY_CREATED_TITLES]
+    if already_created:
+        print('Skipping known existing Planner task(s): ' + ', '.join(str(r['TaskTitle']) for r in already_created))
+    if logged_created:
+        print(f'Skipping {len(logged_created)} title(s) previously confirmed CREATED in the local log.')
     print(f'Workbook: {args.excel.name} | Total: {len(rows)} | Pending: {len(pending)}')
     for r in pending:
         print(f"  {r.get('TaskKey')}: [{r.get('Bucket')}] {r.get('TaskTitle')} (due: {date_as_text(r.get('DueDateISO')) or 'not set'})")
@@ -160,24 +219,29 @@ def main():
         sys.exit('Unexpected bucket names: ' + ', '.join(bad))
     print('\nIMPORTANT: this script creates TITLES in the correct buckets only.')
     print('It does not currently transfer task descriptions, priorities or due dates.')
-    print('Check the existing MI training task and other duplicates before running the full import.')
+    print('Known existing tasks are skipped; verify other possible duplicates before importing.')
     if input('Type IMPORT to open Planner and continue: ').strip() != 'IMPORT':
         print('Cancelled.'); return
     with sync_playwright() as pw:
         context = pw.chromium.launch_persistent_context(str(BROWSER_PROFILE), headless=False, viewport={'width': 1450, 'height': 940})
         page = context.pages[0] if context.pages else context.new_page()
-        page.goto('https://planner.cloud.microsoft/', wait_until='domcontentloaded')
+        if not any('planner' in p.url.lower() for p in context.pages):
+            page.goto('https://planner.cloud.microsoft/', wait_until='domcontentloaded')
         print('\nLog in to Microsoft 365 if needed. Open the existing Connect to Work plan in BOARD view.')
-        input('When its six buckets are visible, press ENTER here... ')
-        if not first_visible(page.get_by_text('Connect to Work', exact=True)):
+        input('When you have opened Connect to Work in BOARD view, press ENTER here... ')
+        page = choose_planner_tab(context)
+        if not first_visible(page.get_by_text('Connect to Work', exact=True), page.get_by_role('heading', name='Connect to Work', exact=True)):
+
             print('WARNING: Could not verify the plan name. Double-check the opened plan.')
             if input('Type YES if the correct plan is open: ') != 'YES':
                 context.close(); return
         created = 0
+        processed = 0
         for row in pending:
-            if args.limit and created >= args.limit:
+            if args.limit and processed >= args.limit:
                 break
             try:
+                processed += 1
                 result, note = create_task(page, row)
                 print(f"{result}: {row['TaskTitle']} — {note}")
                 log(row, result, note)
