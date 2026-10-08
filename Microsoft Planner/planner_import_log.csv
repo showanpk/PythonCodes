@@ -66,3 +66,41 @@ Call log:
 CTW-005,Mobilisation & Partners,Request delivery staff names and work email addresses,ERROR,Expected one Add task control in 'Mobilisation & Partners'; found 0. Planner interface may have changed.
 CTW-005,Mobilisation & Partners,Request delivery staff names and work email addresses,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
 CTW-006,Mobilisation & Partners,Create shared Microsoft Teams support group,ERROR,Expected exactly one Planner board column for 'Mobilisation & Partners'; found 0. Confirm Board view and bucket names.
+CTW-006,Mobilisation & Partners,Create shared Microsoft Teams support group,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
+CTW-007,Mobilisation & Partners,Chase outstanding staff letters,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
+CTW-008,Mobilisation & Partners,Review mobilisation documents and prepare organogram,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
+CTW-009,Mobilisation & Partners,Confirm mobilisation responsibilities and key contacts,CREATED,Exact task title appeared in Mobilisation & Partners after submission (title only).
+CTW-010,Lot 1 – Saheli Lead,Confirm approved Lot 1 target and area split,ERROR,"Locator.fill: Error: Element is not an <input>, <textarea> or [contenteditable] element
+Call log:
+  - waiting for get_by_role(""textbox"", name=re.compile(r""task name|task title|name"", re.IGNORECASE)).first
+    - locator resolved to <div role=""textbox"" data-testid=""task-card-title"" aria-label="" Task Request delivery staff names and work email addresses "" class=""___cuk1fm0 fmwh1jy f174sivv fcnffxn f1izfyrr fprs0cq fy77jfu fkrn0sh fkhj508 figsok6 f6juhto f9ijwd5 fjksvth f19n0e5"">Request delivery staff names and work email addre…</div>
+    - fill(""Confirm approved Lot 1 target and area split"")
+  - attempting fill action
+    - waiting for element to be visible, enabled and editable
+"
+CTW-010,Lot 1 – Saheli Lead,Confirm approved Lot 1 target and area split,CREATED,Exact task title appeared in Lot 1 – Saheli Lead after submission (title only).
+CTW-011,Lot 1 – Saheli Lead,Create Lot 1 performance tracker,CREATED,Exact task title appeared in Lot 1 – Saheli Lead after submission (title only).
+CTW-012,Lot 1 – Saheli Lead,Monitor Lot 1 engagements and outcomes,CREATED,Exact task title appeared in Lot 1 – Saheli Lead after submission (title only).
+CTW-013,Lot 1 – Saheli Lead,Review Lot 1 partner data and MI returns,CREATED,Exact task title appeared in Lot 1 – Saheli Lead after submission (title only).
+CTW-014,Lot 3 – Witton Lodge Lead,Confirm official Lot 3 target and area split,CREATED,Exact task title appeared in Lot 3 – Witton Lodge Lead after submission (title only).
+CTW-015,Lot 3 – Witton Lodge Lead,Create Lot 3 performance tracker,CREATED,Exact task title appeared in Lot 3 – Witton Lodge Lead after submission (title only).
+CTW-016,Lot 3 – Witton Lodge Lead,Agree Lot 3 reporting and evidence handoff,CREATED,Exact task title appeared in Lot 3 – Witton Lodge Lead after submission (title only).
+CTW-017,Lot 3 – Witton Lodge Lead,Monitor Lot 3 engagements and outcomes,CREATED,Exact task title appeared in Lot 3 – Witton Lodge Lead after submission (title only).
+CTW-018,Finance & MI Reporting,Maintain master provider and BCC reporting calendar,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-019,Finance & MI Reporting,Configure 72-hour provider deadline reminders,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-020,Finance & MI Reporting,Confirm finance and claims evidence responsibilities,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-021,Finance & MI Reporting,Learn Plinth reporting and data export,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-022,Finance & MI Reporting,Consolidate partner MI returns into combined claim,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-023,Finance & MI Reporting,Check September provider return and submission,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-024,Finance & MI Reporting,Monitor BCC monthly and quarterly reporting,CREATED,Exact task title appeared in Finance & MI Reporting after submission (title only).
+CTW-025,Compliance & Data Quality,Agree compliance QA handoff with Muzz,CREATED,Exact task title appeared in Compliance & Data Quality after submission (title only).
+CTW-026,Compliance & Data Quality,Monitor CRM/Plinth missing data and evidence,CREATED,Exact task title appeared in Compliance & Data Quality after submission (title only).
+CTW-027,Compliance & Data Quality,Confirm postcode and geographical eligibility checks,CREATED,Exact task title appeared in Compliance & Data Quality after submission (title only).
+CTW-028,Compliance & Data Quality,Confirm fidelity and IPS training requirements,CREATED,Exact task title appeared in Compliance & Data Quality after submission (title only).
+CTW-029,Compliance & Data Quality,Verify WorkWell / Connect to Work overlap eligibility,CREATED,Exact task title appeared in Compliance & Data Quality after submission (title only).
+CTW-030,Performance & Follow-ups,Produce monthly Lot 1 and Lot 3 KPI/risk summary,CREATED,Exact task title appeared in Performance & Follow-ups after submission (title only).
+CTW-031,Performance & Follow-ups,Coordinate Trailblazer digital-skills shadowing,CREATED,Exact task title appeared in Performance & Follow-ups after submission (title only).
+CTW-032,Performance & Follow-ups,Confirm WorkWell outreach SMS assignment with Muzz,ERROR,"Quick-add was clicked in 'Performance & Follow-ups', but there is no editable input in that column. Stopping to protect existing task cards."
+CTW-032,Performance & Follow-ups,Confirm WorkWell outreach SMS assignment with Muzz,CREATED,Exact task title appeared in Performance & Follow-ups after submission (title only).
+CTW-033,Performance & Follow-ups,Confirm staffing-hours discussion with Aesha,CREATED,Exact task title appeared in Performance & Follow-ups after submission (title only).
+CTW-034,Performance & Follow-ups,Track pending follow-up from Aesha,CREATED,Exact task title appeared in Performance & Follow-ups after submission (title only).

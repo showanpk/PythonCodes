@@ -1,3 +1,9 @@
-2026/10/08-22:13:50.886 8a60 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/10/08-22:13:50.898 8a60 Recovering log #28
-2026/10/08-22:13:50.901 8a60 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/000028.log 
+2026/10/08-23:06:18.889 5f60 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/10/08-23:06:18.894 5f60 Recovering log #77
+2026/10/08-23:06:18.894 5f60 Level-0 table #80: started
+2026/10/08-23:06:18.900 5f60 Level-0 table #80: 19521 bytes OK
+2026/10/08-23:06:18.900 5f60 Recovering log #80
+2026/10/08-23:06:18.902 5f60 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/000080.log 
+2026/10/08-23:06:18.904 5f60 Delete type=0 #77
+2026/10/08-23:06:58.280 644c Level-0 table #82: started
+2026/10/08-23:06:58.291 644c Level-0 table #82: 19280 bytes OK

@@ -1,5 +1,10 @@
-2026/10/08-22:16:19.564 4cd4 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/MANIFEST-000001
-2026/10/08-22:16:19.566 4cd4 Recovering log #7
-2026/10/08-22:16:19.582 4cd4 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/000007.log 
-2026/10/08-22:16:19.583 4cd4 Delete type=2 #5
-2026/10/08-22:16:19.583 4cd4 Delete type=2 #8
+2026/10/08-23:07:28.846 8b40 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/08-23:07:28.846 8b40 Recovering log #27
+2026/10/08-23:07:28.865 8b40 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\IndexedDB\https_planner.cloud.microsoft_0.indexeddb.leveldb/000027.log 
+2026/10/08-23:07:30.252 6760 Level-0 table #32: started
+2026/10/08-23:07:30.269 6760 Level-0 table #32: 940416 bytes OK
+2026/10/08-23:07:30.270 6760 Delete type=0 #27
+2026/10/08-23:07:30.295 6760 Compacting 1@1 + 1@2 files
+2026/10/08-23:07:30.331 6760 Generated table #33@1: 7300 keys, 1238765 bytes
+2026/10/08-23:07:30.331 6760 Compacted 1@1 + 1@2 files => 1238765 bytes
+2026/10/08-23:07:30.332 6760 compacted to: files[ 0 0 1 0 0 0 0 ]

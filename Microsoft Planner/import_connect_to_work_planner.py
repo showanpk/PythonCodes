@@ -106,61 +106,74 @@ def choose_planner_tab(context):
 
 
 def automate_microsoft_signin(context, email):
-    """Best-effort Microsoft 365 email flow. Never handle a passkey or password."""
+    """Best-effort email and passkey METHOD selection, never passkey approval."""
     import time
-    end = time.monotonic() + 100
-    email_entered = False
-    signin_clicked = False
-    while time.monotonic() < end:
-        # Microsoft may open login.microsoftonline.com in a separate tab.
+    deadline = time.monotonic() + 150
+    email_sent = False
+    sign_in_clicked = False
+    passkey_selected = False
+    print('Waiting for Microsoft sign-in and the passkey choice...')
+    while time.monotonic() < deadline:
         pages = [p for p in context.pages if not p.is_closed()]
         for page in pages:
             try:
                 url = page.url.lower()
                 if '/webui/plan/' in url and '/view/board' in url:
-                    print('Planner Board view is open; sign-in stage complete.')
+                    print('Planner Board view is already open.')
                     return
-                if 'microsoft' not in url and 'office' not in url and 'planner' not in url:
+                if not any(x in url for x in ('microsoft', 'office', 'planner', 'login.live.com')):
                     continue
+                # Sign-in methods can appear on the identity-provider page or
+                # in a separate browser tab. Never interact with Windows
+                # Security/OS passkey dialogs, which require user presence.
+                method = first_visible(
+                    page.get_by_role('button', name=re.compile(r'^(sign in with a passkey|use a passkey|passkey)$', re.I)),
+                    page.get_by_role('link', name=re.compile(r'^(sign in with a passkey|use a passkey|passkey)$', re.I)),
+                    page.get_by_text(re.compile(r'^(sign in with a passkey|use a passkey)$', re.I)),
+                )
+                if method is not None and not passkey_selected:
+                    method.click(timeout=5000)
+                    passkey_selected = True
+                    print('Selected passkey sign-in. Finish Windows Security / Bluetooth / phone approval manually.')
+                    return
                 if 'login.microsoftonline.com' in url or 'login.live.com' in url:
-                    # UPN/email text box on the Microsoft identity provider.
-                    field = first_visible(
-                        page.locator('input[type="email"]'),
-                        page.locator('input[name="loginfmt"]'),
-                        page.locator('input#i0116'),
-                    )
-                    if field is not None and email and not email_entered:
+                    field = first_visible(page.locator('input[type="email"]'), page.locator('input[name="loginfmt"]'), page.locator('input#i0116'))
+                    if field is not None and email and not email_sent:
                         field.fill(email)
-                        next_button = first_visible(
-                            page.locator('input#idSIButton9'),
-                            page.get_by_role('button', name=re.compile(r'^(next|continue|sign in)$', re.I)),
-                        )
+                        next_button = first_visible(page.locator('input#idSIButton9'), page.get_by_role('button', name=re.compile(r'^(next|continue|sign in)$', re.I)))
                         if next_button is not None:
                             next_button.click(timeout=5000)
                         else:
                             field.press('Enter')
-                        email_entered = True
-                        print('Email submitted. Complete any passkey/Bluetooth prompts yourself.')
-                        return
-                    # Stop once Microsoft requests credentials or passkey.
-                    if first_visible(page.locator('input[type="password"]')) is not None:
-                        print('Microsoft requested authentication. Continue manually in the browser.')
-                        return
-                elif 'planner' in url and not signin_clicked:
+                        email_sent = True
+                        print('Email submitted. Looking for the passkey selection...')
+                        continue
+                    # Some Microsoft tenants first offer the alternate-method chooser.
+                    if email_sent and not passkey_selected:
+                        other = first_visible(
+                            page.get_by_role('link', name=re.compile(r'^(sign-in options|other ways to sign in|use another method)$', re.I)),
+                            page.get_by_role('button', name=re.compile(r'^(sign-in options|other ways to sign in|use another method)$', re.I)),
+                        )
+                        if other is not None:
+                            other.click(timeout=5000)
+                            print('Opened sign-in options; looking for passkey...')
+                            page.wait_for_timeout(900)
+                            continue
+                elif 'planner' in url and not sign_in_clicked:
                     signin = first_visible(
                         page.get_by_role('button', name=re.compile(r'^sign in$', re.I)),
                         page.get_by_role('link', name=re.compile(r'^sign in$', re.I)),
                     )
                     if signin is not None:
                         signin.click(timeout=5000)
-                        signin_clicked = True
+                        sign_in_clicked = True
                         print('Clicked Sign in.')
             except Exception:
-                # Dynamic SSO pages often reload between these checks.
+                # Microsoft frequently replaces elements during navigation.
                 pass
-        context.pages[0].wait_for_timeout(600)
-    print('Automatic sign-in click was not found. Sign in manually in the browser.')
-
+        if pages:
+            pages[0].wait_for_timeout(700)
+    print('Could not automatically find the passkey option. Select it manually in the browser.')
 
 def wait_for_planner_board(context):
     """Wait for the user to finish the passkey ceremony, without pretending to approve it."""
@@ -177,18 +190,61 @@ def wait_for_planner_board(context):
 
 
 def find_bucket(page, name):
-    """Find a named board column without relying on the layout of its children."""
-    heading = page.get_by_role('heading', name=name, exact=True)
-    column = page.locator('[data-testid="task-board-column"]').filter(has=heading)
-    if column.count() != 1:
-        exact_text = page.get_by_text(name, exact=True)
-        column = page.locator('[data-testid="task-board-column"]').filter(has=exact_text)
-    if column.count() != 1:
-        raise RuntimeError(
-            f'Expected exactly one Planner board column for {name!r}; found {column.count()}. '
-            'Confirm Board view and bucket names.'
+    """Locate the exact Planner bucket; columns may mount after navigation."""
+    import time
+    deadline = time.monotonic() + 20
+    while time.monotonic() < deadline:
+        columns = page.locator('[data-testid="task-board-column"]')
+        heading = page.get_by_role('heading', name=name, exact=True)
+        matches = columns.filter(has=heading)
+        if matches.count() == 1:
+            return matches.first
+        matches = columns.filter(has=page.get_by_text(name, exact=True))
+        if matches.count() == 1:
+            return matches.first
+        # Planner sometimes exposes the accessible column name before headings.
+        matches = columns.filter(has=page.locator('[aria-label]')).filter(
+            has_text=re.compile(re.escape(name), re.I)
         )
-    return column
+        if matches.count() == 1:
+            return matches.first
+        page.wait_for_timeout(500)
+    count = page.locator('[data-testid="task-board-column"]').count()
+    raise RuntimeError(
+        f"Cannot find bucket {name!r} after waiting. Board column count={count}. "
+        "The Planner Board may still be loading, or a login/modal may be covering it. "
+        "Check the saved screenshot before another import attempt."
+    )
+
+
+def wait_until_board_ready(page):
+    """URL alone is not readiness: Planner often renders columns later."""
+    import time
+    print('Waiting for the actual Planner board columns to finish loading...')
+    deadline = time.monotonic() + 75
+    reloaded = False
+    while time.monotonic() < deadline:
+        try:
+            columns = page.locator('[data-testid="task-board-column"]')
+            # Require a known bucket, not just an arbitrary board-like element.
+            if columns.count() and any(
+                columns.filter(has_text=re.compile(re.escape(name), re.I)).count()
+                for name in BUCKETS
+            ):
+                print(f'Planner board loaded: {columns.count()} visible bucket columns.')
+                return
+            if not reloaded and time.monotonic() > deadline - 45:
+                print('Columns not visible yet; reloading Planner once...')
+                page.reload(wait_until='domcontentloaded', timeout=30000)
+                reloaded = True
+        except PlaywrightTimeout:
+            pass
+        page.wait_for_timeout(1000)
+    raise RuntimeError(
+        'The Planner URL opened, but task-board columns never appeared. '
+        'Please check the error screenshot for a sign-in prompt, loading screen, '
+        'or a different Planner view. No tasks were submitted.'
+    )
 
 
 def open_quick_add(page, column, bucket_name):
@@ -239,19 +295,39 @@ def create_task(page, row):
         return 'SKIP', 'Exact title already present in visible Planner board'
     open_quick_add(page, column, bucket_name)
     page.wait_for_timeout(350)
-    input_title = first_visible(
-        page.get_by_role('textbox', name=re.compile('task name|task title|name', re.I)),
-        page.get_by_placeholder(re.compile('task name|task title|enter a task|add a task|name your task', re.I)),
-        page.locator('input[aria-label*="Task"]'),
-        page.locator('input[placeholder*="task"]'),
+    # Only use an actual editable control in the requested column.
+    # Existing Planner task titles have role="textbox" on non-editable DIVs,
+    # so page-wide get_by_role("textbox", name="...") is unsafe here.
+    editable_selector = (
+        'input:visible, textarea:visible, '
+        '[contenteditable="true"]:visible, [contenteditable=""]:visible'
     )
+    input_title = None
+    for attempt in range(15):
+        candidates = column.locator(editable_selector)
+        for idx in range(candidates.count()):
+            candidate = candidates.nth(idx)
+            try:
+                if candidate.get_attribute('data-testid') == 'task-card-title':
+                    continue
+                if candidate.is_enabled() and candidate.is_visible():
+                    input_title = candidate
+                    break
+            except Exception:
+                continue
+        if input_title is not None:
+            break
+        page.wait_for_timeout(300)
     if input_title is None:
-        raise RuntimeError('Could not locate the new-task title input. Planner UI may have changed.')
+        raise RuntimeError(
+            f'Quick-add was clicked in {bucket_name!r}, but there is no editable '
+            'input in that column. Stopping to protect existing task cards.'
+        )
     input_title.fill(title)
-    # Prefer explicitly named creation buttons. ENTER fallback only when
-    # one is not visible, as some Planner versions use inline quick add.
+    # Limit the Create/Add button to the same bucket. Never submit a button
+    # in another column or task details pane.
     create = first_visible(
-        page.get_by_role('button', name=re.compile(r'^(add task|add|create task|create)$', re.I)),
+        column.get_by_role('button', name=re.compile(r'^(add task|add|create task|create)$', re.I)),
     )
     if create is not None:
         create.click()
@@ -331,6 +407,15 @@ def main():
             print('WARNING: Could not verify the plan name. Double-check the opened plan.')
             if input('Type YES if the correct plan is open: ') != 'YES':
                 context.close(); return
+        try:
+            wait_until_board_ready(page)
+        except Exception as exc:
+            screenshot = HERE / 'planner_import_error.png'
+            page.screenshot(path=str(screenshot), full_page=True)
+            print(f'IMPORT STOPPED: {exc}\nScreenshot: {screenshot}')
+            input('Press ENTER to close the automated browser... ')
+            context.close()
+            return
         created = 0
         processed = 0
         for row in pending:

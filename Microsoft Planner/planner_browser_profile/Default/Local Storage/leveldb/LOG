@@ -1,5 +1,16 @@
-2026/10/08-22:16:18.960 65c0 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
-2026/10/08-22:16:18.971 65c0 Recovering log #28
-2026/10/08-22:16:18.972 65c0 Level-0 table #31: started
-2026/10/08-22:16:18.983 65c0 Level-0 table #31: 76639 bytes OK
-2026/10/08-22:16:18.989 65c0 Delete type=0 #28
+2026/10/08-23:07:28.327 8d34 Reusing MANIFEST C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/MANIFEST-000001
+2026/10/08-23:07:28.332 8d34 Recovering log #80
+2026/10/08-23:07:28.333 8d34 Level-0 table #82: started
+2026/10/08-23:07:28.338 8d34 Level-0 table #82: 19280 bytes OK
+2026/10/08-23:07:28.339 8d34 Recovering log #81
+2026/10/08-23:07:28.342 8d34 Reusing old log C:\Users\shonk\source\PythonCodes\Microsoft Planner\planner_browser_profile\Default\Local Storage\leveldb/000081.log 
+2026/10/08-23:07:28.344 8d34 Delete type=0 #80
+2026/10/08-23:07:28.345 88b8 Compacting 4@0 + 1@1 files
+2026/10/08-23:07:28.354 88b8 Generated table #83@0: 88 keys, 83125 bytes
+2026/10/08-23:07:28.354 88b8 Compacted 4@0 + 1@1 files => 83125 bytes
+2026/10/08-23:07:28.355 88b8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/08-23:07:28.356 88b8 Delete type=2 #73
+2026/10/08-23:07:28.356 88b8 Delete type=2 #75
+2026/10/08-23:07:28.356 88b8 Delete type=2 #78
+2026/10/08-23:07:28.356 88b8 Delete type=2 #80
+2026/10/08-23:07:28.356 88b8 Delete type=2 #82
