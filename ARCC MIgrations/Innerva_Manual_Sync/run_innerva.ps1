@@ -1,5 +1,5 @@
 ﻿param(
-    [ValidateSet('preview','commit','test-connection')]
+    [ValidateSet('preview','commit','commit-safe','test-connection')]
     [string]$Mode = 'preview'
 )
 $ErrorActionPreference = 'Stop'
@@ -53,6 +53,8 @@ if ($Mode -eq 'test-connection') {
 # and splatting that string sends each character to Python separately.
 if ($Mode -eq 'test-connection') {
     $scriptArgs = @('--test-connection')
+} elseif ($Mode -eq 'commit-safe') {
+    $scriptArgs = @('--excel', $excel, '--commit', '--allow-safe-partial')
 } else {
     $scriptArgs = @('--excel', $excel, "--$Mode")
 }

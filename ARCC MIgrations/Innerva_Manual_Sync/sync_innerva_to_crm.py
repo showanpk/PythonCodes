@@ -104,6 +104,18 @@ def sheet_year_month(name: str) -> tuple[Optional[int], Optional[int]]:
     return None, None
 
 
+def booking_sheet_kind(title: str, current_year: Optional[int]) -> str:
+    """Read only verified source tabs, not report/pivot/helper copies."""
+    simple = norm(title)
+    if re.fullmatch(r"20\d{2}", simple):
+        return "booking"
+    if re.fullmatch(r"(?:january|february|march|april|may|june|july|august|september|october|november|december) (?:20\d{2}|\d{2})", simple):
+        return "booking"
+    if simple == "current":
+        return "booking" if current_year else "ambiguous_current"
+    return "helper"
+
+
 def slot_date(raw: Any, month: Any, sheet: str, current_year: Optional[int]) -> date:
     yr, mo = sheet_year_month(sheet)
     full = date_value(raw)
@@ -149,6 +161,9 @@ def time_range(value: Any) -> tuple[time, time]:
         en = time(en.hour + 12, en.minute)
     if en <= st:
         raise ValueError(f"end time must be later than start time: {v}")
+    duration = (en.hour * 60 + en.minute) - (st.hour * 60 + st.minute)
+    if st.hour < 6 or duration > 180:
+        raise ValueError(f"suspicious Innerva time range {v!r}; needs manual correction")
     return st, en
 
 
@@ -244,13 +259,14 @@ class Report:
         self.count: Counter = Counter()
 
     def add(self, status: str, slot: Optional[Slot] = None, person: Optional[Member] = None,
-            detail: str = "", session_id: Any = "") -> None:
+            detail: str = "", session_id: Any = "", source_sheet: str = "",
+            source_row: Any = "") -> None:
         self.count[status] += 1
         self.rows.append({
             "Action": status, "Date": slot.day.isoformat() if slot else "",
             "Time": f"{slot.start}-{slot.end}" if slot else "",
-            "Sheet": slot.sheet if slot else "",
-            "ExcelRow": person.source_row if person else (slot.first_row if slot else ""),
+            "Sheet": slot.sheet if slot else source_sheet,
+            "ExcelRow": person.source_row if person else (slot.first_row if slot else source_row),
             "SessionId": session_id, "SaheliCard": person.card if person else "",
             "Name": person.name if person else "", "Detail": detail,
         })
@@ -270,6 +286,12 @@ def parse_workbook(path: Path, args, report: Report) -> list[Slot]:
     raw_slots: list[Slot] = []
     parsed_sheets = 0
     for ws in workbook.worksheets:
+        sheet_kind = booking_sheet_kind(ws.title, args.current_year)
+        if sheet_kind != "booking":
+            status = "SKIP_AMBIGUOUS_CURRENT_SHEET" if sheet_kind == "ambiguous_current" else "SKIP_HELPER_SHEET"
+            report.add(status, detail=f"{ws.title}: excluded from booking import" +
+                       ("; use --current-year if this really is the active register" if sheet_kind == "ambiguous_current" else ""))
+            continue
         # Find header within top rows instead of assuming row 1.
         header = None
         for rownum, values in enumerate(ws.iter_rows(min_row=1, max_row=min(ws.max_row, 15),
@@ -300,7 +322,8 @@ def parse_workbook(path: Path, args, report: Report) -> list[Slot]:
         # Require the date, session slot and name fields; don't guess shifted columns.
         missing = [x for x in ("date", "Session", "Name") if hd(x) not in idx]
         if missing:
-            report.add("REVIEW_BAD_HEADER", detail=f"{ws.title}: missing {missing}")
+            report.add("REVIEW_BAD_HEADER", detail=f"{ws.title}: missing {missing}",
+                       source_sheet=ws.title, source_row=start_row)
             continue
         current: Optional[Slot] = None
         for rownum, values in enumerate(ws.iter_rows(min_row=start_row + 1,
@@ -332,7 +355,8 @@ def parse_workbook(path: Path, args, report: Report) -> list[Slot]:
                                    status, ws.title, rownum)
                     raw_slots.append(current)
                 except (ValueError, TypeError) as e:
-                    report.add("REVIEW_BAD_SLOT", detail=f"{ws.title} row {rownum}: {e}")
+                    report.add("REVIEW_BAD_SLOT", detail=f"{ws.title} row {rownum}: {e}",
+                               source_sheet=ws.title, source_row=rownum)
                     continue
             if current is None or current.is_cancelled or not 1 <= position <= 9:
                 continue
@@ -442,9 +466,10 @@ def load_database(cur, slots: list[Slot]) -> dict:
         same_start[(d, item["start"])].append(item)
         by_id[item["id"]] = item
     attended = {}
+    session_names = defaultdict(list)
     count_by_session: Counter = Counter()
     for r in cur.execute("""SELECT a.SessionId,a.AttendanceMemberKind,a.ParticipantId,
-                                  a.LiteMemberId,a.Attended
+                                  a.LiteMemberId,a.Attended,a.MemberName,a.SaheliCardNumber
                            FROM dbo.SessionAttendance a
                            INNER JOIN dbo.Sessions s ON s.SessionId=a.SessionId
                            WHERE s.SessionDate BETWEEN ? AND ? AND s.ActivityName LIKE '%Innerva%'""", start, end):
@@ -454,6 +479,10 @@ def load_database(cur, slots: list[Slot]) -> dict:
         kind = str(r[1] or "").upper()
         member = str(r[2]) if kind == "FULL" else str(r[3]).lower()
         attended[(sid, kind, member)] = bool(r[4])
+        if len(r) > 5 and clean(r[5]):
+            session_names[(sid, norm_name(r[5]))].append({
+                "kind": kind, "member": member, "card": card_key(r[6]) if len(r) > 6 else ""
+            })
         count_by_session[sid] += 1
 
     full_cards = defaultdict(list)
@@ -470,13 +499,15 @@ def load_database(cur, slots: list[Slot]) -> dict:
                   "name": (str(r[2]) + " " + str(r[3])).strip(), "dob": date_value(r[4])}
         lite_names[norm_name(person["name"])].append(person)
     return {"sessions": sessions, "same_start": same_start, "attended": attended,
-            "counts": count_by_session, "full": full_cards, "full_names": full_names,
-            "lite": lite_names}
+            "session_names": session_names, "counts": count_by_session,
+            "full": full_cards, "full_names": full_names, "lite": lite_names}
 
 
 def new_lite_id(cur, simulate: bool, counters: list[int]) -> str:
     if counters[0] == 0:
-        mids = [str(row[0] or "") for row in cur.execute("SELECT MembershipId FROM dbo.LiteMembers")]
+        mids = [str(row[0] or "") for row in cur.execute(
+            "SELECT MembershipId FROM dbo.LiteMembers" +
+            (" WITH (UPDLOCK,HOLDLOCK)" if not simulate else ""))]
         ids = [int(m.group(1)) for value in mids if (m := re.fullmatch(r"LITE-(\d+)", value, re.I))]
         counters[0] = (max(ids) if ids else 0) + 1
     result = f"LITE-{counters[0]}"
@@ -586,12 +617,17 @@ def insert_booking(cur, sid: int, slot: Slot, p: Member, resolution, write: bool
         p.induction_signed, p.health[:1000] if p.health else None)
 
 
-def sync(cur, slots: list[Slot], report: Report, args, write: bool) -> None:
+def sync(cur, slots: list[Slot], report: Report, args, write: bool,
+         excluded_slots: Optional[set[tuple]] = None) -> None:
     check_schema(cur)
     db = load_database(cur, slots)
     lite_counter = [0]
     preview_sid = -1
     for slot in slots:
+        if excluded_slots and (slot.day.isoformat(), f"{slot.start}-{slot.end}") in excluded_slots:
+            report.add("SKIP_REVIEW_BLOCKED_SLOT", slot,
+                       detail="Excluded from partial import because the preview contains REVIEW actions")
+            continue
         # Never create/modify a session from a malformed over-capacity source block.
         if not slot.is_cancelled and len(slot.people) > 9:
             report.add("REVIEW_EXCEL_CAPACITY_BLOCK", slot)
@@ -677,6 +713,20 @@ def sync(cur, slots: list[Slot], report: Report, args, write: bool) -> None:
                        detail=f"CRM already has {existing_count} bookings", session_id=sid)
             continue
         for person in slot.people:
+            # A blank Excel card does NOT prove a person is missing from this
+            # session. Historic CRM may already contain them as FULL even though
+            # the newer Excel entry lacks their card. Review, never duplicate.
+            booked_same_name = db["session_names"].get((sid, norm_name(person.name)), []) if person.name else []
+            if not person.card and any(row["kind"] == "FULL" for row in booked_same_name):
+                report.add("REVIEW_POSSIBLE_EXISTING_FULL_BOOKING", slot, person,
+                           detail="This name already booked as FULL in the same session; avoid duplicate Lite booking",
+                           session_id=sid)
+                continue
+            if person.card and any(row["kind"] == "FULL" and row["card"] and row["card"] != person.card
+                                   for row in booked_same_name):
+                report.add("REVIEW_SAME_NAME_DIFFERENT_CARD_IN_SESSION", slot, person,
+                           detail="Name is already booked with another card in this session", session_id=sid)
+                continue
             cap = target["capacity"]
             at_capacity = existing_count >= 9 or (cap is not None and existing_count >= cap)
             # Never create a new member when the session has no room for them.
@@ -714,8 +764,41 @@ def sync(cur, slots: list[Slot], report: Report, args, write: bool) -> None:
                        session_id=sid if sid > 0 else "NEW")
             insert_booking(cur, sid, slot, person, resolution, write)
             db["attended"][key] = bool(person.attended)
+            if person.name:
+                db["session_names"][(sid, norm_name(person.name))].append({
+                    "kind": kind, "member": member_id,
+                    "card": person.card if kind == "FULL" else ""})
             existing_count += 1
             db["counts"][sid] = existing_count
+
+
+SAFE_ACTIONS = {"CREATE_SESSION", "ENABLE_BOOKING", "INSERT_BOOKING",
+                "CREATE_LITE_MEMBER", "CREATE_FULL_MEMBER", "MARK_CANCELLED", "PROMOTE_ATTENDANCE"}
+
+
+def report_slot_key(row: dict) -> Optional[tuple[str, str]]:
+    if row.get("Date") and row.get("Time"):
+        return row["Date"], row["Time"]
+    return None
+
+
+def blocked_slot_keys(report: Report) -> set[tuple[str, str]]:
+    return {k for row in report.rows if row.get("Action", "").startswith("REVIEW_")
+            if (k := report_slot_key(row)) is not None}
+
+
+def export_triage(report: Report, timestamp: str) -> tuple[int, int]:
+    blocked = blocked_slot_keys(report)
+    ready, review = Report(), Report()
+    for row in report.rows:
+        if row["Action"].startswith("REVIEW_"):
+            review.rows.append(row)
+        elif row["Action"] in SAFE_ACTIONS:
+            if report_slot_key(row) not in blocked:
+                ready.rows.append(row)
+    ready.save(REPORT_DIR / f"innerva_ready_to_import_{timestamp}.csv")
+    review.save(REPORT_DIR / f"innerva_needs_review_{timestamp}.csv")
+    return len(ready.rows), len(blocked)
 
 
 def print_summary(report: Report, label: str) -> None:
@@ -732,6 +815,8 @@ def parse_args():
     mode = ap.add_mutually_exclusive_group()
     mode.add_argument("--preview", action="store_true", help="Read-only preview (default)")
     mode.add_argument("--commit", action="store_true", help="Confirm, then insert/upsert Innerva only")
+    ap.add_argument("--allow-safe-partial", action="store_true",
+                    help="Explicit opt-in: import only review-free slots, leaving ALL flagged slots unchanged")
     ap.add_argument("--start", type=date.fromisoformat, help="Inclusive start date YYYY-MM-DD")
     ap.add_argument("--end", type=date.fromisoformat, help="Inclusive end date YYYY-MM-DD; default today")
     ap.add_argument("--all-dates", action="store_true", help="Include future booking slots")
@@ -821,13 +906,31 @@ def main() -> int:
     preview_path = REPORT_DIR / f"innerva_preview_{timestamp}.csv"
     preview.save(preview_path)
     print_summary(preview, "READ-ONLY PREVIEW")
+    ready_rows, blocked_count = export_triage(preview, timestamp)
+    review_count = sum(v for k, v in preview.count.items() if k.startswith("REVIEW_"))
     print(f"Preview CSV: {preview_path}")
+    print(f"READY action rows from review-free slots: {ready_rows:,}; blocked slots: {blocked_count:,}")
+    print(f"Ready CSV: {REPORT_DIR / f'innerva_ready_to_import_{timestamp}.csv'}")
+    print(f"Review CSV: {REPORT_DIR / f'innerva_needs_review_{timestamp}.csv'}")
     if not args.commit:
         print("Nothing written to CRM. To apply, run with --commit.")
         return 0
+    blocked = blocked_slot_keys(preview)
+    if review_count and not args.allow_safe_partial:
+        print(f"COMMIT BLOCKED: {review_count:,} review items found.")
+        print("Review the CSVs. To import only review-free slots, use --commit --allow-safe-partial.")
+        return 3
+    if args.allow_safe_partial and not ready_rows:
+        print("COMMIT BLOCKED: No verified ready actions.")
+        return 3
     print("\nThe next step will write ONLY Innerva sessions and their booking records.")
-    print("Please review the preview CSV before proceeding.")
-    if input("Type IMPORT to commit (anything else cancels): ").strip() != "IMPORT":
+    if args.allow_safe_partial:
+        print(f"PARTIAL MODE: all {blocked_count:,} flagged slots will be skipped entirely.")
+        confirm = "IMPORT SAFE"
+    else:
+        confirm = "IMPORT"
+    print("Review the ready and review CSV files before proceeding.")
+    if input(f"Type {confirm} to commit (anything else cancels): ").strip() != confirm:
         print("Cancelled; database unchanged.")
         return 0
 
@@ -840,7 +943,16 @@ def main() -> int:
         actual.rows.extend(parse_report.rows)
         actual.count.update(parse_report.count)
         try:
-            sync(cur, slots, actual, args, write=True)
+            sync(cur, slots, actual, args, write=True,
+                 excluded_slots=blocked if args.allow_safe_partial else None)
+            unexpected = [row for row in actual.rows if row["Action"].startswith("REVIEW_")]
+            if args.allow_safe_partial:
+                # Source parsing reviews may describe rows that were excluded before
+                # database matching. All database-side review actions must be zero.
+                unexpected = [row for row in actual.rows[len(parse_report.rows):]
+                              if row["Action"].startswith("REVIEW_")]
+            if unexpected:
+                raise RuntimeError(f"COMMIT ABORTED: {len(unexpected)} new review items; transaction rolled back")
             cn.commit()
         except Exception:
             cn.rollback()

@@ -254,5 +254,78 @@ class SyncTests(unittest.TestCase):
         self.assertEqual('mens innerva', app.norm("Men's Innerva"))
 
 
+    def test_only_booking_tabs_and_ambiguous_current_excluded(self):
+        book = FakeBook([
+            FakeSheet("Report", [row(*HEAD), row(1, "A", "Female", "Monday", "12th", "January", "", "11:00-12:00", "1", "Person", "Yes")]),
+            FakeSheet("Table2", [row(*HEAD), row(1, "A", "Female", "Monday", "12th", "January", "", "11:00-12:00", "1", "Person", "Yes")]),
+            FakeSheet("Current", [row(*HEAD), row(1, "A", "Female", "Monday", "12th", "January", "", "11:00-12:00", "1", "Person", "Yes")]),
+            self.fixture().worksheets[0]
+        ])
+        rep = app.Report()
+        with patch.object(app, 'load_workbook', return_value=book):
+            result = app.parse_workbook(Path('fake.xlsx'), self.args(), rep)
+        self.assertEqual(2, len(result))
+        self.assertEqual(2, rep.count['SKIP_HELPER_SHEET'])
+        self.assertEqual(1, rep.count['SKIP_AMBIGUOUS_CURRENT_SHEET'])
+        self.assertEqual(0, rep.count['REVIEW_BAD_SLOT'])
+
+    def test_midnight_and_overlong_slots_blocked(self):
+        for value in ('00:00-12:00', '08:00-15:00'):
+            with self.assertRaisesRegex(ValueError, 'suspicious'):
+                app.time_range(value)
+        self.assertEqual((time(7,15), time(8)), app.time_range('7:15-8:00'))
+
+    def test_cardless_name_already_booked_as_full_is_reviewed(self):
+        slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female',
+                        'Fozia', None, False, '2026', 8)
+        slot.people = [app.Member(9, '', 'Example Name', None, False, 'Low', None, '')]
+        class C(FakeCursor):
+            def execute(self, sql, *args):
+                ret = super().execute(sql, *args)
+                if 'FROM dbo.SessionAttendance a' in sql:
+                    self.results = [(111, 'FULL', 5, None, True, 'Example Name', '500')]
+                elif 'FROM dbo.Participants' in sql:
+                    self.results = [(5, '500', 'Example Name', None)]
+                return ret
+        cur = C(); rep = app.Report()
+        app.sync(cur, [slot], rep, self.args(), write=False)
+        self.assertEqual(1, rep.count['REVIEW_POSSIBLE_EXISTING_FULL_BOOKING'])
+        self.assertEqual(0, rep.count['CREATE_LITE_MEMBER'])
+        self.assertEqual(0, rep.count['INSERT_BOOKING'])
+        self.assertTrue(all(q.strip().upper().startswith('SELECT') for q in cur.queries))
+
+    def test_flagged_slot_excluded_from_partial_import(self):
+        slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female',
+                        'Fozia', None, False, '2026', 8)
+        slot.people = [app.Member(9, '', 'Example Name', None, False, 'Low', None, '')]
+        cur = FakeCursor(); rep = app.Report()
+        app.sync(cur, [slot], rep, self.args(), write=True,
+                 excluded_slots={(slot.day.isoformat(), f'{slot.start}-{slot.end}')})
+        self.assertEqual(1, rep.count['SKIP_REVIEW_BLOCKED_SLOT'])
+        self.assertFalse(any('INSERT' in q.upper() or 'UPDATE' in q.upper() for q in cur.queries))
+
+    def test_triage_excludes_ready_actions_on_flagged_slot(self):
+        slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female',
+                        'Fozia', None, False, '2026', 8)
+        person = app.Member(9, '', 'Person One', None, False, 'Low', None, '')
+        clean_slot = app.Slot(date(2026, 1, 13), time(11), time(12), 'Female',
+                              'Fozia', None, False, '2026', 18)
+        rep = app.Report()
+        rep.add('CREATE_LITE_MEMBER', slot, person)
+        rep.add('INSERT_BOOKING', slot, person)
+        rep.add('REVIEW_SESSION_FULL', slot, person)
+        rep.add('INSERT_BOOKING', clean_slot, person)
+        self.assertIn(('2026-01-12', '11:00:00-12:00:00'), app.blocked_slot_keys(rep))
+        from tempfile import TemporaryDirectory
+        with TemporaryDirectory() as d, patch.object(app, 'REPORT_DIR', Path(d)):
+            ready, blocked = app.export_triage(rep, 'test')
+            self.assertEqual(1, ready)
+            self.assertEqual(1, blocked)
+            import csv
+            with (Path(d) / 'innerva_ready_to_import_test.csv').open(encoding='utf-8-sig') as f:
+                lines = list(csv.DictReader(f))
+            self.assertEqual('2026-01-13', lines[0]['Date'])
+
+
 if __name__ == '__main__':
     unittest.main()

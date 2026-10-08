@@ -1,111 +1,88 @@
-SAHELI CRM - MANUAL INNERVA-ONLY SYNC
-===================================
+SAHELI CRM - INNERVA-ONLY MANUAL SYNC (REVIEW-SAFE UPDATE)
+=====================================================
 
-What it does
-------------
-- Processes only Innerva Booking Sheet*.xlsx (not the ARCC exercise workbooks).
-- Safely identifies Innerva slots from the workbook date + start/end time.
-- Creates missing Innerva sessions with IsBookingRequired=1, Capacity=9.
-- Reuses existing exact Innerva session matches; updates IsBookingRequired to 1
-  only for uniquely matching Innerva sessions (not other activities).
-- For Excel rows without a Saheli card, reuse an existing LiteMember by name
-  (with DOB conflict checks). Otherwise create a new LiteMember and link its
-  new booking; a matching FULL name does not override the cardless Lite rule.
-- Adds missing booked members to dbo.SessionAttendance; attended Yes -> 1;
-  No or blank -> 0, with original blank/No retained in Notes.
-- Never deletes a session or attendee; never overwrites existing participant profiles.
-- Flags identity mismatches, duplicate sessions, cancellation conflicts,
-  capacity problems, and differing attendance statuses for manual review.
-- Writes action-level CSV reports to reports/ after every run.
-- Preview is truly read-only (only SELECT statements).
-- Commit asks you to type IMPORT before any changes.
+KEEP YOUR EXISTING migrate_arcc_full_to_crm_v4.py UNCHANGED.
+This package changes ONLY the Innerva-only script and its launchers.
 
-LOGIN TROUBLESHOOTING (SQL Error 18456)
---------------------------------------
-Double-click 0_TEST_SQL_LOGIN.bat to test authentication without scanning Excel.
-The test does NOT modify CRM and does NOT need an Excel workbook.
-If it says LOGIN FAILED (18456), check the SQL username/password in SSMS
-or a trusted SQL client against sahelihub.database.windows.net / SaheliHubCRM.
-The ODBC "Invalid connection string attribute (0)" message can accompany
-18456 and does not by itself prove the connection string is malformed.
-Do not reset the production SQL admin login without also planning changes to
-any services that use that account.
-
-ONE-TIME SETUP
+HOW TO INSTALL
 --------------
-1) Rotate the SQL password that was previously embedded in
-   migrate_arcc_full_to_crm_v4.py. Do not reuse or paste credentials into code.
-2) On Windows, ensure Python 3.10+ and ODBC Driver 18 for SQL Server are installed.
-3) In PowerShell from this folder, run:
-     py -3 -m pip install -r requirements.txt
-4) Put ONE copy of the latest 'Innerva Booking Sheet (1).xlsx' in this folder.
-5) Test database credentials first: double-click 0_TEST_SQL_LOGIN.bat
-6) Preview: double-click 1_PREVIEW.bat
-7) Open the generated reports/innerva_preview_*.csv and resolve REVIEW_* rows.
-8) Commit: double-click 2_COMMIT.bat, review counts and type IMPORT.
-9) Run PREVIEW again; imported bookings should now be SKIP_EXISTING_BOOKING.
+1. Make a backup of your existing Innerva_Manual_Sync folder.
+2. Extract these files over that folder (or use this as a separate folder).
+3. Put ONE Innerva Booking Sheet*.xlsx in the folder. Close it in Excel.
+4. Run: py -3 -m pip install -r requirements.txt (first time only).
+5. Double-click 0_TEST_SQL_LOGIN.bat (optional connection test).
+6. Double-click 1_PREVIEW.bat. Enter your Azure SQL login when prompted.
+7. Review ALL reports in reports/: preview, ready_to_import, needs_review.
+8. DO NOT run Commit automatically. The safe approach is to send the preview
+   to be reviewed before inserting anything into the production database.
 
-The Windows launchers ask for Azure SQL username/password temporarily. They
-never save the password to disk. The script can also use an existing environment
-variable SAHELI_SQL_CONNECTION_STRING if you configured one securely.
+WHAT IS FIXED
+-------------
+* Source: accepts only real Innerva workbook tabs such as '2026', '2027'
+  and 'July 25'. Skips Report, Table2, Test Analysis and helper tabs.
+* The ambiguous 'Current' tab is skipped unless --current-year is supplied;
+  use this override ONLY after manually confirming the real year.
+* Malformed time ranges such as 00:00-12:00 are excluded as REVIEW_BAD_SLOT.
+* Matches sessions by exact date, start/end time and Alum Rock venue.
+  Duplicate CRM sessions are NEVER chosen arbitrarily.
+* Checks existing booking MemberName within the matched CRM session. If an
+  Excel row has no Saheli card but that name is already booked as FULL in
+  the SAME session, flags REVIEW_POSSIBLE_EXISTING_FULL_BOOKING instead
+  of creating a potentially duplicate Lite booking. This does not use
+  name matching to modify FULL participant profiles.
+* If the row has no card and no same-session conflict: match Lite by name,
+  verify DOB when possible; otherwise create one Lite member and insert a
+  separate booking for each session. No existing member profile is updated.
+* Review session capacity before adding missing bookings. Never force
+  additions into an already-full/overfull session.
+* Read-only Preview produces:
+    reports/innerva_preview_TIMESTAMP.csv (ALL actions)
+    reports/innerva_ready_to_import_TIMESTAMP.csv (actions on review-free slots)
+    reports/innerva_needs_review_TIMESTAMP.csv (identity and slot problems)
+* The ordinary 2_COMMIT.bat is BLOCKED if ANY REVIEW_* warnings exist.
+* A separate 3_COMMIT_REVIEW_FREE_ONLY.bat exists for an explicitly approved
+  partial import. This performs another fresh preview and asks you to type
+  IMPORT SAFE. It completely excludes every slot with any REVIEW_* warning.
+  Use this button ONLY after checking and approving the ready-to-import CSV.
+  A SQL exception or newly detected review during the commit rolls back.
 
-ADVANCED COMMAND LINE
+IMPORTANT BUSINESS RULES
+------------------------
+- Existing matched Innerva session -> reuse SessionId, don't create another.
+- Missing uniquely identified slot -> create Booking Session (IsBookingRequired=1).
+- Existing FULL member with supplied Saheli card -> reuse ParticipantId.
+- Blank Excel card -> existing Lite name match -> reuse LiteMemberId.
+- Blank Excel card and no matching Lite -> create Lite (except if same-session
+  member conflict, DOB ambiguity, or capacity limit needs review).
+- The member's existence does NOT mean they are already booked. Always check
+  SessionAttendance(SessionId, MemberKind, MemberId) before inserting.
+- Excel 'Yes' -> Attended=1. No/blank -> 0 for NEW bookings only.
+- Never silently change existing attendance, remove bookings, or overwrite profiles.
+- Other Saheli activities, booking modules, and sites remain untouched.
+
+IMPORTANT: At-capacity source rows, duplicate times, ID conflicts, and
+unparseable source rows stay in the review CSV; they are NOT imported.
+Some existing CRM attendance may be recorded with another FULL/LITE identity;
+please investigate and reconcile those manually before considering it missing.
+
+COMMAND LINE EXAMPLES (if you already set SAHELI_SQL_CONNECTION_STRING)
+------------------------------------------------------------------------
+py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --preview
+py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --commit
+py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --commit --allow-safe-partial
+py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --start 2026-10-01 --preview
+
+By default dates after today are excluded. Use --all-dates only intentionally.
+To include ambiguous 'Current', supply --current-year YEAR *only after verifying*.
+Use --promote-attendance or --create-missing-members only after a separate audit;
+they are OFF by default and are NOT necessary for adding normal Lite bookings.
+
+SECURITY / PRODUCTION
 ---------------------
-From PowerShell, set SAHELI_SQL_CONNECTION_STRING in the *current session*
-and run:
-
-  py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --preview
-  py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" --commit
-
-When the workbook contains a sheet named 'Current' with only day/month dates,
-the year is ambiguous. Supply --current-year 2026 (or 2027 as appropriate).
-By default, only session dates <= today are synced. Supply --all-dates if you
-need future booking slots; use --start 2026-10-01 or --end 2026-10-31 to limit.
-
-  py -3 sync_innerva_to_crm.py --excel "Innerva Booking Sheet (1).xlsx" \
-       --current-year 2026 --start 2026-10-01 --preview
-
-Safe opt-in options after reviewing the CSV:
-  --create-missing-members  (opt-in to create FULL participants when a supplied
-                             card is missing in CRM; cardless LITE creation is automatic)
-  --promote-attendance      (promote existing CRM Attended=0 on Excel Yes)
-These options are deliberately OFF by default. Only use in --commit after
-reviewing a preview run with the same options. Other attendance is untouched.
-
-DATA MAPPING
-------------
-Excel date, Session slot -> Sessions.SessionDate, StartTime, EndTime
-Excel Lead -> Sessions.Notes (no guessed staff assignment)
-Excel Session Type -> new Sessions.SubCategory and Notes (Female/Male/Mixed)
-Excel Induction Time -> Sessions.ArrivalTime when a clock time
-Excel cancellation -> Sessions.IsCancelled (only if no CRM bookings conflict)
-New Sessions -> VenueName='Alum Rock Community Centre', ActivityName='Innerva',
-                Category='Innerva', IsBookingRequired=1, Capacity=9
-Excel with Saheli Card Number -> match existing FULL member; otherwise review
-    unless --create-missing-members is explicitly enabled.
-Excel without Saheli Card Number -> match existing LITE by name and verify DOB
-    when present; if no Lite name matches, CREATE a new Lite member automatically
-    (even if a FULL person shares that name). Never overwrite a profile.
-Booked valid member -> SessionAttendance linked to Sessions.SessionId
-Excel Attended Yes/No/blank -> SessionAttendance.Attended 1/0/0
-Excel signed induction, medical condition, risk -> SessionAttendance fields
-Excel 'Any Issues during session' -> SessionAttendance.Notes
-Cancelled sessions -> session only; no attendance imported
-
-IMPORTANT LIMITS
-----------------
-- Actual current .xlsx was not uploaded with this package. The parser is based
-  on the sample table and original V4 script. Verify the preview CSV against the
-  current workbook BEFORE allowing production commit.
-- Only Alum Rock Innerva is in scope. Other locations, Innerva-like activities,
-  or recurring templates are not modified.
-- Zero capacity isn't assumed. A booking block has at most nine valid positions.
-- Legacy CRM sessions with >9 bookings, ambiguous duplicate slots, different
-  session duration, or mismatched genders are flagged, not automatically repaired.
-- Excel alone cannot prove when a booked slot was subsequently cancelled or
-  released. There is no automatic removal of old CRM bookings.
-- Attendance blank and No both become SQL bit 0; original source is noted.
-- Keep the CSV reports private: they may include participant names/card numbers.
-- SQL writes are transactional. A SQL error rolls back that import transaction.
-- In a commit with some review rows, only other unambiguous records are changed.
-  Check all REVIEW_* rows before repeating the commit.
+- Old V4 Python file has embedded Azure SQL credentials. Rotate that account's
+  password and use the terminal prompt/environment variable, not source code.
+- Keep preview CSVs private (participant names and card IDs).
+- No live production SQL connection was available while building this package.
+  Offline mock tests and workbook parsing do NOT replace a real CRM comparison.
+- The package does not include, copy, or modify the participant Excel workbook.
+- Run Preview and send the NEW CSV before approving any Commit.
