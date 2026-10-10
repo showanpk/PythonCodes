@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 from dotenv import load_dotenv
 
@@ -11,5 +13,5 @@ if not CONNECTION_STRING:
     )
 
 
-def build_connection_string():
+def build_connection_string() -> str:
     return CONNECTION_STRING

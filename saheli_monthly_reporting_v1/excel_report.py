@@ -5,6 +5,7 @@ import re
 import math
 import pandas as pd
 from openpyxl import load_workbook
+from openpyxl.chart import BarChart, Reference
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
@@ -157,13 +158,74 @@ def _trend_fill(cell, value):
         cell.fill = PatternFill("solid", fgColor=AMBER)
 
 
+def _add_bar_chart(
+    ws,
+    title: str,
+    category_col: int,
+    series_start_col: int,
+    series_end_col: int,
+    header_row: int,
+    data_start_row: int,
+    data_end_row: int,
+    position: str,
+    *,
+    horizontal: bool = False,
+    width: float = 14.5,
+    height: float = 8.0,
+):
+    """Add a compact management chart using an existing visible table."""
+    if data_end_row < data_start_row:
+        return
+
+    chart = BarChart()
+    chart.type = "bar" if horizontal else "col"
+    chart.style = 10
+    chart.grouping = "clustered"
+    chart.overlap = 0
+    chart.title = title
+    chart.height = height
+    chart.width = width
+    chart.legend.position = "b"
+
+    data = Reference(
+        ws,
+        min_col=series_start_col,
+        max_col=series_end_col,
+        min_row=header_row,
+        max_row=data_end_row,
+    )
+    categories = Reference(
+        ws,
+        min_col=category_col,
+        min_row=data_start_row,
+        max_row=data_end_row,
+    )
+    chart.add_data(data, titles_from_data=True)
+    chart.set_categories(categories)
+
+    # Keep labels readable for longer activity/location names.
+    if horizontal:
+        chart.y_axis.title = ""
+    else:
+        chart.x_axis.title = ""
+
+    ws.add_chart(chart, position)
+
+
 def _build_summary_sheet(
     ws,
     overall: pd.DataFrame,
     locations: pd.DataFrame,
+    activities: pd.DataFrame,
+    registrations: pd.DataFrame,
+    demographics,
+    assessment_activity: pd.DataFrame,
+    outcomes: pd.DataFrame,
+    quality: pd.DataFrame,
     report_label: str,
     previous_label: str,
 ):
+    """Build an SMT-friendly roll-up of the complete monthly workbook."""
     _style_title(
         ws,
         f"Saheli Hub Monthly Performance Report – {report_label}",
@@ -171,6 +233,9 @@ def _build_summary_sheet(
         end_col=8,
     )
 
+    # ------------------------------------------------------------------
+    # 1. Headline metrics + month-on-month comparison
+    # ------------------------------------------------------------------
     _section_header(ws, 4, 1, 2, "Headline metrics")
     _section_header(ws, 4, 4, 8, "Month-on-month comparison")
 
@@ -194,29 +259,21 @@ def _build_summary_sheet(
     headers = ["Measure", previous_label, report_label, "Difference", "% Change"]
     _table_header(ws, 5, 4, headers)
 
-    compare_metrics = [
-        "Sessions Delivered",
-        "Total Attendance",
-        "Unique Participants",
-        "New Registrations",
-        "Health Assessments",
-        "Follow-up Assessments",
-    ]
-
-    for r, metric in enumerate(compare_metrics, start=6):
+    for r, metric in enumerate(headline_metrics, start=6):
         prev = _metric_value(overall, metric, "Previous Month")
         curr = _metric_value(overall, metric, "Current Month")
         diff = curr - prev
-        pct = None if not prev else round(diff / prev * 100, 1)
-        vals = [metric, prev, curr, diff, pct]
-        for j, val in enumerate(vals, start=4):
-            ws.cell(r, j, val)
+        pct = None if not prev else diff / prev
+        values = [metric, prev, curr, diff, pct]
+        for j, val in enumerate(values, start=4):
+            ws.cell(r, j, _as_number(val))
         if pct is not None:
-            ws.cell(r, 8).number_format = '0.0%'
-            ws.cell(r, 8, pct / 100)
-
+            ws.cell(r, 8).number_format = "0.0%"
     _apply_thin_borders(ws, 5, 11, 4, 8)
 
+    # ------------------------------------------------------------------
+    # 2. Every location at a glance
+    # ------------------------------------------------------------------
     start_row = 14
     _section_header(ws, start_row, 1, 8, "Location performance")
     location_cols = [
@@ -231,20 +288,316 @@ def _build_summary_sheet(
     ]
     _table_header(ws, start_row + 1, 1, location_cols)
 
+    location_chart_start = None
+    location_chart_end = None
     if locations is not None and not locations.empty:
-        for i, row in enumerate(locations.itertuples(index=False), start=start_row + 2):
-            record = row._asdict()
-            vals = [record.get(col) for col in location_cols]
-            for j, val in enumerate(vals, start=1):
-                ws.cell(i, j, _as_number(val))
+        # Use to_dict instead of itertuples()._asdict(): pandas sanitises column
+        # names with spaces in namedtuples, which caused blank summary cells.
+        for i, record in enumerate(locations.to_dict("records"), start=start_row + 2):
+            for j, col in enumerate(location_cols, start=1):
+                ws.cell(i, j, _as_number(record.get(col)))
             _trend_fill(ws.cell(i, 8), record.get("Trend"))
-        _apply_thin_borders(ws, start_row + 1, start_row + 1 + len(locations), 1, 8)
+        _apply_thin_borders(
+            ws,
+            start_row + 1,
+            start_row + 1 + len(locations),
+            1,
+            8,
+        )
+        location_chart_start = start_row + 2
+        location_chart_end = min(start_row + 1 + len(locations), location_chart_start + 9)
+
+    row = start_row + 3 + (len(locations) if locations is not None else 0)
+
+    # ------------------------------------------------------------------
+    # 3. Top activities across Saheli
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Top activities")
+    row += 1
+    top_headers = [
+        "Location", "Category", "Activity", "Sessions",
+        "Attendance", "Unique participants", "Avg / session",
+    ]
+    _table_header(ws, row, 1, top_headers)
+    top_header_row = row
+    top = pd.DataFrame()
+    if activities is not None and not activities.empty:
+        top = activities.copy().sort_values(
+            ["Attendance", "UniqueParticipants"], ascending=[False, False]
+        ).head(10)
+    top_data_start = None
+    top_data_end = None
+    if not top.empty:
+        top_data_start = row + 1
+        top_data_end = row + len(top)
+        for ridx, rec in enumerate(top.to_dict("records"), start=row + 1):
+            vals = [
+                rec.get("Location"),
+                rec.get("ActivityCategoryResolved"),
+                rec.get("ActivityName"),
+                rec.get("Sessions"),
+                rec.get("Attendance"),
+                rec.get("UniqueParticipants"),
+                rec.get("Average Attendance / Session"),
+            ]
+            for cidx, val in enumerate(vals, start=1):
+                ws.cell(ridx, cidx, _as_number(val))
+        _apply_thin_borders(ws, row, row + len(top), 1, 7)
+        row += len(top) + 2
+    else:
+        ws.cell(row + 1, 1, "No activity data")
+        row += 3
+
+    # ------------------------------------------------------------------
+    # 4. Registrations by location
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Registration performance")
+    row += 1
+    reg_headers = ["Location", previous_label, report_label, "Difference"]
+    _table_header(ws, row, 1, reg_headers)
+    reg_header_row = row
+    reg_view = pd.DataFrame()
+    if registrations is not None and not registrations.empty:
+        reg_view = registrations.copy().sort_values(
+            ["Current Registrations", "Location"], ascending=[False, True]
+        )
+    reg_data_start = None
+    reg_data_end = None
+    if not reg_view.empty:
+        reg_data_start = row + 1
+        reg_data_end = min(row + len(reg_view), reg_data_start + 9)
+        for ridx, rec in enumerate(reg_view.to_dict("records"), start=row + 1):
+            vals = [
+                rec.get("Location"),
+                rec.get("Previous Registrations", 0),
+                rec.get("Current Registrations", 0),
+                rec.get("Change", 0),
+            ]
+            for cidx, val in enumerate(vals, start=1):
+                ws.cell(ridx, cidx, _as_number(val))
+        _apply_thin_borders(ws, row, row + len(reg_view), 1, 4)
+        row += len(reg_view) + 2
+    else:
+        ws.cell(row + 1, 1, "No registration data")
+        row += 3
+
+    # ------------------------------------------------------------------
+    # 5. Demographic snapshot (all new registrations)
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Demographic snapshot")
+    row += 1
+    _table_header(ws, row, 1, ["Dimension", "Category", "Participants", "% of dimension"])
+    gender, ethnicity, age, disability = demographics
+    demographic_blocks = [
+        ("Gender", gender, "Gender"),
+        ("Age", age, "Age Band"),
+        ("Ethnicity", ethnicity, "Ethnicity"),
+        ("Disability / health condition", disability, "Disability"),
+    ]
+    demo_rows = []
+    for dimension, df, category_col in demographic_blocks:
+        if df is None or df.empty or category_col not in df.columns:
+            continue
+        agg = df.groupby(category_col, dropna=False)["Participants"].sum().reset_index()
+        total = float(agg["Participants"].sum())
+        agg = agg.sort_values("Participants", ascending=False)
+        # Keep the summary readable; complete detail remains in DEMOGRAPHICS.
+        for rec in agg.head(5).to_dict("records"):
+            count = int(rec.get("Participants", 0) or 0)
+            demo_rows.append([
+                dimension,
+                rec.get(category_col),
+                count,
+                (count / total) if total else None,
+            ])
+    if demo_rows:
+        for ridx, values in enumerate(demo_rows, start=row + 1):
+            for cidx, val in enumerate(values, start=1):
+                ws.cell(ridx, cidx, _as_number(val))
+            if values[3] is not None:
+                ws.cell(ridx, 4).number_format = "0.0%"
+        _apply_thin_borders(ws, row, row + len(demo_rows), 1, 4)
+        row += len(demo_rows) + 2
+    else:
+        ws.cell(row + 1, 1, "No demographic data")
+        row += 3
+
+    # ------------------------------------------------------------------
+    # 6. Outcomes roll-up
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Outcome snapshot")
+    row += 1
+    _table_header(ws, row, 1, ["Outcome", "Paired", "Improved", "Improvement %"])
+    outcome_header_row = row
+
+    outcome_specs = [
+        ("Confidence to join", "Confidence Paired", "Improved Confidence To Join"),
+        ("Feeling confident", "Feeling Confident Paired", "Improved Feeling Confident"),
+        ("Movement", "Movement Paired", "Improved Movement"),
+        ("Less isolated", "Isolation Paired", "Less Isolated"),
+        ("More active days", "Active Days Paired", "More Active Days"),
+    ]
+    outcome_rows = []
+    if outcomes is not None and not outcomes.empty:
+        for label, paired_col, improved_col in outcome_specs:
+            paired = int(pd.to_numeric(outcomes.get(paired_col), errors="coerce").fillna(0).sum()) if paired_col in outcomes.columns else 0
+            improved = int(pd.to_numeric(outcomes.get(improved_col), errors="coerce").fillna(0).sum()) if improved_col in outcomes.columns else 0
+            pct = improved / paired if paired else None
+            outcome_rows.append([label, paired, improved, pct])
+    outcome_data_start = None
+    outcome_data_end = None
+    if outcome_rows:
+        outcome_data_start = row + 1
+        outcome_data_end = row + len(outcome_rows)
+        for ridx, values in enumerate(outcome_rows, start=row + 1):
+            for cidx, val in enumerate(values, start=1):
+                ws.cell(ridx, cidx, _as_number(val))
+            if values[3] is not None:
+                ws.cell(ridx, 4).number_format = "0.0%"
+        _apply_thin_borders(ws, row, row + len(outcome_rows), 1, 4)
+        row += len(outcome_rows) + 2
+    else:
+        ws.cell(row + 1, 1, "No paired outcome data")
+        row += 3
+
+    # ------------------------------------------------------------------
+    # 7. Data quality roll-up
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Data quality snapshot")
+    row += 1
+    dq_headers = [
+        "New registrations", "Any core gap", "Gap %", "Missing DOB",
+        "Missing postcode", "Missing gender", "Missing ethnicity", "Missing mobile",
+    ]
+    _table_header(ws, row, 1, dq_headers)
+    if quality is not None and not quality.empty:
+        def sum_col(name):
+            return int(pd.to_numeric(quality[name], errors="coerce").fillna(0).sum()) if name in quality.columns else 0
+
+        total_reg = sum_col("New Registrations")
+        any_gap = sum_col("Participants With Any Core Gap")
+        vals = [
+            total_reg,
+            any_gap,
+            (any_gap / total_reg) if total_reg else None,
+            sum_col("Missing DOB"),
+            sum_col("Missing Postcode"),
+            sum_col("Missing Gender"),
+            sum_col("Missing Ethnicity"),
+            sum_col("Missing Mobile"),
+        ]
+        for cidx, val in enumerate(vals, start=1):
+            ws.cell(row + 1, cidx, _as_number(val))
+        if vals[2] is not None:
+            ws.cell(row + 1, 3).number_format = "0.0%"
+        _apply_thin_borders(ws, row, row + 1, 1, 8)
+        row += 3
+    else:
+        ws.cell(row + 1, 1, "No data-quality information")
+        row += 3
+
+    # ------------------------------------------------------------------
+    # 8. Key changes / areas to look at
+    # ------------------------------------------------------------------
+    _section_header(ws, row, 1, 8, "Key location changes")
+    row += 1
+    _table_header(ws, row, 1, ["Location", "Attendance change", "% change", "Trend"])
+    changes = pd.DataFrame()
+    if locations is not None and not locations.empty:
+        changes = locations[[
+            "Location", "Attendance Change", "Attendance % Change", "Trend"
+        ]].copy()
+        changes = changes.sort_values("Attendance Change", ascending=False)
+        if len(changes) > 8:
+            top_up = changes.head(4)
+            top_down = changes.tail(4)
+            changes = pd.concat([top_up, top_down]).drop_duplicates("Location")
+    if not changes.empty:
+        for ridx, rec in enumerate(changes.to_dict("records"), start=row + 1):
+            vals = [
+                rec.get("Location"),
+                rec.get("Attendance Change"),
+                None if pd.isna(rec.get("Attendance % Change")) else rec.get("Attendance % Change") / 100,
+                rec.get("Trend"),
+            ]
+            for cidx, val in enumerate(vals, start=1):
+                ws.cell(ridx, cidx, _as_number(val))
+            if vals[2] is not None:
+                ws.cell(ridx, 3).number_format = "0.0%"
+            _trend_fill(ws.cell(ridx, 4), rec.get("Trend"))
+        _apply_thin_borders(ws, row, row + len(changes), 1, 4)
+
+    # ------------------------------------------------------------------
+    # 9. Visual dashboard charts (kept to the right of the tables)
+    # ------------------------------------------------------------------
+    if location_chart_start is not None and location_chart_end is not None:
+        _add_bar_chart(
+            ws,
+            f"Attendance by location – {previous_label} vs {report_label}",
+            category_col=1,
+            series_start_col=4,
+            series_end_col=5,
+            header_row=start_row + 1,
+            data_start_row=location_chart_start,
+            data_end_row=location_chart_end,
+            position="J4",
+            horizontal=True,
+            width=16.5,
+            height=9.0,
+        )
+
+    if top_data_start is not None and top_data_end is not None:
+        _add_bar_chart(
+            ws,
+            f"Top activities by attendance – {report_label}",
+            category_col=3,
+            series_start_col=5,
+            series_end_col=5,
+            header_row=top_header_row,
+            data_start_row=top_data_start,
+            data_end_row=top_data_end,
+            position="J22",
+            horizontal=True,
+            width=16.5,
+            height=9.0,
+        )
+
+    if outcome_data_start is not None and outcome_data_end is not None:
+        _add_bar_chart(
+            ws,
+            f"Paired outcomes – {report_label}",
+            category_col=1,
+            series_start_col=2,
+            series_end_col=3,
+            header_row=outcome_header_row,
+            data_start_row=outcome_data_start,
+            data_end_row=outcome_data_end,
+            position="J40",
+            horizontal=True,
+            width=16.5,
+            height=8.5,
+        )
+
+    if reg_data_start is not None and reg_data_end is not None:
+        _add_bar_chart(
+            ws,
+            f"Registrations by location – {previous_label} vs {report_label}",
+            category_col=1,
+            series_start_col=2,
+            series_end_col=3,
+            header_row=reg_header_row,
+            data_start_row=reg_data_start,
+            data_end_row=reg_data_end,
+            position="J57",
+            horizontal=True,
+            width=16.5,
+            height=9.0,
+        )
 
     ws.freeze_panes = "A5"
     _autowidth(ws)
     ws.column_dimensions["A"].width = 32
     ws.column_dimensions["D"].width = 24
-
 
 def _build_demographics_sheet(ws, demographics, report_label: str):
     gender, ethnicity, age, disability = demographics
@@ -309,6 +662,21 @@ def _build_top_activities_sheet(ws, activities: pd.DataFrame, report_label: str)
         for cidx, val in enumerate(row, start=1):
             ws.cell(ridx, cidx, _as_number(val))
     _apply_thin_borders(ws, 5, 5 + len(view), 1, 7)
+    top_end = min(5 + len(view), 15)
+    _add_bar_chart(
+        ws,
+        f"Top 10 activities by attendance – {report_label}",
+        category_col=3,
+        series_start_col=5,
+        series_end_col=5,
+        header_row=5,
+        data_start_row=6,
+        data_end_row=top_end,
+        position="I4",
+        horizontal=True,
+        width=16.0,
+        height=9.0,
+    )
     ws.freeze_panes = "A6"
     _autowidth(ws)
 
@@ -335,9 +703,131 @@ def _build_registration_sheet(ws, registrations, quality, report_label: str, pre
                 ws.cell(ridx, cidx, _as_number(val))
         _apply_thin_borders(ws, qstart + 1, qstart + 1 + len(quality), 1, len(headers))
 
+    if registrations is not None and not registrations.empty:
+        reg_end = min(5 + len(registrations), 15)
+        # Expected order: Location, Previous Registrations, Current Registrations, Change.
+        _add_bar_chart(
+            ws,
+            f"Registrations by location – {previous_label} vs {report_label}",
+            category_col=1,
+            series_start_col=2,
+            series_end_col=3,
+            header_row=5,
+            data_start_row=6,
+            data_end_row=reg_end,
+            position="J4",
+            horizontal=True,
+            width=16.0,
+            height=9.0,
+        )
+
     ws.freeze_panes = "A5"
     _autowidth(ws)
 
+
+
+def _build_outcomes_sheet(ws, outcomes: pd.DataFrame, assessment_activity: pd.DataFrame, report_label: str):
+    _style_title(
+        ws,
+        f"Outcomes – {report_label}",
+        "Paired assessment outcomes and assessment activity by participant site",
+        end_col=10,
+    )
+
+    _section_header(ws, 4, 1, 8, "Assessment activity by location")
+    row = 5
+    if assessment_activity is not None and not assessment_activity.empty:
+        headers = list(assessment_activity.columns)
+        _table_header(ws, row, 1, headers)
+        for ridx, rec in enumerate(assessment_activity.to_dict("records"), start=row + 1):
+            for cidx, header in enumerate(headers, start=1):
+                ws.cell(ridx, cidx, _as_number(rec.get(header)))
+        _apply_thin_borders(ws, row, row + len(assessment_activity), 1, len(headers))
+        row += len(assessment_activity) + 3
+    else:
+        ws.cell(row, 1, "No assessment activity")
+        row += 3
+
+    _section_header(ws, row, 1, 10, "Paired outcomes by location")
+    row += 1
+    if outcomes is not None and not outcomes.empty:
+        headers = list(outcomes.columns)
+        _table_header(ws, row, 1, headers)
+        for ridx, rec in enumerate(outcomes.to_dict("records"), start=row + 1):
+            for cidx, header in enumerate(headers, start=1):
+                val = rec.get(header)
+                ws.cell(ridx, cidx, _as_number(val))
+                if str(header).startswith("%") and val is not None and not pd.isna(val):
+                    ws.cell(ridx, cidx, float(val) / 100)
+                    ws.cell(ridx, cidx).number_format = "0.0%"
+        _apply_thin_borders(ws, row, row + len(outcomes), 1, len(headers))
+    else:
+        ws.cell(row, 1, "No paired outcome data")
+
+    if assessment_activity is not None and not assessment_activity.empty:
+        assess_end = min(5 + len(assessment_activity), 15)
+        # Expected first columns: Location, Previous Assessments, Current Assessments.
+        _add_bar_chart(
+            ws,
+            f"Health assessments by location – {report_label}",
+            category_col=1,
+            series_start_col=2,
+            series_end_col=3,
+            header_row=5,
+            data_start_row=6,
+            data_end_row=assess_end,
+            position="L4",
+            horizontal=True,
+            width=16.0,
+            height=9.0,
+        )
+
+    ws.freeze_panes = "A5"
+    _autowidth(ws)
+
+
+def _build_data_quality_sheet(ws, quality: pd.DataFrame, report_label: str):
+    _style_title(
+        ws,
+        f"Data Quality – {report_label}",
+        "Core-field completeness for new registrations in the reporting month",
+        end_col=10,
+    )
+    _section_header(ws, 4, 1, 10, "Data quality by location")
+    if quality is None or quality.empty:
+        ws.cell(5, 1, "No data-quality information")
+        return
+
+    headers = list(quality.columns)
+    _table_header(ws, 5, 1, headers)
+    for ridx, rec in enumerate(quality.to_dict("records"), start=6):
+        for cidx, header in enumerate(headers, start=1):
+            value = rec.get(header)
+            if header == "Data Gap %" and value is not None and not pd.isna(value):
+                ws.cell(ridx, cidx, float(value) / 100)
+                ws.cell(ridx, cidx).number_format = "0.0%"
+            else:
+                ws.cell(ridx, cidx, _as_number(value))
+    _apply_thin_borders(ws, 5, 5 + len(quality), 1, len(headers))
+    if "Participants With Any Core Gap" in headers:
+        gap_col = headers.index("Participants With Any Core Gap") + 1
+        dq_end = min(5 + len(quality), 15)
+        _add_bar_chart(
+            ws,
+            f"Registrations with core data gaps – {report_label}",
+            category_col=1,
+            series_start_col=gap_col,
+            series_end_col=gap_col,
+            header_row=5,
+            data_start_row=6,
+            data_end_row=dq_end,
+            position="L4",
+            horizontal=True,
+            width=16.0,
+            height=9.0,
+        )
+    ws.freeze_panes = "A6"
+    _autowidth(ws)
 
 def _write_small_table(ws, start_row: int, title: str, df: pd.DataFrame, max_cols: int = 8):
     _section_header(ws, start_row, 1, max_cols, title)
@@ -473,7 +963,27 @@ def _build_location_sheet(
         ]
         wanted = [c for c in wanted if c in act.columns]
         act = act[wanted].sort_values("Attendance", ascending=False)
+    activity_table_start = next_row
     next_row = _write_small_table(ws, next_row, "Top activities", act, max_cols=8)
+    if act is not None and not act.empty:
+        activity_header_row = activity_table_start + 1
+        activity_data_start = activity_table_start + 2
+        activity_data_end = min(activity_header_row + len(act), activity_data_start + 7)
+        # Columns after rename are: Category, ActivityName, Sessions, Attendance, ...
+        _add_bar_chart(
+            ws,
+            f"Top activities by attendance – {report_label}",
+            category_col=2,
+            series_start_col=4,
+            series_end_col=4,
+            header_row=activity_header_row,
+            data_start_row=activity_data_start,
+            data_end_row=activity_data_end,
+            position="J4",
+            horizontal=True,
+            width=16.0,
+            height=9.0,
+        )
 
     out = outcomes[outcomes["Location"].eq(location)].copy() if outcomes is not None and not outcomes.empty and "Location" in outcomes.columns else pd.DataFrame()
     next_row = _write_small_table(ws, next_row, "Outcomes", out, max_cols=10)
@@ -529,18 +1039,26 @@ def write_single_workbook(
       DEMOGRAPHICS
       TOP ACTIVITIES
       REGISTRATION INSIGHTS
+      OUTCOMES
+      DATA QUALITY
       one sheet for every location
     """
     path.parent.mkdir(parents=True, exist_ok=True)
 
-    with pd.ExcelWriter(path, engine="openpyxl") as writer:
-        # Create placeholder sheets so we can style them after the writer closes.
-        pd.DataFrame().to_excel(writer, sheet_name="SUMMARY", index=False)
-        pd.DataFrame().to_excel(writer, sheet_name="DEMOGRAPHICS", index=False)
-        pd.DataFrame().to_excel(writer, sheet_name="TOP ACTIVITIES", index=False)
-        pd.DataFrame().to_excel(writer, sheet_name="REGISTRATION INSIGHTS", index=False)
+    core_sheets = [
+        "SUMMARY",
+        "DEMOGRAPHICS",
+        "TOP ACTIVITIES",
+        "REGISTRATION INSIGHTS",
+        "OUTCOMES",
+        "DATA QUALITY",
+    ]
 
-        existing = {"SUMMARY", "DEMOGRAPHICS", "TOP ACTIVITIES", "REGISTRATION INSIGHTS"}
+    with pd.ExcelWriter(path, engine="openpyxl") as writer:
+        for name in core_sheets:
+            pd.DataFrame().to_excel(writer, sheet_name=name, index=False)
+
+        existing = set(core_sheets)
         location_sheet_map = {}
         all_locations = []
         if locations is not None and not locations.empty:
@@ -553,13 +1071,25 @@ def write_single_workbook(
     wb = load_workbook(path)
 
     _build_summary_sheet(
-        wb["SUMMARY"], overall, locations, report_label, previous_label
+        wb["SUMMARY"],
+        overall,
+        locations,
+        activities,
+        registrations,
+        demographics,
+        assessment_activity,
+        outcomes,
+        quality,
+        report_label,
+        previous_label,
     )
     _build_demographics_sheet(wb["DEMOGRAPHICS"], demographics, report_label)
     _build_top_activities_sheet(wb["TOP ACTIVITIES"], activities, report_label)
     _build_registration_sheet(
         wb["REGISTRATION INSIGHTS"], registrations, quality, report_label, previous_label
     )
+    _build_outcomes_sheet(wb["OUTCOMES"], outcomes, assessment_activity, report_label)
+    _build_data_quality_sheet(wb["DATA QUALITY"], quality, report_label)
 
     for location, sheet_name in location_sheet_map.items():
         _build_location_sheet(
@@ -577,10 +1107,10 @@ def write_single_workbook(
             quality,
         )
 
-    # Clean any blank A1 values left by pandas placeholders.
     for ws in wb.worksheets:
         if ws["A1"].value is None and ws.max_row == 1 and ws.max_column == 1:
             ws.delete_rows(1, 1)
 
     wb.save(path)
     return location_sheet_map
+

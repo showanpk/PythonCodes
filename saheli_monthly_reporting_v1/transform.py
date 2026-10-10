@@ -102,7 +102,18 @@ def prepare_data(sessions, attendance, registrations, assessments, period, alias
         return None
 
     attendance["MemberKey"] = attendance.apply(member_key, axis=1)
-    attendance["AttendedBool"] = attendance["Attended"].fillna(False).astype(bool)
+
+    def to_bool(value):
+        if pd.isna(value):
+            return False
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, (int, float, np.integer, np.floating)):
+            return bool(value)
+        return str(value).strip().casefold() in {"1", "true", "yes", "y"}
+
+    attendance["AttendedBool"] = attendance["Attended"].apply(to_bool)
+    sessions["IsCancelledBool"] = sessions["IsCancelled"].apply(to_bool)
 
     registrations["RegistrationDateResolved"] = pd.to_datetime(
         registrations["RegistrationDate"], errors="coerce"
@@ -125,7 +136,7 @@ def overall_summary(sessions, attendance, registrations, assessments, period):
 
     for label in ["Previous", "Current"]:
         s = sessions[(sessions["Period"] == label)]
-        delivered = s[~s["IsCancelled"].fillna(False).astype(bool)]
+        delivered = s[~s["IsCancelledBool"]]
         a = attendance[
             (attendance["Period"] == label)
             & attendance["AttendedBool"]
@@ -142,8 +153,8 @@ def overall_summary(sessions, attendance, registrations, assessments, period):
         rows.append({
             "Period": label,
             "Sessions Delivered": int(delivered["SessionId"].nunique()),
-            "Cancelled Sessions": int(s[s["IsCancelled"].fillna(False).astype(bool)]["SessionId"].nunique()),
-            "Attendance": int(len(a)),
+            "Cancelled Sessions": int(s[s["IsCancelledBool"]]["SessionId"].nunique()),
+            "Total Attendance": int(len(a)),
             "Unique Participants": _count_unique(a["MemberKey"]),
             "New Registrations": int(r["ParticipantId"].nunique()),
             "Health Assessments": int(aa["AssessmentId"].nunique()),
@@ -178,7 +189,7 @@ def location_summary(sessions, attendance):
                 (sessions["Location"] == location)
                 & (sessions["Period"] == label)
             ]
-            delivered = s[~s["IsCancelled"].fillna(False).astype(bool)]
+            delivered = s[~s["IsCancelledBool"]]
             a = attendance[
                 (attendance["Location"] == location)
                 & (attendance["Period"] == label)
@@ -211,7 +222,7 @@ def location_summary(sessions, attendance):
 
 
 def category_summary(sessions, attendance):
-    delivered = sessions[~sessions["IsCancelled"].fillna(False).astype(bool)].copy()
+    delivered = sessions[~sessions["IsCancelledBool"]].copy()
 
     session_group = (
         delivered.groupby(
@@ -287,7 +298,7 @@ def category_summary(sessions, attendance):
 def activity_summary(sessions, attendance):
     current_sessions = sessions[
         (sessions["Period"] == "Current")
-        & (~sessions["IsCancelled"].fillna(False).astype(bool))
+        & (~sessions["IsCancelledBool"])
     ].copy()
 
     sgroup = (
