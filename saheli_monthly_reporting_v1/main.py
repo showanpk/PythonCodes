@@ -1,4 +1,3 @@
-\
 from __future__ import annotations
 
 import argparse
@@ -26,7 +25,7 @@ from transform import (
     outcome_summary,
     data_quality,
 )
-from excel_report import write_master_report, write_location_reports
+from excel_report import write_single_workbook
 
 
 ROOT = Path(__file__).resolve().parent
@@ -34,7 +33,7 @@ ROOT = Path(__file__).resolve().parent
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="Generate Saheli Hub monthly location performance reports."
+        description="Generate one Saheli Hub monthly performance workbook."
     )
     parser.add_argument(
         "--report-month",
@@ -100,26 +99,14 @@ def main():
     output = ROOT / "output" / period.folder_label
     output.mkdir(parents=True, exist_ok=True)
 
-    master_path = output / f"Saheli_Performance_{period.folder_label}.xlsx"
+    report_path = output / f"Saheli_Monthly_Performance_{period.folder_label}.xlsx"
 
-    print("Writing master workbook...")
-    write_master_report(
-        master_path,
-        overall,
-        locations,
-        categories,
-        activities,
-        registrations_summary,
-        demographics,
-        assessments_summary,
-        outcomes,
-        quality,
-    )
-
-    print("Writing location workbooks...")
-    location_paths = write_location_reports(
-        output / "locations",
+    print("Writing one Excel workbook...")
+    sheet_map = write_single_workbook(
+        report_path,
         period.report_label,
+        period.previous_label,
+        overall,
         locations,
         categories,
         activities,
@@ -132,10 +119,9 @@ def main():
 
     print()
     print("COMPLETED")
-    print(f"Master report : {master_path}")
-    print(f"Location files: {len(location_paths)}")
-    print()
-    print("Important: validate the first report before adding automatic email sending.")
+    print(f"Report: {report_path}")
+    print(f"Location sheets: {len(sheet_map)}")
+    print("No separate location Excel files were created.")
 
 
 if __name__ == "__main__":
