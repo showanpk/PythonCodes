@@ -294,6 +294,64 @@ class SyncTests(unittest.TestCase):
         self.assertEqual(0, rep.count['INSERT_BOOKING'])
         self.assertTrue(all(q.strip().upper().startswith('SELECT') for q in cur.queries))
 
+    def test_cardless_full_booking_requires_unique_matching_dob(self):
+        dob = date(1965, 1, 1)
+        for source_dob, crm_dob, duplicate, attended, expected in (
+                (dob, dob, False, True, 'SKIP_EXISTING_BOOKING'),
+                (dob, dob, False, False, 'REVIEW_ATTENDANCE_CONFLICT'),
+                (None, dob, False, True, 'REVIEW_POSSIBLE_EXISTING_FULL_BOOKING'),
+                (dob, None, False, True, 'REVIEW_POSSIBLE_EXISTING_FULL_BOOKING'),
+                (dob, date(1966, 1, 1), False, True, 'REVIEW_POSSIBLE_EXISTING_FULL_BOOKING'),
+                (dob, dob, True, True, 'REVIEW_POSSIBLE_EXISTING_FULL_BOOKING')):
+            with self.subTest(source_dob=source_dob, crm_dob=crm_dob, duplicate=duplicate, attended=attended):
+                slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female',
+                                'Fozia', None, False, '2026', 8)
+                slot.people = [app.Member(9, '', 'Example Name', source_dob, attended, 'Low', None, '')]
+                class C(FakeCursor):
+                    def execute(self, sql, *args):
+                        ret = super().execute(sql, *args)
+                        if 'FROM dbo.SessionAttendance a' in sql:
+                            self.results = [(111, 'FULL', 5, None, True, 'Example Name', '500')]
+                        elif 'FROM dbo.Participants' in sql:
+                            self.results = [(5, '500', 'Example Name', crm_dob)]
+                            if duplicate:
+                                self.results.append((6, '600', 'Example Name', crm_dob))
+                        return ret
+                for write in (False, True):
+                    cur = C(); rep = app.Report()
+                    app.sync(cur, [slot], rep, self.args(), write=write)
+                    self.assertEqual(1, rep.count[expected])
+                    self.assertEqual(0, rep.count['INSERT_BOOKING'])
+                    self.assertEqual(0, rep.count['CREATE_LITE_MEMBER'])
+                    self.assertFalse(any('UPDATE DBO.PARTICIPANTS' in q.upper() for q in cur.queries))
+
+    def test_card_is_authoritative_full_identity(self):
+        slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female', 'Lead', None, False, '2026', 8)
+        person = app.Member(9, '320', 'Different Sheet Name', date(1980, 1, 1), True, '', None, '')
+        db = {'full': {'320': [{'id': 1, 'card': '320', 'name': 'Registered Name', 'dob': date(1970, 1, 1)}]}}
+        rep = app.Report()
+        result = app.resolve_member(FakeCursor(), person, db, slot, rep, False, False, [0])
+        self.assertEqual(('FULL', '1', '320', 'Registered Name'), result)
+        self.assertFalse(rep.rows)
+
+    def test_lite_reuse_requires_name_and_dob(self):
+        slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female', 'Lead', None, False, '2026', 8)
+        dob = date(1965, 1, 1)
+        for source_dob, expected in ((dob, 'LITE'), (None, None), (date(1966, 1, 1), None)):
+            person = app.Member(9, '', 'Example Name', source_dob, True, '', None, '')
+            db = {'lite': {'example name': [{'id': 'abc', 'mid': 'LITE-1', 'name': 'Example Name', 'dob': dob}]}}
+            rep = app.Report()
+            result = app.resolve_member(FakeCursor(), person, db, slot, rep, False, False, [0])
+            self.assertEqual(expected, result[0] if result else None)
+
+    def test_missing_month_is_skipped(self):
+        rep = app.Report()
+        book = FakeBook([FakeSheet('2026', [row(*HEAD), row(1, 'Lead', 'Female', 'Monday', '12th', None, '', '11:00-12:00', '320', 'Person', 'Yes')])])
+        with patch.object(app, 'load_workbook', return_value=book):
+            self.assertEqual([], app.parse_workbook(Path('fake.xlsx'), self.args(), rep))
+        self.assertEqual(1, rep.count['SKIP_MISSING_YEAR_MONTH'])
+        self.assertEqual(0, rep.count['REVIEW_BAD_SLOT'])
+
     def test_flagged_slot_excluded_from_partial_import(self):
         slot = app.Slot(date(2026, 1, 12), time(11), time(12), 'Female',
                         'Fozia', None, False, '2026', 8)

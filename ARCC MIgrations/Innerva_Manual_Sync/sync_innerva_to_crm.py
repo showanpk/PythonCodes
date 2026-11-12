@@ -341,11 +341,11 @@ def parse_workbook(path: Path, args, report: Report) -> list[Slot]:
                 try:
                     d = slot_date(field(values, "date"), field(values, "Month"),
                                   ws.title, args.current_year)
-                    start, end = time_range(field(values, "Session"))
                     if args.start and d < args.start:
                         continue
                     if args.end and d > args.end:
                         continue
+                    start, end = time_range(field(values, "Session"))
                     status = (cancelled(field(values, "Induction Time")) or
                               cancelled(field(values, "Session")) or
                               cancelled(field(values, "Name")))
@@ -355,7 +355,8 @@ def parse_workbook(path: Path, args, report: Report) -> list[Slot]:
                                    status, ws.title, rownum)
                     raw_slots.append(current)
                 except (ValueError, TypeError) as e:
-                    report.add("REVIEW_BAD_SLOT", detail=f"{ws.title} row {rownum}: {e}",
+                    status = "SKIP_MISSING_YEAR_MONTH" if str(e).startswith("missing year/month") else "REVIEW_BAD_SLOT"
+                    report.add(status, detail=f"{ws.title} row {rownum}: {e}",
                                source_sheet=ws.title, source_row=rownum)
                     continue
             if current is None or current.is_cancelled or not 1 <= position <= 9:
@@ -525,11 +526,8 @@ def resolve_member(cur, p: Member, db, slot: Slot, report: Report, write: bool,
             return None
         if cands:
             member = cands[0]
-            if (p.name and member["name"] and norm_name(p.name) != norm_name(member["name"])) or (
-                    p.dob and member["dob"] and p.dob != member["dob"]):
-                report.add("REVIEW_CARD_IDENTITY_CONFLICT", slot, p,
-                           detail=f"CRM ParticipantId={member['id']}; verify name/DOB")
-                return None
+            # Supplied Saheli number is authoritative for FULL booking identity.
+            # Reuse the registered profile without overwriting its name or DOB.
             return "FULL", str(member["id"]), member["card"], member["name"] or p.name
         if not p.name or not create_missing or (p.card.isdigit() and len(p.card) >= 7):
             report.add("REVIEW_MISSING_FULL_MEMBER", slot, p,
@@ -561,6 +559,17 @@ def resolve_member(cur, p: Member, db, slot: Slot, report: Report, write: bool,
     # An existing FULL member with the same name does not mean the existing LITE
     # booking can be skipped. A booking belongs to a SessionId + LiteMemberId.
     cands = db["lite"].get(name, [])
+    if cands:
+        if not p.dob:
+            report.add("REVIEW_LITE_DOB_REQUIRED", slot, p,
+                       detail="Name and DOB are required to reuse an existing Lite member")
+            return None
+        exact = [c for c in cands if c["dob"] == p.dob]
+        if not exact:
+            report.add("REVIEW_LITE_DOB_CONFLICT", slot, p,
+                       detail="No same-name Lite member has the supplied DOB")
+            return None
+        cands = exact
     if len(cands) > 1:
         if p.dob:
             cands = [c for c in cands if c["dob"] == p.dob]
@@ -717,20 +726,33 @@ def sync(cur, slots: list[Slot], report: Report, args, write: bool,
             # session. Historic CRM may already contain them as FULL even though
             # the newer Excel entry lacks their card. Review, never duplicate.
             booked_same_name = db["session_names"].get((sid, norm_name(person.name)), []) if person.name else []
+            verified_full = None
             if not person.card and any(row["kind"] == "FULL" for row in booked_same_name):
-                report.add("REVIEW_POSSIBLE_EXISTING_FULL_BOOKING", slot, person,
-                           detail="This name already booked as FULL in the same session; avoid duplicate Lite booking",
-                           session_id=sid)
-                continue
-            if person.card and any(row["kind"] == "FULL" and row["card"] and row["card"] != person.card
-                                   for row in booked_same_name):
-                report.add("REVIEW_SAME_NAME_DIFFERENT_CARD_IN_SESSION", slot, person,
-                           detail="Name is already booked with another card in this session", session_id=sid)
-                continue
+                exact_lites = [p for p in db["lite"].get(norm_name(person.name), [])
+                               if person.dob and p["dob"] == person.dob]
+                if exact_lites:
+                    report.add("REVIEW_EXISTING_FULL_LITE_CONFLICT", slot, person,
+                               detail="Name/DOB identifies a Lite member, but this session already has a same-name FULL booking; reconcile before changing member kind",
+                               session_id=sid)
+                    continue
+                # Only reuse a cardless FULL booking with independent identity
+                # evidence: one same-name booking, one same-name profile, and
+                # an explicit matching DOB. Missing DOB remains a review.
+                profiles = db["full_names"].get(norm_name(person.name), [])
+                if (len(booked_same_name) == 1 and len(profiles) == 1 and
+                        person.dob and profiles[0]["dob"] == person.dob and
+                        str(profiles[0]["id"]) == booked_same_name[0]["member"]):
+                    profile = profiles[0]
+                    verified_full = ("FULL", str(profile["id"]), profile["card"], profile["name"])
+                else:
+                    report.add("REVIEW_POSSIBLE_EXISTING_FULL_BOOKING", slot, person,
+                               detail="Same-name FULL booking needs unique profile and matching source/CRM DOB; avoid duplicate Lite booking",
+                               session_id=sid)
+                    continue
             cap = target["capacity"]
             at_capacity = existing_count >= 9 or (cap is not None and existing_count >= cap)
             # Never create a new member when the session has no room for them.
-            resolution = resolve_member(cur, person, db, slot, report, write,
+            resolution = verified_full or resolve_member(cur, person, db, slot, report, write,
                                         args.create_missing_members and not at_capacity,
                                         lite_counter, allow_new_lite=not at_capacity)
             if resolution is None:

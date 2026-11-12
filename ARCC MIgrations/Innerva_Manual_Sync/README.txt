@@ -27,9 +27,12 @@ WHAT IS FIXED
   Duplicate CRM sessions are NEVER chosen arbitrarily.
 * Checks existing booking MemberName within the matched CRM session. If an
   Excel row has no Saheli card but that name is already booked as FULL in
-  the SAME session, flags REVIEW_POSSIBLE_EXISTING_FULL_BOOKING instead
-  of creating a potentially duplicate Lite booking. This does not use
-  name matching to modify FULL participant profiles.
+  the SAME session, reuses that booking ONLY when there is exactly one
+  same-name booking, exactly one same-name FULL profile, the participant
+  IDs agree, and both source and CRM DOB are present and equal. Existing
+  attendance is still checked normally. Otherwise flags
+  REVIEW_POSSIBLE_EXISTING_FULL_BOOKING instead of creating a potentially
+  duplicate Lite booking. Never modifies FULL participant profiles.
 * If the row has no card and no same-session conflict: match Lite by name,
   verify DOB when possible; otherwise create one Lite member and insert a
   separate booking for each session. No existing member profile is updated.
@@ -48,6 +51,12 @@ WHAT IS FIXED
 
 IMPORTANT BUSINESS RULES
 ------------------------
+- Rows without enough year/month information are skipped, not guessed.
+- Supplied Saheli card numbers select the existing FULL registration; source
+  name/DOB differences do not overwrite the registered participant profile.
+- Existing LITE members require matching name AND explicit matching DOB.
+  A Lite match conflicting with a same-session FULL booking requires
+  reconciliation; the importer does not insert a second booking silently.
 - Existing matched Innerva session -> reuse SessionId, don't create another.
 - Missing uniquely identified slot -> create Booking Session (IsBookingRequired=1).
 - Existing FULL member with supplied Saheli card -> reuse ParticipantId.
